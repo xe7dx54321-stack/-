@@ -1,0 +1,112 @@
+[
+  {
+    "stage": "pre_tournament",
+    "display_name": "Pre Tournament",
+    "start_date": "2026-06-01",
+    "end_date": "2026-06-10",
+    "stage_order": 0,
+    "match_count_expected": 0,
+    "strategy_focus": "futures_only",
+    "description": "Pre-tournament period for long-term futures positioning"
+  },
+  {
+    "stage": "group_round_1",
+    "display_name": "Group Stage Round 1",
+    "start_date": "2026-06-11",
+    "end_date": "2026-06-17",
+    "stage_order": 1,
+    "match_count_expected": 24,
+    "strategy_focus": "initial_positioning",
+    "description": "First matches for all 48 teams across 12 groups"
+  },
+  {
+    "stage": "group_round_2",
+    "display_name": "Group Stage Round 2",
+    "start_date": "2026-06-18",
+    "end_date": "2026-06-23",
+    "stage_order": 2,
+    "match_count_expected": 24,
+    "strategy_focus": "adaptive_attack",
+    "description": "Second round of group matches, qualification picture forming"
+  },
+  {
+    "stage": "group_round_3",
+    "display_name": "Group Stage Round 3",
+    "start_date": "2026-06-24",
+    "end_date": "2026-06-27",
+    "stage_order": 3,
+    "match_count_expected": 24,
+    "strategy_focus": "final_group_positioning",
+    "description": "Final group matches, simultaneous kickoffs per group"
+  },
+  {
+    "stage": "round_of_32",
+    "display_name": "Round of 32",
+    "start_date": "2026-06-28",
+    "end_date": "2026-07-03",
+    "stage_order": 4,
+    "match_count_expected": 16,
+    "strategy_focus": "knockout_opening",
+    "description": "First knockout round with 32 teams"
+  },
+  {
+    "stage": "round_of_16",
+    "display_name": "Round of 16",
+    "start_date": "2026-07-04",
+    "end_date": "2026-07-07",
+    "stage_order": 5,
+    "match_count_expected": 8,
+    "strategy_focus": "knockout_aggressive",
+    "description": "Round of 16 knockout matches"
+  },
+  {
+    "stage": "quarter_final",
+    "display_name": "Quarter Finals",
+    "start_date": "2026-07-09",
+    "end_date": "2026-07-11",
+    "stage_order": 6,
+    "match_count_expected": 4,
+    "strategy_focus": "knockout_precision",
+    "description": "Quarter-final knockout matches"
+  },
+  {
+    "stage": "semi_final",
+    "display_name": "Semi Finals",
+    "start_date": "2026-07-14",
+    "end_date": "2026-07-15",
+    "stage_order": 7,
+    "match_count_expected": 2,
+    "strategy_focus": "knockout_climax",
+    "description": "Semi-final matches"
+  },
+  {
+    "stage": "third_place",
+    "display_name": "Third Place Match",
+    "start_date": "2026-07-18",
+    "end_date": "2026-07-18",
+    "stage_order": 8,
+    "match_count_expected": 1,
+    "strategy_focus": "final_positioning",
+    "description": "Third place play-off"
+  },
+  {
+    "stage": "final",
+    "display_name": "Final",
+    "start_date": "2026-07-19",
+    "end_date": "2026-07-19",
+    "stage_order": 9,
+    "match_count_expected": 1,
+    "strategy_focus": "championship",
+    "description": "World Cup Final"
+  },
+  {
+    "stage": "post_tournament",
+    "display_name": "Post Tournament",
+    "start_date": "2026-07-20",
+    "end_date": "2026-12-31",
+    "stage_order": 10,
+    "match_count_expected": 0,
+    "strategy_focus": "campaign_complete",
+    "description": "Tournament concluded, campaign evaluation"
+  }
+]

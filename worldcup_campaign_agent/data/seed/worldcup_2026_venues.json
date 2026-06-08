@@ -1,0 +1,98 @@
+[
+  {
+    "venue": "Azteca Stadium",
+    "city": "Mexico City",
+    "country": "Mexico",
+    "capacity": 87523
+  },
+  {
+    "venue": "AT&T Stadium",
+    "city": "Arlington",
+    "country": "USA",
+    "capacity": 80000
+  },
+  {
+    "venue": "MetLife Stadium",
+    "city": "East Rutherford",
+    "country": "USA",
+    "capacity": 82500
+  },
+  {
+    "venue": "SoFi Stadium",
+    "city": "Inglewood",
+    "country": "USA",
+    "capacity": 70240
+  },
+  {
+    "venue": "Mercedes-Benz Stadium",
+    "city": "Atlanta",
+    "country": "USA",
+    "capacity": 71000
+  },
+  {
+    "venue": "BC Place",
+    "city": "Vancouver",
+    "country": "Canada",
+    "capacity": 54500
+  },
+  {
+    "venue": "BMO Field",
+    "city": "Toronto",
+    "country": "Canada",
+    "capacity": 45000
+  },
+  {
+    "venue": "NRG Stadium",
+    "city": "Houston",
+    "country": "USA",
+    "capacity": 72220
+  },
+  {
+    "venue": "Hard Rock Stadium",
+    "city": "Miami",
+    "country": "USA",
+    "capacity": 65326
+  },
+  {
+    "venue": "Lumen Field",
+    "city": "Seattle",
+    "country": "USA",
+    "capacity": 68740
+  },
+  {
+    "venue": "Levi's Stadium",
+    "city": "Santa Clara",
+    "country": "USA",
+    "capacity": 68500
+  },
+  {
+    "venue": "Lincoln Financial Field",
+    "city": "Philadelphia",
+    "country": "USA",
+    "capacity": 67594
+  },
+  {
+    "venue": "Gillette Stadium",
+    "city": "Foxborough",
+    "country": "USA",
+    "capacity": 65878
+  },
+  {
+    "venue": "Arrowhead Stadium",
+    "city": "Kansas City",
+    "country": "USA",
+    "capacity": 76416
+  },
+  {
+    "venue": "Estadio BBVA",
+    "city": "Monterrey",
+    "country": "Mexico",
+    "capacity": 53500
+  },
+  {
+    "venue": "Estadio Akron",
+    "city": "Guadalajara",
+    "country": "Mexico",
+    "capacity": 48071
+  }
+]

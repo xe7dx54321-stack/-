@@ -1,0 +1,37 @@
+{
+  "\"+\"\"+@\"": "http://json-schema.org/draft-07/schema#",
+  "title": "Stage",
+  "type": "object",
+  "properties": {
+    "stage": {
+      "type": "string"
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "stage_order": {
+      "type": "integer"
+    },
+    "match_count_expected": {
+      "type": "integer"
+    },
+    "strategy_focus": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "stage",
+    "start_date",
+    "end_date",
+    "stage_order",
+    "match_count_expected"
+  ]
+}

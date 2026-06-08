@@ -1,0 +1,28 @@
+{
+  "\"+\"\"+@\"": "http://json-schema.org/draft-07/schema#",
+  "title": "CalendarPreview",
+  "type": "object",
+  "properties": {
+    "current_date": {
+      "type": "string"
+    },
+    "current_stage": {
+      "type": "string"
+    },
+    "strategy_focus": {
+      "type": "string"
+    },
+    "matches_today_count": {
+      "type": "integer"
+    },
+    "matches_remaining_count": {
+      "type": "integer"
+    },
+    "effective_windows_left": {
+      "type": "integer"
+    },
+    "safety": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "group_id": "GROUP_A",
+    "group_letter": "A",
+    "teams": [
+      "CAN",
+      "MEX",
+      "USA",
+      "NZL"
+    ]
+  },
+  {
+    "group_id": "GROUP_B",
+    "group_letter": "B",
+    "teams": [
+      "ARG",
+      "BRA",
+      "URU",
+      "COL"
+    ]
+  },
+  {
+    "group_id": "GROUP_C",
+    "group_letter": "C",
+    "teams": [
+      "FRA",
+      "ENG",
+      "GER",
+      "ESP"
+    ]
+  },
+  {
+    "group_id": "GROUP_D",
+    "group_letter": "D",
+    "teams": [
+      "POR",
+      "NED",
+      "ITA",
+      "CRO"
+    ]
+  },
+  {
+    "group_id": "GROUP_E",
+    "group_letter": "E",
+    "teams": [
+      "JPN",
+      "KOR",
+      "AUS",
+      "IRN"
+    ]
+  },
+  {
+    "group_id": "GROUP_F",
+    "group_letter": "F",
+    "teams": [
+      "SEN",
+      "MAR",
+      "EGY",
+      "NGA"
+    ]
+  },
+  {
+    "group_id": "GROUP_G",
+    "group_letter": "G",
+    "teams": [
+      "BEL",
+      "DEN",
+      "SUI",
+      "AUT"
+    ]
+  },
+  {
+    "group_id": "GROUP_H",
+    "group_letter": "H",
+    "teams": [
+      "CHI",
+      "ECU",
+      "PER",
+      "PAR"
+    ]
+  },
+  {
+    "group_id": "GROUP_I",
+    "group_letter": "I",
+    "teams": [
+      "SWE",
+      "NOR",
+      "POL",
+      "CZE"
+    ]
+  },
+  {
+    "group_id": "GROUP_J",
+    "group_letter": "J",
+    "teams": [
+      "SRB",
+      "TUR",
+      "UKR",
+      "ROU"
+    ]
+  },
+  {
+    "group_id": "GROUP_K",
+    "group_letter": "K",
+    "teams": [
+      "KSA",
+      "QAT",
+      "IRQ",
+      "UAE"
+    ]
+  },
+  {
+    "group_id": "GROUP_L",
+    "group_letter": "L",
+    "teams": [
+      "GHA",
+      "CMR",
+      "CIV",
+      "RSA"
+    ]
+  }
+]
