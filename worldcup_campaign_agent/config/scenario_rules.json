@@ -1,0 +1,62 @@
+{
+  "scenarios": [
+    {
+      "name": "all_miss",
+      "description": "All deployed bets lose",
+      "bankroll_impact_multiplier": 0.0,
+      "bucket_payback": {
+        "core": 0.0,
+        "edge": 0.0,
+        "attack": 0.0,
+        "futures": 0.0
+      },
+      "state_transition": "downgrade",
+      "urgency_impact": "increase"
+    },
+    {
+      "name": "attack_hit",
+      "description": "Only Attack bucket hits, others miss",
+      "bankroll_impact_multiplier": 3.0,
+      "bucket_payback": {
+        "core": 0.0,
+        "edge": 0.0,
+        "attack": 3.0,
+        "futures": 0.0
+      },
+      "state_transition": "upgrade_likely",
+      "urgency_impact": "decrease"
+    },
+    {
+      "name": "partial_hit",
+      "description": "Core and Edge hit, Attack misses",
+      "bankroll_impact_multiplier": 1.5,
+      "bucket_payback": {
+        "core": 1.8,
+        "edge": 1.8,
+        "attack": 0.0,
+        "futures": 0.0
+      },
+      "state_transition": "stable_or_upgrade",
+      "urgency_impact": "slight_decrease"
+    },
+    {
+      "name": "all_hit",
+      "description": "All deployed buckets hit",
+      "bankroll_impact_multiplier": 5.0,
+      "bucket_payback": {
+        "core": 1.8,
+        "edge": 2.5,
+        "attack": 5.0,
+        "futures": 2.0
+      },
+      "state_transition": "strong_upgrade",
+      "urgency_impact": "significant_decrease"
+    }
+  ],
+  "default_hit_probability": {
+    "core": 0.55,
+    "edge": 0.35,
+    "attack": 0.15,
+    "futures": 0.08
+  }
+}

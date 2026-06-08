@@ -1,0 +1,95 @@
+{
+  "strategy_name": "daily_unified_strategy_v1",
+  "output_mode": "single_unified_plan",
+  "allow_multiple_alternatives": false,
+  "buckets": ["reserve", "core", "edge", "attack", "futures"],
+  "reserve_always_cash": true,
+  "stage_override_enabled": true,
+  "bankroll_state_override_enabled": true,
+  "allow_empty_buckets": true,
+  "allow_skip_match": true,
+  "max_buckets_per_match": 2,
+  "min_odds_for_attack": 5.0,
+  "min_odds_for_edge": 2.5,
+  "strategy_profiles": {
+    "conservative": {
+      "description": "Low risk, focus on Core and Edge",
+      "attack_allocation_weight": 0.0,
+      "edge_allocation_weight": 0.3,
+      "core_allocation_weight": 0.7,
+      "futures_allocation_weight": 0.0,
+      "allow_attack": false,
+      "allow_edge": true,
+      "allow_core": true,
+      "allow_futures": false,
+      "max_matches_per_day": 2
+    },
+    "balanced": {
+      "description": "Balanced approach across Core, Edge, Attack",
+      "attack_allocation_weight": 0.2,
+      "edge_allocation_weight": 0.3,
+      "core_allocation_weight": 0.4,
+      "futures_allocation_weight": 0.1,
+      "allow_attack": true,
+      "allow_edge": true,
+      "allow_core": true,
+      "allow_futures": true,
+      "max_matches_per_day": 4
+    },
+    "aggressive": {
+      "description": "Higher risk, heavier Attack and Edge",
+      "attack_allocation_weight": 0.4,
+      "edge_allocation_weight": 0.3,
+      "core_allocation_weight": 0.2,
+      "futures_allocation_weight": 0.1,
+      "allow_attack": true,
+      "allow_edge": true,
+      "allow_core": true,
+      "allow_futures": true,
+      "max_matches_per_day": 6
+    },
+    "very_aggressive": {
+      "description": "Maximum risk, focus on Attack with Edge support",
+      "attack_allocation_weight": 0.5,
+      "edge_allocation_weight": 0.3,
+      "core_allocation_weight": 0.1,
+      "futures_allocation_weight": 0.1,
+      "allow_attack": true,
+      "allow_edge": true,
+      "allow_core": true,
+      "allow_futures": true,
+      "max_matches_per_day": 8
+    },
+    "target_chase": {
+      "description": "Final sprint to target, prioritize Core safety",
+      "attack_allocation_weight": 0.0,
+      "edge_allocation_weight": 0.1,
+      "core_allocation_weight": 0.85,
+      "futures_allocation_weight": 0.05,
+      "allow_attack": false,
+      "allow_edge": true,
+      "allow_core": true,
+      "allow_futures": true,
+      "max_matches_per_day": 3
+    }
+  },
+  "stage_profile_mapping": {
+    "pre_tournament": "conservative",
+    "group_round_1": "balanced",
+    "group_round_2": "aggressive",
+    "group_round_3": "aggressive",
+    "round_of_32": "balanced",
+    "round_of_16": "balanced",
+    "quarter_final": "balanced",
+    "semi_final": "balanced",
+    "third_place": "conservative",
+    "final": "conservative",
+    "post_tournament": "conservative"
+  },
+  "bankroll_state_profile_override": {
+    "S0": "very_aggressive",
+    "S1": "aggressive",
+    "S6": "conservative",
+    "S7": "target_chase"
+  }
+}

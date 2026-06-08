@@ -1,0 +1,1 @@
+{"$schema":"http://json-schema.org/draft-07/schema#","title":"ScenarioPreview","type":"object","properties":{"scenario_name":{"type":"string"},"description":{"type":"string"},"projected_bankroll":{"type":"number"},"projected_state":{"type":"string"},"projected_multiplier_remaining":{"type":"number"},"state_transition":{"type":"string"},"urgency_impact":{"type":"string"}}}

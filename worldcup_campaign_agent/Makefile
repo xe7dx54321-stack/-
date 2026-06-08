@@ -18,3 +18,18 @@ calendar-preview-third-round-json:
 
 calendar-preview-final-json:
 	python scripts/run_calendar_preview.py --date 2026-07-19 --json
+
+daily-strategy-preview:
+	python scripts/run_daily_strategy_preview.py --date 2026-06-11 --bankroll 100
+
+daily-strategy-preview-json:
+	python scripts/run_daily_strategy_preview.py --date 2026-06-11 --bankroll 100 --json
+
+daily-strategy-preview-third-round-json:
+	python scripts/run_daily_strategy_preview.py --date 2026-06-24 --bankroll 100 --json
+
+daily-strategy-preview-final-json:
+	python scripts/run_daily_strategy_preview.py --date 2026-07-19 --bankroll 100 --json
+
+daily-strategy-preview-bankroll-5000-json:
+	python scripts/run_daily_strategy_preview.py --date 2026-06-11 --bankroll 5000 --json

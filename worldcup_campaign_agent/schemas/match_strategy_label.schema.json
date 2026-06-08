@@ -1,0 +1,1 @@
+{"$schema":"http://json-schema.org/draft-07/schema#","title":"MatchStrategyLabel","type":"object","properties":{"match_id":{"type":"string"},"match_number":{"type":"integer"},"labels":{"type":"array","items":{"type":"string"}},"eligible_buckets":{"type":"array","items":{"type":"string"}},"risk_level":{"type":"string"}}}

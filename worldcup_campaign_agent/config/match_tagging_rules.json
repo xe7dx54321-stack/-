@@ -1,0 +1,87 @@
+{
+  "labels": [
+    {
+      "label": "high_confidence_core",
+      "description": "Clear favorite match, suitable for Core bucket",
+      "suitable_buckets": ["core"],
+      "max_bucket_share": 0.5,
+      "min_implied_probability": 0.55,
+      "risk_level": "low"
+    },
+    {
+      "label": "value_edge",
+      "description": "Match with potential value, suitable for Edge bucket",
+      "suitable_buckets": ["edge"],
+      "max_bucket_share": 0.3,
+      "min_implied_probability": 0.35,
+      "risk_level": "medium"
+    },
+    {
+      "label": "high_odds_attack",
+      "description": "High odds opportunity, suitable for Attack bucket",
+      "suitable_buckets": ["attack"],
+      "max_bucket_share": 0.15,
+      "min_implied_probability": 0.1,
+      "risk_level": "high"
+    },
+    {
+      "label": "knockout_high_stakes",
+      "description": "Knockout match with high strategic importance",
+      "suitable_buckets": ["core", "edge"],
+      "max_bucket_share": 0.5,
+      "min_implied_probability": 0.4,
+      "risk_level": "medium_high"
+    },
+    {
+      "label": "group_decider",
+      "description": "Group stage match with qualification implications",
+      "suitable_buckets": ["core", "edge", "attack"],
+      "max_bucket_share": 0.4,
+      "min_implied_probability": 0.3,
+      "risk_level": "medium"
+    },
+    {
+      "label": "opening_match",
+      "description": "Tournament opener or first round match, high uncertainty",
+      "suitable_buckets": ["edge", "attack"],
+      "max_bucket_share": 0.2,
+      "min_implied_probability": 0.2,
+      "risk_level": "high"
+    },
+    {
+      "label": "championship_match",
+      "description": "Final or semi-final, highest stakes",
+      "suitable_buckets": ["core", "edge"],
+      "max_bucket_share": 0.3,
+      "min_implied_probability": 0.35,
+      "risk_level": "medium"
+    },
+    {
+      "label": "futures_position",
+      "description": "Long-term futures market opportunity",
+      "suitable_buckets": ["futures"],
+      "max_bucket_share": 1.0,
+      "min_implied_probability": 0.05,
+      "risk_level": "very_high"
+    },
+    {
+      "label": "skip",
+      "description": "Match not suitable for current strategy phase",
+      "suitable_buckets": [],
+      "max_bucket_share": 0.0,
+      "min_implied_probability": 0.0,
+      "risk_level": "skip"
+    }
+  ],
+  "stage_label_mapping": {
+    "group_round_1": ["opening_match", "value_edge", "futures_position"],
+    "group_round_2": ["group_decider", "value_edge", "high_odds_attack", "futures_position"],
+    "group_round_3": ["group_decider", "value_edge", "high_odds_attack"],
+    "round_of_32": ["knockout_high_stakes", "value_edge", "high_odds_attack"],
+    "round_of_16": ["knockout_high_stakes", "high_confidence_core", "value_edge"],
+    "quarter_final": ["knockout_high_stakes", "high_confidence_core", "value_edge"],
+    "semi_final": ["championship_match", "high_confidence_core"],
+    "third_place": ["championship_match", "value_edge"],
+    "final": ["championship_match", "high_confidence_core"]
+  }
+}
