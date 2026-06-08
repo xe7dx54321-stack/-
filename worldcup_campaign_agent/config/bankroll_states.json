@@ -1,0 +1,114 @@
+[
+  {
+    "state": "S0",
+    "min_bankroll": 0,
+    "max_bankroll": 50,
+    "description": "near_failure_path",
+    "attack_level": "very_high",
+    "bucket_allocation": {
+      "reserve": 0.5,
+      "core": 0.0,
+      "edge": 0.1,
+      "attack": 0.35,
+      "futures": 0.05
+    }
+  },
+  {
+    "state": "S1",
+    "min_bankroll": 50,
+    "max_bankroll": 100,
+    "description": "initial_low_bankroll_path",
+    "attack_level": "high",
+    "bucket_allocation": {
+      "reserve": 0.5,
+      "core": 0.05,
+      "edge": 0.15,
+      "attack": 0.25,
+      "futures": 0.05
+    }
+  },
+  {
+    "state": "S2",
+    "min_bankroll": 100,
+    "max_bankroll": 300,
+    "description": "base_growth_path",
+    "attack_level": "high",
+    "bucket_allocation": {
+      "reserve": 0.5,
+      "core": 0.1,
+      "edge": 0.15,
+      "attack": 0.2,
+      "futures": 0.05
+    }
+  },
+  {
+    "state": "S3",
+    "min_bankroll": 300,
+    "max_bankroll": 1000,
+    "description": "first_breakout_path",
+    "attack_level": "medium_high",
+    "bucket_allocation": {
+      "reserve": 0.5,
+      "core": 0.15,
+      "edge": 0.15,
+      "attack": 0.15,
+      "futures": 0.05
+    }
+  },
+  {
+    "state": "S4",
+    "min_bankroll": 1000,
+    "max_bankroll": 5000,
+    "description": "active_attack_path",
+    "attack_level": "medium",
+    "bucket_allocation": {
+      "reserve": 0.5,
+      "core": 0.2,
+      "edge": 0.15,
+      "attack": 0.1,
+      "futures": 0.05
+    }
+  },
+  {
+    "state": "S5",
+    "min_bankroll": 5000,
+    "max_bankroll": 20000,
+    "description": "target_visible_path",
+    "attack_level": "medium_low",
+    "bucket_allocation": {
+      "reserve": 0.5,
+      "core": 0.25,
+      "edge": 0.15,
+      "attack": 0.05,
+      "futures": 0.05
+    }
+  },
+  {
+    "state": "S6",
+    "min_bankroll": 20000,
+    "max_bankroll": 100000,
+    "description": "sprint_preparation_path",
+    "attack_level": "low",
+    "bucket_allocation": {
+      "reserve": 0.5,
+      "core": 0.3,
+      "edge": 0.1,
+      "attack": 0.05,
+      "futures": 0.05
+    }
+  },
+  {
+    "state": "S7",
+    "min_bankroll": 100000,
+    "max_bankroll": 1000000,
+    "description": "final_sprint_path",
+    "attack_level": "target_gap",
+    "bucket_allocation": {
+      "reserve": 0.5,
+      "core": 0.35,
+      "edge": 0.1,
+      "attack": 0.05,
+      "futures": 0.0
+    }
+  }
+]
