@@ -1,6 +1,7 @@
-"""Bucket candidate policy: rules for which candidates go in which buckets."""
+﻿"""Bucket candidate policy: rules for which candidates go in which buckets."""
 
 import json
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -22,6 +23,9 @@ class BucketCandidatePolicy:
         self.markets = json.loads(Path(market_registry_path).read_text(encoding="utf-8-sig"))
         self.market_types = {m["market_type"] for m in self.markets}
 
+    def _normalize_market_type(self, mt: str) -> str:
+        return re.sub(r'_\d+\.?\d*$', '', mt)
+
     def is_allowed(self, candidate: dict, bucket: str) -> BucketEligibilityResult:
         if bucket == "reserve":
             return BucketEligibilityResult("reserve", False, ["reserve_no_candidates"], ["Reserve never receives candidates"])
@@ -33,7 +37,8 @@ class BucketCandidatePolicy:
         reasons = []
         blocked = []
 
-        market_type = candidate.get("market_type", "")
+        raw_market_type = candidate.get("market_type", "")
+        market_type = self._normalize_market_type(raw_market_type)
         if market_type not in self.market_types:
             return BucketEligibilityResult(bucket, False, [], [f"Unknown market_type: {market_type}"])
 
@@ -63,7 +68,7 @@ class BucketCandidatePolicy:
 
         # Also check eligible_buckets from candidate
         eligible = candidate.get("bucket_eligibility", [])
-        if eligible and bucket not in eligible and bucket not in ["reserve"]:
+        if eligible and bucket not in eligible:
             blocked.append(f"Bucket {bucket} not in candidate eligible_buckets")
 
         allowed = len(blocked) == 0

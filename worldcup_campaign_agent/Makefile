@@ -1,4 +1,4 @@
-test:
+﻿test:
 	python -m pytest tests -v
 
 campaign-foundation:
@@ -73,3 +73,17 @@ integrated-daily-strategy-final-json:
 
 integrated-daily-strategy-bankroll-5000-json:
 	python scripts/run_integrated_daily_strategy.py --date 2026-06-11 --bankroll 5000 --json
+parlay-preview:
+	python scripts/run_parlay_preview.py --date 2026-06-11 --bankroll 100
+
+parlay-preview-json:
+	python scripts/run_parlay_preview.py --date 2026-06-11 --bankroll 100 --json
+
+parlay-preview-third-round-json:
+	python scripts/run_parlay_preview.py --date 2026-06-24 --bankroll 100 --json
+
+parlay-preview-final-json:
+	python scripts/run_parlay_preview.py --date 2026-07-19 --bankroll 100 --json
+
+parlay-preview-bankroll-5000-json:
+	python scripts/run_parlay_preview.py --date 2026-06-11 --bankroll 5000 --json

@@ -1,0 +1,68 @@
+﻿{
+  "model_name": "parlay_optimizer_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "allowed_leg_counts": [2, 3, 4],
+  "max_leg_count": 4,
+  "candidate_source": {
+    "use_integrated_candidate_pools": true,
+    "allowed_source_buckets": ["core", "edge", "attack"],
+    "include_watch_only": false,
+    "include_futures": false
+  },
+  "leg_quality": {
+    "min_model_probability_by_leg_type": {
+      "base": 0.35,
+      "balanced": 0.10,
+      "attack": 0.005
+    },
+    "allow_negative_ev_legs": true,
+    "allow_zero_value_day": true,
+    "require_probability": true
+  },
+  "parlay_types": {
+    "base_plus_edge": {
+      "leg_count": [2],
+      "required_leg_roles": ["base", "edge"],
+      "target_bucket": "edge"
+    },
+    "balanced_attack": {
+      "leg_count": [2, 3],
+      "required_leg_roles": ["base", "edge", "attack"],
+      "target_bucket": "attack"
+    },
+    "high_odds_attack": {
+      "leg_count": [3, 4],
+      "required_leg_roles": ["edge", "attack"],
+      "target_bucket": "attack"
+    },
+    "lottery_path": {
+      "leg_count": [3, 4],
+      "allow_low_probability_legs": true,
+      "target_bucket": "attack"
+    }
+  },
+  "ranking": {
+    "max_raw_combinations": 5000,
+    "max_ranked_parlays": 100,
+    "top_n_report": 20,
+    "sort_by": ["parlay_campaign_score", "target_contribution", "combined_ev"]
+  },
+  "odds_bands": {
+    "low": {"min": 1.01, "max": 3.0},
+    "medium": {"min": 3.0, "max": 10.0},
+    "high": {"min": 10.0, "max": 50.0},
+    "very_high": {"min": 50.0, "max": 500.0},
+    "lottery": {"min": 500.0, "max": 10000.0}
+  },
+  "score_weights": {
+    "combined_ev": 0.20,
+    "target_contribution": 0.30,
+    "combined_probability": 0.15,
+    "odds_band_fit": 0.15,
+    "leg_quality": 0.10,
+    "correlation": 0.10
+  }
+}

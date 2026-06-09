@@ -1,0 +1,33 @@
+﻿{
+  "edge": {
+    "allowed_parlay_types": ["base_plus_edge"],
+    "allowed_leg_counts": [2],
+    "allowed_combined_odds_bands": ["medium", "high"],
+    "min_combined_probability": 0.05,
+    "allow_negative_ev": true,
+    "max_candidates": 5,
+    "role": "balanced_multiplier"
+  },
+  "attack": {
+    "allowed_parlay_types": ["balanced_attack", "high_odds_attack", "lottery_path"],
+    "allowed_leg_counts": [2, 3, 4],
+    "allowed_combined_odds_bands": ["high", "very_high", "lottery"],
+    "min_combined_probability": 0.0001,
+    "allow_negative_ev": true,
+    "max_candidates": 10,
+    "role": "high_odds_campaign_path"
+  },
+  "core": {
+    "allowed_parlay_types": [],
+    "allowed_leg_counts": [],
+    "role": "single_leg_or_base_candidate_only"
+  },
+  "futures": {
+    "allowed_parlay_types": [],
+    "allowed_leg_counts": [],
+    "role": "reserved_for_round8_tournament_path"
+  },
+  "reserve": {
+    "receives_candidates": false
+  }
+}

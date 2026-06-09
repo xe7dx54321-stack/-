@@ -154,3 +154,80 @@ worldcup_campaign_agent/
   reports/generated/
     .gitkeep
 ```
+## Round 7: Parlay Optimizer v1
+
+### Overview
+Round 7 adds Parlay Optimizer v1 -- the ability to generate and analyze 2-leg / 3-leg / 4-leg parlay combinations from the integrated candidate pools (Core, Edge, Attack). This is a key module for the small-bankroll-large-target campaign strategy.
+
+### Key Capabilities
+- Extract parlay legs from Round 6 integrated candidate pools
+- Classify legs as base / edge / attack / lottery by odds and probability
+- Generate raw 2/3/4-leg combinations (no 5+ legs)
+- Block same-match combinations (hard rule)
+- Warn on same-group, same-market, same-stage issues
+- Calculate combined odds, probability, EV
+- Assign to Edge (2-leg balanced) and Attack (2/3/4-leg high-odds) buckets
+- Generate parlay_preview.json and parlay_preview.md
+
+### Why Parlays Matter
+For a 100 to 1,000,000 campaign, single bets alone cannot reach the target fast enough. Parlays multiply odds while keeping per-leg selection quality. Base legs (low odds, high probability) provide stability; attack legs (high odds, low probability) provide explosive target contribution.
+
+### Core Principles
+1. Low-odds legs are NOT discarded -- they serve as base legs
+2. Low-probability high-odds legs are NOT discarded -- they serve as attack/lottery legs
+3. Same-match legs are always blocked (correlation risk)
+4. Same-group / same-market legs get warnings and score penalties
+5. Core bucket does NOT accept parlays (single-leg only)
+6. All output is analysis_only / simulation_only / not_betting_advice
+
+### How to Run
+`
+make parlay-preview
+make parlay-preview-json
+make parlay-preview-third-round-json
+make parlay-preview-final-json
+make parlay-preview-bankroll-5000-json
+`
+
+Or directly:
+`
+python scripts/run_parlay_preview.py --date 2026-06-11 --bankroll 100 --json
+python scripts/run_parlay_preview.py --date 2026-06-24 --bankroll 100 --json
+python scripts/run_parlay_preview.py --date 2026-07-19 --bankroll 100 --json
+python scripts/run_parlay_preview.py --date 2026-06-11 --bankroll 5000 --json
+`
+
+### Generated Reports
+- 
+eports/generated/parlay_preview.json
+- 
+eports/generated/parlay_preview.md
+
+### New Modules
+- src/worldcup_campaign/parlay_math.py -- combined odds/probability/EV
+- src/worldcup_campaign/parlay_correlation.py -- correlation detection and blocking
+- src/worldcup_campaign/parlay_candidate_builder.py -- leg extraction and combination generation
+- src/worldcup_campaign/parlay_optimizer.py -- ranking and bucket assignment
+- src/worldcup_campaign/parlay_preview_runner.py -- full pipeline runner
+- scripts/run_parlay_preview.py -- CLI
+
+### New Configs
+- config/parlay_optimizer_config.json
+- config/parlay_correlation_policy.json
+- config/parlay_bucket_policy.json
+
+### Safety
+- nalysis_only=true, simulation_only=true, 
+ot_betting_advice=true
+- No stake, no bet_instruction, no bookmaker output
+- No real betting API or execution
+
+### Currently Not Implemented
+1. Real odds / bookmaker integration
+2. Real stake execution
+3. Futures/tournament path parlay simulation (Round 8)
+4. Correlated same-match parlay builder
+5. Post-match settlement
+
+### Next Round Suggestion
+Round 8: Tournament Futures and Path Simulator v1 -- add group qualification, round-of-16, quarter-final, winner, runner-up, exact-final-pair, and golden-boot futures analysis.

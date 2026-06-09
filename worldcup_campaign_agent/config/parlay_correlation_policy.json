@@ -1,0 +1,16 @@
+﻿{
+  "analysis_only": true,
+  "same_match_policy": "block_by_default",
+  "same_group_policy": "warn",
+  "same_market_type_policy": "allow_with_warning",
+  "scoreline_cluster_policy": "warn",
+  "max_legs_from_same_match": 1,
+  "max_legs_from_same_group": 2,
+  "dependency_penalties": {
+    "same_match": 1.0,
+    "same_group": 0.15,
+    "same_market_type": 0.05,
+    "same_stage_same_day": 0.03,
+    "scoreline_cluster": 0.10
+  }
+}
