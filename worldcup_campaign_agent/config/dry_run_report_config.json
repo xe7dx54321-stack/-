@@ -1,0 +1,17 @@
+{
+  "model_name": "dry_run_report_config_v1",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "include_sections": [
+    "timeline",
+    "bankroll_history",
+    "daily_status",
+    "watchdog_summary",
+    "settlement_summary",
+    "bucket_summary",
+    "review_queue_summary",
+    "bottleneck_analysis",
+    "safety"
+  ]
+}

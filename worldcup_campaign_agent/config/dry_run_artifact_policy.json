@@ -1,0 +1,23 @@
+{
+  "model_name": "dry_run_artifact_policy_v1",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "artifact_roots": [
+    "reports/generated"
+  ],
+  "record_daily_artifacts": true,
+  "record_missing_artifacts": true,
+  "forbidden_artifact_fields": [
+    "stake",
+    "stake_amount",
+    "stake_to_match",
+    "bet_instruction",
+    "bookmaker_account",
+    "wallet_address",
+    "private_key",
+    "real_money_balance",
+    "submit_order",
+    "signed_order"
+  ]
+}

@@ -1090,12 +1090,84 @@ python scripts/run_real_data_preview.py --date 2026-06-11 --bankroll 100 --json
 - data/seed/knockout_results_seed.json
 - data/seed/real_odds_snapshot_seed.json + .csv
 
+
+
+## Round 21: Full Campaign Dry-Run v1
+
+### Summary
+Full Campaign Dry-Run runs the entire 2026 World Cup cycle (2026-06-11 to 2026-07-19) using seed data. It simulates daily ops, watchdog checks, strategy candidates, settlement, bankroll state history, review queues, and bottleneck analysis — all as simulation-only, no real bets.
+
+### Key Features
+- Builds full campaign timeline from seed data (39 matchdays)
+- Runs each day through simulated daily ops pipeline
+- Tracks bankroll state changes day by day
+- Aggregates settlement, review queue, and artifact manifest
+- Identifies pipeline bottlenecks and most common warnings
+- Generates JSON, Markdown, and state history files
+- All outputs are analysis_only=true, simulation_only=true, not_betting_advice=true
+
+### Bankroll State Bands
+| State | Range |
+|-------|-------|
+| S0 | 0-49 |
+| S1 | 50-99 |
+| S2 | 100-299 |
+| S3 | 300-999 |
+| S4 | 1000-4999 |
+| S5 | 5000-19999 |
+| S6 | 20000-99999 |
+| S7 | 100000-999999 |
+| TARGET_REACHED | >=1,000,000 |
+
+### Day Types
+- matchday: run full daily ops
+- rest_day: watchdog only, skip ops
+- transition_day: light daily ops
+- final_day: full ops + closeout
+
+### How to Run
+```
+make full-campaign-dry-run
+make full-campaign-dry-run-json
+make full-campaign-dry-run-short-json
+make full-campaign-dry-run-bankroll-5000-json
+```
+
+Or directly:
+```
+python scripts/run_full_campaign_dry_run.py --start-date 2026-06-11 --end-date 2026-07-19 --bankroll 100 --json
+```
+
+### Generated Reports
+- reports/generated/full_campaign_dry_run.json
+- reports/generated/full_campaign_dry_run.md
+- reports/generated/full_campaign_state_history.json
+
+### New Modules
+- src/worldcup_campaign/full_campaign_dry_run.py — Timeline, DayRunner, Bankroll, Settlement, Review, Artifact, Runner, Renderer
+- scripts/run_full_campaign_dry_run.py — CLI
+- tests/test_full_campaign_dry_run.py — 31 tests
+
+### New Configs
+- config/full_campaign_dry_run_config.json
+- config/dry_run_timeline_config.json
+- config/dry_run_day_policy.json
+- config/dry_run_bankroll_policy.json
+- config/dry_run_report_config.json
+- config/dry_run_artifact_policy.json
+
+### Seed Data
+- data/seed/full_campaign_result_timeline_seed.json — 39 matchdays
+- data/seed/full_campaign_odds_timeline_seed.json
+- data/seed/full_campaign_team_news_timeline_seed.json
+
 ### Currently Not Implemented
 1. Live API result fetching
 2. Auto daily result scraping
 3. Real money settlement
 4. Interactive manual review UI
-5. Full tournament dry-run
+5. Real-time odds streaming
+6. Auto parameter writeback from calibration
 
 ### Next Round Suggestion
-Round 21: Full Campaign Dry-Run v1 — run the entire campaign from matchday 1 to final with seed results
+Round 22: Human Review Workbench v1 — consolidate Watchdog/Signal Fusion/Settlement reviews into an actionable review console

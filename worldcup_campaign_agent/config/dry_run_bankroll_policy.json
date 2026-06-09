@@ -1,0 +1,23 @@
+{
+  "model_name": "dry_run_bankroll_policy_v1",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "bankroll_update_mode": "simulation_preview",
+  "allow_negative_bankroll": false,
+  "min_bankroll": 0,
+  "target_bankroll": 1000000,
+  "state_bands": [
+    "S0",
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "TARGET_REACHED"
+  ],
+  "settlement_confidence_required_for_update": 0.8,
+  "manual_review_items_do_not_update_bankroll": true
+}

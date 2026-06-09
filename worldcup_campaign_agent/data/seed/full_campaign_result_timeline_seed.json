@@ -1,0 +1,232 @@
+{
+  "campaign_name": "worldcup_2026_full_timeline",
+  "start_date": "2026-06-11",
+  "end_date": "2026-07-19",
+  "matchdays": [
+    {
+      "date": "2026-06-11",
+      "day_type": "matchday",
+      "stage": "group_stage",
+      "match_count": 4
+    },
+    {
+      "date": "2026-06-12",
+      "day_type": "matchday",
+      "stage": "group_stage",
+      "match_count": 4
+    },
+    {
+      "date": "2026-06-13",
+      "day_type": "matchday",
+      "stage": "group_stage",
+      "match_count": 4
+    },
+    {
+      "date": "2026-06-14",
+      "day_type": "matchday",
+      "stage": "group_stage",
+      "match_count": 4
+    },
+    {
+      "date": "2026-06-15",
+      "day_type": "matchday",
+      "stage": "group_stage",
+      "match_count": 4
+    },
+    {
+      "date": "2026-06-16",
+      "day_type": "matchday",
+      "stage": "group_stage",
+      "match_count": 4
+    },
+    {
+      "date": "2026-06-17",
+      "day_type": "matchday",
+      "stage": "group_stage",
+      "match_count": 4
+    },
+    {
+      "date": "2026-06-18",
+      "day_type": "matchday",
+      "stage": "group_stage",
+      "match_count": 4
+    },
+    {
+      "date": "2026-06-19",
+      "day_type": "matchday",
+      "stage": "group_stage",
+      "match_count": 4
+    },
+    {
+      "date": "2026-06-20",
+      "day_type": "matchday",
+      "stage": "group_stage",
+      "match_count": 4
+    },
+    {
+      "date": "2026-06-21",
+      "day_type": "matchday",
+      "stage": "group_stage",
+      "match_count": 4
+    },
+    {
+      "date": "2026-06-22",
+      "day_type": "matchday",
+      "stage": "group_stage",
+      "match_count": 4
+    },
+    {
+      "date": "2026-06-23",
+      "day_type": "matchday",
+      "stage": "group_stage",
+      "match_count": 4
+    },
+    {
+      "date": "2026-06-24",
+      "day_type": "matchday",
+      "stage": "group_stage",
+      "match_count": 4
+    },
+    {
+      "date": "2026-06-25",
+      "day_type": "matchday",
+      "stage": "group_stage",
+      "match_count": 4
+    },
+    {
+      "date": "2026-06-26",
+      "day_type": "matchday",
+      "stage": "group_stage",
+      "match_count": 4
+    },
+    {
+      "date": "2026-06-27",
+      "day_type": "matchday",
+      "stage": "group_stage",
+      "match_count": 4
+    },
+    {
+      "date": "2026-06-28",
+      "day_type": "rest_day",
+      "stage": "transition"
+    },
+    {
+      "date": "2026-06-29",
+      "day_type": "matchday",
+      "stage": "round_of_32",
+      "match_count": 4
+    },
+    {
+      "date": "2026-06-30",
+      "day_type": "matchday",
+      "stage": "round_of_32",
+      "match_count": 4
+    },
+    {
+      "date": "2026-07-01",
+      "day_type": "matchday",
+      "stage": "round_of_32",
+      "match_count": 4
+    },
+    {
+      "date": "2026-07-02",
+      "day_type": "matchday",
+      "stage": "round_of_32",
+      "match_count": 4
+    },
+    {
+      "date": "2026-07-03",
+      "day_type": "matchday",
+      "stage": "round_of_16",
+      "match_count": 4
+    },
+    {
+      "date": "2026-07-04",
+      "day_type": "matchday",
+      "stage": "round_of_16",
+      "match_count": 4
+    },
+    {
+      "date": "2026-07-05",
+      "day_type": "matchday",
+      "stage": "round_of_16",
+      "match_count": 2
+    },
+    {
+      "date": "2026-07-06",
+      "day_type": "rest_day",
+      "stage": "transition"
+    },
+    {
+      "date": "2026-07-07",
+      "day_type": "matchday",
+      "stage": "quarter_final",
+      "match_count": 2
+    },
+    {
+      "date": "2026-07-08",
+      "day_type": "matchday",
+      "stage": "quarter_final",
+      "match_count": 2
+    },
+    {
+      "date": "2026-07-09",
+      "day_type": "rest_day",
+      "stage": "transition"
+    },
+    {
+      "date": "2026-07-10",
+      "day_type": "rest_day",
+      "stage": "transition"
+    },
+    {
+      "date": "2026-07-11",
+      "day_type": "rest_day",
+      "stage": "transition"
+    },
+    {
+      "date": "2026-07-12",
+      "day_type": "matchday",
+      "stage": "semi_final",
+      "match_count": 1
+    },
+    {
+      "date": "2026-07-13",
+      "day_type": "matchday",
+      "stage": "semi_final",
+      "match_count": 1
+    },
+    {
+      "date": "2026-07-14",
+      "day_type": "rest_day",
+      "stage": "transition"
+    },
+    {
+      "date": "2026-07-15",
+      "day_type": "rest_day",
+      "stage": "transition"
+    },
+    {
+      "date": "2026-07-16",
+      "day_type": "rest_day",
+      "stage": "transition"
+    },
+    {
+      "date": "2026-07-17",
+      "day_type": "rest_day",
+      "stage": "transition"
+    },
+    {
+      "date": "2026-07-18",
+      "day_type": "matchday",
+      "stage": "third_place",
+      "match_count": 1
+    },
+    {
+      "date": "2026-07-19",
+      "day_type": "final_day",
+      "stage": "final",
+      "match_count": 1
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "model_name": "full_campaign_dry_run_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "campaign_start_date": "2026-06-11",
+  "campaign_end_date": "2026-07-19",
+  "initial_bankroll": 100,
+  "target_bankroll": 1000000,
+  "default_mode": "dry_run",
+  "run_daily_ops": true,
+  "run_watchdog": true,
+  "run_real_data_preview": true,
+  "run_settlement_preview": true,
+  "update_simulation_bankroll_preview": true,
+  "network_fetch_default_enabled": false,
+  "max_days": 60,
+  "stop_on_hard_block": false,
+  "record_hard_block_and_continue_next_day": true
+}

@@ -302,3 +302,15 @@ real-data-preview-final-json:
 
 real-data-preview-bankroll-5000-json:
 	python scripts/run_real_data_preview.py --date 2026-06-11 --bankroll 5000 --json
+
+full-campaign-dry-run:
+	python scripts/run_full_campaign_dry_run.py --start-date 2026-06-11 --end-date 2026-07-19 --bankroll 100
+
+full-campaign-dry-run-json:
+	python scripts/run_full_campaign_dry_run.py --start-date 2026-06-11 --end-date 2026-07-19 --bankroll 100 --json
+
+full-campaign-dry-run-short-json:
+	python scripts/run_full_campaign_dry_run.py --start-date 2026-06-11 --end-date 2026-06-15 --bankroll 100 --json
+
+full-campaign-dry-run-bankroll-5000-json:
+	python scripts/run_full_campaign_dry_run.py --start-date 2026-06-11 --end-date 2026-07-19 --bankroll 5000 --json

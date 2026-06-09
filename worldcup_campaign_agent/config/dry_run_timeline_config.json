@@ -1,0 +1,16 @@
+{
+  "model_name": "dry_run_timeline_v1",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "day_types": [
+    "matchday",
+    "rest_day",
+    "transition_day",
+    "final_day"
+  ],
+  "matchday_policy": "run_full_daily_ops",
+  "rest_day_policy": "run_light_watchdog_only",
+  "transition_day_policy": "run_light_daily_ops",
+  "final_day_policy": "run_full_daily_ops_and_closeout"
+}

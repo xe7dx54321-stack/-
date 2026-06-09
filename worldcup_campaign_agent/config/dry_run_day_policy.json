@@ -1,0 +1,23 @@
+{
+  "model_name": "dry_run_day_policy_v1",
+  "analysis_only": true,
+  "simulation_only": true,
+  "required_day_outputs": [
+    "daily_ops_run",
+    "watchdog_status",
+    "final_daily_package",
+    "real_data_preview",
+    "settlement_preview",
+    "review_queue_summary"
+  ],
+  "allowed_day_status": [
+    "SUCCESS",
+    "WARN",
+    "DEGRADED",
+    "BLOCKED",
+    "SKIPPED"
+  ],
+  "missing_daily_ops_policy": "degraded",
+  "missing_settlement_policy": "warn",
+  "missing_review_queue_policy": "warn"
+}
