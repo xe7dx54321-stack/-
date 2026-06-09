@@ -1,0 +1,35 @@
+{
+  "model_name": "visual_command_center_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "real_money_execution_ready": false,
+  "frontend_mode": "local_only",
+  "default_port": 8501,
+  "streamlit_enabled_if_available": true,
+  "static_html_fallback_enabled": true,
+  "auto_refresh_seconds": 60,
+  "report_sources": {
+    "daily_ops": "reports/generated/daily_ops_run.json",
+    "watchdog": "reports/generated/daily_ops_watchdog.json",
+    "final_package": "reports/generated/final_daily_package.json",
+    "human_review": "reports/generated/human_review_workbench.json",
+    "real_data": "reports/generated/real_data_preview.json",
+    "settlement": "reports/generated/auto_settlement_preview.json",
+    "full_dry_run": "reports/generated/full_campaign_dry_run.json",
+    "freeze": "reports/generated/final_operational_freeze.json",
+    "pre_tournament_patch": "reports/generated/pre_tournament_patch.json",
+    "signal_fusion": "reports/generated/signal_fusion_preview.json"
+  },
+  "forbidden_frontend_terms": [
+    "bet_instruction",
+    "bet_slip",
+    "stake_to_match",
+    "bookmaker_account",
+    "wallet_address",
+    "private_key",
+    "submit_order",
+    "real_money_balance"
+  ]
+}

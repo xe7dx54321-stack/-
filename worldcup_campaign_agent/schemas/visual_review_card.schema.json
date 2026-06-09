@@ -1,0 +1,24 @@
+{
+  "title": "Visual Review Card",
+  "type": "object",
+  "required": [
+    "review_id",
+    "review_type",
+    "severity",
+    "status"
+  ],
+  "properties": {
+    "review_id": {
+      "type": "string"
+    },
+    "review_type": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  }
+}

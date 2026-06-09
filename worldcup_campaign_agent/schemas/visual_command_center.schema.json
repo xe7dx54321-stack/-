@@ -1,0 +1,32 @@
+{
+  "title": "Visual Command Center",
+  "type": "object",
+  "required": [
+    "frontend_mode",
+    "local_url",
+    "analysis_only",
+    "simulation_only",
+    "not_betting_advice",
+    "real_money_execution_ready"
+  ],
+  "properties": {
+    "local_url": {
+      "type": "string"
+    },
+    "frontend_mode": {
+      "type": "string"
+    },
+    "analysis_only": {
+      "type": "boolean"
+    },
+    "simulation_only": {
+      "type": "boolean"
+    },
+    "not_betting_advice": {
+      "type": "boolean"
+    },
+    "real_money_execution_ready": {
+      "type": "boolean"
+    }
+  }
+}

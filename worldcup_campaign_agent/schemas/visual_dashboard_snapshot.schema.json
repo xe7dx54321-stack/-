@@ -1,0 +1,20 @@
+{
+  "title": "Visual Dashboard Snapshot",
+  "type": "object",
+  "required": [
+    "status_card_count",
+    "candidate_card_count",
+    "review_card_count"
+  ],
+  "properties": {
+    "status_card_count": {
+      "type": "integer"
+    },
+    "candidate_card_count": {
+      "type": "integer"
+    },
+    "review_card_count": {
+      "type": "integer"
+    }
+  }
+}

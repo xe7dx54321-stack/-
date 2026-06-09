@@ -1,0 +1,16 @@
+{
+  "status_colors": {
+    "PASS": "green",
+    "READY": "green",
+    "GO_FOR_ANALYSIS_SIMULATION": "green",
+    "GO_WITH_WARNINGS": "yellow",
+    "WARN": "yellow",
+    "READY_WITH_WARNINGS": "yellow",
+    "FROZEN_WITH_WARNINGS": "yellow",
+    "DEGRADED": "orange",
+    "BLOCKED": "red",
+    "NO_GO": "red",
+    "FAILED": "red"
+  },
+  "default_unknown_color": "gray"
+}

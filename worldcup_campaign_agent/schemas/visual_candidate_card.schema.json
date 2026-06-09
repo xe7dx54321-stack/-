@@ -1,0 +1,27 @@
+{
+  "title": "Visual Candidate Card",
+  "type": "object",
+  "required": [
+    "candidate_id",
+    "bucket",
+    "analysis_only",
+    "simulation_only"
+  ],
+  "properties": {
+    "candidate_id": {
+      "type": "string"
+    },
+    "bucket": {
+      "type": "string"
+    },
+    "simulation_budget_preview": {
+      "type": "string"
+    },
+    "analysis_only": {
+      "type": "boolean"
+    },
+    "simulation_only": {
+      "type": "boolean"
+    }
+  }
+}

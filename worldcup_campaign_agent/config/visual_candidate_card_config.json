@@ -1,0 +1,25 @@
+{
+  "candidate_card_fields": [
+    "match_id",
+    "market_type",
+    "selection_id",
+    "bucket",
+    "model_probability",
+    "market_probability",
+    "polymarket_probability",
+    "blended_probability",
+    "campaign_score",
+    "confidence",
+    "review_required",
+    "simulation_budget_preview",
+    "reason_summary"
+  ],
+  "simulation_budget_label": "模拟风险预算",
+  "simulation_budget_disclaimer": "仅为 simulation bankroll preview，不是真实下注建议",
+  "forbidden_labels": [
+    "下注金额",
+    "真实下注",
+    "下注指令",
+    "bet slip"
+  ]
+}

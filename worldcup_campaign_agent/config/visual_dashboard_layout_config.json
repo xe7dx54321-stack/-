@@ -1,0 +1,20 @@
+{
+  "tabs": [
+    "Today",
+    "Daily Ops",
+    "Candidates",
+    "Reviews",
+    "Real Data / Settlement",
+    "Bankroll",
+    "Freeze / Sources",
+    "Operator Quickstart"
+  ],
+  "sidebar_sections": [
+    "refresh",
+    "date",
+    "bankroll",
+    "source_status",
+    "report_links"
+  ],
+  "safety_banner_position": "top_fixed"
+}

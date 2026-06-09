@@ -1,0 +1,42 @@
+{
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "real_money_execution_ready": false,
+  "frontend_actions_allowed": [
+    "view",
+    "filter",
+    "sort",
+    "refresh",
+    "copy_command",
+    "open_report"
+  ],
+  "frontend_actions_forbidden": [
+    "place_bet",
+    "submit_order",
+    "connect_wallet",
+    "enter_real_stake",
+    "sync_account",
+    "auto_bet"
+  ],
+  "forbidden_fields": [
+    "stake",
+    "stake_amount",
+    "stake_to_match",
+    "bet_instruction",
+    "bet_slip",
+    "bookmaker_account",
+    "account_balance",
+    "real_money_balance",
+    "wallet_address",
+    "private_key",
+    "api_secret",
+    "signed_order",
+    "submit_order",
+    "cancel_order",
+    "real_bet_execution",
+    "auto_betting",
+    "guaranteed_profit",
+    "chase_loss"
+  ]
+}

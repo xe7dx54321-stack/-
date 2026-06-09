@@ -1,0 +1,16 @@
+{
+  "title": "Visual Status Summary",
+  "type": "object",
+  "required": [
+    "overall_status",
+    "status_color"
+  ],
+  "properties": {
+    "overall_status": {
+      "type": "string"
+    },
+    "status_color": {
+      "type": "string"
+    }
+  }
+}
