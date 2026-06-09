@@ -1,0 +1,665 @@
+{
+  "campaign_name": "worldcup_2026_high_odds_campaign",
+  "closeout_date": "2026-06-09",
+  "overall_status": "SIMULATION_ONLY_ANALYSIS_READY",
+  "readiness_score": 1.0,
+  "readiness_level": "HIGH_READINESS",
+  "real_money_execution_ready": false,
+  "capability_map": {
+    "capabilities": [
+      {
+        "domain": "campaign_strategy",
+        "capability": "Campaign policy + bankroll state machine + target math",
+        "round_number": 1,
+        "status": "ready",
+        "runner_available": true,
+        "manual_review_required": false,
+        "source_enablement_required": false,
+        "notes": ""
+      },
+      {
+        "domain": "market_data",
+        "capability": "World Cup calendar + match registry + stage mapper",
+        "round_number": 2,
+        "status": "ready",
+        "runner_available": true,
+        "manual_review_required": false,
+        "source_enablement_required": false,
+        "notes": ""
+      },
+      {
+        "domain": "strategy_generation",
+        "capability": "Daily unified strategy + scenario preview",
+        "round_number": 3,
+        "status": "ready",
+        "runner_available": true,
+        "manual_review_required": false,
+        "source_enablement_required": false,
+        "notes": ""
+      },
+      {
+        "domain": "probability_modeling",
+        "capability": "Match probability + Poisson scoreline + over/under + handicap",
+        "round_number": 4,
+        "status": "ready",
+        "runner_available": true,
+        "manual_review_required": false,
+        "source_enablement_required": false,
+        "notes": ""
+      },
+      {
+        "domain": "market_data",
+        "capability": "Mock odds + probability sanity + EV ranking",
+        "round_number": 5,
+        "status": "ready",
+        "runner_available": true,
+        "manual_review_required": false,
+        "source_enablement_required": false,
+        "notes": ""
+      },
+      {
+        "domain": "strategy_generation",
+        "capability": "Integrated daily strategy (Core/Edge/Attack/Futures)",
+        "round_number": 6,
+        "status": "ready",
+        "runner_available": true,
+        "manual_review_required": false,
+        "source_enablement_required": false,
+        "notes": ""
+      },
+      {
+        "domain": "parlay_optimization",
+        "capability": "Parlay optimizer 2/3/4-leg + correlation guard",
+        "round_number": 7,
+        "status": "ready",
+        "runner_available": true,
+        "manual_review_required": false,
+        "source_enablement_required": false,
+        "notes": ""
+      },
+      {
+        "domain": "futures_simulation",
+        "capability": "Tournament futures path simulator + synthetic futures odds",
+        "round_number": 8,
+        "status": "ready",
+        "runner_available": true,
+        "manual_review_required": false,
+        "source_enablement_required": false,
+        "notes": ""
+      },
+      {
+        "domain": "execution_planning",
+        "capability": "Campaign timeline + daily execution schedule + operator checklist",
+        "round_number": 9,
+        "status": "ready",
+        "runner_available": true,
+        "manual_review_required": false,
+        "source_enablement_required": false,
+        "notes": ""
+      },
+      {
+        "domain": "settlement",
+        "capability": "Post-match settlement + simulation ledger + manual result input",
+        "round_number": 10,
+        "status": "ready",
+        "runner_available": true,
+        "manual_review_required": false,
+        "source_enablement_required": false,
+        "notes": ""
+      },
+      {
+        "domain": "dashboard",
+        "capability": "Campaign Dashboard + Daily Brief v1 + HTML dashboard",
+        "round_number": 11,
+        "status": "ready",
+        "runner_available": true,
+        "manual_review_required": false,
+        "source_enablement_required": false,
+        "notes": ""
+      },
+      {
+        "domain": "calibration",
+        "capability": "Model calibration + Brier/log loss + bucket/parlay/futures performance",
+        "round_number": 12,
+        "status": "ready",
+        "runner_available": true,
+        "manual_review_required": false,
+        "source_enablement_required": false,
+        "notes": ""
+      },
+      {
+        "domain": "market_data",
+        "capability": "Sportsbook odds + market consensus + odds movement",
+        "round_number": 13,
+        "status": "ready",
+        "runner_available": true,
+        "manual_review_required": false,
+        "source_enablement_required": true,
+        "notes": ""
+      },
+      {
+        "domain": "prediction_market",
+        "capability": "Polymarket adapter + prediction market signal",
+        "round_number": 14,
+        "status": "ready",
+        "runner_available": true,
+        "manual_review_required": false,
+        "source_enablement_required": true,
+        "notes": ""
+      },
+      {
+        "domain": "market_expectation",
+        "capability": "Market expectation engine + model vs market gap",
+        "round_number": 15,
+        "status": "ready",
+        "runner_available": true,
+        "manual_review_required": false,
+        "source_enablement_required": true,
+        "notes": ""
+      },
+      {
+        "domain": "team_news",
+        "capability": "Team news / injury / lineup adapter",
+        "round_number": 16,
+        "status": "ready",
+        "runner_available": true,
+        "manual_review_required": false,
+        "source_enablement_required": true,
+        "notes": ""
+      },
+      {
+        "domain": "signal_fusion",
+        "capability": "Signal fusion + strategy upgrade + review guard",
+        "round_number": 17,
+        "status": "ready",
+        "runner_available": true,
+        "manual_review_required": false,
+        "source_enablement_required": true,
+        "notes": ""
+      },
+      {
+        "domain": "watchdog_circuit_breaker",
+        "capability": "Daily Ops Watchdog + circuit breaker",
+        "round_number": 18,
+        "status": "ready",
+        "runner_available": true,
+        "manual_review_required": false,
+        "source_enablement_required": false,
+        "notes": ""
+      },
+      {
+        "domain": "daily_ops_orchestration",
+        "capability": "Daily Ops Runner + pipeline orchestrator",
+        "round_number": 19,
+        "status": "ready",
+        "runner_available": true,
+        "manual_review_required": false,
+        "source_enablement_required": false,
+        "notes": ""
+      },
+      {
+        "domain": "real_data_adapter",
+        "capability": "Real data adapter + settlement auto-match",
+        "round_number": 20,
+        "status": "ready",
+        "runner_available": true,
+        "manual_review_required": false,
+        "source_enablement_required": true,
+        "notes": ""
+      },
+      {
+        "domain": "full_campaign_dry_run",
+        "capability": "Full campaign dry-run v1",
+        "round_number": 21,
+        "status": "ready",
+        "runner_available": true,
+        "manual_review_required": false,
+        "source_enablement_required": false,
+        "notes": ""
+      },
+      {
+        "domain": "human_review",
+        "capability": "Human Review Workbench + coverage hardening",
+        "round_number": 22,
+        "status": "ready",
+        "runner_available": true,
+        "manual_review_required": false,
+        "source_enablement_required": false,
+        "notes": ""
+      },
+      {
+        "domain": "production_closeout",
+        "capability": "Production Readiness Closeout",
+        "round_number": 23,
+        "status": "ready",
+        "runner_available": true,
+        "manual_review_required": false,
+        "source_enablement_required": false,
+        "notes": ""
+      }
+    ],
+    "capability_count": 23,
+    "ready_count": 23,
+    "partial_ready_count": 0,
+    "not_ready_count": 0,
+    "blocked_count": 0
+  },
+  "scorecard": {
+    "domains": [
+      {
+        "domain": "campaign_strategy",
+        "status": "ready",
+        "analysis_ready": true,
+        "simulation_ready": true,
+        "source_enablement_required": false,
+        "manual_review_required": true,
+        "notes": "Analysis-ready, simulation-ready."
+      },
+      {
+        "domain": "market_data",
+        "status": "ready",
+        "analysis_ready": true,
+        "simulation_ready": true,
+        "source_enablement_required": true,
+        "manual_review_required": true,
+        "notes": "Analysis-ready. Source enablement required."
+      },
+      {
+        "domain": "prediction_market",
+        "status": "ready",
+        "analysis_ready": true,
+        "simulation_ready": true,
+        "source_enablement_required": false,
+        "manual_review_required": true,
+        "notes": "Analysis-ready, simulation-ready."
+      },
+      {
+        "domain": "probability_modeling",
+        "status": "ready",
+        "analysis_ready": true,
+        "simulation_ready": true,
+        "source_enablement_required": false,
+        "manual_review_required": true,
+        "notes": "Analysis-ready, simulation-ready."
+      },
+      {
+        "domain": "strategy_generation",
+        "status": "ready",
+        "analysis_ready": true,
+        "simulation_ready": true,
+        "source_enablement_required": false,
+        "manual_review_required": true,
+        "notes": "Analysis-ready, simulation-ready."
+      },
+      {
+        "domain": "parlay_optimization",
+        "status": "ready",
+        "analysis_ready": true,
+        "simulation_ready": true,
+        "source_enablement_required": false,
+        "manual_review_required": true,
+        "notes": "Analysis-ready, simulation-ready."
+      },
+      {
+        "domain": "futures_simulation",
+        "status": "ready",
+        "analysis_ready": true,
+        "simulation_ready": true,
+        "source_enablement_required": false,
+        "manual_review_required": true,
+        "notes": "Analysis-ready, simulation-ready."
+      },
+      {
+        "domain": "execution_planning",
+        "status": "ready",
+        "analysis_ready": true,
+        "simulation_ready": true,
+        "source_enablement_required": false,
+        "manual_review_required": true,
+        "notes": "Analysis-ready, simulation-ready."
+      },
+      {
+        "domain": "settlement",
+        "status": "ready",
+        "analysis_ready": true,
+        "simulation_ready": true,
+        "source_enablement_required": false,
+        "manual_review_required": true,
+        "notes": "Analysis-ready, simulation-ready."
+      },
+      {
+        "domain": "calibration",
+        "status": "ready",
+        "analysis_ready": true,
+        "simulation_ready": true,
+        "source_enablement_required": false,
+        "manual_review_required": true,
+        "notes": "Analysis-ready, simulation-ready."
+      },
+      {
+        "domain": "dashboard",
+        "status": "ready",
+        "analysis_ready": true,
+        "simulation_ready": true,
+        "source_enablement_required": false,
+        "manual_review_required": true,
+        "notes": "Analysis-ready, simulation-ready."
+      },
+      {
+        "domain": "daily_ops_orchestration",
+        "status": "ready",
+        "analysis_ready": true,
+        "simulation_ready": true,
+        "source_enablement_required": false,
+        "manual_review_required": true,
+        "notes": "Analysis-ready, simulation-ready."
+      },
+      {
+        "domain": "watchdog_circuit_breaker",
+        "status": "ready",
+        "analysis_ready": true,
+        "simulation_ready": true,
+        "source_enablement_required": false,
+        "manual_review_required": true,
+        "notes": "Analysis-ready, simulation-ready."
+      },
+      {
+        "domain": "real_data_adapter",
+        "status": "ready",
+        "analysis_ready": true,
+        "simulation_ready": true,
+        "source_enablement_required": true,
+        "manual_review_required": true,
+        "notes": "Analysis-ready. Source enablement required."
+      },
+      {
+        "domain": "market_expectation",
+        "status": "ready",
+        "analysis_ready": true,
+        "simulation_ready": true,
+        "source_enablement_required": true,
+        "manual_review_required": true,
+        "notes": "Analysis-ready. Source enablement required."
+      },
+      {
+        "domain": "team_news",
+        "status": "ready",
+        "analysis_ready": true,
+        "simulation_ready": true,
+        "source_enablement_required": true,
+        "manual_review_required": true,
+        "notes": "Analysis-ready. Source enablement required."
+      },
+      {
+        "domain": "signal_fusion",
+        "status": "ready",
+        "analysis_ready": true,
+        "simulation_ready": true,
+        "source_enablement_required": false,
+        "manual_review_required": true,
+        "notes": "Analysis-ready, simulation-ready."
+      },
+      {
+        "domain": "human_review",
+        "status": "ready",
+        "analysis_ready": true,
+        "simulation_ready": true,
+        "source_enablement_required": false,
+        "manual_review_required": true,
+        "notes": "Analysis-ready, simulation-ready."
+      },
+      {
+        "domain": "full_campaign_dry_run",
+        "status": "ready",
+        "analysis_ready": true,
+        "simulation_ready": true,
+        "source_enablement_required": false,
+        "manual_review_required": true,
+        "notes": "Analysis-ready, simulation-ready."
+      },
+      {
+        "domain": "production_closeout",
+        "status": "ready",
+        "analysis_ready": true,
+        "simulation_ready": true,
+        "source_enablement_required": false,
+        "manual_review_required": true,
+        "notes": "Analysis-ready, simulation-ready."
+      }
+    ],
+    "domain_count": 20,
+    "ready_domain_count": 20,
+    "partial_ready_domain_count": 0,
+    "not_ready_domain_count": 0,
+    "blocked_domain_count": 0
+  },
+  "source_enablement_plan": {
+    "entries": [
+      {
+        "category": "sportsbook_odds",
+        "status": "manual_ready",
+        "adapter_ready": true,
+        "default_disabled": true,
+        "notes": ""
+      },
+      {
+        "category": "polymarket",
+        "status": "manual_ready",
+        "adapter_ready": true,
+        "default_disabled": true,
+        "notes": ""
+      },
+      {
+        "category": "match_results",
+        "status": "manual_ready",
+        "adapter_ready": true,
+        "default_disabled": true,
+        "notes": ""
+      },
+      {
+        "category": "team_news",
+        "status": "fixture_ready",
+        "adapter_ready": true,
+        "default_disabled": true,
+        "notes": ""
+      },
+      {
+        "category": "market_expectation",
+        "status": "adapter_ready_disabled",
+        "adapter_ready": true,
+        "default_disabled": true,
+        "notes": ""
+      },
+      {
+        "category": "injuries_lineups",
+        "status": "fixture_ready",
+        "adapter_ready": false,
+        "default_disabled": true,
+        "notes": ""
+      },
+      {
+        "category": "real_time_odds",
+        "status": "not_allowed",
+        "adapter_ready": false,
+        "default_disabled": true,
+        "notes": ""
+      },
+      {
+        "category": "bookmaker_account",
+        "status": "not_allowed",
+        "adapter_ready": false,
+        "default_disabled": true,
+        "notes": ""
+      },
+      {
+        "category": "prediction_market_trading",
+        "status": "not_allowed",
+        "adapter_ready": false,
+        "default_disabled": true,
+        "notes": ""
+      }
+    ],
+    "source_category_count": 9,
+    "manual_ready_count": 3,
+    "fixture_ready_count": 2,
+    "adapter_ready_disabled_count": 1,
+    "needs_source_selection_count": 0,
+    "not_allowed_count": 3
+  },
+  "gap_register": {
+    "gaps": [
+      {
+        "gap_id": "",
+        "severity": "high",
+        "domain": "real_data_adapter",
+        "description": "No auto-scraping of live match results; manual CSV/JSON input only",
+        "mitigation": "Manual result input supported; auto-scrape deferred"
+      },
+      {
+        "gap_id": "",
+        "severity": "high",
+        "domain": "market_data",
+        "description": "No live odds feed; synthetic odds + manual snapshot only",
+        "mitigation": "Synthetic odds sufficient for simulation; manual snapshot for review"
+      },
+      {
+        "gap_id": "",
+        "severity": "high",
+        "domain": "human_review",
+        "description": "Human review workbench is static HTML; no persistence or multi-user",
+        "mitigation": "Audit log is append-only JSONL; decisions recorded"
+      },
+      {
+        "gap_id": "",
+        "severity": "medium",
+        "domain": "calibration",
+        "description": "No automatic model parameter writeback; recommendations are advisory only",
+        "mitigation": "Manual model review supported"
+      },
+      {
+        "gap_id": "",
+        "severity": "medium",
+        "domain": "polymarket",
+        "description": "Polymarket adapter is read-only simulation; no order submission",
+        "mitigation": "By design - trading not allowed"
+      },
+      {
+        "gap_id": "",
+        "severity": "medium",
+        "domain": "dashboard",
+        "description": "Dashboard HTML is static; no interactive filtering or live refresh",
+        "mitigation": "Daily brief Markdown regenerated each run"
+      },
+      {
+        "gap_id": "",
+        "severity": "medium",
+        "domain": "team_news",
+        "description": "Team news is fixture-seeded; no live injury/lineup feed",
+        "mitigation": "Fixture data sufficient for simulation"
+      },
+      {
+        "gap_id": "",
+        "severity": "low",
+        "domain": "production_closeout",
+        "description": "No automated daily cron or CI/CD pipeline",
+        "mitigation": "Manual daily ops runner available"
+      },
+      {
+        "gap_id": "",
+        "severity": "low",
+        "domain": "full_campaign_dry_run",
+        "description": "Dry-run uses simplified bankroll simulation; not full settlement simulation",
+        "mitigation": "Directional correctness validated"
+      }
+    ],
+    "gap_count": 9,
+    "critical_gap_count": 0,
+    "high_gap_count": 3,
+    "medium_gap_count": 4,
+    "low_gap_count": 2
+  },
+  "pre_tournament_checklist": {
+    "items": [
+      {
+        "item_id": "",
+        "item": "Verify all 23 CLI runners execute without error",
+        "status": "pending"
+      },
+      {
+        "item_id": "",
+        "item": "Run full campaign dry-run and review final bankroll preview",
+        "status": "pending"
+      },
+      {
+        "item_id": "",
+        "item": "Seed match_results_seed.csv with actual tournament results",
+        "status": "pending"
+      },
+      {
+        "item_id": "",
+        "item": "Seed manual odds snapshot for opening matchday",
+        "status": "pending"
+      },
+      {
+        "item_id": "",
+        "item": "Verify safety boundaries: no real_bet_execution, no bookmaker_account fields",
+        "status": "pending"
+      },
+      {
+        "item_id": "",
+        "item": "Review human_review_workbench for any critical review items",
+        "status": "pending"
+      },
+      {
+        "item_id": "",
+        "item": "Confirm network_fetch_default_enabled=false",
+        "status": "pending"
+      },
+      {
+        "item_id": "",
+        "item": "Backup all generated reports and configs",
+        "status": "pending"
+      },
+      {
+        "item_id": "",
+        "item": "Read operator_runbook.md before first matchday",
+        "status": "pending"
+      },
+      {
+        "item_id": "",
+        "item": "Set up daily ops cron or manual trigger reminder",
+        "status": "pending"
+      }
+    ],
+    "checklist_count": 10,
+    "pending_count": 10,
+    "completed_count": 0
+  },
+  "dry_run_summary": {
+    "day_count": 3,
+    "final_bankroll_preview": 103.60000000000001,
+    "target_reached": false
+  },
+  "workbench_summary": {
+    "review_item_count": 0,
+    "open_count": 0,
+    "settlement_review_count": 0,
+    "signal_fusion_review_count": 0,
+    "watchdog_review_count": 0
+  },
+  "operator_runbook": "# Operator Runbook\n\n## Daily Setup\n1. Confirm network_fetch_default_enabled=false\n2. Run: python scripts/run_daily_ops_watchdog.py --date <TODAY> --bankroll <BANKROLL> --json\n3. If watchdog BLOCKED, STOP and review circuit_breaker\n4. If watchdog WARN, review warnings before continuing\n\n## Matchday Workflow\n1. python scripts/run_campaign_foundation.py --bankroll <BANKROLL> --windows-left <N> --json\n2. python scripts/run_calendar_preview.py --date <TODAY> --json\n3. python scripts/run_match_probability_preview.py --date <TODAY> --json\n4. python scripts/run_ev_ranking_preview.py --date <TODAY> --bankroll <BANKROLL> --json --synthetic-odds\n5. python scripts/run_integrated_daily_strategy.py --date <TODAY> --bankroll <BANKROLL> --json --synthetic-odds\n6. python scripts/run_parlay_preview.py --date <TODAY> --bankroll <BANKROLL> --json --synthetic-odds\n7. python scripts/run_futures_preview.py --date <TODAY> --bankroll <BANKROLL> --json --synthetic-futures-odds\n8. python scripts/run_signal_fusion_preview.py --date <TODAY> --bankroll <BANKROLL> --json\n9. python scripts/run_daily_ops.py --date <TODAY> --bankroll <BANKROLL> --json\n10. python scripts/run_campaign_dashboard.py --date <TODAY> --bankroll <BANKROLL> --json\n\n## Rest Day Workflow\n1. python scripts/run_daily_ops_watchdog.py --date <TODAY> --bankroll <BANKROLL> --mode pre_daily_ops --json\n2. python scripts/run_campaign_dashboard.py --date <TODAY> --bankroll <BANKROLL> --json\n\n## Post-Match Settlement\n1. Seed results: data/seed/match_results_seed.json\n2. python scripts/run_real_data_preview.py --date <TODAY> --bankroll <BANKROLL> --json\n3. python scripts/run_postmatch_settlement.py --date <TODAY> --bankroll <BANKROLL> --json\n4. python scripts/run_model_calibration_review.py --date <TODAY> --bankroll <BANKROLL> --json\n\n## Human Review Workflow\n1. python scripts/run_human_review_workbench.py --date <TODAY> --bankroll <BANKROLL> --json\n2. Open reports/generated/human_review_workbench.html\n3. Process review items by severity (critical -> high -> medium -> low)\n4. Record decisions in data/seed/review_decision_input_example.json\n5. Re-run workbench with --decision-file\n\n## Dashboard Check\n1. Open reports/generated/campaign_dashboard.html\n2. Verify liquid_simulated_bankroll / locked_pending_units / total_campaign_equity\n3. Check required_multiplier_liquid and required_multiplier_equity\n\n## Emergency Procedures\n- If any runner outputs stake / bet_instruction / bookmaker_account: STOP immediately\n- If real_bet_execution=true appears anywhere: STOP and audit all outputs\n- If network_fetch_default_enabled is accidentally true: STOP and reset config\n\n## Safety Boundary Check (Daily)\n- [ ] network_fetch_default_enabled=false\n- [ ] real_bet_execution=false\n- [ ] auto_betting=false\n- [ ] No stake fields in any output\n- [ ] No bookmaker_account in any output\n- [ ] All reports have analysis_only=true, simulation_only=true, not_betting_advice=true\n\n> This is a simulation-only system. Not betting advice. No real bets placed. No real money used.\n",
+  "warnings": [],
+  "safety": {
+    "analysis_only": true,
+    "simulation_only": true,
+    "not_betting_advice": true,
+    "real_bet_execution": false,
+    "auto_betting": false,
+    "external_betting_api_allowed": false,
+    "network_fetch_default_enabled": false
+  },
+  "generated_at": "2026-06-09T15:59:40.142844",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true
+}

@@ -1264,3 +1264,49 @@ Fixed review item coverage — workbench now extracts 149 detailed review items 
 
 ### New Seed Data
 - data/seed/review_decision_input_example.json
+
+## Round 23: Production Readiness Closeout v1
+
+### Summary
+Complete system closeout: capability map (23 capabilities), domain scorecard (20 domains), source enablement plan (9 categories), known gap register (9 gaps), pre-tournament checklist (10 items), operator runbook, and final closeout report.
+
+### Key Metrics
+- overall_status: SIMULATION_ONLY_ANALYSIS_READY
+- readiness_score: 1.0 (HIGH_READINESS)
+- real_money_execution_ready: false
+- capabilities: 23 ready / 23 total
+- domains: 20 ready / 20 total
+- gaps: 9 (0 critical, 3 high, 4 medium, 2 low)
+- checklist: 10 items (10 pending pre-tournament)
+
+### How to Run
+```
+make production-readiness-closeout
+make production-readiness-closeout-json
+```
+
+Or directly:
+```
+python scripts/run_production_readiness_closeout.py --json
+```
+
+### Generated Reports
+- reports/generated/production_readiness_closeout.json
+- reports/generated/production_readiness_closeout.md
+- reports/generated/operator_runbook.md
+
+### New Modules
+- src/worldcup_campaign/production_readiness_closeout.py
+- scripts/run_production_readiness_closeout.py
+- tests/test_production_readiness_closeout.py — 17 tests
+- config/production_readiness_config.json
+
+### Currently Not Implemented
+1. Real money execution
+2. Auto-cron pipeline
+3. Live odds/result scraping
+4. Interactive closeout dashboard
+5. Auto-patch from calibration recommendations
+
+### Next Round Suggestion
+Round 24: Pre-Tournament Patch Window v1 — fix high-priority gaps identified in closeout
