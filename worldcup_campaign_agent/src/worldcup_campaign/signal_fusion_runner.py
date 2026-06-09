@@ -16,6 +16,8 @@ class SignalFusionPreview:
     fusion_summary: dict = field(default_factory=dict)
     support_summary: dict = field(default_factory=dict)
     score_summary: dict = field(default_factory=dict)
+    score_guard_summary: dict = field(default_factory=dict)
+    review_guard_summary: dict = field(default_factory=dict)
     safety: dict = field(default_factory=dict)
     warnings: list = field(default_factory=list)
     generated_at: str = ""
@@ -23,8 +25,10 @@ class SignalFusionPreview:
 
 
 def _d(obj):
-    if hasattr(obj, '__dataclass_fields__'): return {k: _d(v) for k, v in asdict(obj).items()}
-    if isinstance(obj, list): return [_d(i) for i in obj]
+    if hasattr(obj, '__dataclass_fields__'):
+        return {k: _d(v) for k, v in asdict(obj).items()}
+    if isinstance(obj, list):
+        return [_d(i) for i in obj]
     return obj
 
 
@@ -86,8 +90,10 @@ class SignalFusionRunner:
 
         # Score summary
         if fusion.candidates:
-            base_avg = sum(c.base_campaign_score for c in fusion.candidates) / len(fusion.candidates)
-            upg_avg = sum(c.upgraded_campaign_score for c in fusion.candidates) / len(fusion.candidates)
+            base_scores = [c.base_campaign_score for c in fusion.candidates]
+            upg_scores = [c.upgraded_campaign_score for c in fusion.candidates]
+            base_avg = sum(base_scores) / len(base_scores)
+            upg_avg = sum(upg_scores) / len(upg_scores)
         else:
             base_avg = upg_avg = 0
         preview.score_summary = {
@@ -98,6 +104,26 @@ class SignalFusionRunner:
             "edge_eligible_count": sum(1 for c in fusion.candidates if c.upgraded_bucket in ("edge", "core")),
             "attack_eligible_count": sum(1 for c in fusion.candidates if c.upgraded_bucket in ("attack", "edge", "core")),
             "futures_eligible_count": sum(1 for c in fusion.candidates if c.upgraded_bucket in ("futures", "attack")),
+        }
+
+        # Score guard summary
+        preview.score_guard_summary = {
+            "min_base_campaign_score": fusion.min_base_campaign_score,
+            "max_base_campaign_score": fusion.max_base_campaign_score,
+            "min_upgraded_campaign_score": fusion.min_upgraded_campaign_score,
+            "max_upgraded_campaign_score": fusion.max_upgraded_campaign_score,
+            "min_fusion_score": fusion.min_fusion_score,
+            "max_fusion_score": fusion.max_fusion_score,
+            "raw_negative_signal_count": fusion.raw_negative_signal_count,
+            "score_clamped_count": fusion.score_clamped_count,
+        }
+
+        # Review guard summary
+        preview.review_guard_summary = {
+            "unexplained_disagreement_count": fusion.unexplained_disagreement_count,
+            "review_triggered_by_unexplained_disagreement_count": fusion.review_triggered_by_unexplained_disagreement_count,
+            "review_triggered_by_missing_market_context_count": fusion.review_triggered_by_missing_market_context_count,
+            "review_triggered_by_missing_team_context_count": fusion.review_triggered_by_missing_team_context_count,
         }
 
         preview.safety = {
@@ -113,6 +139,7 @@ class SignalFusionRunner:
 
     def _render_md(self, p) -> str:
         fu = p.fusion_summary; sc = p.score_summary; su = p.support_summary
+        sg = p.score_guard_summary; rg = p.review_guard_summary
         lines = [
             "# Signal Fusion & Strategy Upgrade", "",
             f"**Date:** {p.current_date} | **Bankroll:** {p.current_bankroll}", "",
@@ -139,8 +166,29 @@ class SignalFusionRunner:
             f"- Edge eligible: {sc.get('edge_eligible_count',0)}",
             f"- Attack eligible: {sc.get('attack_eligible_count',0)}",
             f"- Futures eligible: {sc.get('futures_eligible_count',0)}", "",
-            "## 5. Warnings",
+            "## 5. Score Guard (0–1 Clamp)",
+            f"- Min base score: {sg.get('min_base_campaign_score',0):.4f}",
+            f"- Max base score: {sg.get('max_base_campaign_score',0):.4f}",
+            f"- Min upgraded score: {sg.get('min_upgraded_campaign_score',0):.4f}",
+            f"- Max upgraded score: {sg.get('max_upgraded_campaign_score',0):.4f}",
+            f"- Min fusion score: {sg.get('min_fusion_score',0):.4f}",
+            f"- Max fusion score: {sg.get('max_fusion_score',0):.4f}",
+            f"- Raw negative signals: {sg.get('raw_negative_signal_count',0)}",
+            f"- Score clamped count: {sg.get('score_clamped_count',0)}", "",
+            "## 6. Review Guard",
+            f"- Unexplained disagreements: {rg.get('unexplained_disagreement_count',0)}",
+            f"- Review from disagreement: {rg.get('review_triggered_by_unexplained_disagreement_count',0)}",
+            f"- Review from missing market context: {rg.get('review_triggered_by_missing_market_context_count',0)}",
+            f"- Review from missing team context: {rg.get('review_triggered_by_missing_team_context_count',0)}", "",
+            "## 7. Warnings",
         ]
-        for w in p.warnings: lines.append(f"- {w}")
-        lines.extend(["", "## 6. Safety", f"- Analysis only: {p.analysis_only}", f"- Not betting advice: {p.not_betting_advice}", "", "---", "*Signal fusion analysis. Not betting advice.*"])
+        for w in p.warnings:
+            lines.append(f"- {w}")
+        lines.extend([
+            "", "## 8. Safety",
+            f"- Analysis only: {p.analysis_only}",
+            f"- Not betting advice: {p.not_betting_advice}",
+            "", "---",
+            "*Signal fusion analysis. Score clamped 0-1. Not betting advice.*"
+        ])
         return "\n".join(lines)
