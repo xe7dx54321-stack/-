@@ -71,12 +71,15 @@ def build_final_operational_freeze() -> FinalOperationalFreeze:
     freeze.readiness_score = readiness.get("baseline_readiness_score", 0.705)
     freeze.patched_readiness_score_preview = patched_score
 
-    # pytest check - use cache file if available, else assume OK
+    # pytest check - only fail if lastfailed has actual failures
     pytest_ok = True
     try:
         cache = ROOT / ".pytest_cache" / "v" / "cache" / "lastfailed"
         if cache.exists():
-            pytest_ok = False
+            import json
+            data = json.loads(cache.read_text(encoding="utf-8"))
+            if data and len(data) > 0:
+                pytest_ok = False
     except Exception:
         pytest_ok = True
 
