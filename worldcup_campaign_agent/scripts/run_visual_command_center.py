@@ -48,12 +48,22 @@ def main():
             app = ROOT / "apps" / "visual_command_center_app.py"
             subprocess.run([sys.executable, "-m", "streamlit", "run", str(app), "--server.port", str(args.port)])
         except ImportError:
+            # Fallback: serve static HTML via http.server
             hp = ROOT / "reports" / "generated" / "visual_command_center.html"
             hp.parent.mkdir(parents=True, exist_ok=True)
             hp.write_text(render_static_html(snap), encoding="utf-8")
-            print("Streamlit not installed. Static HTML saved: " + str(hp), file=sys.stderr)
-            print("Install: pip install streamlit", file=sys.stderr)
-            print("Then open: " + str(hp), file=sys.stderr)
+            import http.server, socketserver, threading, webbrowser
+            os.chdir(str(ROOT / "reports" / "generated"))
+            Handler = http.server.SimpleHTTPRequestHandler
+            httpd = socketserver.TCPServer(("", args.port), Handler)
+            url = "http://localhost:" + str(args.port) + "/visual_command_center.html"
+            print("Streamlit not installed. Serving static HTML at " + url, file=sys.stderr)
+            print("Install Streamlit: pip install streamlit", file=sys.stderr)
+            webbrowser.open(url)
+            try:
+                httpd.serve_forever()
+            except KeyboardInterrupt:
+                httpd.shutdown()
 
     if args.format == "markdown":
         print(render_visual_markdown(snap))
