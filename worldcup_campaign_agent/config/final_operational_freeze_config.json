@@ -1,0 +1,23 @@
+{
+  "model_name": "final_operational_freeze_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "freeze_scope": [
+    "command_matrix",
+    "launch_checklist",
+    "go_no_go_gate",
+    "artifact_index",
+    "safety_boundary",
+    "operator_quickstart",
+    "known_gaps_acknowledgement",
+    "release_notes"
+  ],
+  "feature_freeze": true,
+  "new_strategy_feature_allowed": false,
+  "real_money_execution_ready": false,
+  "network_fetch_default_enabled": false,
+  "frozen_readiness_source": "reports/generated/pre_tournament_patch.json",
+  "production_closeout_source": "reports/generated/production_readiness_closeout.json"
+}

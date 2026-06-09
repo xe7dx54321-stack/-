@@ -1,0 +1,29 @@
+{
+  "title": "Go/No-Go Gate",
+  "type": "object",
+  "required": [
+    "gate_status",
+    "go_condition_count",
+    "go_condition_passed_count",
+    "no_go_triggered_count"
+  ],
+  "properties": {
+    "gate_status": {
+      "type": "string",
+      "enum": [
+        "GO",
+        "NO_GO",
+        "GO_WITH_WARNINGS"
+      ]
+    },
+    "go_condition_count": {
+      "type": "integer"
+    },
+    "go_condition_passed_count": {
+      "type": "integer"
+    },
+    "no_go_triggered_count": {
+      "type": "integer"
+    }
+  }
+}

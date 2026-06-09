@@ -1,0 +1,24 @@
+{
+  "title": "Final Release Notes",
+  "type": "object",
+  "required": [
+    "release_tag",
+    "release_type",
+    "analysis_only",
+    "simulation_only"
+  ],
+  "properties": {
+    "release_tag": {
+      "type": "string"
+    },
+    "release_type": {
+      "type": "string"
+    },
+    "analysis_only": {
+      "type": "boolean"
+    },
+    "simulation_only": {
+      "type": "boolean"
+    }
+  }
+}

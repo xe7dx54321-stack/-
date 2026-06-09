@@ -1,0 +1,35 @@
+{
+  "gate_name": "final_go_no_go_gate_v1",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "go_conditions": [
+    "pytest_passed",
+    "git_clean",
+    "smoke_tests_passed",
+    "patch_status_not_failed",
+    "readiness_score_at_least_0_80",
+    "manual_inputs_ready",
+    "human_review_ready",
+    "watchdog_available",
+    "real_money_execution_false",
+    "no_forbidden_fields"
+  ],
+  "no_go_conditions": [
+    "tests_failed",
+    "git_dirty",
+    "smoke_tests_failed",
+    "patch_status_failed",
+    "forbidden_fields_detected",
+    "real_money_execution_true",
+    "auto_betting_true",
+    "account_or_wallet_access_detected"
+  ],
+  "warning_conditions": [
+    "real_network_disabled",
+    "human_review_writeback_not_ready",
+    "source_enablement_manual_only",
+    "open_known_gaps",
+    "patch_status_warn"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "title": "Final Launch Checklist",
+  "type": "object",
+  "required": [
+    "checklist_count",
+    "completed_count",
+    "pending_count",
+    "launch_status"
+  ],
+  "properties": {
+    "checklist_count": {
+      "type": "integer"
+    },
+    "completed_count": {
+      "type": "integer"
+    },
+    "pending_count": {
+      "type": "integer"
+    },
+    "launch_status": {
+      "type": "string"
+    }
+  }
+}

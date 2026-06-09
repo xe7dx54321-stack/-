@@ -1,0 +1,38 @@
+{
+  "model_name": "final_launch_checklist_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "checklist_groups": [
+    "environment",
+    "manual_inputs",
+    "daily_ops",
+    "watchdog",
+    "human_review",
+    "real_data_preview",
+    "dry_run",
+    "reports",
+    "archive",
+    "safety"
+  ],
+  "required_launch_checks": [
+    "git_status_clean",
+    "pytest_passed",
+    "smoke_tests_passed",
+    "manual_input_templates_available",
+    "daily_ops_command_available",
+    "watchdog_command_available",
+    "human_review_workbench_available",
+    "real_data_preview_available",
+    "production_closeout_available",
+    "pre_tournament_patch_available",
+    "no_forbidden_fields",
+    "real_money_execution_false"
+  ],
+  "allowed_launch_status": [
+    "READY_FOR_ANALYSIS_SIMULATION",
+    "READY_WITH_WARNINGS",
+    "NOT_READY"
+  ]
+}

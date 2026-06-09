@@ -1,0 +1,46 @@
+{
+  "model_name": "frozen_command_matrix_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "commands": [
+    "run_campaign_foundation",
+    "run_calendar_preview",
+    "run_daily_strategy_preview",
+    "run_match_probability_preview",
+    "run_ev_ranking_preview",
+    "run_integrated_daily_strategy",
+    "run_parlay_preview",
+    "run_futures_preview",
+    "run_campaign_schedule_preview",
+    "run_postmatch_settlement",
+    "run_campaign_dashboard",
+    "run_model_calibration_review",
+    "run_market_odds_consensus",
+    "run_polymarket_preview",
+    "run_market_expectation",
+    "run_team_news_preview",
+    "run_signal_fusion_preview",
+    "run_daily_ops_watchdog",
+    "run_daily_ops",
+    "run_real_data_preview",
+    "run_full_campaign_dry_run",
+    "run_human_review_workbench",
+    "run_production_readiness_closeout",
+    "run_pre_tournament_patch",
+    "run_final_operational_freeze"
+  ],
+  "primary_daily_commands": [
+    "python scripts/run_daily_ops.py --date <DATE> --bankroll <BANKROLL> --json",
+    "python scripts/run_daily_ops_watchdog.py --date <DATE> --bankroll <BANKROLL> --json",
+    "python scripts/run_human_review_workbench.py --date <DATE> --bankroll <BANKROLL> --json",
+    "python scripts/run_real_data_preview.py --date <DATE> --bankroll <BANKROLL> --json"
+  ],
+  "pre_tournament_commands": [
+    "python scripts/run_pre_tournament_patch.py --json",
+    "python scripts/run_production_readiness_closeout.py --json",
+    "python scripts/run_full_campaign_dry_run.py --start-date 2026-06-11 --end-date 2026-07-19 --bankroll 100 --json",
+    "python scripts/run_final_operational_freeze.py --json"
+  ]
+}

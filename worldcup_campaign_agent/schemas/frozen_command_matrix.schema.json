@@ -1,0 +1,20 @@
+{
+  "title": "Frozen Command Matrix",
+  "type": "object",
+  "required": [
+    "command_count",
+    "primary_daily_command_count",
+    "forbidden_command_count"
+  ],
+  "properties": {
+    "command_count": {
+      "type": "integer"
+    },
+    "primary_daily_command_count": {
+      "type": "integer"
+    },
+    "forbidden_command_count": {
+      "type": "integer"
+    }
+  }
+}

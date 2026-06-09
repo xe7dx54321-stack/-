@@ -1,0 +1,20 @@
+{
+  "title": "Final Artifact Index",
+  "type": "object",
+  "required": [
+    "artifact_count",
+    "available_artifact_count",
+    "missing_artifact_count"
+  ],
+  "properties": {
+    "artifact_count": {
+      "type": "integer"
+    },
+    "available_artifact_count": {
+      "type": "integer"
+    },
+    "missing_artifact_count": {
+      "type": "integer"
+    }
+  }
+}

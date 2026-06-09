@@ -1,0 +1,36 @@
+{
+  "title": "Final Operational Freeze",
+  "type": "object",
+  "required": [
+    "freeze_version",
+    "freeze_status",
+    "feature_freeze",
+    "analysis_only",
+    "simulation_only",
+    "not_betting_advice",
+    "real_money_execution_ready"
+  ],
+  "properties": {
+    "freeze_version": {
+      "type": "string"
+    },
+    "freeze_status": {
+      "type": "string"
+    },
+    "feature_freeze": {
+      "type": "boolean"
+    },
+    "analysis_only": {
+      "type": "boolean"
+    },
+    "simulation_only": {
+      "type": "boolean"
+    },
+    "not_betting_advice": {
+      "type": "boolean"
+    },
+    "real_money_execution_ready": {
+      "type": "boolean"
+    }
+  }
+}

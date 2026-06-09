@@ -1,0 +1,33 @@
+{
+  "model_name": "final_safety_boundary_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "real_money_execution_ready": false,
+  "real_bet_execution": false,
+  "auto_betting": false,
+  "external_betting_api_allowed": false,
+  "bookmaker_account_access_allowed": false,
+  "wallet_connection_allowed": false,
+  "prediction_market_trading_allowed": false,
+  "polymarket_order_submission_allowed": false,
+  "forbidden_fields": [
+    "stake",
+    "stake_amount",
+    "stake_to_match",
+    "bet_instruction",
+    "bet_slip",
+    "bookmaker_account",
+    "account_balance",
+    "real_money_balance",
+    "wallet_address",
+    "private_key",
+    "api_secret",
+    "signed_order",
+    "submit_order",
+    "cancel_order",
+    "guaranteed_profit",
+    "chase_loss"
+  ]
+}
