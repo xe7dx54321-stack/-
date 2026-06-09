@@ -1,0 +1,41 @@
+{
+  "model_name": "real_data_source_policy_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "network_fetch_default_enabled": false,
+  "public_result_data_allowed": true,
+  "manual_csv_allowed": true,
+  "manual_json_allowed": true,
+  "public_api_provider_allowed": true,
+  "login_required_source_allowed": false,
+  "paywalled_source_bypass_allowed": false,
+  "bookmaker_account_access_allowed": false,
+  "wallet_connection_allowed": false,
+  "auto_betting_allowed": false,
+  "real_bet_execution_allowed": false,
+  "allowed_source_modes": [
+    "fixture",
+    "manual_csv",
+    "manual_json",
+    "public_api_optional"
+  ],
+  "forbidden_fields": [
+    "stake",
+    "stake_amount",
+    "stake_to_match",
+    "bet_instruction",
+    "bet_slip",
+    "bookmaker_account",
+    "account_balance",
+    "real_money_balance",
+    "wallet_address",
+    "private_key",
+    "api_secret",
+    "signed_order",
+    "submit_order",
+    "cancel_order",
+    "real_bet_execution"
+  ]
+}

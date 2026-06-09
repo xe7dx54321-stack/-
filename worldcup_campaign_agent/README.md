@@ -1017,3 +1017,85 @@ python scripts/run_daily_ops.py --date 2026-06-11 --bankroll 100 --mode watchdog
 
 ### Next Round Suggestion
 Round 20: Real Data Adapter & Manual Odds Input v1
+
+
+## Round 20: Real Data Adapter & Settlement Auto-Match v1
+
+### Overview
+Round 20 bridges the system from simulated/fixture data toward real-world operation. It adds match result loading (JSON/CSV), result normalization (90min/extra time/penalties), group table and knockout result import, real odds snapshot import, and automatic settlement matching against the simulation ledger. Public API adapter is reserved but disabled by default.
+
+### Key Capabilities
+- Source policy enforcement: blocks login-required, paywalled, bookmaker-account sources
+- Match result fixture loader: JSON + CSV, with forbidden field scanning
+- Result normalizer: 90min / extra time / penalties / winner / qualified team
+- Group table normalizer + knockout result normalizer
+- Real odds snapshot importer (JSON + CSV)
+- Settlement market rules: 1x2, over_under, correct_score, futures
+- Auto settlement matcher: matches simulation ledger entries to real results
+- Manual review queue for low-confidence or ambiguous matches
+- Forbidden field scanner on all inputs and outputs
+
+### Settlement Rules
+| Market | Rule | Period |
+|--------|------|--------|
+| 1x2 | home/draw/away winner | 90 min |
+| Over/Under | total goals vs line | 90 min |
+| Correct Score | exact score match | 90 min |
+| Futures | pending until resolved | full tournament |
+
+### Safety
+- network_fetch_default_enabled=false: No network calls
+- login_required_source_allowed=false
+- bookmaker_account_access_allowed=false
+- wallet_connection_allowed=false
+- All inputs scanned for forbidden fields (stake, bet_instruction, etc.)
+- Self-check on output for forbidden fields
+
+### How to Run
+```
+make real-data-preview
+make real-data-preview-json
+make real-data-preview-third-round-json
+make real-data-preview-final-json
+make real-data-preview-bankroll-5000-json
+```
+
+Or directly:
+```
+python scripts/run_real_data_preview.py --date 2026-06-11 --bankroll 100 --json
+```
+
+### Generated Reports
+- reports/generated/real_data_preview.json + .md
+- reports/generated/auto_settlement_preview.json
+- reports/generated/manual_settlement_review_queue.json
+
+### New Modules
+- src/worldcup_campaign/real_data_adapter.py — Source policy, loaders, normalizers, settlement engine, auto matcher
+- src/worldcup_campaign/real_data_runner.py — Runner + renderer
+- scripts/run_real_data_preview.py — CLI
+
+### New Configs
+- config/real_data_source_policy.json
+- config/match_result_config.json
+- config/group_table_result_config.json
+- config/auto_settlement_match_config.json
+- config/manual_result_override_policy.json
+- config/real_odds_snapshot_policy.json
+- config/real_data_report_config.json
+
+### Seed Data
+- data/seed/match_results_seed.json + .csv
+- data/seed/group_table_results_seed.json
+- data/seed/knockout_results_seed.json
+- data/seed/real_odds_snapshot_seed.json + .csv
+
+### Currently Not Implemented
+1. Live API result fetching
+2. Auto daily result scraping
+3. Real money settlement
+4. Interactive manual review UI
+5. Full tournament dry-run
+
+### Next Round Suggestion
+Round 21: Full Campaign Dry-Run v1 — run the entire campaign from matchday 1 to final with seed results

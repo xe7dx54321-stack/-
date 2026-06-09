@@ -1,0 +1,105 @@
+{
+  "fixture_name": "group_table_seed",
+  "groups": {
+    "A": [
+      {
+        "team_id": "NED",
+        "played": 1,
+        "wins": 1,
+        "draws": 0,
+        "losses": 0,
+        "goals_for": 2,
+        "goals_against": 0,
+        "points": 3,
+        "rank": 1,
+        "qualification_status": "pending"
+      },
+      {
+        "team_id": "MEX",
+        "played": 1,
+        "wins": 0,
+        "draws": 1,
+        "losses": 0,
+        "goals_for": 1,
+        "goals_against": 1,
+        "points": 1,
+        "rank": 2,
+        "qualification_status": "pending"
+      },
+      {
+        "team_id": "POL",
+        "played": 1,
+        "wins": 0,
+        "draws": 1,
+        "losses": 0,
+        "goals_for": 1,
+        "goals_against": 1,
+        "points": 1,
+        "rank": 3,
+        "qualification_status": "pending"
+      },
+      {
+        "team_id": "SEN",
+        "played": 1,
+        "wins": 0,
+        "draws": 0,
+        "losses": 1,
+        "goals_for": 0,
+        "goals_against": 2,
+        "points": 0,
+        "rank": 4,
+        "qualification_status": "pending"
+      }
+    ],
+    "B": [
+      {
+        "team_id": "ENG",
+        "played": 1,
+        "wins": 1,
+        "draws": 0,
+        "losses": 0,
+        "goals_for": 4,
+        "goals_against": 1,
+        "points": 3,
+        "rank": 1,
+        "qualification_status": "pending"
+      },
+      {
+        "team_id": "USA",
+        "played": 1,
+        "wins": 0,
+        "draws": 1,
+        "losses": 0,
+        "goals_for": 1,
+        "goals_against": 1,
+        "points": 1,
+        "rank": 2,
+        "qualification_status": "pending"
+      },
+      {
+        "team_id": "WAL",
+        "played": 1,
+        "wins": 0,
+        "draws": 1,
+        "losses": 0,
+        "goals_for": 1,
+        "goals_against": 1,
+        "points": 1,
+        "rank": 3,
+        "qualification_status": "pending"
+      },
+      {
+        "team_id": "IRN",
+        "played": 1,
+        "wins": 0,
+        "draws": 0,
+        "losses": 1,
+        "goals_for": 1,
+        "goals_against": 4,
+        "points": 0,
+        "rank": 4,
+        "qualification_status": "pending"
+      }
+    ]
+  }
+}

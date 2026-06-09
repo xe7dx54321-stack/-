@@ -1,0 +1,41 @@
+{
+  "snapshot_name": "real_odds_seed",
+  "snapshots": [
+    {
+      "snapshot_id": "ROS_001",
+      "source_provider": "sportsbook_A",
+      "source_mode": "manual_json",
+      "snapshot_type": "current",
+      "timestamp": "2026-06-11T10:00:00Z",
+      "match_id": "GS_A_R1_001",
+      "market_type": "1x2",
+      "selection_id": "home",
+      "selection_label": "MEX",
+      "decimal_odds": 2.8
+    },
+    {
+      "snapshot_id": "ROS_002",
+      "source_provider": "sportsbook_A",
+      "source_mode": "manual_json",
+      "snapshot_type": "current",
+      "timestamp": "2026-06-11T10:00:00Z",
+      "match_id": "GS_A_R1_001",
+      "market_type": "1x2",
+      "selection_id": "draw",
+      "selection_label": "Draw",
+      "decimal_odds": 3.2
+    },
+    {
+      "snapshot_id": "ROS_003",
+      "source_provider": "sportsbook_B",
+      "source_mode": "manual_json",
+      "snapshot_type": "current",
+      "timestamp": "2026-06-11T09:30:00Z",
+      "match_id": "GS_A_R1_001",
+      "market_type": "1x2",
+      "selection_id": "home",
+      "selection_label": "MEX",
+      "decimal_odds": 2.9
+    }
+  ]
+}

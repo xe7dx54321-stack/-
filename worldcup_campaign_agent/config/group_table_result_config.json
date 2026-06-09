@@ -1,0 +1,27 @@
+{
+  "model_name": "group_table_result_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "not_betting_advice": true,
+  "fields": [
+    "group",
+    "team_id",
+    "played",
+    "wins",
+    "draws",
+    "losses",
+    "goals_for",
+    "goals_against",
+    "goal_difference",
+    "points",
+    "rank",
+    "qualification_status"
+  ],
+  "qualification_status_labels": [
+    "qualified",
+    "eliminated",
+    "pending",
+    "best_third_pending",
+    "unknown"
+  ]
+}

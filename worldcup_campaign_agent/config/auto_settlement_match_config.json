@@ -1,0 +1,22 @@
+{
+  "model_name": "auto_settlement_matcher_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "supported_market_types": [
+    "1x2",
+    "over_under",
+    "asian_handicap",
+    "correct_score",
+    "double_chance",
+    "group_qualification",
+    "winner",
+    "reach_final"
+  ],
+  "unsupported_market_policy": "manual_review",
+  "confidence_threshold_auto": 0.8,
+  "confidence_threshold_review": 0.5,
+  "pending_futures_policy": "keep_pending",
+  "ambiguous_result_policy": "manual_review"
+}

@@ -1,0 +1,29 @@
+{
+  "model_name": "match_result_normalizer_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "not_betting_advice": true,
+  "supported_result_types": [
+    "group_stage",
+    "knockout_90min",
+    "knockout_extra_time",
+    "knockout_penalties"
+  ],
+  "score_fields": [
+    "home_score_90",
+    "away_score_90",
+    "home_score_extra",
+    "away_score_extra",
+    "home_penalties",
+    "away_penalties"
+  ],
+  "result_status_labels": [
+    "completed",
+    "scheduled",
+    "postponed",
+    "abandoned",
+    "unknown"
+  ],
+  "match_mapping_required": true,
+  "stage_mapping_required": true
+}

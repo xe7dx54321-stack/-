@@ -1,0 +1,32 @@
+{
+  "model_name": "real_odds_snapshot_policy_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "manual_odds_snapshot_allowed": true,
+  "public_api_odds_snapshot_allowed": true,
+  "network_fetch_default_enabled": false,
+  "snapshot_types": [
+    "opening",
+    "current",
+    "closing"
+  ],
+  "required_snapshot_fields": [
+    "snapshot_id",
+    "source_provider",
+    "snapshot_type",
+    "timestamp",
+    "match_id",
+    "market_type",
+    "selection_id",
+    "decimal_odds"
+  ],
+  "forbidden_fields": [
+    "stake",
+    "stake_amount",
+    "bet_instruction",
+    "bookmaker_account",
+    "wallet_address"
+  ]
+}

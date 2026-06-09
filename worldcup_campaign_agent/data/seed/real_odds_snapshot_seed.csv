@@ -1,0 +1,4 @@
+snapshot_id,source_provider,snapshot_type,timestamp,match_id,market_type,selection_id,selection_label,decimal_odds
+ROS_001,sportsbook_A,current,2026-06-11T10:00:00Z,GS_A_R1_001,1x2,home,MEX,2.8
+ROS_002,sportsbook_A,current,2026-06-11T10:00:00Z,GS_A_R1_001,1x2,draw,Draw,3.2
+ROS_003,sportsbook_B,current,2026-06-11T09:30:00Z,GS_A_R1_001,1x2,home,MEX,2.9

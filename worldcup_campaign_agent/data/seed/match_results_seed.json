@@ -1,0 +1,45 @@
+{
+  "fixture_name": "match_results_seed",
+  "results": [
+    {
+      "match_id": "GS_A_R1_001",
+      "date": "2026-06-11",
+      "stage": "group_stage",
+      "home_team_id": "MEX",
+      "away_team_id": "POL",
+      "home_score_90": 1,
+      "away_score_90": 1,
+      "result_status": "completed"
+    },
+    {
+      "match_id": "GS_A_R1_002",
+      "date": "2026-06-11",
+      "stage": "group_stage",
+      "home_team_id": "NED",
+      "away_team_id": "SEN",
+      "home_score_90": 2,
+      "away_score_90": 0,
+      "result_status": "completed"
+    },
+    {
+      "match_id": "GS_B_R1_001",
+      "date": "2026-06-11",
+      "stage": "group_stage",
+      "home_team_id": "ENG",
+      "away_team_id": "IRN",
+      "home_score_90": 4,
+      "away_score_90": 1,
+      "result_status": "completed"
+    },
+    {
+      "match_id": "GS_B_R1_002",
+      "date": "2026-06-11",
+      "stage": "group_stage",
+      "home_team_id": "USA",
+      "away_team_id": "WAL",
+      "home_score_90": 1,
+      "away_score_90": 1,
+      "result_status": "completed"
+    }
+  ]
+}

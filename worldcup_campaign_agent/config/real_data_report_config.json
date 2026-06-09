@@ -1,0 +1,21 @@
+{
+  "model_name": "real_data_report_config_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "include_sections": [
+    "source_policy_status",
+    "match_results",
+    "group_table",
+    "knockout_results",
+    "odds_snapshot",
+    "auto_settlement",
+    "manual_review_queue",
+    "safety"
+  ],
+  "report_format": [
+    "json",
+    "markdown"
+  ]
+}

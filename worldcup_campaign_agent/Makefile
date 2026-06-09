@@ -288,3 +288,17 @@ daily-ops-run-execute-json:
 
 daily-ops-run-watchdog-only-json:
 	python scripts/run_daily_ops.py --date 2026-06-11 --bankroll 100 --mode watchdog_only --json
+real-data-preview:
+	python scripts/run_real_data_preview.py --date 2026-06-11 --bankroll 100
+
+real-data-preview-json:
+	python scripts/run_real_data_preview.py --date 2026-06-11 --bankroll 100 --json
+
+real-data-preview-third-round-json:
+	python scripts/run_real_data_preview.py --date 2026-06-24 --bankroll 100 --json
+
+real-data-preview-final-json:
+	python scripts/run_real_data_preview.py --date 2026-07-19 --bankroll 100 --json
+
+real-data-preview-bankroll-5000-json:
+	python scripts/run_real_data_preview.py --date 2026-06-11 --bankroll 5000 --json

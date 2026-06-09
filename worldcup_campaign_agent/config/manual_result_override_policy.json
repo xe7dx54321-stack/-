@@ -1,0 +1,24 @@
+{
+  "model_name": "manual_result_override_policy_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "manual_override_allowed": true,
+  "override_requires_reason": true,
+  "override_requires_operator_note": true,
+  "allowed_override_statuses": [
+    "hit",
+    "miss",
+    "push",
+    "void",
+    "pending",
+    "unknown"
+  ],
+  "forbidden_override_fields": [
+    "real_money_balance",
+    "stake_amount",
+    "stake_to_match",
+    "bet_instruction",
+    "bookmaker_account"
+  ]
+}
