@@ -1,0 +1,75 @@
+{
+  "model_name": "daily_execution_rules_v1",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "forbidden_actions": [
+    "place_bet",
+    "execute_trade",
+    "login_bookmaker",
+    "transfer_funds",
+    "submit_wager",
+    "auto_bet"
+  ],
+  "allowed_actions": [
+    "run_analysis",
+    "generate_report",
+    "update_state",
+    "review_candidates",
+    "check_safety",
+    "log_progress"
+  ],
+  "module_dependencies": {
+    "foundation": [],
+    "match_probability": [
+      "foundation"
+    ],
+    "ev_ranking": [
+      "match_probability"
+    ],
+    "integrated_strategy": [
+      "ev_ranking",
+      "foundation"
+    ],
+    "parlay_preview": [
+      "integrated_strategy"
+    ],
+    "futures_refresh": [
+      "foundation"
+    ],
+    "post_match_review": [
+      "foundation"
+    ],
+    "bankroll_update": [
+      "post_match_review"
+    ],
+    "scenario_review": [
+      "foundation"
+    ],
+    "target_tracking": [
+      "foundation"
+    ],
+    "campaign_review": [
+      "foundation"
+    ]
+  },
+  "checklist_template": {
+    "pre_run": [
+      "verify_safety_flags",
+      "check_config_integrity",
+      "confirm_analysis_only_mode"
+    ],
+    "during_run": [
+      "run_foundation_check",
+      "run_stage_modules",
+      "generate_reports",
+      "verify_no_bet_instruction"
+    ],
+    "post_run": [
+      "review_outputs",
+      "archive_reports",
+      "update_campaign_log",
+      "check_path_sanity"
+    ]
+  }
+}

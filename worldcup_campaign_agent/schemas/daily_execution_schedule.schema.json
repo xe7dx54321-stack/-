@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "required": [
+    "date",
+    "daily_mode",
+    "operator_checklist"
+  ],
+  "properties": {
+    "date": {
+      "type": "string"
+    },
+    "daily_mode": {
+      "type": "string"
+    },
+    "operator_checklist": {
+      "type": "object"
+    },
+    "recommended_modules": {
+      "type": "array"
+    },
+    "not_betting_advice": {
+      "type": "boolean"
+    }
+  }
+}

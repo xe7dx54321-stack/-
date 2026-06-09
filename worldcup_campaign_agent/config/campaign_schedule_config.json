@@ -1,0 +1,142 @@
+{
+  "model_name": "campaign_schedule_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "tournament_dates": {
+    "start": "2026-06-01",
+    "end": "2026-07-20",
+    "total_days": 50
+  },
+  "daily_modes": {
+    "pre_matchday": {
+      "description": "Day with no matches but within active tournament",
+      "run_modules": [
+        "foundation",
+        "futures_refresh",
+        "target_tracking"
+      ],
+      "parlay_enabled": false,
+      "integrated_strategy_enabled": false
+    },
+    "matchday": {
+      "description": "Day with scheduled matches",
+      "run_modules": [
+        "foundation",
+        "match_probability",
+        "ev_ranking",
+        "integrated_strategy",
+        "parlay_preview"
+      ],
+      "parlay_enabled": true,
+      "integrated_strategy_enabled": true
+    },
+    "rest_day": {
+      "description": "Day between matchdays with no matches",
+      "run_modules": [
+        "foundation",
+        "futures_refresh",
+        "target_tracking",
+        "scenario_review"
+      ],
+      "parlay_enabled": false,
+      "integrated_strategy_enabled": false
+    },
+    "post_matchday": {
+      "description": "Day after matches for review and update",
+      "run_modules": [
+        "foundation",
+        "post_match_review",
+        "bankroll_update",
+        "scenario_review"
+      ],
+      "parlay_enabled": false,
+      "integrated_strategy_enabled": false
+    },
+    "post_tournament": {
+      "description": "Tournament concluded",
+      "run_modules": [
+        "foundation",
+        "campaign_review"
+      ],
+      "parlay_enabled": false,
+      "integrated_strategy_enabled": false
+    }
+  },
+  "futures_refresh_frequency": {
+    "pre_tournament": "daily",
+    "group_round_1": "every_2_days",
+    "group_round_2": "every_2_days",
+    "group_round_3": "every_matchday",
+    "round_of_32": "every_matchday",
+    "round_of_16": "every_matchday",
+    "quarter_final": "every_matchday",
+    "semi_final": "every_matchday",
+    "third_place": "once",
+    "final": "once"
+  },
+  "parlay_min_candidates": 6,
+  "path_sanity": {
+    "winner_probability_min_sum": 0.85,
+    "warn_below_sum": true,
+    "warn_message": "Winner probability sum below threshold; v1 simplified model. Do not use as calibrated probability distribution."
+  },
+  "bucket_focus_by_stage": {
+    "pre_tournament": [
+      "futures"
+    ],
+    "group_round_1": [
+      "core",
+      "edge",
+      "attack",
+      "futures"
+    ],
+    "group_round_2": [
+      "core",
+      "edge",
+      "attack",
+      "futures",
+      "parlay"
+    ],
+    "group_round_3": [
+      "core",
+      "edge",
+      "attack",
+      "futures",
+      "parlay"
+    ],
+    "round_of_32": [
+      "core",
+      "edge",
+      "attack",
+      "parlay"
+    ],
+    "round_of_16": [
+      "core",
+      "edge",
+      "attack",
+      "parlay"
+    ],
+    "quarter_final": [
+      "core",
+      "edge",
+      "attack",
+      "parlay"
+    ],
+    "semi_final": [
+      "core",
+      "edge",
+      "parlay"
+    ],
+    "third_place": [
+      "edge",
+      "attack"
+    ],
+    "final": [
+      "core",
+      "edge"
+    ],
+    "post_tournament": []
+  }
+}

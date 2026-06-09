@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "required": [
+    "date",
+    "stage",
+    "daily_mode",
+    "match_count",
+    "recommended_modules"
+  ],
+  "properties": {
+    "date": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "daily_mode": {
+      "type": "string"
+    },
+    "match_count": {
+      "type": "integer"
+    },
+    "recommended_modules": {
+      "type": "array"
+    },
+    "bucket_focus": {
+      "type": "array"
+    },
+    "parlay_enabled": {
+      "type": "boolean"
+    },
+    "futures_enabled": {
+      "type": "boolean"
+    }
+  }
+}

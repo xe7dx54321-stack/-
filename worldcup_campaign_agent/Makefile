@@ -101,3 +101,21 @@ futures-preview-final-json:
 
 futures-preview-bankroll-5000-json:
 	python scripts/run_futures_preview.py --date 2026-06-11 --bankroll 5000 --json
+
+campaign-schedule:
+	python scripts/run_campaign_schedule_preview.py --date 2026-06-11 --bankroll 100
+
+campaign-schedule-json:
+	python scripts/run_campaign_schedule_preview.py --date 2026-06-11 --bankroll 100 --json
+
+campaign-schedule-third-round-json:
+	python scripts/run_campaign_schedule_preview.py --date 2026-06-24 --bankroll 100 --json
+
+campaign-schedule-final-json:
+	python scripts/run_campaign_schedule_preview.py --date 2026-07-19 --bankroll 100 --json
+
+campaign-schedule-bankroll-5000-json:
+	python scripts/run_campaign_schedule_preview.py --date 2026-06-11 --bankroll 5000 --json
+
+campaign-schedule-full-timeline-json:
+	python scripts/run_campaign_schedule_preview.py --bankroll 100 --full-timeline --json

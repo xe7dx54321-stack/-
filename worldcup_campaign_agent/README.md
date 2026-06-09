@@ -310,3 +310,86 @@ ot_betting_advice=true
 
 ### Next Round Suggestion
 Round 9: Campaign Timeline & Daily Execution Schedule v1 -- generate a tournament-long campaign timeline with daily deployment windows, bankroll state transitions, and cumulative strategy tracking.
+
+## Round 9: Campaign Timeline & Daily Execution Schedule v1
+
+### Overview
+Round 9 adds Campaign Timeline and Daily Execution Schedule v1 -- a daily operator plan that tells the system what analysis modules to run each day, which buckets to focus on, and generates a human-readable operator checklist. This integrates all Round 1-8 capabilities into a 50-day tournament-long execution plan.
+
+### Key Capabilities
+- Generate 50-day full campaign timeline (2026-06-01 to 2026-07-20)
+- Classify each day: matchday, rest_day, pre_matchday, post_tournament
+- Determine recommended modules per day (foundation, match_probability, ev_ranking, integrated_strategy, parlay_preview, futures_refresh)
+- Set parlay_enabled based on match count (6+ candidates)
+- Set futures_enabled based on stage refresh frequency
+- Define bucket_focus per stage (pre_tournament=futures, group_stage=all, knockout=core+edge+attack+parlay)
+- Generate operator checklist (pre_run, during_run, post_run phases)
+- Path sanity warning when winner_probability_sum < 0.85
+- Forbidden actions guard (place_bet, execute_trade, login_bookmaker, etc.)
+
+### Core Principles
+1. "Execution Schedule" means analysis execution, NOT betting execution
+2. Every day has a clear module plan and bucket focus
+3. Parlay only enabled when 6+ candidates available
+4. Futures refreshed with stage-appropriate frequency
+5. Path sanity warnings flag v1 model limitations
+6. All output is analysis_only / simulation_only / not_betting_advice
+
+### How to Run
+`
+make campaign-schedule
+make campaign-schedule-json
+make campaign-schedule-third-round-json
+make campaign-schedule-final-json
+make campaign-schedule-bankroll-5000-json
+make campaign-schedule-full-timeline-json
+`
+
+Or directly:
+`
+python scripts/run_campaign_schedule_preview.py --date 2026-06-11 --bankroll 100 --json
+python scripts/run_campaign_schedule_preview.py --date 2026-06-24 --bankroll 100 --json
+python scripts/run_campaign_schedule_preview.py --date 2026-07-19 --bankroll 100 --json
+python scripts/run_campaign_schedule_preview.py --date 2026-06-11 --bankroll 5000 --json
+python scripts/run_campaign_schedule_preview.py --bankroll 100 --full-timeline --json
+`
+
+### Generated Reports
+- 
+eports/generated/campaign_schedule_preview.json
+- 
+eports/generated/campaign_schedule_preview.md
+
+### New Modules
+- src/worldcup_campaign/campaign_schedule.py -- Full timeline builder + daily schedule
+- src/worldcup_campaign/daily_execution_planner.py -- Daily module plan + path sanity
+- src/worldcup_campaign/operator_checklist.py -- Human-readable operator checklist
+- src/worldcup_campaign/schedule_runner.py -- Full pipeline runner
+- scripts/run_campaign_schedule_preview.py -- CLI
+
+### New Configs
+- config/campaign_schedule_config.json -- Schedule rules, modes, bucket focus, path sanity
+- config/daily_execution_rules.json -- Module dependencies, forbidden/allowed actions, checklist template
+
+### Timeline Summary
+- **50 days** total (2026-06-01 to 2026-07-20)
+- **30 matchdays**
+- **20 non-matchdays** (rest, pre, post-tournament)
+- **11 stages** from pre_tournament to post_tournament
+
+### Safety
+- nalysis_only=true, simulation_only=true, 
+ot_betting_advice=true
+- Forbidden actions: place_bet, execute_trade, login_bookmaker, transfer_funds, submit_wager, auto_bet
+- No stake, no bet_instruction, no bookmaker output
+- Path sanity warnings when probability model has gaps
+
+### Currently Not Implemented
+1. Real odds / bookmaker integration
+2. Post-match bankroll state updates
+3. Dynamic schedule adaptation based on results
+4. Real-time campaign log
+5. Cumulative strategy tracking with profit/loss
+
+### Next Round Suggestion
+Round 10: Post-Match Settlement & Bankroll Update v1 -- add the ability to simulate match outcomes, update bankroll state, and track campaign progress day by day.

@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "required": [
+    "date",
+    "items"
+  ],
+  "properties": {
+    "date": {
+      "type": "string"
+    },
+    "items": {
+      "type": "array"
+    },
+    "warnings": {
+      "type": "array"
+    },
+    "not_betting_advice": {
+      "type": "boolean"
+    }
+  }
+}
