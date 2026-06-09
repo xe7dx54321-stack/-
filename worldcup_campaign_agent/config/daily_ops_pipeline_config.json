@@ -1,0 +1,106 @@
+{
+  "pipeline_name": "worldcup_campaign_daily_ops_v1",
+  "steps": [
+    {
+      "step_id": "pre_watchdog",
+      "runner": "run_daily_ops_watchdog.py",
+      "required": true,
+      "phase": "precheck",
+      "args": [
+        "--mode",
+        "pre_daily_ops"
+      ]
+    },
+    {
+      "step_id": "calendar_preview",
+      "runner": "run_calendar_preview.py",
+      "required": true,
+      "phase": "foundation",
+      "args": []
+    },
+    {
+      "step_id": "match_probability",
+      "runner": "run_match_probability_preview.py",
+      "required": true,
+      "phase": "model",
+      "args": []
+    },
+    {
+      "step_id": "ev_ranking",
+      "runner": "run_ev_ranking_preview.py",
+      "required": true,
+      "phase": "candidate",
+      "args": [
+        "--synthetic-odds"
+      ]
+    },
+    {
+      "step_id": "integrated_strategy",
+      "runner": "run_integrated_daily_strategy.py",
+      "required": true,
+      "phase": "strategy",
+      "args": [
+        "--synthetic-odds"
+      ]
+    },
+    {
+      "step_id": "market_odds_consensus",
+      "runner": "run_market_odds_consensus.py",
+      "required": false,
+      "phase": "market",
+      "args": []
+    },
+    {
+      "step_id": "polymarket_preview",
+      "runner": "run_polymarket_preview.py",
+      "required": false,
+      "phase": "market",
+      "args": []
+    },
+    {
+      "step_id": "market_expectation",
+      "runner": "run_market_expectation.py",
+      "required": false,
+      "phase": "market",
+      "args": []
+    },
+    {
+      "step_id": "team_news",
+      "runner": "run_team_news_preview.py",
+      "required": false,
+      "phase": "context",
+      "args": []
+    },
+    {
+      "step_id": "signal_fusion",
+      "runner": "run_signal_fusion_preview.py",
+      "required": false,
+      "phase": "upgrade",
+      "args": []
+    },
+    {
+      "step_id": "dashboard",
+      "runner": "run_campaign_dashboard.py",
+      "required": false,
+      "phase": "report",
+      "args": []
+    },
+    {
+      "step_id": "post_watchdog",
+      "runner": "run_daily_ops_watchdog.py",
+      "required": true,
+      "phase": "postcheck",
+      "args": [
+        "--mode",
+        "post_daily_ops"
+      ]
+    },
+    {
+      "step_id": "final_daily_package",
+      "runner": "internal_final_package_builder",
+      "required": true,
+      "phase": "package",
+      "args": []
+    }
+  ]
+}

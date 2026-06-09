@@ -1,0 +1,27 @@
+{
+  "model_name": "daily_ops_step_policy_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "step_status_labels": [
+    "PENDING",
+    "RUNNING",
+    "SUCCESS",
+    "WARN",
+    "FAILED",
+    "SKIPPED",
+    "BLOCKED"
+  ],
+  "required_step_failure_policy": "block_pipeline",
+  "optional_step_failure_policy": "warn_and_continue",
+  "capture_stdout_json": true,
+  "capture_stderr": true,
+  "max_step_runtime_seconds": 120,
+  "forbidden_command_fragments": [
+    "submit_order",
+    "place_bet",
+    "connect_wallet",
+    "bookmaker_login",
+    "real_bet_execution"
+  ]
+}

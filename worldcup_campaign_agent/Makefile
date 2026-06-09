@@ -268,3 +268,23 @@ daily-ops-watchdog-pre-ops-json:
 
 daily-ops-watchdog-post-ops-json:
 	python scripts/run_daily_ops_watchdog.py --date 2026-06-11 --bankroll 100 --mode post_daily_ops --json
+daily-ops-run:
+	python scripts/run_daily_ops.py --date 2026-06-11 --bankroll 100
+
+daily-ops-run-json:
+	python scripts/run_daily_ops.py --date 2026-06-11 --bankroll 100 --json
+
+daily-ops-run-third-round-json:
+	python scripts/run_daily_ops.py --date 2026-06-24 --bankroll 100 --json
+
+daily-ops-run-final-json:
+	python scripts/run_daily_ops.py --date 2026-07-19 --bankroll 100 --json
+
+daily-ops-run-bankroll-5000-json:
+	python scripts/run_daily_ops.py --date 2026-06-11 --bankroll 5000 --json
+
+daily-ops-run-execute-json:
+	python scripts/run_daily_ops.py --date 2026-06-11 --bankroll 100 --mode execute --json
+
+daily-ops-run-watchdog-only-json:
+	python scripts/run_daily_ops.py --date 2026-06-11 --bankroll 100 --mode watchdog_only --json

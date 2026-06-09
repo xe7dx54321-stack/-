@@ -1,0 +1,23 @@
+{
+  "model_name": "daily_ops_operator_checklist_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "not_betting_advice": true,
+  "checklist_items": [
+    "confirm_watchdog_status",
+    "review_manual_queue",
+    "check_market_data_freshness",
+    "check_polymarket_liquidity",
+    "check_team_news_rumors",
+    "check_signal_fusion_review_required",
+    "confirm_no_real_execution_fields",
+    "archive_daily_package"
+  ],
+  "forbidden_operator_actions": [
+    "place_bet",
+    "submit_order",
+    "connect_wallet",
+    "increase_real_stake",
+    "chase_loss"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "model_name": "daily_ops_runner_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "runner_modes": [
+    "dry_run",
+    "execute",
+    "skip_optional",
+    "watchdog_only"
+  ],
+  "default_mode": "dry_run",
+  "run_pre_watchdog": true,
+  "run_post_watchdog": true,
+  "stop_if_pre_watchdog_blocked": true,
+  "stop_if_required_step_failed": true,
+  "allow_optional_step_failure": true,
+  "generate_final_package": true,
+  "respect_blocked_from_strategy_upgrade": true,
+  "network_fetch_default_enabled": false
+}

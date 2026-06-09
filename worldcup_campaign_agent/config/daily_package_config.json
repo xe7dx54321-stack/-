@@ -1,0 +1,31 @@
+{
+  "model_name": "final_daily_package_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "package_types": [
+    "clean_final_package",
+    "review_required_package",
+    "blocked_package"
+  ],
+  "respect_watchdog_status": true,
+  "include_sections": [
+    "campaign_context",
+    "watchdog_summary",
+    "market_expectation_summary",
+    "team_context_summary",
+    "signal_fusion_summary",
+    "candidate_summary",
+    "review_queue_summary",
+    "operator_next_steps",
+    "safety_boundary"
+  ],
+  "forbidden_sections": [
+    "bet_slip",
+    "real_stake",
+    "account_balance",
+    "wallet_status",
+    "order_submission"
+  ]
+}

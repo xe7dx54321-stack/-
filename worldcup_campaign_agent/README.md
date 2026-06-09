@@ -931,3 +931,89 @@ python scripts/run_daily_ops_watchdog.py --date 2026-06-11 --bankroll 100 --mode
 
 ### Next Round Suggestion
 Round 19: Daily Ops Runner v1 — a one-click pipeline that runs all modules in sequence with the Watchdog as pre/post gate.
+
+
+## Round 19: Daily Ops Runner v1
+
+### Overview
+Round 19 introduces the Daily Ops Runner — a one-click pipeline orchestrator that runs all core analysis modules in sequence with pre/post Watchdog gating. It is NOT an auto-execution system. It produces a final daily package (clean / review-required / blocked) and an operator checklist.
+
+### Key Capabilities
+- Pipeline orchestration: runs 13 steps in sequence (precheck, foundation, model, candidate, strategy, market, context, upgrade, report, postcheck, package)
+- Pre/post Watchdog gating: blocks pipeline on safety violations
+- Multiple modes: dry_run (default), execute, skip_optional, watchdog_only
+- Final daily package: clean_final_package / review_required_package / blocked_package
+- Operator checklist with forbidden actions
+- Step-level status tracking (PENDING/RUNNING/SUCCESS/WARN/FAILED/SKIPPED/BLOCKED)
+- Forbidden command fragment detection
+- Respects blocked_from_strategy_upgrade from Watchdog
+
+### Pipeline Steps
+| Phase | Step | Required |
+|-------|------|----------|
+| precheck | pre_watchdog | Yes |
+| foundation | calendar_preview | Yes |
+| model | match_probability | Yes |
+| candidate | ev_ranking | Yes |
+| strategy | integrated_strategy | Yes |
+| market | market_odds_consensus | Optional |
+| market | polymarket_preview | Optional |
+| market | market_expectation | Optional |
+| context | team_news | Optional |
+| upgrade | signal_fusion | Optional |
+| report | dashboard | Optional |
+| postcheck | post_watchdog | Yes |
+| package | final_daily_package | Yes |
+
+### Safety
+- Default mode is dry_run (no subprocess execution)
+- network_fetch_default_enabled=false
+- Forbidden command fragments: submit_order, place_bet, connect_wallet, bookmaker_login, real_bet_execution
+- Package type respects Watchdog: blocked_from_strategy_upgrade=true forces review_required_package
+- No real money, no bookmaker accounts, no wallet connections
+
+### How to Run
+```
+make daily-ops-run
+make daily-ops-run-json
+make daily-ops-run-third-round-json
+make daily-ops-run-final-json
+make daily-ops-run-bankroll-5000-json
+make daily-ops-run-execute-json
+make daily-ops-run-watchdog-only-json
+```
+
+Or directly:
+```
+python scripts/run_daily_ops.py --date 2026-06-11 --bankroll 100 --json
+python scripts/run_daily_ops.py --date 2026-06-11 --bankroll 100 --mode execute --json
+python scripts/run_daily_ops.py --date 2026-06-11 --bankroll 100 --mode watchdog_only --json
+```
+
+### Generated Reports
+- reports/generated/daily_ops_run.json + .md
+- reports/generated/daily_ops_manifest.json
+- reports/generated/final_daily_package.json + .md
+- reports/generated/operator_checklist.json + .md
+
+### New Modules
+- src/worldcup_campaign/daily_ops_core.py — Step, Manifest, Executor, Package Builder, Checklist, Renderer
+- src/worldcup_campaign/daily_ops_runner.py — Orchestrator
+- scripts/run_daily_ops.py — CLI
+
+### New Configs
+- config/daily_ops_runner_config.json
+- config/daily_ops_pipeline_config.json
+- config/daily_ops_step_policy.json
+- config/daily_package_config.json
+- config/operator_checklist_daily_ops_config.json
+
+### Currently Not Implemented
+1. Real-time execution scheduling (cron)
+2. Auto-retry on step failure
+3. Real result ingestion
+4. Interactive review UI
+5. Real money account integration
+
+### Next Round Suggestion
+Round 20: Real Data Adapter & Manual Odds Input v1
