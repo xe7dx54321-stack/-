@@ -1,0 +1,58 @@
+{
+  "model_name": "futures_candidate_policy_v1",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "buckets": {
+    "futures": {
+      "allowed_market_types": [
+        "group_qualification",
+        "group_winner",
+        "reach_round_of_32",
+        "reach_round_of_16",
+        "reach_quarter_final",
+        "reach_semi_final",
+        "reach_final",
+        "winner",
+        "runner_up",
+        "exact_final_pair",
+        "golden_boot"
+      ],
+      "max_candidates": 5,
+      "min_model_probability": 0.005,
+      "allow_negative_ev": true,
+      "allowed_odds_bands": [
+        "medium",
+        "high",
+        "very_high",
+        "lottery"
+      ],
+      "role": "long_horizon_path_optionality"
+    },
+    "attack": {
+      "allowed_market_types": [
+        "winner",
+        "runner_up",
+        "exact_final_pair",
+        "golden_boot"
+      ],
+      "max_candidates": 5,
+      "min_model_probability": 0.001,
+      "allow_negative_ev": true,
+      "allowed_odds_bands": [
+        "very_high",
+        "lottery"
+      ],
+      "role": "high_odds_longshot_futures"
+    }
+  },
+  "reserve": {
+    "receives_candidates": false
+  },
+  "core": {
+    "receives_candidates": false
+  },
+  "edge": {
+    "receives_candidates": false
+  }
+}

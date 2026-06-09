@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "required": [
+    "group_id",
+    "group_letter",
+    "standings"
+  ],
+  "properties": {
+    "group_id": {
+      "type": "string"
+    },
+    "group_letter": {
+      "type": "string"
+    },
+    "standings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "team_code": {
+            "type": "string"
+          },
+          "expected_points": {
+            "type": "number"
+          },
+          "qualification_probability": {
+            "type": "number"
+          },
+          "group_winner_probability": {
+            "type": "number"
+          },
+          "rank": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+}

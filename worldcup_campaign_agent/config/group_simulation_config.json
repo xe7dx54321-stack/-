@@ -1,0 +1,19 @@
+{
+  "model_name": "group_simulation_v1",
+  "analysis_only": true,
+  "simulation_only": true,
+  "method": "deterministic_expected_points",
+  "use_match_probability_model": true,
+  "draw_probability_floor": 0.12,
+  "apply_probability_sanity": true,
+  "third_place_qualification": {
+    "method": "score_based",
+    "sort_by": [
+      "points",
+      "goal_difference",
+      "goals_scored"
+    ],
+    "select_top_n": 8,
+    "total_third_place_candidates": 12
+  }
+}

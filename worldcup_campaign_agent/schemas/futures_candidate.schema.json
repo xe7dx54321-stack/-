@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "required": [
+    "candidate_id",
+    "team_code",
+    "market_type",
+    "path_probability"
+  ],
+  "properties": {
+    "candidate_id": {
+      "type": "string"
+    },
+    "team_code": {
+      "type": "string"
+    },
+    "team_name": {
+      "type": "string"
+    },
+    "market_type": {
+      "type": "string"
+    },
+    "path_probability": {
+      "type": "number"
+    },
+    "synthetic_odds": {
+      "type": "number"
+    },
+    "ev": {
+      "type": "number"
+    },
+    "edge": {
+      "type": "number"
+    },
+    "candidate_tier": {
+      "type": "string"
+    },
+    "eligible_bucket": {
+      "type": "string"
+    },
+    "analysis_only": {
+      "type": "boolean"
+    },
+    "simulation_only": {
+      "type": "boolean"
+    },
+    "not_betting_advice": {
+      "type": "boolean"
+    }
+  }
+}

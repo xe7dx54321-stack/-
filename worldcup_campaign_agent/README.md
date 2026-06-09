@@ -231,3 +231,82 @@ ot_betting_advice=true
 
 ### Next Round Suggestion
 Round 8: Tournament Futures and Path Simulator v1 -- add group qualification, round-of-16, quarter-final, winner, runner-up, exact-final-pair, and golden-boot futures analysis.
+
+## Round 8: Tournament Futures & Path Simulator v1
+
+### Overview
+Round 8 adds Tournament Futures and Path Simulator v1 -- the ability to simulate group stage outcomes, knockout bracket advancement, and generate futures market candidates (winner, runner-up, group qualification, exact final pair, golden boot, etc.). This transforms the system from single-match + parlay analysis into a full tournament path planner.
+
+### Key Capabilities
+- Simulate all 12 groups (deterministic expected points)
+- 24 group qualifiers + 8 best third-place teams to R32
+- Power-law knockout advancement model based on team ratings
+- 48-team tournament path probabilities (R32 through Winner)
+- Generate synthetic futures odds with 15% vig
+- 11 futures markets: group_qualification, group_winner, reach_round_of_*, winner, runner_up, exact_final_pair, golden_boot
+- Build futures candidates with EV, edge, campaign score
+- Assign to Futures bucket (5 max) and Attack longshot (5 max)
+
+### Core Principles
+1. Long-horizon futures are essential for small-bankroll-large-target campaigns
+2. High-odds futures (winner, exact final pair) are NOT discarded
+3. Lower-odds futures (group qualification, R16) provide path stability
+4. All probabilities are simulation-based, not real predictions
+5. Synthetic odds with vig produce mostly negative EV (expected with 15% margin)
+6. All output is analysis_only / simulation_only / not_betting_advice
+
+### How to Run
+`
+make futures-preview
+make futures-preview-json
+make futures-preview-third-round-json
+make futures-preview-final-json
+make futures-preview-bankroll-5000-json
+`
+
+Or directly:
+`
+python scripts/run_futures_preview.py --date 2026-06-11 --bankroll 100 --json
+python scripts/run_futures_preview.py --date 2026-06-24 --bankroll 100 --json
+python scripts/run_futures_preview.py --date 2026-07-19 --bankroll 100 --json
+python scripts/run_futures_preview.py --date 2026-06-11 --bankroll 5000 --json
+`
+
+### Generated Reports
+- 
+eports/generated/futures_preview.json
+- 
+eports/generated/futures_preview.md
+
+### New Modules
+- src/worldcup_campaign/group_simulator.py -- Group stage expected points and qualification
+- src/worldcup_campaign/knockout_path_simulator.py -- Tournament advancement probabilities
+- src/worldcup_campaign/futures_odds_generator.py -- Synthetic futures odds + probability aggregator
+- src/worldcup_campaign/futures_candidate_builder.py -- Futures EV/campaign score + bucket integrator
+- src/worldcup_campaign/futures_preview_runner.py -- Full pipeline runner
+- scripts/run_futures_preview.py -- CLI
+
+### New Configs
+- config/tournament_path_config.json
+- config/group_simulation_config.json
+- config/futures_market_config.json
+- config/futures_odds_policy.json
+- config/futures_candidate_policy.json
+
+### Safety
+- nalysis_only=true, simulation_only=true, 
+ot_betting_advice=true
+- No stake, no bet_instruction, no bookmaker output
+- No real betting API or execution
+- uses_real_bookmaker_odds=false
+
+### Currently Not Implemented
+1. Real odds / bookmaker integration
+2. Real stake execution
+3. Monte Carlo simulation (deterministic v1 only)
+4. Player-level golden boot
+5. Post-match settlement / bankroll update
+6. Dynamic bracket-aware knockout simulation
+
+### Next Round Suggestion
+Round 9: Campaign Timeline & Daily Execution Schedule v1 -- generate a tournament-long campaign timeline with daily deployment windows, bankroll state transitions, and cumulative strategy tracking.

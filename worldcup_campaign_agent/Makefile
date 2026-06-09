@@ -87,3 +87,17 @@ parlay-preview-final-json:
 
 parlay-preview-bankroll-5000-json:
 	python scripts/run_parlay_preview.py --date 2026-06-11 --bankroll 5000 --json
+futures-preview:
+	python scripts/run_futures_preview.py --date 2026-06-11 --bankroll 100
+
+futures-preview-json:
+	python scripts/run_futures_preview.py --date 2026-06-11 --bankroll 100 --json
+
+futures-preview-third-round-json:
+	python scripts/run_futures_preview.py --date 2026-06-24 --bankroll 100 --json
+
+futures-preview-final-json:
+	python scripts/run_futures_preview.py --date 2026-07-19 --bankroll 100 --json
+
+futures-preview-bankroll-5000-json:
+	python scripts/run_futures_preview.py --date 2026-06-11 --bankroll 5000 --json

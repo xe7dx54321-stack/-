@@ -1,0 +1,86 @@
+{
+  "model_name": "futures_markets_v1",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "markets": [
+    {
+      "market_type": "group_qualification",
+      "display_name": "Group Qualification",
+      "requires_path_probability": true,
+      "selection_type": "team_boolean",
+      "settlement_stage": "group_round_3"
+    },
+    {
+      "market_type": "group_winner",
+      "display_name": "Group Winner",
+      "requires_path_probability": true,
+      "selection_type": "team_winner",
+      "settlement_stage": "group_round_3"
+    },
+    {
+      "market_type": "reach_round_of_32",
+      "display_name": "Reach Round of 32",
+      "requires_path_probability": true,
+      "selection_type": "team_boolean",
+      "settlement_stage": "group_round_3"
+    },
+    {
+      "market_type": "reach_round_of_16",
+      "display_name": "Reach Round of 16",
+      "requires_path_probability": true,
+      "selection_type": "team_boolean",
+      "settlement_stage": "round_of_32"
+    },
+    {
+      "market_type": "reach_quarter_final",
+      "display_name": "Reach Quarter Final",
+      "requires_path_probability": true,
+      "selection_type": "team_boolean",
+      "settlement_stage": "round_of_16"
+    },
+    {
+      "market_type": "reach_semi_final",
+      "display_name": "Reach Semi Final",
+      "requires_path_probability": true,
+      "selection_type": "team_boolean",
+      "settlement_stage": "quarter_final"
+    },
+    {
+      "market_type": "reach_final",
+      "display_name": "Reach Final",
+      "requires_path_probability": true,
+      "selection_type": "team_boolean",
+      "settlement_stage": "semi_final"
+    },
+    {
+      "market_type": "winner",
+      "display_name": "Tournament Winner",
+      "requires_path_probability": true,
+      "selection_type": "team_winner",
+      "settlement_stage": "final"
+    },
+    {
+      "market_type": "runner_up",
+      "display_name": "Tournament Runner-up",
+      "requires_path_probability": true,
+      "selection_type": "team_winner",
+      "settlement_stage": "final"
+    },
+    {
+      "market_type": "exact_final_pair",
+      "display_name": "Exact Final Pair",
+      "requires_path_probability": true,
+      "selection_type": "pair",
+      "settlement_stage": "final"
+    },
+    {
+      "market_type": "golden_boot",
+      "display_name": "Golden Boot",
+      "requires_path_probability": true,
+      "selection_type": "player",
+      "settlement_stage": "final",
+      "note": "simplified team-level proxy based on attack rating and expected matches"
+    }
+  ]
+}

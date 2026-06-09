@@ -1,0 +1,42 @@
+{
+  "model_name": "tournament_path_simulator_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "tournament_format": {
+    "total_teams": 48,
+    "groups": 12,
+    "teams_per_group": 4,
+    "group_qualifiers": 2,
+    "third_place_qualifiers": 8,
+    "total_r32_teams": 32,
+    "r32_teams_from_group_winners": 12,
+    "r32_teams_from_group_runnerups": 12,
+    "r32_teams_from_third_place": 8
+  },
+  "knockout_stages": [
+    "round_of_32",
+    "round_of_16",
+    "quarter_final",
+    "semi_final",
+    "final"
+  ],
+  "points": {
+    "win": 3,
+    "draw": 1,
+    "loss": 0
+  },
+  "tiebreakers": [
+    "goal_difference",
+    "goals_scored",
+    "head_to_head",
+    "fair_play",
+    "drawing_of_lots"
+  ],
+  "advancement_base_probability": {
+    "description": "Simplified knockout advancement model based on rating ratio",
+    "method": "power_law",
+    "power_exponent": 1.5
+  }
+}

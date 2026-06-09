@@ -1,0 +1,37 @@
+{
+  "model_name": "futures_odds_policy_v1",
+  "odds_source": "synthetic_from_probability",
+  "uses_real_bookmaker_odds": false,
+  "vig_method": "multiplicative",
+  "default_vig": 0.15,
+  "min_decimal_odds": 1.01,
+  "max_decimal_odds": 10000.0,
+  "odds_bands": {
+    "low": {
+      "min": 1.01,
+      "max": 3.0
+    },
+    "medium": {
+      "min": 3.0,
+      "max": 10.0
+    },
+    "high": {
+      "min": 10.0,
+      "max": 50.0
+    },
+    "very_high": {
+      "min": 50.0,
+      "max": 500.0
+    },
+    "lottery": {
+      "min": 500.0,
+      "max": 10000.0
+    }
+  },
+  "probability_to_odds": {
+    "method": "inverse_minus_vig",
+    "formula": "odds = (1 / (prob * (1 + vig))) clamped to [min, max]"
+  },
+  "analysis_only": true,
+  "not_betting_advice": true
+}

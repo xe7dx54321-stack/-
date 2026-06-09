@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "required": [
+    "current_date",
+    "futures_candidates",
+    "safety"
+  ],
+  "properties": {
+    "current_date": {
+      "type": "string"
+    },
+    "current_bankroll": {
+      "type": "number"
+    },
+    "bankroll_state": {
+      "type": "string"
+    },
+    "groups_simulated": {
+      "type": "integer"
+    },
+    "futures_candidate_count": {
+      "type": "integer"
+    },
+    "futures_candidates": {
+      "type": "array"
+    },
+    "safety": {
+      "type": "object"
+    }
+  }
+}

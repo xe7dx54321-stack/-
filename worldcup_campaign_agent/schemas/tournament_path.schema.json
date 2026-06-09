@@ -1,0 +1,70 @@
+{
+  "type": "object",
+  "required": [
+    "team_code",
+    "team_name",
+    "group",
+    "path_probabilities"
+  ],
+  "properties": {
+    "team_code": {
+      "type": "string"
+    },
+    "team_name": {
+      "type": "string"
+    },
+    "group": {
+      "type": "string"
+    },
+    "path_probabilities": {
+      "type": "object",
+      "properties": {
+        "group_qualification": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "group_winner": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "reach_r32": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "reach_r16": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "reach_qf": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "reach_sf": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "reach_final": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "winner": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "runner_up": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    }
+  }
+}
