@@ -207,3 +207,17 @@ polymarket-preview-final-json:
 
 polymarket-preview-bankroll-5000-json:
 	python scripts/run_polymarket_preview.py --date 2026-06-11 --bankroll 5000 --json
+market-expectation:
+	python scripts/run_market_expectation.py --date 2026-06-11 --bankroll 100
+
+market-expectation-json:
+	python scripts/run_market_expectation.py --date 2026-06-11 --bankroll 100 --json
+
+market-expectation-third-round-json:
+	python scripts/run_market_expectation.py --date 2026-06-24 --bankroll 100 --json
+
+market-expectation-final-json:
+	python scripts/run_market_expectation.py --date 2026-07-19 --bankroll 100 --json
+
+market-expectation-bankroll-5000-json:
+	python scripts/run_market_expectation.py --date 2026-06-11 --bankroll 5000 --json

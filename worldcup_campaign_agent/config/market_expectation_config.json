@@ -1,0 +1,44 @@
+﻿{
+  "model_name": "market_expectation_engine_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "sources": {
+    "model_probability": {"enabled": true, "source": "match_probability_preview", "min_confidence": 0.1},
+    "sportsbook_consensus": {"enabled": true, "source": "market_odds_consensus", "min_sources_for_signal": 2},
+    "polymarket_probability": {"enabled": true, "source": "polymarket_preview", "min_liquidity_for_signal": 5000}
+  },
+  "blending": {
+    "default_weights": {"model": 0.35, "sportsbook": 0.35, "polymarket": 0.30},
+    "liquidity_penalty_multiplier": 0.5,
+    "freshness_penalty_multiplier": 0.7,
+    "low_source_penalty_multiplier": 0.6,
+    "min_weight": 0.1,
+    "max_weight": 0.6
+  },
+  "alignment": {
+    "aligned_threshold": 0.05,
+    "minor_disagreement_threshold": 0.10,
+    "major_disagreement_threshold": 0.20,
+    "min_sources_for_alignment": 2
+  },
+  "signal_quality": {
+    "high_quality_threshold": 0.7,
+    "medium_quality_threshold": 0.4,
+    "penalties": {
+      "low_liquidity": 0.3,
+      "stale_data": 0.2,
+      "single_source": 0.25,
+      "high_dispersion": 0.15,
+      "small_sample": 0.2
+    }
+  },
+  "forbidden_fields": [
+    "stake", "stake_amount", "stake_to_match", "bet_instruction",
+    "bookmaker_account", "real_money_balance", "real_bet_execution",
+    "auto_betting", "wallet_address", "private_key", "api_secret",
+    "signed_order", "submit_order", "cancel_order",
+    "guaranteed_profit", "chase_loss"
+  ]
+}
