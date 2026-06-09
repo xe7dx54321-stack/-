@@ -1,0 +1,1 @@
+{"$schema":"http://json-schema.org/draft-07/schema#","title":"ScorelineProbability","type":"object","properties":{"home_goals":{"type":"integer"},"away_goals":{"type":"integer"},"scoreline":{"type":"string"},"probability":{"type":"number"},"rank":{"type":"integer"}}}

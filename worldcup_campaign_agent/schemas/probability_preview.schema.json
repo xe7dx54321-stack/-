@@ -1,0 +1,1 @@
+{"$schema":"http://json-schema.org/draft-07/schema#","title":"ProbabilityPreview","type":"object","properties":{"current_date":{"type":"string"},"matches_count":{"type":"integer"},"matches":{"type":"array"},"safety":{"type":"object"}}}

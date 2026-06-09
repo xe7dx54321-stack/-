@@ -1,0 +1,27 @@
+{
+  "model_name": "seed_rating_v1",
+  "model_version": "1.0.0",
+  "description": "Slot-level dry-run probability model using seed team ratings. NOT real team strength.",
+  "is_dry_run": true,
+  "is_real_data": false,
+  "rating_source": "seed",
+  "rating_scale": {"min": 1000, "max": 2400, "mean": 1700, "std": 250},
+  "home_advantage": 80,
+  "draw_margin": 60,
+  "elo_k_factor": 32,
+  "expected_goals_baseline": 1.35,
+  "expected_goals_home_boost": 0.35,
+  "expected_goals_per_100_rating": 0.45,
+  "poisson_max_goals": 8,
+  "over_under_lines": [0.5, 1.5, 2.5, 3.5, 4.5],
+  "handicap_lines": [-2.0, -1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5, 2.0],
+  "confidence": {
+    "high_rating_diff": 200,
+    "medium_rating_diff": 100,
+    "low_rating_confidence": 0.3,
+    "high_rating_confidence": 0.8,
+    "seed_data_penalty": 0.15,
+    "placeholder_team_penalty": 0.25,
+    "knockout_uncertainty_boost": 0.1
+  }
+}

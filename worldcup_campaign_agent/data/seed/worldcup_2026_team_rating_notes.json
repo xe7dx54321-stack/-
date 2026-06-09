@@ -1,0 +1,290 @@
+[
+  {
+    "team_code": "ARG",
+    "team_name": "Argentina",
+    "rating_tier": "elite",
+    "note": "Seed rating v1. Overall=2150. NOT real ranking."
+  },
+  {
+    "team_code": "BRA",
+    "team_name": "Brazil",
+    "rating_tier": "elite",
+    "note": "Seed rating v1. Overall=2120. NOT real ranking."
+  },
+  {
+    "team_code": "FRA",
+    "team_name": "France",
+    "rating_tier": "elite",
+    "note": "Seed rating v1. Overall=2100. NOT real ranking."
+  },
+  {
+    "team_code": "ENG",
+    "team_name": "England",
+    "rating_tier": "elite",
+    "note": "Seed rating v1. Overall=2050. NOT real ranking."
+  },
+  {
+    "team_code": "GER",
+    "team_name": "Germany",
+    "rating_tier": "elite",
+    "note": "Seed rating v1. Overall=2030. NOT real ranking."
+  },
+  {
+    "team_code": "ESP",
+    "team_name": "Spain",
+    "rating_tier": "elite",
+    "note": "Seed rating v1. Overall=2080. NOT real ranking."
+  },
+  {
+    "team_code": "POR",
+    "team_name": "Portugal",
+    "rating_tier": "elite",
+    "note": "Seed rating v1. Overall=2000. NOT real ranking."
+  },
+  {
+    "team_code": "NED",
+    "team_name": "Netherlands",
+    "rating_tier": "strong",
+    "note": "Seed rating v1. Overall=1980. NOT real ranking."
+  },
+  {
+    "team_code": "ITA",
+    "team_name": "Italy",
+    "rating_tier": "elite",
+    "note": "Seed rating v1. Overall=2010. NOT real ranking."
+  },
+  {
+    "team_code": "CRO",
+    "team_name": "Croatia",
+    "rating_tier": "strong",
+    "note": "Seed rating v1. Overall=1950. NOT real ranking."
+  },
+  {
+    "team_code": "BEL",
+    "team_name": "Belgium",
+    "rating_tier": "strong",
+    "note": "Seed rating v1. Overall=1990. NOT real ranking."
+  },
+  {
+    "team_code": "URU",
+    "team_name": "Uruguay",
+    "rating_tier": "strong",
+    "note": "Seed rating v1. Overall=1900. NOT real ranking."
+  },
+  {
+    "team_code": "COL",
+    "team_name": "Colombia",
+    "rating_tier": "strong",
+    "note": "Seed rating v1. Overall=1850. NOT real ranking."
+  },
+  {
+    "team_code": "MEX",
+    "team_name": "Mexico",
+    "rating_tier": "strong",
+    "note": "Seed rating v1. Overall=1820. NOT real ranking."
+  },
+  {
+    "team_code": "USA",
+    "team_name": "USA",
+    "rating_tier": "strong",
+    "note": "Seed rating v1. Overall=1800. NOT real ranking."
+  },
+  {
+    "team_code": "CAN",
+    "team_name": "Canada",
+    "rating_tier": "mid",
+    "note": "Seed rating v1. Overall=1720. NOT real ranking."
+  },
+  {
+    "team_code": "JPN",
+    "team_name": "Japan",
+    "rating_tier": "mid",
+    "note": "Seed rating v1. Overall=1780. NOT real ranking."
+  },
+  {
+    "team_code": "KOR",
+    "team_name": "South Korea",
+    "rating_tier": "mid",
+    "note": "Seed rating v1. Overall=1750. NOT real ranking."
+  },
+  {
+    "team_code": "AUS",
+    "team_name": "Australia",
+    "rating_tier": "mid",
+    "note": "Seed rating v1. Overall=1700. NOT real ranking."
+  },
+  {
+    "team_code": "IRN",
+    "team_name": "Iran",
+    "rating_tier": "mid",
+    "note": "Seed rating v1. Overall=1680. NOT real ranking."
+  },
+  {
+    "team_code": "SEN",
+    "team_name": "Senegal",
+    "rating_tier": "strong",
+    "note": "Seed rating v1. Overall=1800. NOT real ranking."
+  },
+  {
+    "team_code": "MAR",
+    "team_name": "Morocco",
+    "rating_tier": "strong",
+    "note": "Seed rating v1. Overall=1850. NOT real ranking."
+  },
+  {
+    "team_code": "EGY",
+    "team_name": "Egypt",
+    "rating_tier": "mid",
+    "note": "Seed rating v1. Overall=1700. NOT real ranking."
+  },
+  {
+    "team_code": "NGA",
+    "team_name": "Nigeria",
+    "rating_tier": "mid",
+    "note": "Seed rating v1. Overall=1720. NOT real ranking."
+  },
+  {
+    "team_code": "DEN",
+    "team_name": "Denmark",
+    "rating_tier": "strong",
+    "note": "Seed rating v1. Overall=1880. NOT real ranking."
+  },
+  {
+    "team_code": "SUI",
+    "team_name": "Switzerland",
+    "rating_tier": "strong",
+    "note": "Seed rating v1. Overall=1850. NOT real ranking."
+  },
+  {
+    "team_code": "AUT",
+    "team_name": "Austria",
+    "rating_tier": "strong",
+    "note": "Seed rating v1. Overall=1800. NOT real ranking."
+  },
+  {
+    "team_code": "CHI",
+    "team_name": "Chile",
+    "rating_tier": "mid",
+    "note": "Seed rating v1. Overall=1780. NOT real ranking."
+  },
+  {
+    "team_code": "ECU",
+    "team_name": "Ecuador",
+    "rating_tier": "mid",
+    "note": "Seed rating v1. Overall=1720. NOT real ranking."
+  },
+  {
+    "team_code": "PER",
+    "team_name": "Peru",
+    "rating_tier": "mid",
+    "note": "Seed rating v1. Overall=1700. NOT real ranking."
+  },
+  {
+    "team_code": "PAR",
+    "team_name": "Paraguay",
+    "rating_tier": "mid",
+    "note": "Seed rating v1. Overall=1680. NOT real ranking."
+  },
+  {
+    "team_code": "SWE",
+    "team_name": "Sweden",
+    "rating_tier": "strong",
+    "note": "Seed rating v1. Overall=1820. NOT real ranking."
+  },
+  {
+    "team_code": "NOR",
+    "team_name": "Norway",
+    "rating_tier": "strong",
+    "note": "Seed rating v1. Overall=1850. NOT real ranking."
+  },
+  {
+    "team_code": "POL",
+    "team_name": "Poland",
+    "rating_tier": "mid",
+    "note": "Seed rating v1. Overall=1780. NOT real ranking."
+  },
+  {
+    "team_code": "CZE",
+    "team_name": "Czech Republic",
+    "rating_tier": "mid",
+    "note": "Seed rating v1. Overall=1750. NOT real ranking."
+  },
+  {
+    "team_code": "SRB",
+    "team_name": "Serbia",
+    "rating_tier": "strong",
+    "note": "Seed rating v1. Overall=1800. NOT real ranking."
+  },
+  {
+    "team_code": "TUR",
+    "team_name": "Turkey",
+    "rating_tier": "mid",
+    "note": "Seed rating v1. Overall=1780. NOT real ranking."
+  },
+  {
+    "team_code": "UKR",
+    "team_name": "Ukraine",
+    "rating_tier": "mid",
+    "note": "Seed rating v1. Overall=1750. NOT real ranking."
+  },
+  {
+    "team_code": "ROU",
+    "team_name": "Romania",
+    "rating_tier": "mid",
+    "note": "Seed rating v1. Overall=1700. NOT real ranking."
+  },
+  {
+    "team_code": "KSA",
+    "team_name": "Saudi Arabia",
+    "rating_tier": "developing",
+    "note": "Seed rating v1. Overall=1600. NOT real ranking."
+  },
+  {
+    "team_code": "QAT",
+    "team_name": "Qatar",
+    "rating_tier": "developing",
+    "note": "Seed rating v1. Overall=1580. NOT real ranking."
+  },
+  {
+    "team_code": "IRQ",
+    "team_name": "Iraq",
+    "rating_tier": "developing",
+    "note": "Seed rating v1. Overall=1550. NOT real ranking."
+  },
+  {
+    "team_code": "UAE",
+    "team_name": "UAE",
+    "rating_tier": "developing",
+    "note": "Seed rating v1. Overall=1550. NOT real ranking."
+  },
+  {
+    "team_code": "GHA",
+    "team_name": "Ghana",
+    "rating_tier": "mid",
+    "note": "Seed rating v1. Overall=1720. NOT real ranking."
+  },
+  {
+    "team_code": "CMR",
+    "team_name": "Cameroon",
+    "rating_tier": "mid",
+    "note": "Seed rating v1. Overall=1700. NOT real ranking."
+  },
+  {
+    "team_code": "CIV",
+    "team_name": "Ivory Coast",
+    "rating_tier": "mid",
+    "note": "Seed rating v1. Overall=1750. NOT real ranking."
+  },
+  {
+    "team_code": "RSA",
+    "team_name": "South Africa",
+    "rating_tier": "mid",
+    "note": "Seed rating v1. Overall=1650. NOT real ranking."
+  },
+  {
+    "team_code": "NZL",
+    "team_name": "New Zealand",
+    "rating_tier": "developing",
+    "note": "Seed rating v1. Overall=1520. NOT real ranking."
+  }
+]

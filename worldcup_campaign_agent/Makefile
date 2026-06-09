@@ -33,3 +33,15 @@ daily-strategy-preview-final-json:
 
 daily-strategy-preview-bankroll-5000-json:
 	python scripts/run_daily_strategy_preview.py --date 2026-06-11 --bankroll 5000 --json
+
+match-probability-preview:
+	python scripts/run_match_probability_preview.py --date 2026-06-11
+
+match-probability-preview-json:
+	python scripts/run_match_probability_preview.py --date 2026-06-11 --json
+
+match-probability-preview-third-round-json:
+	python scripts/run_match_probability_preview.py --date 2026-06-24 --json
+
+match-probability-preview-final-json:
+	python scripts/run_match_probability_preview.py --date 2026-07-19 --json

@@ -1,0 +1,9 @@
+{
+  "model_type": "poisson_independent",
+  "description": "Independent Poisson model for scoreline distribution",
+  "max_goals": 8,
+  "lambda_floor": 0.3,
+  "lambda_ceiling": 5.0,
+  "correlation": "none",
+  "notes": "v1 uses independent Poisson; future versions may add bivariate Poisson with correlation"
+}

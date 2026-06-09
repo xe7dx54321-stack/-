@@ -1,98 +1,76 @@
 # WorldCup Campaign Strategy Agent
 
-世界杯全赛程策略规划系统 — 用于分析 2026 年世界杯 104 场比赛及长周期市场，以初始本金 100、目标本金 1,000,000、每日最大使用当前本金 50% 为 campaign policy，输出唯一每日统一策略。
-
-> **注意：本系统只做 campaign analysis / simulation / strategy planning，不做真实下注执行，不接任何真实下注 API，不登录任何投注平台，不承诺盈利。**
-
----
-
-## 项目定位
-
-这不是"每天临时找一两个高赔下注点"，而是一个**世界杯全赛程 Campaign Strategy Engine**：
-
-- 赛前生成 104 场战役地图
-- 比赛期间根据本金状态、赛程阶段、赔率变化、已发生赛果和未结算长周期仓位，输出唯一一套当日策略组合
-- 核心优化目标：最大化达成目标概率，而不是单纯最大化单笔 EV
+涓栫晫鏉叏璧涚▼绛栫暐瑙勫垝绯荤粺 鈥?鐢ㄤ簬鍒嗘瀽 2026 骞翠笘鐣屾澂 104 鍦烘瘮璧涘強闀垮懆鏈熷競鍦猴紝浠ュ垵濮嬫湰閲?100銆佺洰鏍囨湰閲?1,000,000銆佹瘡鏃ユ渶澶т娇鐢ㄥ綋鍓嶆湰閲?50% 涓?campaign policy锛岃緭鍑哄敮涓€姣忔棩缁熶竴绛栫暐銆?
+> **娉ㄦ剰锛氭湰绯荤粺鍙仛 campaign analysis / simulation / strategy planning锛屼笉鍋氱湡瀹炰笅娉ㄦ墽琛岋紝涓嶆帴浠讳綍鐪熷疄涓嬫敞 API锛屼笉鐧诲綍浠讳綍鎶曟敞骞冲彴锛屼笉鎵胯鐩堝埄銆?*
 
 ---
 
-## 为什么每天只输出一套策略？
+## 椤圭洰瀹氫綅
 
-本系统是 **Campaign Strategy Agent**，不是下注推荐器：
-
-- 每日输出的是资金桶骨架 + 策略标签，不包含具体比赛推荐
-- 不提供多个互斥方案（那是拍脑袋），而是提供精准的一条策略路径
-- 赛后根据实际结果自动切换到预设分支路径
-- 策略骨架 = Reserve/Core/Edge/Attack/Futures 五个桶 + 对应市场类别
+杩欎笉鏄?姣忓ぉ涓存椂鎵句竴涓や釜楂樿禂涓嬫敞鐐?锛岃€屾槸涓€涓?*涓栫晫鏉叏璧涚▼ Campaign Strategy Engine**锛?
+- 璧涘墠鐢熸垚 104 鍦烘垬褰瑰湴鍥?- 姣旇禌鏈熼棿鏍规嵁鏈噾鐘舵€併€佽禌绋嬮樁娈点€佽禂鐜囧彉鍖栥€佸凡鍙戠敓璧涙灉鍜屾湭缁撶畻闀垮懆鏈熶粨浣嶏紝杈撳嚭鍞竴涓€濂楀綋鏃ョ瓥鐣ョ粍鍚?- 鏍稿績浼樺寲鐩爣锛氭渶澶у寲杈炬垚鐩爣姒傜巼锛岃€屼笉鏄崟绾渶澶у寲鍗曠瑪 EV
 
 ---
 
-## Round 1 已完成模块（资金地基）
+## 涓轰粈涔堟瘡澶╁彧杈撳嚭涓€濂楃瓥鐣ワ紵
 
-| 模块 | 文件 | 功能 |
+鏈郴缁熸槸 **Campaign Strategy Agent**锛屼笉鏄笅娉ㄦ帹鑽愬櫒锛?
+- 姣忔棩杈撳嚭鐨勬槸璧勯噾妗堕鏋?+ 绛栫暐鏍囩锛屼笉鍖呭惈鍏蜂綋姣旇禌鎺ㄨ崘
+- 涓嶆彁渚涘涓簰鏂ユ柟妗堬紙閭ｆ槸鎷嶈剳琚嬶級锛岃€屾槸鎻愪緵绮惧噯鐨勪竴鏉＄瓥鐣ヨ矾寰?- 璧涘悗鏍规嵁瀹為檯缁撴灉鑷姩鍒囨崲鍒伴璁惧垎鏀矾寰?- 绛栫暐楠ㄦ灦 = Reserve/Core/Edge/Attack/Futures 浜斾釜妗?+ 瀵瑰簲甯傚満绫诲埆
+
+---
+
+## Round 1 宸插畬鎴愭ā鍧楋紙璧勯噾鍦板熀锛?
+| 妯″潡 | 鏂囦欢 | 鍔熻兘 |
 |------|------|------|
-| Campaign Policy Engine | `policy.py` | 本金/目标/上限定义与校验 |
-| Bankroll State Machine | `bankroll_state.py` | S0-S7 状态分类，bucket 分配 |
-| Market Universe Registry | `market_registry.py` | 20 种玩法注册与 bucket 查询 |
-| Odds / EV Engine | `odds_math.py` | 隐含概率、去水、EV、串关计算 |
-| Target Math | `target_math.py` | 目标倍率、每窗口所需增长、紧迫度 |
-| Foundation Runner | `runner.py` | 基础 dry-run 执行器 |
+| Campaign Policy Engine | `policy.py` | 鏈噾/鐩爣/涓婇檺瀹氫箟涓庢牎楠?|
+| Bankroll State Machine | `bankroll_state.py` | S0-S7 鐘舵€佸垎绫伙紝bucket 鍒嗛厤 |
+| Market Universe Registry | `market_registry.py` | 20 绉嶇帺娉曟敞鍐屼笌 bucket 鏌ヨ |
+| Odds / EV Engine | `odds_math.py` | 闅愬惈姒傜巼銆佸幓姘淬€丒V銆佷覆鍏宠绠?|
+| Target Math | `target_math.py` | 鐩爣鍊嶇巼銆佹瘡绐楀彛鎵€闇€澧為暱銆佺揣杩害 |
+| Foundation Runner | `runner.py` | 鍩虹 dry-run 鎵ц鍣?|
 
-## Round 2 已完成模块（赛程日历）
-
-| 模块 | 文件 | 功能 |
+## Round 2 宸插畬鎴愭ā鍧楋紙璧涚▼鏃ュ巻锛?
+| 妯″潡 | 鏂囦欢 | 鍔熻兘 |
 |------|------|------|
-| Stage Mapper | `stage_mapper.py` | 日期→阶段映射 |
-| Match Registry | `match_registry.py` | 104 场比赛加载与查询 |
-| Calendar Engine | `calendar_engine.py` | 组合赛程+比赛+政策的引擎 |
-| Opportunity Window | `opportunity_window.py` | 剩余比赛/窗口计算 |
-| Calendar Runner | `calendar_runner.py` | 日历预览报告 |
+| Stage Mapper | `stage_mapper.py` | 鏃ユ湡鈫掗樁娈垫槧灏?|
+| Match Registry | `match_registry.py` | 104 鍦烘瘮璧涘姞杞戒笌鏌ヨ |
+| Calendar Engine | `calendar_engine.py` | 缁勫悎璧涚▼+姣旇禌+鏀跨瓥鐨勫紩鎿?|
+| Opportunity Window | `opportunity_window.py` | 鍓╀綑姣旇禌/绐楀彛璁＄畻 |
+| Calendar Runner | `calendar_runner.py` | 鏃ュ巻棰勮鎶ュ憡 |
 
-## Round 3 新增模块（每日统一策略 v1）
-
-| 模块 | 文件 | 功能 |
+## Round 3 鏂板妯″潡锛堟瘡鏃ョ粺涓€绛栫暐 v1锛?
+| 妯″潡 | 鏂囦欢 | 鍔熻兘 |
 |------|------|------|
-| Strategy Profile Selector | `strategy_profile.py` | 基于 stage + bankroll state 选择风险策略 |
-| Match Strategy Labeler | `match_strategy_labeler.py` | 给每场比赛打策略标签（非下注建议） |
-| Strategy Allocator | `strategy_allocator.py` | 资金桶分配到可用市场类别 |
-| Scenario Preview | `scenario_preview.py` | 全中/全失/部分中等情景投影 |
-| Daily Strategy Engine | `daily_strategy.py` | 整合 R1+R2+R3 的主引擎 |
-| Daily Strategy Runner | `daily_strategy_runner.py` | 日报生成 |
+| Strategy Profile Selector | `strategy_profile.py` | 鍩轰簬 stage + bankroll state 閫夋嫨椋庨櫓绛栫暐 |
+| Match Strategy Labeler | `match_strategy_labeler.py` | 缁欐瘡鍦烘瘮璧涙墦绛栫暐鏍囩锛堥潪涓嬫敞寤鸿锛?|
+| Strategy Allocator | `strategy_allocator.py` | 璧勯噾妗跺垎閰嶅埌鍙敤甯傚満绫诲埆 |
+| Scenario Preview | `scenario_preview.py` | 鍏ㄤ腑/鍏ㄥけ/閮ㄥ垎涓瓑鎯呮櫙鎶曞奖 |
+| Daily Strategy Engine | `daily_strategy.py` | 鏁村悎 R1+R2+R3 鐨勪富寮曟搸 |
+| Daily Strategy Runner | `daily_strategy_runner.py` | 鏃ユ姤鐢熸垚 |
 
-### 五个资金桶的含义
+### 浜斾釜璧勯噾妗剁殑鍚箟
 
-| 桶 | 用途 | 风险等级 |
+| 妗?| 鐢ㄩ€?| 椋庨櫓绛夌骇 |
 |----|------|----------|
-| **Reserve** | 保留现金，不参与部署（≥50%本金） | 零风险 |
-| **Core** | 低风险高确定性市场（1X2、double chance） | 低 |
-| **Edge** | 中等风险价值市场（让球、大小球、2串1） | 中 |
-| **Attack** | 高赔率机会（比分、3串1、4串1） | 高 |
-| **Futures** | 长周期仓位（晋级、冠亚军、金靴） | 长期 |
+| **Reserve** | 淇濈暀鐜伴噾锛屼笉鍙備笌閮ㄧ讲锛堚墺50%鏈噾锛?| 闆堕闄?|
+| **Core** | 浣庨闄╅珮纭畾鎬у競鍦猴紙1X2銆乨ouble chance锛?| 浣?|
+| **Edge** | 涓瓑椋庨櫓浠峰€煎競鍦猴紙璁╃悆銆佸ぇ灏忕悆銆?涓?锛?| 涓?|
+| **Attack** | 楂樿禂鐜囨満浼氾紙姣斿垎銆?涓?銆?涓?锛?| 楂?|
+| **Futures** | 闀垮懆鏈熶粨浣嶏紙鏅嬬骇銆佸啝浜氬啗銆侀噾闈达級 | 闀挎湡 |
 
-### Match Label 说明
+### Match Label 璇存槑
 
-Match label 是**策略候选标签**，不是下注建议：
+Match label 鏄?*绛栫暐鍊欓€夋爣绛?*锛屼笉鏄笅娉ㄥ缓璁細
 
-- `high_confidence_core` — 适合 Core 桶的低风险比赛
-- `value_edge` — 有价值空间的 Edge 桶比赛
-- `high_odds_attack` — 高赔率 Attack 候选
-- `group_decider` — 出线关键战
-- `knockout_high_stakes` — 淘汰赛高关注度
-- `championship_match` — 决赛/半决赛级别
-- `opening_match` — 开幕/首轮高不确定性
-- `futures_position` — 适合长周期投入
+- `high_confidence_core` 鈥?閫傚悎 Core 妗剁殑浣庨闄╂瘮璧?- `value_edge` 鈥?鏈変环鍊肩┖闂寸殑 Edge 妗舵瘮璧?- `high_odds_attack` 鈥?楂樿禂鐜?Attack 鍊欓€?- `group_decider` 鈥?鍑虹嚎鍏抽敭鎴?- `knockout_high_stakes` 鈥?娣樻卑璧涢珮鍏虫敞搴?- `championship_match` 鈥?鍐宠禌/鍗婂喅璧涚骇鍒?- `opening_match` 鈥?寮€骞?棣栬疆楂樹笉纭畾鎬?- `futures_position` 鈥?閫傚悎闀垮懆鏈熸姇鍏?
+### Scenario Preview 璇存槑
 
-### Scenario Preview 说明
-
-Scenario preview 是 **placeholder projection**（占位性情景投影），不是预测或承诺：
-- `all_miss` — 全部失败后本金状态
-- `all_hit` — 全部命中后本金状态
-- `attack_hit` — Attack 桶单独命中
-- `partial_hit` — Core+Edge 命中
+Scenario preview 鏄?**placeholder projection**锛堝崰浣嶆€ф儏鏅姇褰憋級锛屼笉鏄娴嬫垨鎵胯锛?- `all_miss` 鈥?鍏ㄩ儴澶辫触鍚庢湰閲戠姸鎬?- `all_hit` 鈥?鍏ㄩ儴鍛戒腑鍚庢湰閲戠姸鎬?- `attack_hit` 鈥?Attack 妗跺崟鐙懡涓?- `partial_hit` 鈥?Core+Edge 鍛戒腑
 
 ---
 
-## 安全边界
+## 瀹夊叏杈圭晫
 
 ```text
 real_bet_execution = false
@@ -106,10 +84,10 @@ reserve_min_ratio >= 0.5
 
 ---
 
-## 如何运行
+## 濡備綍杩愯
 
 ```bash
-# 全部测试
+# 鍏ㄩ儴娴嬭瘯
 python -m pytest tests -v
 
 # Round 1: Foundation dry-run
@@ -125,32 +103,25 @@ python scripts/run_daily_strategy_preview.py --date 2026-07-19 --bankroll 100 --
 python scripts/run_daily_strategy_preview.py --date 2026-06-11 --bankroll 5000 --json
 ```
 
-输出文件：
-- `reports/generated/foundation_preview.{json,md}`
+杈撳嚭鏂囦欢锛?- `reports/generated/foundation_preview.{json,md}`
 - `reports/generated/calendar_preview.{json,md}`
 - `reports/generated/daily_strategy_preview.{json,md}`
 
 ---
 
-## 当前暂未实现
+## 褰撳墠鏆傛湭瀹炵幇
 
-1. 暂未接真实赔率
-2. 暂未接真实球队强弱模型
-3. 暂未做 EV 排序
-4. 暂未输出具体比赛候选选项（如"买 A 队胜"）
-5. 暂未做真实 stake 分配到具体比赛
-6. 暂未处理赛后结算
-7. 暂未执行任何真实下注功能
+1. 鏆傛湭鎺ョ湡瀹炶禂鐜?2. 鏆傛湭鎺ョ湡瀹炵悆闃熷己寮辨ā鍨?3. 鏆傛湭鍋?EV 鎺掑簭
+4. 鏆傛湭杈撳嚭鍏蜂綋姣旇禌鍊欓€夐€夐」锛堝"涔?A 闃熻儨"锛?5. 鏆傛湭鍋氱湡瀹?stake 鍒嗛厤鍒板叿浣撴瘮璧?6. 鏆傛湭澶勭悊璧涘悗缁撶畻
+7. 鏆傛湭鎵ц浠讳綍鐪熷疄涓嬫敞鍔熻兘
 
 ---
 
-## 下一轮建议
-
-Round 4: Match Probability v1 — 接入基础球队评分和简单概率模型，让系统从"策略骨架"走向"比赛概率判断"。
-
+## 涓嬩竴杞缓璁?
+Round 5: Mock Odds / Odds Snapshot + EV Ranking v1 — 让概率第一次和赔率结合，筛选有理论价值的市场。
 ---
 
-## 项目结构
+## 椤圭洰缁撴瀯
 
 ```
 worldcup_campaign_agent/

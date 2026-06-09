@@ -1,0 +1,10 @@
+{
+  "rating_type": "slot_rating_seed",
+  "description": "Slot-based team ratings for dry-run probability modeling. NOT real team rankings.",
+  "is_seed_data": true,
+  "rating_version": "1.0.0",
+  "rating_fields": ["overall", "attack", "defense", "experience", "home_strength"],
+  "confidence_penalty_for_placeholder": 0.2,
+  "confidence_penalty_for_seed": 0.15,
+  "update_policy": "manual_seed_only"
+}
