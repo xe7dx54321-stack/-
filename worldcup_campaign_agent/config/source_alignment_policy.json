@@ -1,0 +1,16 @@
+﻿{
+  "model_name": "source_alignment_guard_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "check_cli_vs_snapshot": true,
+  "check_date_alignment": true,
+  "check_bankroll_alignment": true,
+  "check_report_freshness": true,
+  "bankroll_mismatch_tolerance": 0.01,
+  "date_mismatch_policy": "warn",
+  "bankroll_mismatch_policy": "warn",
+  "missing_source_policy": "warn_and_continue",
+  "stale_source_policy": "warn_and_continue"
+}

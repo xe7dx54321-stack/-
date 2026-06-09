@@ -1,0 +1,31 @@
+﻿{
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "review_dimensions": [
+    "probability_calibration",
+    "ev_ranking",
+    "campaign_score",
+    "bucket_performance",
+    "parlay_performance",
+    "futures_performance",
+    "source_alignment",
+    "safety"
+  ],
+  "recommendation_types": [
+    "increase_weight",
+    "decrease_weight",
+    "keep_weight",
+    "needs_more_sample",
+    "review_model_bias",
+    "review_data_quality",
+    "no_action"
+  ],
+  "forbidden_recommendations": [
+    "place_real_bet",
+    "increase_real_stake",
+    "chase_loss",
+    "borrow_money",
+    "guaranteed_profit"
+  ]
+}

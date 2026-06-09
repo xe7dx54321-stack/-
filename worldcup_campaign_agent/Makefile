@@ -1,4 +1,4 @@
-﻿test:
+test:
 	python -m pytest tests -v
 
 campaign-foundation:
@@ -158,3 +158,18 @@ campaign-dashboard-postmatch-json:
 
 campaign-dashboard-full-json:
 	python scripts/run_campaign_dashboard.py --date 2026-06-11 --bankroll 100 --mode full --json
+
+model-calibration-review:
+	python scripts/run_model_calibration_review.py --date 2026-06-11 --bankroll 100
+
+model-calibration-review-json:
+	python scripts/run_model_calibration_review.py --date 2026-06-11 --bankroll 100 --json
+
+model-calibration-review-third-round-json:
+	python scripts/run_model_calibration_review.py --date 2026-06-24 --bankroll 100 --json
+
+model-calibration-review-final-json:
+	python scripts/run_model_calibration_review.py --date 2026-07-19 --bankroll 100 --json
+
+model-calibration-review-bankroll-5000-json:
+	python scripts/run_model_calibration_review.py --date 2026-06-11 --bankroll 5000 --json

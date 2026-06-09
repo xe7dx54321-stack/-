@@ -1,0 +1,16 @@
+﻿{
+  "type": "object",
+  "required": ["record_count", "realized_count", "pending_count"],
+  "properties": {
+    "record_count": {"type": "integer"},
+    "realized_count": {"type": "integer"},
+    "pending_count": {"type": "integer"},
+    "brier_score": {"type": "number"},
+    "log_loss": {"type": "number"},
+    "hit_rate": {"type": "number"},
+    "calibration_bins": {"type": "array"},
+    "market_type_breakdown": {"type": "object"},
+    "confidence_breakdown": {"type": "object"},
+    "warnings": {"type": "array", "items": {"type": "string"}}
+  }
+}

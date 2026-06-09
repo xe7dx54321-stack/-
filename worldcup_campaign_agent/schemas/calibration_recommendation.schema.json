@@ -1,0 +1,13 @@
+﻿{
+  "type": "object",
+  "required": ["recommendations", "analysis_only", "simulation_only", "not_betting_advice"],
+  "properties": {
+    "recommendations": {"type": "array", "items": {"type": "object"}},
+    "summary": {"type": "string"},
+    "warning_count": {"type": "integer"},
+    "requires_human_review": {"type": "boolean"},
+    "analysis_only": {"type": "boolean"},
+    "simulation_only": {"type": "boolean"},
+    "not_betting_advice": {"type": "boolean"}
+  }
+}

@@ -1,68 +1,68 @@
-# WorldCup Campaign Strategy Agent
+﻿# WorldCup Campaign Strategy Agent
 
-濞戞挻鐗滈弲顐﹀级椤栨艾寮块悹褎绋撻埢鑲╃驳閺嶎偅娈ｉ悷娆忓閸ㄦ繄鍖栭懡銈囧煚 闁?闁活潿鍔嬬花顒勫礆閸℃鈧?2026 妤犵偟绻濈粭姗€鎮剧仦鐐窚 104 闁革妇鍎ら惁顔炬導濞戞ê鎸ら梻鈧崹顔藉櫙闁哄牏鍠庣粩鍫曞捶閻氬绀夊ù鐘劚閸ㄥ灚鎱ㄧ€ｎ偅鎷遍梺?100闁靛棔鑳跺ú浼村冀閸ャ劍鎷遍梺?1,000,000闁靛棔鐒﹂惁锟犲籍閵夛附浠樺鍫嗗倸鈻忛柣顫妼缂嶅宕滃鍡樻嫳闂?50% 濞?campaign policy闁挎稑鐭佺欢顓㈠礄閸濆嫭鏆滃☉鎾亾婵絽绻戝Λ鈺冪磼閻斿墎顏辩紒娑欑墱閺嗘劙濡?
-> **婵炲鍔嶉崜浼存晬濮橆厽鎷辩紒顖濆吹缁椽宕ｉ鍕驳 campaign analysis / simulation / strategy planning闁挎稑濂旂粭澶愬磻濮樿鲸鍩傞悗鍦仒缁楀懎鈻旈妸锕€鈷旈悶娑樼焿缁辨繃绋夊鍡楀濞寸姾顔婄紞宥夋儑閻旈鏉藉☉鎾愁儐閺?API闁挎稑濂旂粭澶愭儌鐠囪尙绉垮ù鐘侯唺缂嶅秹骞庨弴鐔告殘妤犵偛鍟胯ぐ鎾晬鐏炶偐鐟濋柟浣冨劵椤曨垶鎯勯崼婵嗙労闁?*
-
----
-
-## 濡炪倕婀卞ú鎵偓瑙勭煯缂?
-閺夆晜鐟ょ粭澶愬及?婵絽绻愰妵澶嬬▔鐎涙ɑ顦ч柟闈涘綖缁斿瓨绋夐妶鍕殝濡ゅ倹顭堢粋鍌涚▔鐎ｎ偅鏆堥柣?闁挎稑鐭侀埀顒€鏈Σ鍛婄▔閳ь剚绋?*濞戞挻鐗滈弲顐﹀级椤栨艾寮块悹褎绋撻埢?Campaign Strategy Engine**闁?
-- 閻犙勭☉婢х娀鎮介悢绋跨亣 104 闁革妇鍎ら崹顒冦亹閻熺増鍕鹃柛?- 婵絾妫佺粋宀勫嫉閻斿吋锛熼柡宥堫潐瀹撲線寮甸鍕闁绘鍩栭埀顑块檷閳ь兛娴囩粋宀€绮欑€ｎ喗鈻夋繛鍫㈠仯閳ь兛娴囩粋鍌炴偝閸パ冪秮闁告牗鐗撻埀顑跨閸戯繝宕ｉ幋鐘虫櫢閻犙勭⊕閻忓宕仦鐐紦缂備焦鎸鹃悾濠氭⒐閸喗鍣柡鍫㈠枍缁劍鎷呭蹇曠閺夊牊鎸搁崵顓㈠船椤栨瑧顏卞☉鎾亾濠靛倹顨呯紞瀣籍閵壯呮憸闁伙絻鍎崇划宥夊触?- 闁哄秶顭堢缓鐐濡搫顕ч柣鈺婂枟閻栵綁鏁嶅顓熶粯濠㈠爢鍐嚙閺夊牏鍋撻崹姘舵儎椤旂晫鍨兼慨鎺戝€诲濂告晬瀹€鍐ｅ亾鐏炶偐鐟濋柡鍕靛灠瀹曠喓鐥娑欎粯濠㈠爢鍐嚙闁告娲滈悷?EV
+婵炴垶鎸婚悧婊堝疾椤愶箑绾фい鏍ㄨ壘瀵潡鎮硅缁嬫捇鍩㈤懖鈺冮┏闁哄稁鍋呭▓锝夋偡濞嗗繐顏╅柛銊︾箘閸栨牠鎳￠妶鍥х厷 闂?闂佹椿娼块崝瀣姳椤掑嫬绀嗛柛鈩冾焽閳?2026 濡ょ姷鍋熺换婵堢箔濮椻偓閹墽浠﹂悙顒傜獨 104 闂侀潻濡囬崕銈夋儊椤旂偓灏庢繛鎴灻幐銈夋⒒閳ь剟宕归钘夋珯闂佸搫鐗忛崰搴ｇ博閸洖鎹堕柣姘嚟缁€澶娒归悩顔煎姎闁搞劌鐏氶幈銊р偓锝庡亝閹烽亶姊?100闂侀潧妫旈懗璺好烘导鏉戝唨闁搞儯鍔嶉幏閬嶆⒑?1,000,000闂侀潧妫旈悞锕傛儊閿熺姴绫嶉柕澶涢檮娴犳ê顭块崼鍡楀€搁埢蹇涙煟椤剙濡肩紓宥咁儔瀹曟粌顓奸崱妯诲闂?50% 婵?campaign policy闂佹寧绋戦惌浣烘椤撱垹绀勯柛婵嗗閺嗘粌鈽夐幘顖氫壕濠殿噯绲界换鎴澪涢埡鍐＜闁绘柨澧庨杈╃磼濞戞瑧澧遍柡鍡樺姍婵?
+> **濠电偛顦崝宥夊礈娴煎瓨鏅慨姗嗗幗閹疯京绱掗婵嗗惞缂侇喗妞藉畷锝夘敂閸曨亞椹?campaign analysis / simulation / strategy planning闂佹寧绋戞總鏃傜箔婢舵劕纾绘慨妯块哺閸╁倿鎮楅崷顓炰粧缂佹鎳庨埢鏃堝Ω閿曗偓閳锋棃鎮跺☉妯肩効缂佽鲸绻冪粙澶婎吋閸℃顦叉繛瀵稿Ь椤斿﹦绱炲澶嬪剳闁绘棃顥撻弶钘夆槈閹炬剚鍎愰柡?API闂佹寧绋戞總鏃傜箔婢舵劖鍎岄悹鍥皺缁夊灝霉閻樹警鍞虹紓宥呯Ч楠炲酣寮撮悢鍛婃畼濡ょ姷鍋涢崯鑳亹閹绢喗鏅悘鐐跺亹閻熸繈鏌熸担鍐ㄥ姷妞ゆ洦鍨堕幆鍕醇濠靛棛鍔撮梺?*
 
 ---
 
-## 濞戞捁妗ㄧ划鍫熺▕閸喓妲ㄥ鍨涙櫅瑜把勬綇閹惧啿姣夊☉鎾亾濠靛倹顨堥悺銉╂偩閵夘垳鍚?
-闁哄牜鍓涢柈瀵哥磼閻斿憡笑 **Campaign Strategy Agent**闁挎稑濂旂粭澶愬及椤栨瑧鐟撴繛澶堝妽鐢綊鎳￠幇顒佺彜闁?
-- 婵絽绻戝Λ鈺傛綇閹惧啿姣夐柣銊ュ濡插摜鎸ч崟顖氭婵℃鐖奸鍥几?+ 缂佹稒鐗滈弳鎰板冀閸モ晩鍔柨娑樺缁楀宕犻崨顓熷創闁稿繗娓圭紞瀣掗弮鍥╊洷闁规亽鍔忓畷?- 濞戞挸绉佃ぐ浣圭瑹濞戞﹩妯嬪☉鎿冧簷缁ㄤ即寮妷锔界厵婵℃鐗炵槐娆撴焽閿濆棙笑闁瑰嘲绉烽崜宕囨偖鐎ｅ墎绀嗛柨娑樼焷閳ь剙鏈Σ鎼佸箵閹邦亞杩旂紒顔藉劤閸ｎ垶鎯冮崟顏嗩伇闁哄绱曢悺銉╂偩閵夈劎鐔呯€?- 閻犙勭☉閹寮界憴鍕ウ閻庡湱鍋ゅ顖滅磼閹惧浜柤濂変簻婵晠宕氶崶銊ュ簥闁告帊鍗抽。鈺冩媼閹冪€婚柡鈧婵堢唴鐎?- 缂佹稒鐗滈弳鎰殽閵婏妇浠?= Reserve/Core/Edge/Attack/Futures 濞存粍鏌ч柌婊冾浖?+ 閻庣數鎳撶花鑼暜閸屾碍绨氱紒顐ヮ嚙閸?
+## 婵＄偑鍊曞﹢鍗灻洪幍顔瑰亾鐟欏嫮鐓紓?
+闁哄鏅滈悷銈囩箔婢舵劕鍙?濠殿噯绲界换鎰板Φ婢跺鈻旈悗娑櫳戦ˇ褔鏌熼棃娑樼稏缂佹柨鐡ㄧ粙澶愬Χ閸曨垰娈濇俊銈呭€归…鍫㈢矉閸屾稓鈻旈悗锝庡亝閺嗗牓鏌?闂佹寧绋戦惌渚€鍩€椤掆偓閺堫剙危閸涘﹦鈻旈柍褜鍓氱粙?*婵炴垶鎸婚悧婊堝疾椤愶箑绾фい鏍ㄨ壘瀵潡鎮硅缁嬫捇鍩?Campaign Strategy Engine**闂?
+- 闁荤姍鍕槈濠⒀呭█閹粙鎮㈢粙璺ㄤ海 104 闂侀潻濡囬崕銈夊垂椤掑啨浜归柣鐔哄閸曢箖鏌?- 濠殿噯绲惧Λ浣虹矉瀹€鍕珘闁绘柨鍚嬮敍鐔兼煛瀹ュ牜娼愮€规挷绶氬鐢割敆閸曨偅顏ラ梺缁橆焾閸╂牠鍩€椤戝潡妾烽柍褜鍏涘ù鍥╃矉瀹€鈧划娆戔偓锝庡枟閳诲绻涢崼銏犱化闁逞屽厸濞村洨绮嬮崒鐐村仢闁搞儜鍐М闂佸憡鐗楅悧鎾诲焵椤戣法顦﹂柛鎴節瀹曪綁骞嬮悩铏闁荤姍鍕姇闁诲繐顦靛畷顏嗕沪閻愵剙绱︾紓鍌欑劍閹搁箖鎮炬繝姘拹闁割煈鍠楅崳顖炴煛閸垹鏋嶇紒顔哄妽閹峰懎顓艰箛鏇狀槷闁哄鐗婇幐鎼佸吹椤撱垹鑸规い鏍ㄧ懅椤忓崬鈽夐幘顖氫壕婵犻潧鍊归〃鍛礊鐎ｎ喖绫嶉柕澹懏鎲搁梺浼欑祷閸庡磭鍒掑澶婅Е?- 闂佸搫绉堕…鍫㈢紦閻愵剙顕辨俊顖氭惈椤曆囨煟閳哄﹤鏋熼柣鏍电秮閺佸秴顫濋鐔剁帛婵犮垹鐖㈤崘顭戝殭闁哄鐗忛崑鎾诲垂濮樿埖鍎庢い鏃傛櫕閸ㄥ吋鎱ㄩ幒鎴濃偓璇差啅婵傚憡鏅€光偓閸愶絽浜鹃悘鐐跺亹閻熸繈鏌￠崟闈涚仩鐎规洜鍠撻惀顏堫敍濞戞瑤绮繝銏犵垻閸愵煈鍤欓梺鍛婎殕濞叉粓鎮?EV
+
 ---
 
-## Round 1 鐎瑰憡褰冮悾顒勫箣閹邦劷渚€宕稿Δ瀣閻犙冨閸ｉ箖宕烽弶璺ㄥ敤闁?
-| 婵☆垪鈧櫕鍋?| 闁哄倸娲ｅ▎?| 闁告梻鍠曢崗?|
-|------|------|------|
-| Campaign Policy Engine | `policy.py` | 闁哄牜鍓熼崳?闁烩晩鍠楅悥?濞戞挸锕铏光偓瑙勭煯缁犵喐绋夋惔銏㈠ⅰ濡?|
-| Bankroll State Machine | `bankroll_state.py` | S0-S7 闁绘鍩栭埀顑跨閸ㄥ海鐚炬导娆戠bucket 闁告帒妫濋崢?|
-| Market Universe Registry | `market_registry.py` | 20 缂佸绉剁敮鍝勨枖閺囩喐鏆堥柛鎰缁?bucket 闁哄被鍎撮?|
-| Odds / EV Engine | `odds_math.py` | 闂傚懏鍔曢幆鍫濐潡閸屾粌鑺抽柕鍡曠楠炴挸顫濆ǎ顑藉亾娑撴壐闁靛棔妞掔憰鍡涘礂鐎圭媭鍚€缂?|
-| Target Math | `target_math.py` | 闁烩晩鍠楅悥锝夊磹瀹ュ洤鑺抽柕鍡曠劍閻︼紕绮ｅΔ鈧ぐ娑㈠箥閳ь剟妫侀埀顒佹櫠閻愮儤姣愰柕鍡曡兌閹伙絾娼婚銏狀唺 |
-| Foundation Runner | `runner.py` | 闁糕晞娅ｉ、?dry-run 闁圭瑳鍡╂斀闁?|
+## 婵炴垶鎹佸銊у垝閸喓鈻曢柛顐ゅ枔濡层劌顭块崹娑欐珔鐟滄妸鍕秶闁规儳鍟垮В澶娾槈閹绢垰浜炬繝闈涘€归〃鍫ユ偤閵夆晜鍋╅柕澶樺灣閸?
+闂佸搫鐗滈崜娑㈡焾鐎靛摜纾奸柣鏂挎啞绗?**Campaign Strategy Agent**闂佹寧绋戞總鏃傜箔婢舵劕鍙婃い鏍ㄧ懅閻熸挻绻涙径鍫濆閻㈩垰缍婇幊锟犲箛椤掍胶褰滈梺?
+- 濠殿噯绲界换鎴澪涢埡鍌涚秶闁规儳鍟垮В澶愭煟閵娿儱顏俊鎻掓憸閹秆囧礋椤栨碍顏ュ┑鈩冾殔閻栧ジ顢撻崶顒€鍑?+ 缂備焦绋掗悧婊堝汲閹版澘鍐€闁搞儮鏅╅崝顕€鏌ㄥ☉妯侯殭缂佹顦靛畷鐘诲川椤撶喎鍓甸梺绋跨箺濞撳湱绱炵€ｎ€帡寮崶鈺婃捶闂佽浜介崝蹇撶暦?- 婵炴垶鎸哥粔浣冦亹娴ｅ湱鐟规繛鎴烇供濡鈽夐幙鍐х胺缂併劋鍗冲顒勫Ψ閿旂晫鍘靛┑鈩冾殔閻楃偟妲愬▎鎾寸劷闁挎繂妫欑瑧闂佺懓鍢茬粔鐑藉礈瀹曞洦鍋栭悗锝呭缁€鍡涙煥濞戞鐒烽柍褜鍓欓張顒€危閹间礁绠甸柟閭︿簽鏉╂梻绱掗钘夊姢闁革綆鍨堕幆鍐礋椤忓棭浼囬梺鍝勵檧缁辨洟鎮洪妷鈺傚仼闁靛鍔庨悢鍛偓?- 闁荤姍鍕槈闁诡喗顨婂鐣屾喆閸曨偆銈﹂柣搴℃贡閸嬨倕顬婇婊呯＜闁规儳顕禍顖炴煠婵傚绨诲┑顔规櫊瀹曟岸宕堕妸銉ョ哎闂佸憡甯婇崡鎶姐€傞埡鍐╁闁诡垎鍐偓濠氭煛閳ь剟顢涘┑鍫㈠敶閻?- 缂備焦绋掗悧婊堝汲閹邦収娈介柕濠忓娴?= Reserve/Core/Edge/Attack/Futures 婵炲瓨绮嶉弻褔鏌屽鍐炬禆?+ 闁诲海鏁搁幊鎾惰姳閼碱剚鏆滈柛灞剧缁ㄦ氨绱掗銉殭闁?
+---
 
-## Round 2 鐎瑰憡褰冮悾顒勫箣閹邦劷渚€宕稿Δ瀣閻犙勭〒閳诲ジ寮妷銉ュ潑闁?
-| 婵☆垪鈧櫕鍋?| 闁哄倸娲ｅ▎?| 闁告梻鍠曢崗?|
+## Round 1 閻庣懓鎲¤ぐ鍐偩椤掑嫬绠ｉ柟閭﹀姺娓氣偓瀹曠螖鐎ｎ剛顦╅柣鐘欏啫顏柛锝夌畺瀹曠兘寮剁捄銊ユ暏闂?
+| 濠碘槅鍨埀顒冩珪閸?| 闂佸搫鍊稿ú锝呪枎?| 闂佸憡姊婚崰鏇㈠礂?|
 |------|------|------|
-| Stage Mapper | `stage_mapper.py` | 闁哄啨鍎插﹢锟犲焼閹烘鈻夋繛鍫濈仛濡惭呬焊?|
-| Match Registry | `match_registry.py` | 104 闁革妇鍎ら惁顔炬導濞戞ê顫ｉ弶鐐村灊缁楀矂寮婚妷顭戝殑 |
-| Calendar Engine | `calendar_engine.py` | 缂備礁瀚幃搴ｆ導濞戞埃鏌?婵絾妫佺粋?闁衡偓鐠恒劎鎽滈柣銊ュ缁扁晠骞?|
-| Opportunity Window | `opportunity_window.py` | 闁告挴鏅欑紞鎴澬掗弮鍥╊洷/缂佹劖顨呰ぐ娑氭媼閿涘嫮鏆?|
-| Calendar Runner | `calendar_runner.py` | 闁哄啨鍎卞缁橈紣閸曨噮娼旈柟韬插劚閹?|
+| Campaign Policy Engine | `policy.py` | 闂佸搫鐗滈崜鐔煎闯?闂佺儵鏅╅崰妤呮偉?婵炴垶鎸搁敃顏勵瀶閾忓厜鍋撶憴鍕叝缂佺姷鍠愮粙澶嬫償閵忋垹鈪版俊?|
+| Bankroll State Machine | `bankroll_state.py` | S0-S7 闂佺粯顭堥崺鏍焵椤戣法顦﹂柛銊ユ捣閻氱偓瀵煎▎鎴狀槷bucket 闂佸憡甯掑Λ婵嬪储?|
+| Market Universe Registry | `market_registry.py` | 20 缂備礁顦粔鍓佹暜閸濆嫧鏋栭柡鍥╁枑閺嗗牓鏌涢幇顒€顨欑紒?bucket 闂佸搫琚崕鎾敋?|
+| Odds / EV Engine | `odds_math.py` | 闂傚倸鎳忛崝鏇㈠箚閸繍娼￠柛灞剧矊閼烘娊鏌曢崱鏇狀槮妤犵偞鎸搁～婵喦庨钘変壕濞戞挻澹愰梺闈涙濡炴帞鎲伴崱娑樼閻庡湱濯崥鈧紓?|
+| Target Math | `target_math.py` | 闂佺儵鏅╅崰妤呮偉閿濆纾圭€广儱娲ら懞鎶芥煏閸℃洜鍔嶉柣锔肩磿缁絽螖閳ь剝銇愬☉銏犵闁逞屽墴濡線鍩€椤掍焦娅犻柣鎰劋濮ｆ劙鏌曢崱鏇″厡闁逛紮绲惧濠氼敃閵忕媭鍞?|
+| Foundation Runner | `runner.py` | 闂佺硶鏅炲▍锝夈€?dry-run 闂佸湱鐟抽崱鈺傛杸闂?|
 
-## Round 3 闁哄倹婢橀·鍐ㄎ熼垾铏仴闁挎稑鐗婇惁锟犲籍閵壯呭煚濞戞挴鍋撶紒娑欑墱閺?v1闁?
-| 婵☆垪鈧櫕鍋?| 闁哄倸娲ｅ▎?| 闁告梻鍠曢崗?|
+## Round 2 閻庣懓鎲¤ぐ鍐偩椤掑嫬绠ｉ柟閭﹀姺娓氣偓瀹曠螖鐎ｎ剛顦╅柣鐘欏嫮銆掗柍璇层偢瀵噣濡烽妷銉ユ綉闂?
+| 濠碘槅鍨埀顒冩珪閸?| 闂佸搫鍊稿ú锝呪枎?| 闂佸憡姊婚崰鏇㈠礂?|
 |------|------|------|
-| Strategy Profile Selector | `strategy_profile.py` | 闁糕晞妗ㄧ花?stage + bankroll state 闂侇偄顦扮€氥劍顦版惔銊︾彟缂佹稒鐗滈弳?|
-| Match Strategy Labeler | `match_strategy_labeler.py` | 缂備焦鐟﹂惁锟犲捶閻戞妲烽悹褎绋掓晶锔剧驳閺嶎偅娈ｉ柡宥呮川椤掔兘鏁嶉崼銉﹀濞戞挸顑嗛弫鐐差嚈妤︽鍞撮柨?|
-| Strategy Allocator | `strategy_allocator.py` | 閻犙冨閸ｆ儳顩肩捄鍝勭€婚梺鏉跨Т閸╁矂宕ｉ婊勬殢閻㈩垰鍊稿┃鈧紒顐ヮ嚙閸?|
-| Scenario Preview | `scenario_preview.py` | 闁稿繈鍔嬮懙?闁稿繈鍔岄妵?闂侇喓鍔岄崹搴㈢▔椤撶姷鎼奸柟顖氭噺濞呮瑩骞庨弴鐐差殯 |
-| Daily Strategy Engine | `daily_strategy.py` | 闁轰焦娼欓幃?R1+R2+R3 闁汇劌瀚€靛苯顕ｉ弴鐔告儧 |
-| Daily Strategy Runner | `daily_strategy_runner.py` | 闁哄啨鍎叉慨銈夋偨閻旂鐏?|
+| Stage Mapper | `stage_mapper.py` | 闂佸搫鍟ㄩ崕鎻掞耿閿熺姴鐒奸柟鐑橆殕閳诲绻涢崼婵堜粵婵℃儹鍛剨?|
+| Match Registry | `match_registry.py` | 104 闂侀潻濡囬崕銈夋儊椤旂偓灏庢繛鎴灻～锝夊级閻愭潙鐏婄紒妤€鐭傚濠氬Ψ椤垵娈?|
+| Calendar Engine | `calendar_engine.py` | 缂傚倷绀佺€氼剟骞冩惔锝嗗皫婵炴垶鍩冮弻?濠殿噯绲惧Λ浣虹矉?闂佽　鍋撻悹鎭掑妿閹芥粓鏌ｉ妸銉ヮ仼缂佹墎鏅犻獮?|
+| Opportunity Window | `opportunity_window.py` | 闂佸憡鎸撮弲娆戠礊閹存粳鎺楀籍閸モ晩娲?缂備焦鍔栭〃鍛般亹濞戞碍濯奸柨娑樺閺?|
+| Calendar Runner | `calendar_runner.py` | 闂佸搫鍟ㄩ崕鍗烆啅缂佹﹫绱ｉ柛鏇ㄥ櫘濞兼棃鏌熼煬鎻掑姎闁?|
 
-### 濞存粍鏌ч柌婊呮導閸曨垰娅ㄦ俊妤€澧庡▓鎴﹀触椤愶紕鐤?
-| 婵?| 闁活潿鍔戦埀?| 濡炲閰ｅ▍鎾剁驳婢跺矂鐛?|
+## Round 3 闂佸搫鍊瑰姗€路閸愩剮鐔煎灳閾忣偄浠撮梺鎸庣☉閻楀﹪鎯侀敓鐘茬睄闁靛／鍛厷婵炴垶鎸撮崑鎾剁磼濞戞瑧澧遍柡?v1闂?
+| 濠碘槅鍨埀顒冩珪閸?| 闂佸搫鍊稿ú锝呪枎?| 闂佸憡姊婚崰鏇㈠礂?|
+|------|------|------|
+| Strategy Profile Selector | `strategy_profile.py` | 闂佺硶鏅炲銊ц姳?stage + bankroll state 闂備緡鍋勯ˇ鎵偓姘ュ妽椤︾増鎯旈妸锔惧綗缂備焦绋掗悧婊堝汲?|
+| Match Strategy Labeler | `match_strategy_labeler.py` | 缂傚倷鐒﹂悷锕傛儊閿熺姴鎹堕柣鎴烆焽濡茬兘鎮硅缁嬫帗鏅堕敂鍓ч┏闁哄稁鍋呭▓锝夋煛瀹ュ懏宸濇い鎺斿厴閺佸秹宕奸妷锕€顫℃繛鎴炴尭椤戝棝寮悙宸殘濡わ附顑欓崬鎾煥?|
+| Strategy Allocator | `strategy_allocator.py` | 闁荤姍鍐伃闁革絾鍎抽々鑲╂崉閸濆嫮鈧姊洪弶璺ㄐ㈤柛鈺佺焸瀹曪綁顢涘鍕闁汇埄鍨伴崐绋库攦閳ь剛绱掗銉殭闁?|
+| Scenario Preview | `scenario_preview.py` | 闂佺绻堥崝瀣嚈?闂佺绻堥崝宀勫Φ?闂備緡鍠撻崝宀勫垂鎼淬垻鈻旀い鎾跺Х閹煎ジ鏌熼姘櫤婵炲懏鐟╅獮搴ㄥ即閻愬樊娈?|
+| Daily Strategy Engine | `daily_strategy.py` | 闂佽桨鐒﹀娆撳箖?R1+R2+R3 闂佹眹鍔岀€氼亞鈧潧鑻锝夊即閻斿憡鍎?|
+| Daily Strategy Runner | `daily_strategy_runner.py` | 闂佸搫鍟ㄩ崕鍙夋叏閵堝鍋ㄩ柣鏃傤焾閻?|
+
+### 婵炲瓨绮嶉弻褔鏌屽鍛皫闁告洦鍨板▍銊︿繆濡も偓婢у骸鈻撻幋锕€瑙︽い鎰剁磿閻?
+| 濠?| 闂佹椿娼块崝鎴﹀焵?| 婵＄偛顑呴柊锝呪枍閹惧墎椹冲璺虹焸閻?|
 |----|------|----------|
-| **Reserve** | 濞ｅ洦绻勯弳鈧柣婊€鍗抽崳楣冩晬鐏炶偐鐟濋柛娆忓€风粭宀勬焾閵娧嗩唹闁挎稑鐗冩晶?0%闁哄牜鍓熼崳楣冩晬?| 闂傚棗鐖奸ˉ鎾绘⒔?|
-| **Core** | 濞达絽閰ｉˉ鎾绘⒔閳哄懐褰痪顓у枛閻ｉ箖骞€瑜嶇粩鍫曞捶閻氬绀?X2闁靛棔榫歰uble chance闁?| 濞?|
-| **Edge** | 濞戞搩鍘鹃悺鎴烆槹鎼淬劍鐝﹀ù鐘插槻閳ь剛鍘х粩鍫曞捶閻氬绀勯悹浣叉櫇閹棝濡存担鎼炰海閻忓繐绻掗幃鍡涘Υ?濞?闁?| 濞?|
-| **Attack** | 濡ゅ倹顭堢粋鍌炴偝閸ャ劍绨氬ù鍏肩啲缁辨瑥袙閺傚灝鐎婚柕?濞?闁?濞?闁?| 濡?|
-| **Futures** | 闂傗偓閸喗鍣柡鍫㈠枍缁劍鎷呭蹇曠闁哄懎顑囨鍥Υ娴ｇ鏆嗗ù婊勮壘閸熸濡存笟鈧崳楣冩鏉堝墽绀?| 闂傗偓閹稿孩鍩?|
+| **Reserve** | 婵烇絽娲︾换鍕汲閳ь剟鏌ｅ鈧崡鎶藉闯妤ｅ啯鏅悘鐐跺亹閻熸繈鏌涘▎蹇撯偓椋庣箔瀹€鍕劸闁靛ě鍡╁敼闂佹寧绋戦悧鍐╂櫠?0%闂佸搫鐗滈崜鐔煎闯妤ｅ啯鏅?| 闂傚倸妫楅悥濂杆夐幘缁樷挃?|
+| **Core** | 婵炶揪绲介柊锝壦夐幘缁樷挃闁冲搫鎳愯ぐ顖滅棯椤撗冩灈闁伙綁绠栭獮鈧憸宥囩博閸洖鎹堕柣姘嚟缁€?X2闂侀潧妫旀Λ姝皍ble chance闂?| 婵?|
+| **Edge** | 婵炴垶鎼╅崢楣冩偤閹寸儐妲归幖娣妽閻濓箑霉閻樻彃妲婚柍褜鍓涢崢褏绮╅崼鏇炴嵍闁绘艾顕粈鍕偣娴ｅ弶娅囬柟顔兼婵″瓨鎷呴幖鐐版捣闁诲繐绻愮换鎺楀箖閸℃稑违?婵?闂?| 婵?|
+| **Attack** | 婵°倕鍊归…鍫㈢矉閸岀偞鍋濋柛銉ｅ妽缁ㄦ艾霉閸忚偐鍟茬紒杈ㄧ懃琚欓柡鍌氱仢閻庡鏌?婵?闂?婵?闂?| 婵?|
+| **Futures** | 闂傚倵鍋撻柛顭戝枟閸ｎ垶鏌￠崼銏犳瀺缂侇喓鍔嶉幏鍛吋韫囨洜顦╅梺鍝勬噹椤戝洦顨ラ崶顒€违濞达絿顭堥弳鍡椕瑰鍕闁哥喐顨婃俊瀛樼瑹閳ь剟宕虫ィ鍐╊棃閺夊牆澧界粈?| 闂傚倵鍋撻柟绋垮閸?|
 
-### Match Label 閻犲洤鐡ㄥΣ?
-Match label 闁?*缂佹稒鐗滈弳鎰板磹濞嗘挴鍋撴径瀣灱缂?*闁挎稑濂旂粭澶愬及椤栨瑧鐟撴繛澶堝妼缂傛挾鎷嬮鍡欑獥
+### Match Label 闁荤姴娲ら悺銊ノ?
+Match label 闂?*缂備焦绋掗悧婊堝汲閹版澘纾规繛鍡樻尨閸嬫挻寰勭€ｎ剙鐏辩紓?*闂佹寧绋戞總鏃傜箔婢舵劕鍙婃い鏍ㄧ懅閻熸挻绻涙径鍫濆缂傚倹鎸鹃幏瀣敋閸℃瑧鐛?
 
-- `high_confidence_core` 闁?闂侇偄鍊搁幃?Core 婵℃澧庡▓鎴炴媴鎼搭煈妫戦梻鍕ㄦ櫆閻︻喚鎸?- `value_edge` 闁?闁哄牆顦悳顖炲磹閼测斁鏁勯梻鍌氼嚟濞?Edge 婵℃鍩栭惁顔炬導?- `high_odds_attack` 闁?濡ゅ倹顭堢粋鍌炴偝?Attack 闁稿﹥鐟╅埀?- `group_decider` 闁?闁告垼娅ｉ崵搴ㄥ礂閹惰姤鏆涢柟?- `knockout_high_stakes` 闁?婵烇絾蓱閸楁垹鎸у☉銏㈠蒋闁稿繗娅曢弫鐐存償?- `championship_match` 闁?闁告劕鐤囩粋?闁告锕ら崰鍛導濞戞岸鐛撻柛?- `opening_match` 闁?鐎殿喒鍋撴?濡絾鐗為悿鍡橆殗濡湱鐟濈痪顓у枛閻ｉ箖骞€?- `futures_position` 闁?闂侇偄鍊搁幃搴ㄦ⒐閸喗鍣柡鍫㈠枑婵洭宕?
-### Scenario Preview 閻犲洤鐡ㄥΣ?
-Scenario preview 闁?**placeholder projection**闁挎稑鐗嗗畷鐗堟媴瀹ュ棌鍋撹閸庡繘寮查娑橆潓鐟滅増鍞荤槐姘舵晬鐏炶偐鐟濋柡鍕靛灦椤ｂ晛霉鐎ｎ偄鐏楅柟浣冨劵椤曨垶鏁?- `all_miss` 闁?闁稿繈鍔戦崕瀛樺緞鏉堫偉袝闁告艾瀛╁﹢浼存煂閹寸姴笑闁?- `all_hit` 闁?闁稿繈鍔戦崕鎾川閹存帟鍘柛姘濠€浼存煂閹寸姴笑闁?- `attack_hit` 闁?Attack 婵℃娉涘畷鐔兼偑椤掆偓閹斥剝绋?- `partial_hit` 闁?Core+Edge 闁告稒鍨濋懙?
+- `high_confidence_core` 闂?闂備緡鍋勯崐鎼佸箖?Core 濠碘剝顨呮晶搴♀枔閹寸偞濯撮幖鎼厛濡垿姊婚崟銊︽珕闁伙富鍠氶幐?- `value_edge` 闂?闂佸搫鐗嗛ˇ顕€鎮抽鐐茬９闁兼祴鏂侀弫鍕⒒閸屾凹鍤熸繛?Edge 濠碘剝顨夐崺鏍儊椤旂偓灏?- `high_odds_attack` 闂?婵°倕鍊归…鍫㈢矉閸岀偞鍋?Attack 闂佺锕ラ悷鈺呭焵?- `group_decider` 闂?闂佸憡鍨煎▍锝夊吹鎼淬劌绀傞柟鎯板Г閺嗘盯鏌?- `knockout_high_stakes` 闂?濠电儑绲捐摫闁告鍨归幐褍鈽夐姀銏犺拫闂佺绻楀▍鏇㈠极閻愬瓨鍎?- `championship_match` 闂?闂佸憡鍔曢悿鍥╃矉?闂佸憡顨呴敃銈夊窗閸涱垱灏庢繛鎴炲哺閻涙捇鏌?- `opening_match` 闂?閻庢鍠掗崑鎾搭殽?婵☆偓绲鹃悧鐐烘偪閸℃﹩娈楁俊顖氭贡閻熸繄鐥褍鏋涢柣锝夌畺楠炩偓?- `futures_position` 闂?闂備緡鍋勯崐鎼佸箖鎼淬劍鈷愰柛顭戝枟閸ｎ垶鏌￠崼銏犳瀾濠殿喖娲畷?
+### Scenario Preview 闁荤姴娲ら悺銊ノ?
+Scenario preview 闂?**placeholder projection**闂佹寧绋戦悧鍡楃暦閻楀牊濯寸€广儱妫岄崑鎾诡槼闁稿骸绻樺鏌ヮ敍濞戞﹩娼撻悷婊呭閸炶崵妲愬鑸垫櫖閻忕偠鍋愰悷婵嬫煛閸曢潧鐏︽い锝傛櫅闇夐悗锝庡亜閻忔鏌熸担鍐ㄥ姷妞ゆ洦鍨堕弫?- `all_miss` 闂?闂佺绻堥崝鎴﹀磿鐎涙ê绶為弶鍫亯琚濋梺鍛婅壘鐎涒晛锕㈡导瀛樼厒闁瑰濮寸瑧闂?- `all_hit` 闂?闂佺绻堥崝鎴﹀磿閹绢喖宸濋柟瀛樺笩閸橆剟鏌涘顒€顒㈡繝鈧导瀛樼厒闁瑰濮寸瑧闂?- `attack_hit` 闂?Attack 濠碘剝顨夊▔娑樼暦閻斿吋鍋戞い鎺嗗亾闁规枼鍓濈粙?- `partial_hit` 闂?Core+Edge 闂佸憡绋掗崹婵嬫嚈?
 ---
 
-## 閻庣懓顦崣蹇旀綇閸︻厽娅?
+## 闁诲海鎳撻ˇ顖炲矗韫囨梹缍囬柛锔诲幗濞?
 ```text
 real_bet_execution = false
 auto_betting = false
@@ -75,9 +75,9 @@ reserve_min_ratio >= 0.5
 
 ---
 
-## 濠碘€冲€风紞宥嗘交閹邦垼鏀?
+## 婵犵鈧啿鈧绱炲鍡樹氦闁归偊鍨奸弨?
 ```bash
-# 闁稿繈鍔戦崕鏉懨圭€ｎ厾妲?python -m pytest tests -v
+# 闂佺绻堥崝鎴﹀磿閺夋嚚鍦偓锝庡幘濡?python -m pytest tests -v
 
 # Round 1: Foundation dry-run
 python scripts/run_campaign_foundation.py --bankroll 100 --windows-left 40 --json
@@ -92,20 +92,20 @@ python scripts/run_daily_strategy_preview.py --date 2026-07-19 --bankroll 100 --
 python scripts/run_daily_strategy_preview.py --date 2026-06-11 --bankroll 5000 --json
 ```
 
-閺夊牊鎸搁崵顓㈠棘閸ワ附顐介柨?- `reports/generated/foundation_preview.{json,md}`
+闁哄鐗婇幐鎼佸吹椤撱垹妫橀柛銉檮椤愪粙鏌?- `reports/generated/foundation_preview.{json,md}`
 - `reports/generated/calendar_preview.{json,md}`
 - `reports/generated/daily_strategy_preview.{json,md}`
 
 ---
 
-## 鐟滅増鎸告晶鐘诲汲閸屾稒寮撻悗鍦仧楠?
-1. 闁哄棗鍊瑰﹢顓㈠箳閵壯勫焸閻庡湱鍋犵粋鍌炴偝?2. 闁哄棗鍊瑰﹢顓㈠箳閵壯勫焸閻庡湱鍋熼幃鍡涙⒓閻斿嘲绻佺€殿喛椴歌啯闁?3. 闁哄棗鍊瑰﹢顓㈠磻?EV 闁圭儤甯掔花?4. 闁哄棗鍊瑰﹢顓熸綇閹惧啿姣夐柛蹇氭腹缂嶅袙閺冨洨顩遍柛濠冪懇閳ь剙顦甸埀顒€顦甸妴宥夋晬閸繍娲?濞?A 闂傚啰鍠曢崕?闁?5. 闁哄棗鍊瑰﹢顓㈠磻濮樿鲸鍩傞悗?stake 闁告帒妫濋崢銈夊礆閺夊灝寰斿ù锝嗘尰閻︻喚鎸?6. 闁哄棗鍊瑰﹢顓熷緞閸曨厽鍊為悹褎绋戦幃妤冪磼閹惧墎鏆?7. 闁哄棗鍊瑰﹢顓㈠箥瑜戦、鎴炵鐠佸磭绉块柣顏嗗枎閻ゅ嫭绋夌€ｎ偅鏆堥柛鏃傚枙閸?
+## 閻熸粎澧楅幐鍛婃櫠閻樿姹查柛灞剧⊕瀵捇鎮楅崷顓炰户妤?
+1. 闂佸搫妫楅崐鐟帮耿椤撱垹绠抽柕澹嫬鐒搁柣搴℃贡閸嬬姷绮嬮崒鐐村仢?2. 闂佸搫妫楅崐鐟帮耿椤撱垹绠抽柕澹嫬鐒搁柣搴℃贡閸嬬喖骞冮崱娑欌挀闁绘柨鍢茬换浣衡偓娈垮枦妞存瓕鍟梺?3. 闂佸搫妫楅崐鐟帮耿椤撱垹纾?EV 闂佸湱鍎ょ敮鎺旇姳?4. 闂佸搫妫楅崐鐟帮耿椤撶喐缍囬柟鎯у暱濮ｅ鏌涜箛姘吂缂傚秴顑呰闁哄啫娲ㄩ々閬嶆煕婵犲啰鎳囬柍褜鍓欓ˇ鐢稿焵椤掆偓椤︾敻濡村澶嬫櫖闁割偅绻嶅ú?婵?A 闂傚倸鍟伴崰鏇㈠磿?闂?5. 闂佸搫妫楅崐鐟帮耿椤撱垹纾绘慨妯块哺閸╁倿鎮?stake 闂佸憡甯掑Λ婵嬪储閵堝绀嗛柡澶婄仢瀵版柨霉閿濆棙灏伴柣锔诲枤閹?6. 闂佸搫妫楅崐鐟帮耿椤撶喎绶為柛鏇ㄥ幗閸婄偤鎮硅缁嬫垿骞冨Δ鍐＜闁规儳澧庨弳?7. 闂佸搫妫楅崐鐟帮耿椤撱垹绠ョ憸鎴︺€侀幋鐐殿浄閻犱礁纾粔鍧楁煟椤忓棗鏋庨柣銈呭缁嬪鈧綆鍋呴弳鍫ユ煕閺冨倸鏋欓柛?
 ---
 
-## 濞戞挸顑勭粩瀛樻姜椤旇偐绱﹂悹?
-Round 5: Mock Odds / Odds Snapshot + EV Ranking v1 閳?鐠佲晜顩ч悳鍥╊儑娑撯偓濞嗏€虫嫲鐠ф梻宸肩紒鎾虫値閿涘瞼鐡柅澶嬫箒閻炲棜顔戞禒宄扳偓鑲╂畱鐢倸婧€閵?---
+## 婵炴垶鎸搁鍕博鐎涙ɑ濮滄い鏃囧亹缁憋箓鎮?
+Round 5: Mock Odds / Odds Snapshot + EV Ranking v1 闁?閻犱讲鏅滈々褔鎮抽崶鈺婂剳濞戞挴鍋撴繛鍡忊偓铏閻犙勬⒒瀹歌偐绱掗幘铏€ら柨娑樼灱閻☆偊鏌呮径瀣畳闁荤偛妫滈鎴炵瀹勬壋鍋撻懖鈺傜暠閻㈩垰鍊稿┃鈧柕?---
 
-## 濡炪倕婀卞ú鎵磼閹惧鈧?
+## 婵＄偑鍊曞﹢鍗灻洪幍顔剧＜闁规儳顕埀?
 ```
 worldcup_campaign_agent/
   README.md
@@ -397,7 +397,7 @@ Round 10: Post-Match Settlement & Bankroll Update v1 -- add the ability to simul
 ## Round 10: Post-Match Settlement & Bankroll Update v1
 
 ### Overview
-Round 10 closes the campaign loop — after daily strategy generation, the system can now perform post-match settlement using manual result inputs, update the simulated bankroll, reclassify bankroll state, and generate next-day routing hints. All settlement is simulation-only with no real money involved.
+Round 10 closes the campaign loop 鈥?after daily strategy generation, the system can now perform post-match settlement using manual result inputs, update the simulated bankroll, reclassify bankroll state, and generate next-day routing hints. All settlement is simulation-only with no real money involved.
 
 ### Key Capabilities
 - Build simulation ledger from integrated daily strategy
@@ -413,7 +413,7 @@ Round 10 closes the campaign loop — after daily strategy generation, the syste
 - Generate campaign_state_history.json
 
 ### Core Principles
-1. Settlement is simulation-only — no real money, no bookmaker connection
+1. Settlement is simulation-only 鈥?no real money, no bookmaker connection
 2. Reserve is always protected (50% minimum)
 3. Futures/pending candidates are NOT prematurely settled
 4. Manual result seed is user-edited, not scraped from bookmakers
@@ -448,24 +448,24 @@ eports/generated/postmatch_settlement.md
 eports/generated/campaign_state_history.json
 
 ### New Modules
-- src/worldcup_campaign/settlement_ledger.py — Builds simulation ledger from integrated strategy
-- src/worldcup_campaign/settlement_engine.py — Processes manual results, determines outcomes
-- src/worldcup_campaign/campaign_state_tracker.py — Records snapshots, maintains history
-- src/worldcup_campaign/postmatch_settlement_runner.py — Full pipeline runner
-- scripts/run_postmatch_settlement.py — CLI
+- src/worldcup_campaign/settlement_ledger.py 鈥?Builds simulation ledger from integrated strategy
+- src/worldcup_campaign/settlement_engine.py 鈥?Processes manual results, determines outcomes
+- src/worldcup_campaign/campaign_state_tracker.py 鈥?Records snapshots, maintains history
+- src/worldcup_campaign/postmatch_settlement_runner.py 鈥?Full pipeline runner
+- scripts/run_postmatch_settlement.py 鈥?CLI
 
 ### New Configs
-- config/postmatch_settlement_config.json — Settlement rules, outcome types, bankroll update
-- config/settlement_rules.json — Forbidden fields, manual result validation
+- config/postmatch_settlement_config.json 鈥?Settlement rules, outcome types, bankroll update
+- config/settlement_rules.json 鈥?Forbidden fields, manual result validation
 
 ### New Seed Data
-- data/seed/manual_result_seed.json — User-editable manual match results
+- data/seed/manual_result_seed.json 鈥?User-editable manual match results
 
 ### Safety
 - nalysis_only=true, simulation_only=true, 
 ot_betting_advice=true
 - 
-o_real_money=true — no real account balances
+o_real_money=true 鈥?no real account balances
 - Forbidden in ledger: stake, stake_to_match, bet_instruction, bookmaker, bookmaker_account, real_money_balance
 - Manual results validated against forbidden fields
 - Futures are marked pending, never auto-settled
@@ -478,7 +478,7 @@ o_real_money=true — no real account balances
 5. Real-time campaign dashboard
 
 ### Next Round Suggestion
-Round 11: Campaign Dashboard & Daily Brief v1 — unified view of current bankroll, path status, today's strategy, parlay, futures, and post-match update in a single operator display.
+Round 11: Campaign Dashboard & Daily Brief v1 鈥?unified view of current bankroll, path status, today's strategy, parlay, futures, and post-match update in a single operator display.
 
 ## Round 11: Campaign Dashboard & Daily Brief v1
 

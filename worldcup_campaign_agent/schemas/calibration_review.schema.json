@@ -1,0 +1,21 @@
+﻿{
+  "type": "object",
+  "required": ["current_date", "current_bankroll", "analysis_only", "simulation_only", "not_betting_advice"],
+  "properties": {
+    "campaign_name": {"type": "string"},
+    "current_date": {"type": "string"},
+    "current_bankroll": {"type": "number"},
+    "source_alignment_result": {"type": "object"},
+    "probability_calibration_review": {"type": "object"},
+    "bucket_performance_review": {"type": "object"},
+    "parlay_performance_review": {"type": "object"},
+    "futures_performance_review": {"type": "object"},
+    "calibration_recommendations": {"type": "object"},
+    "safety": {"type": "object"},
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "generated_at": {"type": "string"},
+    "analysis_only": {"type": "boolean"},
+    "simulation_only": {"type": "boolean"},
+    "not_betting_advice": {"type": "boolean"}
+  }
+}

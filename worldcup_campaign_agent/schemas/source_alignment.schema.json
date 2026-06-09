@@ -1,0 +1,18 @@
+﻿{
+  "type": "object",
+  "required": ["cli_date", "cli_bankroll", "date_aligned", "bankroll_aligned", "analysis_only", "simulation_only", "not_betting_advice"],
+  "properties": {
+    "cli_date": {"type": "string"},
+    "cli_bankroll": {"type": "number"},
+    "snapshot_date": {"type": "string"},
+    "snapshot_bankroll": {"type": "number"},
+    "display_bankroll": {"type": "number"},
+    "date_aligned": {"type": "boolean"},
+    "bankroll_aligned": {"type": "boolean"},
+    "source_freshness_summary": {"type": "object"},
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "analysis_only": {"type": "boolean"},
+    "simulation_only": {"type": "boolean"},
+    "not_betting_advice": {"type": "boolean"}
+  }
+}
