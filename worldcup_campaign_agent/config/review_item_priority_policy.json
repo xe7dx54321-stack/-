@@ -1,0 +1,36 @@
+{
+  "model_name": "review_priority_policy_v1",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "severity_levels": [
+    "critical",
+    "high",
+    "medium",
+    "low"
+  ],
+  "severity_rules": {
+    "watchdog_blocked": "critical",
+    "settlement_override_requested": "critical",
+    "signal_fusion_major_disagreement": "high",
+    "settlement_unresolved": "high",
+    "signal_fusion_unexplained_disagreement": "medium",
+    "daily_ops_degraded": "medium",
+    "source_stale": "medium",
+    "source_missing": "low",
+    "dry_run_warning": "low"
+  },
+  "source_priority_order": [
+    "settlement_review",
+    "watchdog_review",
+    "signal_fusion_review",
+    "daily_ops_review",
+    "dry_run_review"
+  ],
+  "deduplicate_by": [
+    "source_type",
+    "match_id",
+    "review_reason"
+  ],
+  "min_reason_length": 10
+}

@@ -1,0 +1,37 @@
+{
+  "model_name": "human_review_workbench_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "review_sources": [
+    "watchdog",
+    "signal_fusion",
+    "settlement",
+    "daily_ops",
+    "full_campaign_dry_run"
+  ],
+  "default_date": "2026-06-11",
+  "max_review_items": 500,
+  "auto_resolve_after_confirm": true,
+  "require_reason_for_reject": true,
+  "require_reason_for_override": true,
+  "allowed_decisions": [
+    "confirm",
+    "reject",
+    "defer",
+    "mark_resolved",
+    "request_more_data",
+    "override_simulation_preview"
+  ],
+  "simulation_override_allowed_for": [
+    "settlement_review"
+  ],
+  "forbidden_decisions": [
+    "execute_real_bet",
+    "withdraw_funds",
+    "modify_account",
+    "claim_guaranteed_profit"
+  ],
+  "network_fetch_default_enabled": false
+}

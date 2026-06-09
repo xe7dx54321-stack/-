@@ -1171,3 +1171,73 @@ python scripts/run_full_campaign_dry_run.py --start-date 2026-06-11 --end-date 2
 
 ### Next Round Suggestion
 Round 22: Human Review Workbench v1 — consolidate Watchdog/Signal Fusion/Settlement reviews into an actionable review console
+
+## Round 22: Human Review Workbench v1
+
+### Summary
+Human Review Workbench consolidates all review items from Watchdog, Signal Fusion, Settlement, Daily Ops, and Full Campaign Dry-Run into a single actionable review console. Operators can confirm, reject, defer, mark as resolved, request more data, or override simulation previews - all within the analysis-only boundary.
+
+### Key Features
+- Loads review items from 5 source types
+- Normalizes, deduplicates, and prioritizes items
+- Supports 6 manual decision types
+- Validates decisions (forbidden fields, reason requirements, override restrictions)
+- Append-only audit log (JSONL)
+- Generates JSON, Markdown, and static HTML workbench
+- All outputs are analysis_only=true, simulation_only=true, not_betting_advice=true
+
+### Decision Types
+| Decision | Description |
+|----------|-------------|
+| confirm | Approve and resolve the review item |
+| reject | Reject the review item |
+| defer | Defer for later review |
+| mark_resolved | Mark as resolved without changes |
+| request_more_data | Request additional data before deciding |
+| override_simulation_preview | Override simulation settlement (settlement_review only) |
+
+### How to Run
+```
+make human-review-workbench
+make human-review-workbench-json
+make human-review-workbench-third-round-json
+make human-review-workbench-final-json
+make human-review-workbench-bankroll-5000-json
+```
+
+Or directly:
+```
+python scripts/run_human_review_workbench.py --date 2026-06-11 --bankroll 100 --json
+```
+
+With decision input:
+```
+python scripts/run_human_review_workbench.py --date 2026-06-11 --bankroll 100 --decision-file data/seed/manual_decisions_seed.json --json
+```
+
+### Generated Reports
+- reports/generated/human_review_workbench.json
+- reports/generated/human_review_workbench.md
+- reports/generated/human_review_workbench.html
+- reports/generated/review_audit_log.jsonl
+
+### New Modules
+- src/worldcup_campaign/human_review_workbench.py — SourceLoader, Normalizer, Deduplicator, PriorityClassifier, DecisionValidator, AuditLogger, Renderer, Runner
+- scripts/run_human_review_workbench.py — CLI
+- tests/test_human_review_workbench.py — 32 tests
+
+### New Configs
+- config/human_review_workbench_config.json
+- config/review_item_priority_policy.json
+- config/manual_decision_policy.json
+
+### Currently Not Implemented
+1. Real money settlement via workbench
+2. Auto-execution of confirmed decisions
+3. Interactive web app with dynamic filtering
+4. Decision history search/filter UI
+5. Email/webhook notifications for critical items
+
+### Next Round Suggestion
+Round 23: Production Readiness Closeout v1 — compile system capabilities, boundaries, runbook, and acceptance checklist
+

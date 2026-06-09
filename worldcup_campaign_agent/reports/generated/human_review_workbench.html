@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head><meta charset="utf-8"><title>Human Review Workbench</title>
+
+<style>
+
+body{font-family:system-ui,sans-serif;margin:20px;background:#f5f5f5;color:#333}
+
+h1{border-bottom:2px solid #333;padding-bottom:10px}
+
+table{border-collapse:collapse;width:100%;margin:10px 0;background:#fff}
+
+th,td{border:1px solid #ddd;padding:8px;font-size:14px}
+
+th{background:#333;color:#fff}
+
+.card{background:#fff;border-radius:8px;padding:16px;margin:12px 0;box-shadow:0 1px 3px rgba(0,0,0,0.1)}
+
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:bold;color:#fff;margin:0 4px}
+
+.bg-crit{background:#dc3545}.bg-high{background:#fd7e14}.bg-med{background:#ffc107;color:#333}.bg-low{background:#28a745}
+
+.footer{margin-top:20px;padding:10px;background:#333;color:#fff;font-size:12px;text-align:center}
+
+</style></head>
+
+<body>
+
+<h1>Human Review Workbench</h1>
+
+<div class="card">
+
+<strong>2026-06-11</strong> | Bankroll: 100.0 | Items: 3 (3 open)
+
+<span class="badge bg-crit">Critical: 0</span>
+
+<span class="badge bg-high">High: 0</span>
+
+<span class="badge bg-med">Medium: 0</span>
+
+<span class="badge bg-low">Low: 3</span>
+
+</div>
+
+<div class="card"><h3>By Source</h3>
+
+<table><tr><th>Source</th><th>Count</th></tr>
+
+<tr><td>Settlement</td><td>0</td></tr>
+
+<tr><td>Signal Fusion</td><td>0</td></tr>
+
+<tr><td>Watchdog</td><td>1</td></tr>
+
+<tr><td>Daily Ops</td><td>1</td></tr>
+
+<tr><td>Dry Run</td><td>1</td></tr>
+
+</table></div>
+
+<div class="card"><h3>Review Items</h3>
+
+<table><tr><th>P</th><th>Severity</th><th>Source</th><th>Reason</th><th>Status</th></tr>
+
+<tr><td>41</td><td style='color:#28a745;font-weight:bold'>LOW</td><td>watchdog_review</td><td>watchdog_review</td><td>open</td></tr><tr><td>33</td><td style='color:#28a745;font-weight:bold'>LOW</td><td>daily_ops_review</td><td>daily_ops_review</td><td>open</td></tr><tr><td>29</td><td style='color:#28a745;font-weight:bold'>LOW</td><td>dry_run_review</td><td>dry_run_review</td><td>open</td></tr></table></div>
+
+<div class="footer">Analysis Only | Simulation Only | Not Betting Advice<br>Generated: 2026-06-09T15:34:01.410462</div>
+
+</body></html>

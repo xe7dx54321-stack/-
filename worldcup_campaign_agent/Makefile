@@ -314,3 +314,18 @@ full-campaign-dry-run-short-json:
 
 full-campaign-dry-run-bankroll-5000-json:
 	python scripts/run_full_campaign_dry_run.py --start-date 2026-06-11 --end-date 2026-07-19 --bankroll 5000 --json
+
+human-review-workbench:
+	python scripts/run_human_review_workbench.py --date 2026-06-11 --bankroll 100
+
+human-review-workbench-json:
+	python scripts/run_human_review_workbench.py --date 2026-06-11 --bankroll 100 --json
+
+human-review-workbench-third-round-json:
+	python scripts/run_human_review_workbench.py --date 2026-06-24 --bankroll 100 --json
+
+human-review-workbench-final-json:
+	python scripts/run_human_review_workbench.py --date 2026-07-19 --bankroll 100 --json
+
+human-review-workbench-bankroll-5000-json:
+	python scripts/run_human_review_workbench.py --date 2026-06-11 --bankroll 5000 --json

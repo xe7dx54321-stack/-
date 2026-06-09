@@ -1,0 +1,37 @@
+{
+  "model_name": "manual_decision_policy_v1",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "allowed_decision_types": [
+    "confirm",
+    "reject",
+    "defer",
+    "mark_resolved",
+    "request_more_data",
+    "override_simulation_preview"
+  ],
+  "override_restricted_to_sources": [
+    "settlement_review"
+  ],
+  "forbidden_fields_in_decision": [
+    "stake",
+    "stake_amount",
+    "bet_instruction",
+    "bookmaker_account",
+    "real_money",
+    "wallet",
+    "private_key",
+    "api_secret",
+    "submit_order"
+  ],
+  "reason_required_for": [
+    "reject",
+    "override_simulation_preview"
+  ],
+  "max_reason_length": 500,
+  "min_reason_length": 10,
+  "audit_log_format": "jsonl",
+  "audit_log_append_only": true,
+  "decision_expiry_days": 30
+}
