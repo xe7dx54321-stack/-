@@ -32,8 +32,28 @@ class CampaignStateTracker:
 
     def load_history(self, path: str):
         if Path(path).exists():
-            data = json.loads(Path(path).read_text(encoding="utf-8-sig"))
-            self.history = [CampaignStateSnapshot(**s) for s in data.get("snapshots", [])]
+            raw = Path(path).read_bytes()
+            text = raw.decode("utf-8-sig")
+            data = None
+            try:
+                data = json.loads(text)
+            except (json.JSONDecodeError, ValueError):
+                depth = 0
+                end = 0
+                for i, ch in enumerate(text):
+                    if ch == '{': depth += 1
+                    elif ch == '}':
+                        depth -= 1
+                        if depth == 0:
+                            end = i + 1
+                            break
+                if end > 0:
+                    try:
+                        data = json.loads(text[:end])
+                    except (json.JSONDecodeError, ValueError):
+                        data = None
+            if data and isinstance(data, dict):
+                self.history = [CampaignStateSnapshot(**s) for s in data.get("snapshots", [])]
 
     def record_snapshot(self, settlement_result, target_bankroll: float = 1_000_000.0) -> CampaignStateSnapshot:
         snapshot = CampaignStateSnapshot(
