@@ -1,0 +1,17 @@
+[
+  {
+    "item_id": "sf-c-2026-06-11-000",
+    "decision_type": "confirm",
+    "reason": "Signal looks valid, market context supports upgrade"
+  },
+  {
+    "item_id": "wd-rq-2026-06-11-000",
+    "decision_type": "defer",
+    "reason": "Need to check campaign state snapshot availability first"
+  },
+  {
+    "item_id": "st-pend-2026-06-11-000",
+    "decision_type": "request_more_data",
+    "reason": "Missing match result for this settlement item"
+  }
+]

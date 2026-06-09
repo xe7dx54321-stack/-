@@ -1241,3 +1241,26 @@ python scripts/run_human_review_workbench.py --date 2026-06-11 --bankroll 100 --
 ### Next Round Suggestion
 Round 23: Production Readiness Closeout v1 — compile system capabilities, boundaries, runbook, and acceptance checklist
 
+## Round 22b: Human Review Workbench Coverage Hardening
+
+### Summary
+Fixed review item coverage — workbench now extracts 149 detailed review items from upstream sources (up from 3). Added source reconciliation, improved dedup (item_id-based), and expanded signal fusion/settlement/watchdog item extraction.
+
+### Key Metrics (2026-06-11, bankroll=100)
+- review_item_count: 149 (was 3)
+- settlement_review_count: 9
+- signal_fusion_review_count: 51
+- watchdog_review_count: 54
+- daily_ops_review_count: 1
+- dry_run_review_count: 34
+- deduplicated_count: 0
+- reported_upstream_review_count: 204
+- lost_review_item_count: 0
+- coverage_ratio: 1.49
+- source_review_count_reconciliation_pass: true
+
+### New Module
+- ReviewSourceReconciliation — compares reported vs extracted counts per source
+
+### New Seed Data
+- data/seed/review_decision_input_example.json

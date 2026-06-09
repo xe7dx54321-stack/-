@@ -329,3 +329,5 @@ human-review-workbench-final-json:
 
 human-review-workbench-bankroll-5000-json:
 	python scripts/run_human_review_workbench.py --date 2026-06-11 --bankroll 5000 --json
+human-review-workbench-decision-json:
+	python scripts/run_human_review_workbench.py --date 2026-06-11 --bankroll 100 --decision-file data/seed/review_decision_input_example.json --json

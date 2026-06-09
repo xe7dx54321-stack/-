@@ -74,8 +74,8 @@ class TestDeduplicator:
     def test_deduplicate_removes_dupes(self):
         dedup = ReviewItemDeduplicator()
         items = [
-            ReviewItem(item_id="a", source_type="st", match_id="m1", review_reason="r1"),
-            ReviewItem(item_id="b", source_type="st", match_id="m1", review_reason="r1"),
+            ReviewItem(item_id="same", source_type="st", match_id="m1", review_reason="r1"),
+            ReviewItem(item_id="same", source_type="st", match_id="m1", review_reason="r1"),
         ]
         kept, dups = dedup.deduplicate(items)
         assert len(kept) == 1

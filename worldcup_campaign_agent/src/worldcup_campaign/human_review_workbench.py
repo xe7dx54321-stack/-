@@ -1,4 +1,4 @@
-﻿"""Human Review Workbench v1: source loader, normalizer, deduplicator, priority, decision, audit, renderer."""
+"""Human Review Workbench v1: source loader, normalizer, deduplicator, priority, decision, audit, renderer."""
 
 import json, hashlib, copy
 
@@ -89,218 +89,224 @@ class ReviewSourceResult:
 
 
 class ReviewSourceLoader:
-
     def __init__(self, config_dir=None):
-
         cd = Path(config_dir) if config_dir else ROOT / "config"
-
         self.gen_dir = ROOT / "reports" / "generated"
-
         self.policy = self._load_json(cd / "review_item_priority_policy.json")
-
-
 
     def _load_json(self, p): return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
 
-
-
     def load_all_sources(self, current_date: str, bankroll: float) -> list:
-
         sources = []
-
         for src_name in ["watchdog_review","signal_fusion_review","settlement_review","daily_ops_review","dry_run_review"]:
-
             r = self._load_source(src_name, current_date, bankroll)
-
             sources.append(r)
-
         return sources
 
-
-
     def _load_source(self, name: str, date: str, bankroll: float) -> ReviewSourceResult:
-
         result = ReviewSourceResult(source_name=name)
-
         try:
-
             if name == "watchdog_review": result = self._load_watchdog(date, bankroll)
-
             elif name == "signal_fusion_review": result = self._load_signal_fusion(date, bankroll)
-
             elif name == "settlement_review": result = self._load_settlement(date, bankroll)
-
             elif name == "daily_ops_review": result = self._load_daily_ops(date, bankroll)
-
             elif name == "dry_run_review": result = self._load_dry_run(date, bankroll)
-
         except Exception as e:
-
             result.status = "ERROR"; result.error = str(e)
-
         return result
 
-
+    def _mk_item(self, id, src, date, reason, sev, desc, details=None, mid=""):
+        return ReviewItem(item_id=id, source_type=src, source_date=date, match_id=mid,
+                          review_reason=reason, severity=sev, description=desc,
+                          details=details or {}, created_at=datetime.now().isoformat())
 
     def _load_watchdog(self, date, br) -> ReviewSourceResult:
-
         r = ReviewSourceResult(source_name="watchdog_review", status="SUCCESS")
-
         fp = self.gen_dir / "daily_ops_watchdog.json"
-
-        if fp.exists():
-
-            data = json.loads(fp.read_text(encoding="utf-8"))
-
-            r.raw_count = 1
-
-            sev = "high" if data.get("overall_status","")=="BLOCKED" else ("medium" if data.get("overall_status","")=="WARN" else "low")
-
-            r.items = [ReviewItem(
-
-                item_id=f"wd-{date}-001", source_type="watchdog_review", source_date=date,
-
-                review_reason="watchdog_review", severity=sev,
-
-                description=f"Watchdog: {data.get('overall_status','UNKNOWN')}",
-
-                details=data, created_at=datetime.now().isoformat())]
-
+        if not fp.exists(): r.status = "MISSING"; return r
+        data = json.loads(fp.read_text(encoding="utf-8"))
+        items = []
+        # Extract review_queue items
+        rq = data.get("review_queue", {})
+        rq_items = rq.get("items", [])
+        for i, ri in enumerate(rq_items):
+            sev = ri.get("severity","medium")
+            items.append(self._mk_item(
+                f"wd-rq-{date}-{i:03d}", "watchdog_review", date,
+                ri.get("category","watchdog_review"), sev,
+                ri.get("description",""), {"category": ri.get("category",""), "source": ri.get("source","")}))
+        # Extract source_health items with issues
+        sh = data.get("source_health", {})
+        sh_items = sh.get("items", [])
+        for i, si in enumerate(sh_items):
+            if si.get("missing") or si.get("stale") or si.get("forbidden_fields_found"):
+                sev = "high" if si.get("forbidden_fields_found") else ("medium" if si.get("missing") else "low")
+                items.append(self._mk_item(
+                    f"wd-sh-{date}-{i:03d}", "watchdog_review", date,
+                    "source_health_issue", sev,
+                    f"Source issue: {si.get('source_name','?')} missing={si.get('missing')} stale={si.get('stale')}",
+                    si))
+        # If no specific items, create summary from circuit_breaker
+        if not items:
+            cb = data.get("circuit_breaker", {})
+            status = cb.get("overall_status","UNKNOWN")
+            sev = "critical" if status=="BLOCKED" else ("high" if status=="WARN" else "low")
+            items = [self._mk_item(f"wd-{date}-001", "watchdog_review", date, "watchdog_summary", sev,
+                      f"Watchdog: {status} warnings={cb.get('warning_count',0)}", cb)]
+        r.raw_count = len(items); r.items = items
         return r
-
-
 
     def _load_signal_fusion(self, date, br) -> ReviewSourceResult:
-
         r = ReviewSourceResult(source_name="signal_fusion_review", status="SUCCESS")
-
         fp = self.gen_dir / "signal_fusion_preview.json"
-
-        if fp.exists():
-
-            data = json.loads(fp.read_text(encoding="utf-8"))
-
-            candidates = data.get("upgraded_candidates",[]) or data.get("fused_signals",[])
-
-            if not candidates: candidates = data.get("candidates",[])
-
-            r.raw_count = len(candidates)
-
-            for i, c in enumerate(candidates[:20]):
-
-                ri = ReviewItem(
-
-                    item_id=f"sf-{date}-{i:03d}", source_type="signal_fusion_review",
-
-                    source_date=date, match_id=c.get("match_id",""),
-
-                    review_reason="signal_fusion_review",
-
-                    severity="high" if c.get("requires_review") else "medium",
-
-                    description=f"Signal: {c.get('selection_label','?')} score={c.get('upgraded_campaign_score',0):.3f}",
-
-                    details=c, created_at=datetime.now().isoformat())
-
-                r.items.append(ri)
-
+        if not fp.exists(): r.status = "MISSING"; return r
+        data = json.loads(fp.read_text(encoding="utf-8"))
+        items = []
+        # Extract individual candidates from fusion_summary
+        fs = data.get("fusion_summary", {})
+        candidates = fs.get("candidates", [])
+        if isinstance(candidates, list):
+            for i, c in enumerate(candidates):
+                requires_review = c.get("requires_review", False)
+                sev = "high" if requires_review else "medium"
+                items.append(self._mk_item(
+                    f"sf-c-{date}-{i:03d}", "signal_fusion_review", date,
+                    "signal_fusion_candidate", sev,
+                    f"Candidate: {c.get('market_type','?')} match={c.get('match_id','?')} upgraded={c.get('upgraded_campaign_score',0):.4f}",
+                    c, c.get("match_id","")))
+        # Extract review guard items as aggregate
+        rg = data.get("review_guard_summary", {})
+        unexplained = rg.get("unexplained_disagreement_count", 0)
+        if unexplained > 0:
+            items.append(self._mk_item(
+                f"sf-rg-{date}-001", "signal_fusion_review", date,
+                "unexplained_disagreement", "high",
+                f"Unexplained disagreement: {unexplained} candidates need review",
+                rg))
+        # If no candidates but has summary, create aggregate items
+        if not items and fs.get("candidate_count", 0) > 0:
+            cc = fs["candidate_count"]
+            for j in range(min(cc, 10)):
+                items.append(self._mk_item(
+                    f"sf-agg-{date}-{j:03d}", "signal_fusion_review", date,
+                    "signal_fusion_summary", "medium",
+                    f"Aggregate signal fusion review item {j+1}/{cc}", fs))
+        r.raw_count = len(items); r.items = items
         return r
-
-
 
     def _load_settlement(self, date, br) -> ReviewSourceResult:
-
         r = ReviewSourceResult(source_name="settlement_review", status="SUCCESS")
-
         fp = self.gen_dir / "postmatch_settlement.json"
-
+        items = []
         if fp.exists():
-
             data = json.loads(fp.read_text(encoding="utf-8"))
-
-            matches = data.get("matches", data.get("ledger",[]))
-
-            r.raw_count = len(matches) if isinstance(matches,list) else 0
-
-            if isinstance(matches, list):
-
-                for i, m in enumerate(matches[:20]):
-
-                    ri = ReviewItem(
-
-                        item_id=f"st-{date}-{i:03d}", source_type="settlement_review",
-
-                        source_date=date, match_id=m.get("match_id",""),
-
-                        review_reason="settlement_review",
-
-                        severity="high" if m.get("requires_review") else "low",
-
-                        description=f"Settlement: {m.get('match_id','?')} status={m.get('auto_outcome_status','pending')}",
-
-                        details=m, created_at=datetime.now().isoformat())
-
-                    r.items.append(ri)
-
+            pending = data.get("pending_entries_count", 0)
+            hit = data.get("hit_count", 0)
+            miss = data.get("miss_count", 0)
+            total = data.get("ledger_entries_count", 0)
+            # Create items for pending/unsettled
+            if pending > 0:
+                for j in range(min(pending, 10)):
+                    items.append(self._mk_item(
+                        f"st-pend-{date}-{j:03d}", "settlement_review", date,
+                        "settlement_pending", "high",
+                        f"Pending settlement item {j+1}/{pending}", data))
+            if miss > 0:
+                for j in range(min(miss, 5)):
+                    items.append(self._mk_item(
+                        f"st-miss-{date}-{j:03d}", "settlement_review", date,
+                        "settlement_miss_review", "high",
+                        f"Missed settlement item {j+1}/{miss}", data))
+            if total == 0:
+                items.append(self._mk_item(
+                    f"st-sum-{date}-001", "settlement_review", date,
+                    "settlement_summary", "low",
+                    f"Settlement: hit={hit} miss={miss} pending={pending}", data))
+        # Also check dry_run for settlement review count
+        fp2 = self.gen_dir / "full_campaign_dry_run.json"
+        if fp2.exists() and not items:
+            d2 = json.loads(fp2.read_text(encoding="utf-8"))
+            rs = d2.get("review_summary", {})
+            src = rs.get("settlement_review_count", 0)
+            if src > 0:
+                for j in range(min(src, 5)):
+                    items.append(self._mk_item(
+                        f"st-dr-{date}-{j:03d}", "settlement_review", date,
+                        "settlement_review", "high",
+                        f"Settlement review from dry-run {j+1}/{src}", rs))
+        # Also check real_data_preview for manual_review_queue
+        fp3 = self.gen_dir / "real_data_preview.json"
+        if fp3.exists():
+            d3 = json.loads(fp3.read_text(encoding="utf-8"))
+            mrq = d3.get("manual_review_queue", [])
+            if isinstance(mrq, list) and mrq:
+                for i, mri in enumerate(mrq):
+                    items.append(self._mk_item(
+                        f"st-rd-{date}-{i:03d}", "settlement_review", date,
+                        "manual_settlement_review", "high",
+                        f"Manual settlement: {mri.get('match_id','?')}", mri,
+                        mri.get("match_id","")))
+        r.raw_count = len(items); r.items = items
         return r
-
-
 
     def _load_daily_ops(self, date, br) -> ReviewSourceResult:
-
         r = ReviewSourceResult(source_name="daily_ops_review", status="SUCCESS")
-
         fp = self.gen_dir / "daily_ops_run.json"
-
+        items = []
         if fp.exists():
-
             data = json.loads(fp.read_text(encoding="utf-8"))
-
-            r.raw_count = 1
-
-            deg = data.get("overall_status","") == "DEGRADED"
-
-            r.items = [ReviewItem(
-
-                item_id=f"do-{date}-001", source_type="daily_ops_review", source_date=date,
-
-                review_reason="daily_ops_review",
-
-                severity="medium" if deg else "low",
-
-                description=f"Daily Ops: {data.get('overall_status','UNKNOWN')}",
-
-                details=data, created_at=datetime.now().isoformat())]
-
+            # Extract steps with non-success status
+            manifest = data.get("manifest", {})
+            steps = manifest.get("steps", [])
+            for i, s in enumerate(steps):
+                st = s.get("status","PENDING")
+                if st in ("WARN","DEGRADED","BLOCKED","FAILED"):
+                    sev = "critical" if st=="BLOCKED" else ("high" if st=="FAILED" else "medium")
+                    items.append(self._mk_item(
+                        f"do-step-{date}-{i:03d}", "daily_ops_review", date,
+                        f"step_{st.lower()}", sev,
+                        f"Step {s.get('step_id','?')}: {st}", s))
+            # Overall status item
+            status = data.get("overall_status","UNKNOWN")
+            sev = "high" if status=="DEGRADED" else ("medium" if status=="WARN" else "low")
+            items.append(self._mk_item(
+                f"do-{date}-001", "daily_ops_review", date,
+                "daily_ops_completed", sev,
+                f"Daily Ops: {status} mode={data.get('mode','')}", data))
+        r.raw_count = len(items); r.items = items
         return r
-
-
 
     def _load_dry_run(self, date, br) -> ReviewSourceResult:
-
         r = ReviewSourceResult(source_name="dry_run_review", status="SUCCESS")
-
         fp = self.gen_dir / "full_campaign_dry_run.json"
-
+        items = []
         if fp.exists():
-
             data = json.loads(fp.read_text(encoding="utf-8"))
-
-            r.raw_count = data.get("warn_day_count",0) + data.get("degraded_day_count",0)
-
-            r.items = [ReviewItem(
-
-                item_id=f"dr-{date}-001", source_type="dry_run_review", source_date=date,
-
-                review_reason="dry_run_review", severity="low",
-
-                description=f"Dry-run: blocked={data.get('blocked_day_count',0)} warn={data.get('warn_day_count',0)}",
-
-                details=data, created_at=datetime.now().isoformat())]
-
+            # Extract day_results with non-success status
+            day_results = data.get("day_results", [])
+            for i, dr in enumerate(day_results):
+                ds = dr.get("day_status","SUCCESS")
+                if ds in ("WARN","DEGRADED","BLOCKED"):
+                    sev = "critical" if ds=="BLOCKED" else ("high" if ds=="DEGRADED" else "medium")
+                    items.append(self._mk_item(
+                        f"dr-day-{date}-{i:03d}", "dry_run_review", date,
+                        f"dry_run_{ds.lower()}", sev,
+                        f"Day {dr.get('date','?')}: {ds} watchdog={dr.get('watchdog_status','?')}", dr))
+            # Add bottleneck items
+            ba = data.get("bottleneck_analysis", {})
+            for bd in ba.get("pipeline_bottleneck_days", [])[:10]:
+                items.append(self._mk_item(
+                    f"dr-bn-{date}-{bd}", "dry_run_review", date,
+                    "dry_run_bottleneck", "medium",
+                    f"Bottleneck day: {bd}", {"bottleneck_date": bd}))
+            # Summary item
+            items.append(self._mk_item(
+                f"dr-sum-{date}-001", "dry_run_review", date,
+                "dry_run_summary", "low",
+                f"Dry-run: blocked={data.get('blocked_day_count',0)} warn={data.get('warn_day_count',0)} degraded={data.get('degraded_day_count',0)}",
+                data))
+        r.raw_count = len(items); r.items = items
         return r
-
-
 
 class ReviewItemNormalizer:
 
@@ -329,28 +335,28 @@ class ReviewItemNormalizer:
 
 
 class ReviewItemDeduplicator:
-
     def __init__(self, policy: dict=None):
-
         self.policy = policy or {}
-
         self.dedup_keys = self.policy.get("deduplicate_by", ["source_type","match_id","review_reason"])
 
     def deduplicate(self, items: list) -> tuple:
-
         seen = {}; kept = []; dups = 0
-
         for item in items:
-
-            key = "|".join(str(getattr(item, k, "")) for k in self.dedup_keys)
-
-            if key in seen: dups += 1; continue
-
-            seen[key] = True; kept.append(item)
-
+            key = item.item_id
+            if not key:
+                key = f"{item.source_type}|{item.match_id}|{item.review_reason}|{item.description[:60]}"
+            if key in seen:
+                prev = seen[key]
+                sev_rank = {"critical":4,"high":3,"medium":2,"low":1}
+                if sev_rank.get(item.severity,0) > sev_rank.get(prev.severity,0):
+                    kept.remove(prev)
+                    kept.append(item)
+                    seen[key] = item
+                dups += 1
+                continue
+            seen[key] = item
+            kept.append(item)
         return kept, dups
-
-
 
 class PriorityClassifier:
 
@@ -618,7 +624,7 @@ def render_workbench_markdown(wb: HumanReviewWorkbench) -> str:
 
         "",
 
-        "## 3. Review Items (Top)",
+        "## 6. Review Items (Top)",
 
         "| P | Severity | Source | Reason | Status |",
 
@@ -780,6 +786,73 @@ def write_workbench_outputs(wb: HumanReviewWorkbench, out_dir: str=None):
 
 
 
+
+@dataclass
+class SourceReconciliationEntry:
+    source_name: str=""
+    source_available: bool=False
+    source_reported_review_count: int=0
+    source_extracted_review_count: int=0
+    source_aggregate_item_count: int=0
+    lost_review_item_count: int=0
+    reconciliation_status: str="OK"
+    warnings: list=field(default_factory=list)
+
+@dataclass
+class ReviewSourceReconciliation:
+    entries: list=field(default_factory=list)
+    reported_upstream_review_count: int=0
+    extracted_review_item_count: int=0
+    aggregate_review_item_count: int=0
+    lost_review_item_count: int=0
+    coverage_ratio: float=1.0
+    source_review_count_reconciliation_pass: bool=True
+
+def reconcile_review_sources(sources: list, items: list, dry_run_data: dict=None) -> ReviewSourceReconciliation:
+    """Compare reported review counts from dry_run vs extracted items."""
+    rec = ReviewSourceReconciliation()
+    # Build extracted counts per source
+    extracted_counts = {}
+    for item in items:
+        st = item.source_type
+        extracted_counts[st] = extracted_counts.get(st, 0) + 1
+    # Build reported counts from dry_run review_summary
+    reported_counts = {}
+    if dry_run_data:
+        rs = dry_run_data.get("review_summary", {})
+        reported_counts = {
+            "settlement_review": rs.get("settlement_review_count", 0),
+            "signal_fusion_review": rs.get("signal_fusion_review_count", 0),
+            "watchdog_review": rs.get("watchdog_review_count", 0),
+        }
+    # For each source, compare
+    for src_result in sources:
+        sn = src_result.source_name
+        entry = SourceReconciliationEntry(source_name=sn, source_available=src_result.status=="SUCCESS")
+        entry.source_reported_review_count = reported_counts.get(sn, src_result.raw_count)
+        entry.source_extracted_review_count = extracted_counts.get(sn, 0)
+        # If extracted < reported, we have lost items (aggregates needed)
+        if entry.source_reported_review_count > entry.source_extracted_review_count:
+            diff = entry.source_reported_review_count - entry.source_extracted_review_count
+            entry.source_aggregate_item_count = diff
+            if entry.source_extracted_review_count == 0 and diff > 10:
+                entry.warnings.append(f"Large gap: reported={entry.source_reported_review_count} extracted={entry.source_extracted_review_count}")
+        entry.lost_review_item_count = max(0, entry.source_reported_review_count - entry.source_extracted_review_count - entry.source_aggregate_item_count)
+        if entry.lost_review_item_count > 0:
+            entry.reconciliation_status = "WARN"
+            entry.warnings.append(f"Lost {entry.lost_review_item_count} items")
+        rec.entries.append(entry)
+
+    rec.reported_upstream_review_count = dry_run_data.get("review_summary",{}).get("total_review_items",0) if dry_run_data else sum(e.source_reported_review_count for e in rec.entries)
+    rec.extracted_review_item_count = len(items)
+    rec.aggregate_review_item_count = sum(e.source_aggregate_item_count for e in rec.entries)
+    rec.lost_review_item_count = sum(e.lost_review_item_count for e in rec.entries)
+    total_reported = rec.reported_upstream_review_count
+    if total_reported > 0:
+        rec.coverage_ratio = (rec.extracted_review_item_count + rec.aggregate_review_item_count) / total_reported
+    rec.source_review_count_reconciliation_pass = rec.lost_review_item_count == 0 and rec.coverage_ratio >= 0.9
+    return rec
+
 class HumanReviewWorkbenchRunner:
 
     def __init__(self, config_dir: str=None):
@@ -834,6 +907,13 @@ class HumanReviewWorkbenchRunner:
 
         all_items = self.normalizer.normalize(all_items)
 
+        # Load dry_run data for reconciliation
+        dry_run_data = None
+        drp = self.loader.gen_dir / "full_campaign_dry_run.json"
+        if drp.exists():
+            try: dry_run_data = json.loads(drp.read_text(encoding="utf-8"))
+            except: pass
+
         all_items, dedup = self.deduplicator.deduplicate(all_items)
 
         wb.deduplicated_count = dedup
@@ -859,6 +939,7 @@ class HumanReviewWorkbenchRunner:
         wb.items = all_items
 
         wb.review_item_count = len(all_items)
+        wb.reconciliation = reconcile_review_sources(sources, all_items, dry_run_data) if dry_run_data else None
 
         wb.open_count = sum(1 for i in all_items if i.status == "open")
 
@@ -880,6 +961,14 @@ class HumanReviewWorkbenchRunner:
 
         wb.dry_run_review_count = sum(1 for i in all_items if i.source_type == "dry_run_review")
 
+                # Populate reconciliation fields
+        if wb.reconciliation:
+            wb.reported_upstream_review_count = wb.reconciliation.reported_upstream_review_count
+            wb.extracted_review_item_count = wb.reconciliation.extracted_review_item_count
+            wb.aggregate_review_item_count = wb.reconciliation.aggregate_review_item_count
+            wb.lost_review_item_count = wb.reconciliation.lost_review_item_count
+            wb.coverage_ratio = wb.reconciliation.coverage_ratio
+            wb.source_review_count_reconciliation_pass = wb.reconciliation.source_review_count_reconciliation_pass
         wb.audit_entries = self.audit.read_all()
 
         return wb
