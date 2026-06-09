@@ -1,0 +1,155 @@
+﻿{
+  "model_name": "daily_ops_watchdog_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "network": {
+    "network_fetch_default_enabled": false
+  },
+  "modes": ["pre_daily_ops", "post_daily_ops", "full"],
+  "default_mode": "full",
+  "sources": {
+    "required": [
+      "campaign_state_snapshot.json",
+      "ev_ranking_preview.json",
+      "integrated_daily_strategy.json"
+    ],
+    "optional": [
+      "calendar_preview.json",
+      "match_probability_preview.json",
+      "parlay_preview.json",
+      "futures_preview.json",
+      "campaign_dashboard.json",
+      "model_calibration_review.json",
+      "market_odds_consensus.json",
+      "polymarket_preview.json",
+      "market_expectation.json",
+      "team_news_preview.json",
+      "signal_fusion_preview.json",
+      "postmatch_settlement.json"
+    ]
+  },
+  "checks": {
+    "source_health": {
+      "enabled": true,
+      "required_sources_min": 2,
+      "stale_threshold_hours": 24
+    },
+    "json_validity": {
+      "enabled": true,
+      "malformed_policy": "block"
+    },
+    "forbidden_field_scan": {
+      "enabled": true,
+      "policy": "hard_block",
+      "forbidden_fields": [
+        "stake",
+        "stake_amount",
+        "stake_to_match",
+        "bet_instruction",
+        "bet_slip",
+        "bookmaker_account",
+        "account_balance",
+        "real_money_balance",
+        "wallet_address",
+        "private_key",
+        "api_secret",
+        "signed_order",
+        "submit_order",
+        "cancel_order",
+        "guaranteed_profit",
+        "chase_loss"
+      ]
+    },
+    "real_execution_flag_scan": {
+      "enabled": true,
+      "policy": "hard_block",
+      "blocked_flags": [
+        "real_bet_execution",
+        "auto_betting",
+        "real_money_instruction_allowed",
+        "external_betting_api_allowed"
+      ],
+      "blocked_values": [true, "true", 1, "1", "yes"]
+    },
+    "odds_freshness": {
+      "enabled": true,
+      "max_stale_count": 5,
+      "policy": "warn"
+    },
+    "polymarket_quality": {
+      "enabled": true,
+      "low_liquidity_threshold": 0.3,
+      "policy": "warn"
+    },
+    "team_news_reliability": {
+      "enabled": true,
+      "max_rumor_ratio": 0.5,
+      "policy": "warn"
+    },
+    "market_expectation_quality": {
+      "enabled": true,
+      "min_avg_quality_score": 0.3,
+      "policy": "degraded"
+    },
+    "signal_fusion_score_guard": {
+      "enabled": true,
+      "score_range": [0.0, 1.0],
+      "policy": "block"
+    },
+    "review_queue": {
+      "enabled": true,
+      "max_review_ratio": 0.8,
+      "policy": "warn"
+    },
+    "unexplained_disagreement": {
+      "enabled": true,
+      "max_ratio": 0.9,
+      "policy": "warn"
+    },
+    "abnormal_promotion": {
+      "enabled": true,
+      "max_promotion_ratio": 0.5,
+      "policy": "degraded"
+    },
+    "source_context_alignment": {
+      "enabled": true,
+      "policy": "warn"
+    }
+  },
+  "circuit_breaker": {
+    "overall_status_levels": ["PASS", "WARN", "DEGRADED", "BLOCKED"],
+    "hard_block_triggers": [
+      "forbidden_field_found",
+      "real_execution_flag_true",
+      "score_out_of_range",
+      "json_malformed"
+    ],
+    "degraded_triggers": [
+      "low_market_expectation_quality",
+      "abnormal_promotion_ratio"
+    ],
+    "warn_triggers": [
+      "source_missing",
+      "source_stale",
+      "odds_stale",
+      "polymarket_low_liquidity",
+      "team_news_high_rumor",
+      "review_queue_large",
+      "unexplained_disagreement_high",
+      "source_context_mismatch"
+    ],
+    "daily_ops_allowed_status": ["PASS", "WARN"],
+    "strategy_upgrade_allowed_status": ["PASS"]
+  },
+  "quality_gate": {
+    "categories": ["source", "data", "signal", "safety", "strategy"],
+    "levels": ["pass", "warn", "degraded", "block"]
+  },
+  "forbidden_fields_in_output": [
+    "stake", "stake_amount", "stake_to_match", "bet_instruction",
+    "bookmaker_account", "wallet_address", "private_key", "api_secret",
+    "real_money_balance", "guaranteed_profit"
+  ]
+}

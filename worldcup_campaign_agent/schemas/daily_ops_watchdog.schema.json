@@ -1,0 +1,21 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Daily Ops Watchdog Preview",
+  "type": "object",
+  "required": ["campaign_name", "current_date", "current_bankroll", "mode", "source_health", "circuit_breaker", "review_queue", "quality_gate", "safety", "analysis_only", "simulation_only", "not_betting_advice"],
+  "properties": {
+    "campaign_name": {"type": "string"},
+    "current_date": {"type": "string"},
+    "current_bankroll": {"type": "number"},
+    "mode": {"type": "string", "enum": ["pre_daily_ops", "post_daily_ops", "full"]},
+    "source_health": {"type": "object"},
+    "circuit_breaker": {"type": "object"},
+    "review_queue": {"type": "object"},
+    "quality_gate": {"type": "object"},
+    "safety": {"type": "object"},
+    "warnings": {"type": "array"},
+    "analysis_only": {"type": "boolean"},
+    "simulation_only": {"type": "boolean"},
+    "not_betting_advice": {"type": "boolean"}
+  }
+}

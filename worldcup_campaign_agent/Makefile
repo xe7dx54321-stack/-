@@ -248,3 +248,23 @@ signal-fusion-preview-final-json:
 
 signal-fusion-preview-bankroll-5000-json:
 	python scripts/run_signal_fusion_preview.py --date 2026-06-11 --bankroll 5000 --json
+daily-ops-watchdog:
+	python scripts/run_daily_ops_watchdog.py --date 2026-06-11 --bankroll 100
+
+daily-ops-watchdog-json:
+	python scripts/run_daily_ops_watchdog.py --date 2026-06-11 --bankroll 100 --json
+
+daily-ops-watchdog-third-round-json:
+	python scripts/run_daily_ops_watchdog.py --date 2026-06-24 --bankroll 100 --json
+
+daily-ops-watchdog-final-json:
+	python scripts/run_daily_ops_watchdog.py --date 2026-07-19 --bankroll 100 --json
+
+daily-ops-watchdog-bankroll-5000-json:
+	python scripts/run_daily_ops_watchdog.py --date 2026-06-11 --bankroll 5000 --json
+
+daily-ops-watchdog-pre-ops-json:
+	python scripts/run_daily_ops_watchdog.py --date 2026-06-11 --bankroll 100 --mode pre_daily_ops --json
+
+daily-ops-watchdog-post-ops-json:
+	python scripts/run_daily_ops_watchdog.py --date 2026-06-11 --bankroll 100 --mode post_daily_ops --json

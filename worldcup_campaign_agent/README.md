@@ -850,3 +850,84 @@ python scripts/run_signal_fusion_preview.py --date 2026-06-11 --bankroll 100 --j
 
 ### Next Round Suggestion
 Round 18: Auto-Execution Watchdog & Circuit Breaker v1 -- add automated safety checks, campaign health monitoring, and circuit breakers that prevent the system from exceeding predefined risk boundaries.
+
+
+
+## Round 18: Daily Ops Watchdog & Circuit Breaker v1
+
+### Overview
+Round 18 adds a safety gate layer before daily operations. The Watchdog reads all generated reports, scans for forbidden fields and real execution flags, checks data freshness and quality, then produces a circuit breaker decision: PASS / WARN / DEGRADED / BLOCKED. It is NOT an auto-execution system — it only monitors and gates.
+
+### Key Capabilities
+- Source health check: availability, JSON validity, staleness
+- Forbidden field scanner: detects stake, bet_instruction, bookmaker_account, wallet_address etc.
+- Real execution flag scanner: detects real_bet_execution=true, auto_betting=true
+- Score range guard: verifies all campaign/fusion scores are 0-1
+- Circuit breaker: hard blocks on safety violations, degrades on low quality, warns on missing data
+- Manual review queue: aggregates all items needing human review
+- Quality gate: 5-category assessment (source, data, signal, safety, strategy)
+- Three modes: pre_daily_ops, post_daily_ops, full
+
+### Circuit Breaker Decision Levels
+| Status | Meaning | Daily Ops | Strategy Upgrade |
+|--------|---------|-----------|-----------------|
+| PASS | All clear | Allowed | Allowed |
+| WARN | Non-critical warnings | Allowed | Blocked |
+| DEGRADED | Signal/data quality issues | Allowed | Blocked |
+| BLOCKED | Safety violation | Blocked | Blocked |
+
+### Hard Block Triggers (BLOCKED)
+- Forbidden field found (stake, bet_instruction, etc.)
+- Real execution flag set to true
+- Score out of 0-1 range
+- Malformed JSON in source reports
+
+### Safety
+- No network calls: network_fetch_default_enabled=false
+- No real money, no API keys, no bookmaker accounts
+- No wallet addresses, no private keys
+- Self-check: watchdog output is scanned for forbidden fields
+- analysis_only=true, simulation_only=true, not_betting_advice=true
+
+### How to Run
+```
+make daily-ops-watchdog
+make daily-ops-watchdog-json
+make daily-ops-watchdog-third-round-json
+make daily-ops-watchdog-final-json
+make daily-ops-watchdog-bankroll-5000-json
+make daily-ops-watchdog-pre-ops-json
+make daily-ops-watchdog-post-ops-json
+```
+
+Or directly:
+```
+python scripts/run_daily_ops_watchdog.py --date 2026-06-11 --bankroll 100 --json
+python scripts/run_daily_ops_watchdog.py --date 2026-06-11 --bankroll 100 --mode pre_daily_ops --json
+python scripts/run_daily_ops_watchdog.py --date 2026-06-11 --bankroll 100 --mode post_daily_ops --json
+python scripts/run_daily_ops_watchdog.py --date 2026-06-11 --bankroll 100 --mode full --json
+```
+
+### Generated Reports
+- reports/generated/daily_ops_watchdog.json
+- reports/generated/daily_ops_watchdog.md
+
+### New Modules
+- src/worldcup_campaign/daily_ops_watchdog.py -- Core watchdog engine
+- src/worldcup_campaign/watchdog_runner.py -- Runner + Markdown renderer
+- scripts/run_daily_ops_watchdog.py -- CLI
+
+### New Configs
+- config/daily_ops_watchdog_config.json -- Watchdog config, checks, circuit breaker policy
+- schemas/daily_ops_watchdog.schema.json -- Output schema
+
+### Currently Not Implemented
+1. Real-time monitoring daemon
+2. Auto-paging/alerting
+3. Trend analysis across days
+4. Watchdog writeback to dashboard
+5. Interactive review queue UI
+6. Real money account integration
+
+### Next Round Suggestion
+Round 19: Daily Ops Runner v1 — a one-click pipeline that runs all modules in sequence with the Watchdog as pre/post gate.
