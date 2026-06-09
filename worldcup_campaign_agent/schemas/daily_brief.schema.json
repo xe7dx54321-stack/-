@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "required": [
+    "boss_summary",
+    "safety_note"
+  ],
+  "properties": {
+    "boss_summary": {
+      "type": "array"
+    },
+    "safety_note": {
+      "type": "string"
+    }
+  }
+}

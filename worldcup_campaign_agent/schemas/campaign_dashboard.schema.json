@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "required": [
+    "campaign_state",
+    "bankroll_summary"
+  ],
+  "properties": {
+    "campaign_state": {
+      "type": "object"
+    },
+    "bankroll_summary": {
+      "type": "object"
+    }
+  }
+}

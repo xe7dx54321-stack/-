@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><title>Campaign Dashboard</title>
+<style>
+body{font-family:system-ui,sans-serif;background:#0f1923;color:#e0e0e0;margin:20px;}
+.card{background:#1a2733;border-radius:8px;padding:16px;margin:12px 0;}
+h1{color:#4fc3f7;}h2{color:#81d4fa;font-size:1.1em;}
+.metric{font-size:1.4em;font-weight:bold;color:#4caf50;}
+.warn{color:#ff9800;}.danger{color:#f44336;}
+table{border-collapse:collapse;width:100%;}
+th,td{padding:6px 10px;text-align:left;border-bottom:1px solid #333;}
+th{color:#81d4fa;}
+.footer{color:#666;font-size:0.8em;margin-top:20px;}
+</style></head>
+<body>
+<h1>世界杯 Campaign Dashboard</h1>
+<p>2026-06-11 | Mode: current_day</p>
+
+<div class="card">
+<h2>Campaign State</h2>
+<p>State: <span class="metric">S4</span></p>
+<p>Liquid: <span class="metric">3500.03 CNY</span></p>
+<p>Locked Pending: <span class="warn">60.0 CNY</span></p>
+<p>Total Equity: <span class="metric">3560.03 CNY</span></p>
+<p>Multiplier: 285.71x (liquid) | 280.9x (equity)</p>
+</div>
+
+<div class="card">
+<h2>Calendar & Execution</h2>
+<p>Stage: group_round_1 | Mode: matchday | Matches: 4</p>
+<p>Modules: foundation, match_probability, ev_ranking, integrated_strategy</p>
+</div>
+
+<div class="card">
+<h2>Bucket Summary</h2>
+<table>
+<tr><th>Bucket</th><th>Budget</th><th>Candidates</th><th>Role</th></tr>
+<tr><td>core</td><td>10.0</td><td>5</td><td>path_stability_and_base_leg</td></tr>
+<tr><td>edge</td><td>15.0</td><td>0</td><td>odds_probability_balance</td></tr>
+<tr><td>attack</td><td>20.0</td><td>4</td><td>high_odds_goal_path</td></tr>
+<tr><td>futures</td><td>5.0</td><td>0</td><td>long_horizon_path_optionality</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>Parlay</h2>
+<p>Source: 9 | Combos: 86 | Blocked: 160</p>
+<p>Edge: 0 | Attack: 2</p>
+</div>
+
+<div class="card">
+<h2>Futures</h2>
+<p>Groups: 12 | Odds: 530 | Bucket: 5</p>
+<p class="warn">Winner prob sum: 0.6338 (v1 simplified)</p>
+</div>
+
+<div class="card">
+<h2>Settlement</h2>
+<p>Settled: 0 | Pending: 12 | Hit: 0</p>
+<p>Routing: pending_futures:12|state:S4|mult:286x</p>
+</div>
+
+<div class="card">
+<h2>Warnings</h2>
+<p class="warn">Synthetic odds only; not real bookmaker data</p>
+<p class="warn">Winner probability model is v1 simplified; see path sanity warning</p>
+</div>
+
+<div class="footer">
+<p>Analysis only. Simulation only. NOT betting advice. | Campaign Dashboard v1</p>
+</div>
+</body></html>

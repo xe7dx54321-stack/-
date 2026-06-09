@@ -1,0 +1,28 @@
+{
+  "model_name": "daily_brief_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "style": "boss_summary_plus_researcher_detail",
+  "sections": [
+    "boss_summary",
+    "today_state",
+    "focus_modules",
+    "bucket_brief",
+    "parlay_brief",
+    "futures_brief",
+    "settlement_brief",
+    "warnings",
+    "next_actions"
+  ],
+  "language": "zh-CN",
+  "avoid_terms": [
+    "稳赚",
+    "保证盈利",
+    "必须下注",
+    "买入",
+    "下注指令",
+    "真实下注"
+  ]
+}

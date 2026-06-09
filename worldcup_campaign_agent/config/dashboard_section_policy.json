@@ -1,0 +1,43 @@
+{
+  "sections": {
+    "campaign_state": [
+      "campaign_state_snapshot",
+      "postmatch_settlement",
+      "foundation"
+    ],
+    "calendar_state": [
+      "calendar_preview",
+      "campaign_schedule"
+    ],
+    "execution_schedule": [
+      "campaign_schedule"
+    ],
+    "bucket_summary": [
+      "integrated_daily_strategy"
+    ],
+    "candidate_summary": [
+      "integrated_daily_strategy",
+      "ev_ranking"
+    ],
+    "parlay_summary": [
+      "parlay_preview"
+    ],
+    "futures_summary": [
+      "futures_preview"
+    ],
+    "settlement_summary": [
+      "postmatch_settlement"
+    ],
+    "risk_and_warnings": [
+      "probability_sanity",
+      "path_sanity",
+      "settlement_warnings"
+    ],
+    "next_day_routing": [
+      "postmatch_settlement",
+      "campaign_state_snapshot"
+    ]
+  },
+  "missing_source_policy": "warn_and_continue",
+  "generated_reports_only": true
+}

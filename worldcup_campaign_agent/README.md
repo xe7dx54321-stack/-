@@ -479,3 +479,85 @@ o_real_money=true — no real account balances
 
 ### Next Round Suggestion
 Round 11: Campaign Dashboard & Daily Brief v1 — unified view of current bankroll, path status, today's strategy, parlay, futures, and post-match update in a single operator display.
+
+## Round 11: Campaign Dashboard & Daily Brief v1
+
+### Overview
+Round 11 ties all previous rounds together into a unified Campaign Dashboard and Chinese-language Daily Brief. The dashboard provides a one-page view of campaign state, bankroll (liquid/pending/equity), bucket summaries, parlay/futures status, settlement results, and next-day routing. The daily brief is a "boss summary + researcher detail" format in Chinese.
+
+### Key Capabilities
+- Aggregate all Round 1-10 generated reports into a unified dashboard
+- Display liquid_simulated_bankroll / locked_pending_units / total_campaign_equity
+- Show required_multiplier for both liquid and equity views
+- Summarize Core/Edge/Attack/Futures/Reserve bucket budgets and candidate counts
+- Parlay summary: source candidates, combinations, blocked count
+- Futures summary: groups simulated, futures bucket, winner prob sum with proxy warning
+- Settlement summary: settled, pending, hit/miss counts
+- Next-day routing hint from settlement
+- Chinese daily brief: boss summary (8 items max) + researcher detail
+- Static HTML dashboard (no external JS dependencies)
+- Forbidden field validation in all outputs
+
+### Three-Fund View
+The dashboard introduces a critical distinction:
+- **liquid_simulated_bankroll**: immediately available simulated funds
+- **locked_pending_units**: estimated value of pending/unsettled positions
+- **total_campaign_equity**: liquid + locked = total campaign position
+
+This prevents the common misreading where "all pending" looks like "all lost".
+
+### How to Run
+`
+make campaign-dashboard
+make campaign-dashboard-json
+make campaign-dashboard-third-round-json
+make campaign-dashboard-final-json
+make campaign-dashboard-bankroll-5000-json
+make campaign-dashboard-postmatch-json
+make campaign-dashboard-full-json
+`
+
+Or directly:
+`
+python scripts/run_campaign_dashboard.py --date 2026-06-11 --bankroll 100 --json
+python scripts/run_campaign_dashboard.py --date 2026-06-11 --bankroll 100 --mode postmatch --json
+python scripts/run_campaign_dashboard.py --date 2026-06-11 --bankroll 100 --mode full --json
+`
+
+### Generated Reports
+- 
+eports/generated/campaign_dashboard.json
+- 
+eports/generated/daily_brief.md
+- 
+eports/generated/campaign_dashboard.html
+
+### New Modules
+- src/worldcup_campaign/dashboard_loader.py -- Reads all generated report JSONs
+- src/worldcup_campaign/dashboard_builder.py -- Assembles campaign dashboard
+- src/worldcup_campaign/daily_brief_builder.py -- Chinese daily brief generator
+- src/worldcup_campaign/dashboard_renderer.py -- JSON/Markdown/HTML renderer
+- src/worldcup_campaign/dashboard_runner.py -- Full pipeline runner
+- scripts/run_campaign_dashboard.py -- CLI
+
+### New Configs
+- config/dashboard_config.json -- Dashboard modes, sections, forbidden fields
+- config/daily_brief_config.json -- Brief style, language, avoided terms
+- config/dashboard_section_policy.json -- Section-to-source mapping
+
+### Safety
+- nalysis_only=true, simulation_only=true, 
+ot_betting_advice=true
+- Forbidden actionable fields: stake, bet_instruction, bookmaker, bookmaker_account, real_money_balance
+- Safety flags (real_bet_execution=false) are permitted as they are protective
+- HTML has no external JS dependencies
+
+### Currently Not Implemented
+1. Real odds / bookmaker integration
+2. Real account balances
+3. Interactive web app
+4. Auto-refresh of dashboard sources
+5. Model calibration review
+
+### Next Round Suggestion
+Round 12: Model Calibration & Review v1 -- track probability quality, EV performance, candidate hit rates, bucket performance over time to make the system smarter.

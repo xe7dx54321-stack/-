@@ -137,3 +137,24 @@ postmatch-settlement-bankroll-5000-json:
 
 postmatch-settlement-manual-seed-json:
 	python scripts/run_postmatch_settlement.py --date 2026-06-11 --bankroll 100 --manual-results data/seed/manual_result_seed.json --json
+
+campaign-dashboard:
+	python scripts/run_campaign_dashboard.py --date 2026-06-11 --bankroll 100
+
+campaign-dashboard-json:
+	python scripts/run_campaign_dashboard.py --date 2026-06-11 --bankroll 100 --json
+
+campaign-dashboard-third-round-json:
+	python scripts/run_campaign_dashboard.py --date 2026-06-24 --bankroll 100 --json
+
+campaign-dashboard-final-json:
+	python scripts/run_campaign_dashboard.py --date 2026-07-19 --bankroll 100 --json
+
+campaign-dashboard-bankroll-5000-json:
+	python scripts/run_campaign_dashboard.py --date 2026-06-11 --bankroll 5000 --json
+
+campaign-dashboard-postmatch-json:
+	python scripts/run_campaign_dashboard.py --date 2026-06-11 --bankroll 100 --mode postmatch --json
+
+campaign-dashboard-full-json:
+	python scripts/run_campaign_dashboard.py --date 2026-06-11 --bankroll 100 --mode full --json

@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "required": [
+    "sections",
+    "missing_source_policy"
+  ],
+  "properties": {
+    "sections": {
+      "type": "object"
+    }
+  }
+}

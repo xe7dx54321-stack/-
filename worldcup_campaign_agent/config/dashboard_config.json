@@ -1,0 +1,43 @@
+{
+  "model_name": "campaign_dashboard_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "dashboard_modes": [
+    "current_day",
+    "postmatch",
+    "full"
+  ],
+  "default_mode": "current_day",
+  "target_bankroll": 1000000,
+  "show_sections": [
+    "campaign_state",
+    "calendar_state",
+    "execution_schedule",
+    "bucket_summary",
+    "candidate_summary",
+    "parlay_summary",
+    "futures_summary",
+    "settlement_summary",
+    "risk_and_warnings",
+    "next_day_routing"
+  ],
+  "bankroll_display_fields": [
+    "liquid_simulated_bankroll",
+    "locked_pending_units",
+    "total_campaign_equity",
+    "required_multiplier_liquid",
+    "required_multiplier_equity"
+  ],
+  "forbidden_fields": [
+    "stake",
+    "stake_amount",
+    "stake_to_match",
+    "bet_instruction",
+    "bookmaker",
+    "bookmaker_account",
+    "real_money_balance",
+    "real_bet_execution"
+  ]
+}
