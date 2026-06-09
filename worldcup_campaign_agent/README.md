@@ -393,3 +393,89 @@ ot_betting_advice=true
 
 ### Next Round Suggestion
 Round 10: Post-Match Settlement & Bankroll Update v1 -- add the ability to simulate match outcomes, update bankroll state, and track campaign progress day by day.
+
+## Round 10: Post-Match Settlement & Bankroll Update v1
+
+### Overview
+Round 10 closes the campaign loop — after daily strategy generation, the system can now perform post-match settlement using manual result inputs, update the simulated bankroll, reclassify bankroll state, and generate next-day routing hints. All settlement is simulation-only with no real money involved.
+
+### Key Capabilities
+- Build simulation ledger from integrated daily strategy
+- Load manual result seed (user-edited match outcomes)
+- Determine candidate outcomes: hit, miss, push, pending, void, unknown
+- Futures candidates automatically marked as pending
+- Calculate simulated bankroll after settlement
+- Reclassify bankroll state (S0-S7 or TARGET_REACHED)
+- Update required multiplier
+- Generate next-day routing hint
+- Record campaign state snapshots with history
+- Generate postmatch_settlement.json and postmatch_settlement.md
+- Generate campaign_state_history.json
+
+### Core Principles
+1. Settlement is simulation-only — no real money, no bookmaker connection
+2. Reserve is always protected (50% minimum)
+3. Futures/pending candidates are NOT prematurely settled
+4. Manual result seed is user-edited, not scraped from bookmakers
+5. Bankroll state transitions follow the existing S0-S7 state machine
+6. All output is analysis_only / simulation_only / not_betting_advice
+
+### How to Run
+`
+make postmatch-settlement
+make postmatch-settlement-json
+make postmatch-settlement-third-round-json
+make postmatch-settlement-final-json
+make postmatch-settlement-bankroll-5000-json
+make postmatch-settlement-manual-seed-json
+`
+
+Or directly:
+`
+python scripts/run_postmatch_settlement.py --date 2026-06-11 --bankroll 100 --json
+python scripts/run_postmatch_settlement.py --date 2026-06-24 --bankroll 100 --json
+python scripts/run_postmatch_settlement.py --date 2026-07-19 --bankroll 100 --json
+python scripts/run_postmatch_settlement.py --date 2026-06-11 --bankroll 5000 --json
+python scripts/run_postmatch_settlement.py --date 2026-06-11 --bankroll 100 --manual-results data/seed/manual_result_seed.json --json
+`
+
+### Generated Reports
+- 
+eports/generated/postmatch_settlement.json
+- 
+eports/generated/postmatch_settlement.md
+- 
+eports/generated/campaign_state_history.json
+
+### New Modules
+- src/worldcup_campaign/settlement_ledger.py — Builds simulation ledger from integrated strategy
+- src/worldcup_campaign/settlement_engine.py — Processes manual results, determines outcomes
+- src/worldcup_campaign/campaign_state_tracker.py — Records snapshots, maintains history
+- src/worldcup_campaign/postmatch_settlement_runner.py — Full pipeline runner
+- scripts/run_postmatch_settlement.py — CLI
+
+### New Configs
+- config/postmatch_settlement_config.json — Settlement rules, outcome types, bankroll update
+- config/settlement_rules.json — Forbidden fields, manual result validation
+
+### New Seed Data
+- data/seed/manual_result_seed.json — User-editable manual match results
+
+### Safety
+- nalysis_only=true, simulation_only=true, 
+ot_betting_advice=true
+- 
+o_real_money=true — no real account balances
+- Forbidden in ledger: stake, stake_to_match, bet_instruction, bookmaker, bookmaker_account, real_money_balance
+- Manual results validated against forbidden fields
+- Futures are marked pending, never auto-settled
+
+### Currently Not Implemented
+1. Real odds / bookmaker integration
+2. Auto-settlement from live results
+3. Multi-day parlay settlement tracking
+4. Tax/commission modeling
+5. Real-time campaign dashboard
+
+### Next Round Suggestion
+Round 11: Campaign Dashboard & Daily Brief v1 — unified view of current bankroll, path status, today's strategy, parlay, futures, and post-match update in a single operator display.

@@ -1,0 +1,71 @@
+{
+  "model_name": "postmatch_settlement_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "settlement_mode": "manual_result_input",
+  "auto_settle": false,
+  "real_money": false,
+  "outcome_types": {
+    "hit": "Candidate selected and outcome matched positively",
+    "miss": "Candidate selected and outcome did not match",
+    "push": "Candidate resulted in push/void/refund",
+    "pending": "Futures or long-horizon candidate not yet settled",
+    "void": "Match cancelled or candidate voided",
+    "unknown": "Result not yet available"
+  },
+  "bucket_payout_rules": {
+    "reserve": {
+      "multiplier": 1.0,
+      "note": "Reserve returns to bankroll unchanged"
+    },
+    "core": {
+      "multiplier": "candidate_odds",
+      "note": "If hit, returns stake * odds"
+    },
+    "edge": {
+      "multiplier": "candidate_odds",
+      "note": "If hit, returns stake * odds"
+    },
+    "attack": {
+      "multiplier": "candidate_odds",
+      "note": "If hit, returns stake * odds"
+    },
+    "futures": {
+      "multiplier": "candidate_odds",
+      "note": "Pending until tournament stage settles"
+    }
+  },
+  "bankroll_update": {
+    "reserve_protected": true,
+    "max_loss_per_matchday": 0.5,
+    "allow_partial_hit": true
+  },
+  "state_transition": {
+    "auto_reclassify": true,
+    "use_bankroll_states_config": true
+  },
+  "ledger_fields": {
+    "required": [
+      "entry_id",
+      "date",
+      "match_id",
+      "market_type",
+      "selection",
+      "bucket",
+      "simulated_deployment",
+      "odds",
+      "outcome"
+    ],
+    "forbidden": [
+      "stake",
+      "stake_amount",
+      "stake_to_match",
+      "bet_instruction",
+      "bookmaker",
+      "bookmaker_account",
+      "real_money_balance"
+    ]
+  }
+}

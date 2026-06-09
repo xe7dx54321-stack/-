@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "entry_id",
+    "date",
+    "outcome"
+  ],
+  "properties": {
+    "entry_id": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "outcome": {
+      "type": "string",
+      "enum": [
+        "hit",
+        "miss",
+        "push",
+        "pending",
+        "void",
+        "unknown"
+      ]
+    }
+  }
+}

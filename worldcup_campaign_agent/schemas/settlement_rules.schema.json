@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "required": [
+    "analysis_only",
+    "not_betting_advice"
+  ],
+  "properties": {
+    "analysis_only": {
+      "type": "boolean"
+    },
+    "not_betting_advice": {
+      "type": "boolean"
+    }
+  }
+}

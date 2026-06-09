@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "required": [
+    "date",
+    "simulated_bankroll",
+    "bankroll_state"
+  ],
+  "properties": {
+    "simulated_bankroll": {
+      "type": "number"
+    },
+    "bankroll_state": {
+      "type": "string"
+    },
+    "required_multiplier": {
+      "type": "number"
+    }
+  }
+}

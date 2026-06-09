@@ -1,0 +1,29 @@
+{
+  "model_name": "settlement_rules_v1",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "result_source": "manual_seed_only",
+  "allow_auto_settle": false,
+  "require_manual_confirmation": true,
+  "pending_timeout_days": 30,
+  "max_ledger_entries_per_day": 100,
+  "outcome_logic": {
+    "hit": "manual_result matches candidate selection and is positive",
+    "miss": "manual_result contradicts candidate selection",
+    "push": "manual_result indicates void/refund/cancellation",
+    "pending": "futures or multi-stage candidate not yet determinable",
+    "void": "match not played or candidate invalidated"
+  },
+  "forbidden_in_ledger": [
+    "stake",
+    "stake_to_match",
+    "stake_amount",
+    "bet_instruction",
+    "bookmaker",
+    "bookmaker_account",
+    "real_money_balance",
+    "real_bet_id",
+    "auto_settle"
+  ]
+}

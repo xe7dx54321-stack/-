@@ -119,3 +119,21 @@ campaign-schedule-bankroll-5000-json:
 
 campaign-schedule-full-timeline-json:
 	python scripts/run_campaign_schedule_preview.py --bankroll 100 --full-timeline --json
+
+postmatch-settlement:
+	python scripts/run_postmatch_settlement.py --date 2026-06-11 --bankroll 100
+
+postmatch-settlement-json:
+	python scripts/run_postmatch_settlement.py --date 2026-06-11 --bankroll 100 --json
+
+postmatch-settlement-third-round-json:
+	python scripts/run_postmatch_settlement.py --date 2026-06-24 --bankroll 100 --json
+
+postmatch-settlement-final-json:
+	python scripts/run_postmatch_settlement.py --date 2026-07-19 --bankroll 100 --json
+
+postmatch-settlement-bankroll-5000-json:
+	python scripts/run_postmatch_settlement.py --date 2026-06-11 --bankroll 5000 --json
+
+postmatch-settlement-manual-seed-json:
+	python scripts/run_postmatch_settlement.py --date 2026-06-11 --bankroll 100 --manual-results data/seed/manual_result_seed.json --json

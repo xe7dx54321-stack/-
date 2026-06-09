@@ -1,0 +1,30 @@
+{
+  "description": "Manual result seed for simulation settlement. User-edited. NOT connected to any bookmaker.",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "date": "2026-06-11",
+  "results": [
+    {
+      "match_id": "GS_A_R1_001",
+      "home_team": "CAN",
+      "away_team": "MEX",
+      "actual_home_score": 2,
+      "actual_away_score": 1,
+      "result_1x2": "home",
+      "total_goals": 3,
+      "note": "Manual sample - simulation only"
+    },
+    {
+      "match_id": "GS_A_R1_003",
+      "home_team": "USA",
+      "away_team": "NZL",
+      "actual_home_score": 1,
+      "actual_away_score": 1,
+      "result_1x2": "draw",
+      "total_goals": 2,
+      "note": "Manual sample - simulation only"
+    }
+  ],
+  "forbidden_fields_note": "No bookmaker, no real_money_balance, no stake fields allowed here"
+}
