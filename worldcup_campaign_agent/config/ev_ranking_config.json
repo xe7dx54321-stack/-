@@ -1,0 +1,19 @@
+{
+  "ranking_version": "1.0.0",
+  "description": "EV ranking from mock odds and model probabilities. NOT betting advice.",
+  "min_edge_for_value": 0.02,
+  "min_ev_for_value": 0.05,
+  "max_candidates_per_match": 10,
+  "max_total_candidates": 50,
+  "rank_by": "ev",
+  "value_flags": {
+    "strong_value": {"min_edge": 0.08, "min_ev": 0.15},
+    "value": {"min_edge": 0.04, "min_ev": 0.08},
+    "marginal": {"min_edge": 0.02, "min_ev": 0.0},
+    "no_value": {"min_edge": -1.0, "min_ev": -1.0}
+  },
+  "odds_bands": ["1.01-1.20", "1.20-1.50", "1.50-2.00", "2.00-3.00", "3.00-5.00", "5.00-10.00", "10.00-20.00", "20.00+"],
+  "target_bankroll_default": 1000000.0,
+  "is_analysis_only": true,
+  "not_betting_advice": true
+}

@@ -1,0 +1,22 @@
+{
+  "enabled": true,
+  "analysis_only": true,
+  "football_1x2": {
+    "min_home_win_probability": 0.03,
+    "min_draw_probability": 0.12,
+    "max_draw_probability": 0.40,
+    "min_away_win_probability": 0.03,
+    "probability_sum_tolerance": 0.0001,
+    "repair_mode": "clamp_and_renormalize"
+  },
+  "scoreline": {
+    "max_single_scoreline_probability": 0.35,
+    "min_top_scoreline_count": 5
+  },
+  "expected_goals": {
+    "min_total_expected_goals": 0.5,
+    "max_total_expected_goals": 8.0
+  },
+  "action_on_violation": "warn_and_repair",
+  "allow_block_on_severe": true
+}

@@ -45,3 +45,17 @@ match-probability-preview-third-round-json:
 
 match-probability-preview-final-json:
 	python scripts/run_match_probability_preview.py --date 2026-07-19 --json
+ev-ranking-preview:
+	python scripts/run_ev_ranking_preview.py --date 2026-06-11 --bankroll 100
+
+ev-ranking-preview-json:
+	python scripts/run_ev_ranking_preview.py --date 2026-06-11 --bankroll 100 --json
+
+ev-ranking-preview-third-round-json:
+	python scripts/run_ev_ranking_preview.py --date 2026-06-24 --bankroll 100 --json
+
+ev-ranking-preview-final-json:
+	python scripts/run_ev_ranking_preview.py --date 2026-07-19 --bankroll 100 --json
+
+ev-ranking-preview-bankroll-5000-json:
+	python scripts/run_ev_ranking_preview.py --date 2026-06-11 --bankroll 5000 --json

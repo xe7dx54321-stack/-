@@ -1,0 +1,14 @@
+{
+  "policy_name": "mock_odds_snapshot_v1",
+  "description": "Mock odds generated from model probabilities. NOT real bookmaker odds.",
+  "uses_real_bookmaker_odds": false,
+  "uses_real_data": false,
+  "odds_source_mode": "synthetic_from_model",
+  "synthetic_vig": 0.06,
+  "synthetic_vig_distribution": "equal_share",
+  "default_odds_scale": "decimal",
+  "min_odds": 1.05,
+  "max_odds": 100.0,
+  "timestamp": "static_seed",
+  "do_not_use_for_real_betting": true
+}

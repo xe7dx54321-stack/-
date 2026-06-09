@@ -1,0 +1,1 @@
+﻿{""$schema":"http://json-schema.org/draft-07/schema#","title":"OddsSnapshot","type":"object","properties":{"match"id":{"type":"string"},"market"type":{"type":"string"},"selection":{"type":"string"},"odds":{"type":"number"},"is"mock":{"type":"boolean"},"is"synthetic":{"type":"boolean"}}}
