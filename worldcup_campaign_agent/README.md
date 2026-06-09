@@ -1310,3 +1310,19 @@ python scripts/run_production_readiness_closeout.py --json
 
 ### Next Round Suggestion
 Round 24: Pre-Tournament Patch Window v1 — fix high-priority gaps identified in closeout
+
+## Round 23b: Readiness Scorecard Calibration & Gap Truthfulness
+
+### Summary
+Fixed over-optimistic readiness scoring: scorecard now uses gap-adjusted scoring, tiered readiness (analysis/simulation/pre-tournament/source/review/real-money), and honest partial_ready domain classifications.
+
+### Key Changes
+- readiness_score: 1.0 -> 0.705 (MODERATE_READINESS)
+- 5 domains now partial_ready (market_data, prediction_market, real_data_adapter, market_expectation, team_news)
+- Added tiered readiness fields (analysis_workflow_ready, simulation_ready, source_enablement_ready, etc.)
+- Score is gap-adjusted: base=0.875 minus deductions for high gaps, checklist pending, disabled sources, no writeback
+- Markdown includes "Readiness Truthfulness Check" table
+- System is SIMULATION_ONLY_ANALYSIS_READY, NOT live tournament ready
+
+### New Test
+- tests/test_production_readiness_closeout.py — updated with 9 truthfulness tests

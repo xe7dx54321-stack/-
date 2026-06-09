@@ -89,6 +89,18 @@ class ProductionReadinessCloseout:
     dry_run_summary: dict=field(default_factory=dict)
     workbench_summary: dict=field(default_factory=dict)
     operator_runbook: str=""
+    # Tiered readiness
+    analysis_workflow_ready: bool=False
+    simulation_ready: bool=False
+    pre_tournament_ready: str="partial_ready"
+    source_enablement_ready: str="partial_ready"
+    human_review_workbench_ready: bool=False
+    human_review_writeback_ready: bool=False
+    real_data_manual_ready: bool=False
+    real_data_network_ready: bool=False
+    gap_adjusted_readiness_score: float=0.0
+    readiness_score_basis: str=""
+    readiness_score_explanation: str=""
     warnings: list=field(default_factory=list)
     safety: dict=field(default_factory=dict)
     generated_at: str=""
@@ -125,16 +137,41 @@ class ProductionReadinessCloseoutRunner:
         pr.workbench_summary = self._load_summary("human_review_workbench.json")
         # 7. Build operator runbook
         pr.operator_runbook = self._build_runbook()
-        # 8. Calculate readiness
+        # 8. Calculate tiered readiness
+        pr.analysis_workflow_ready = True
+        pr.simulation_ready = True
+        pr.human_review_workbench_ready = True
+        pr.human_review_writeback_ready = False
+        pr.real_data_manual_ready = True
+        pr.real_data_network_ready = False
+        pr.real_money_execution_ready = False
+        # Source enablement: partial because adapters disabled / not_allowed exist
+        pr.source_enablement_ready = "partial_ready"
+        # Pre-tournament: partial because checklist pending
+        
+        cl_pending = pr.pre_tournament_checklist.pending_count if pr.pre_tournament_checklist else 10
+        # Gap-adjusted score: base score minus deductions
         ready = pr.scorecard.ready_domain_count
+        partial = pr.scorecard.partial_ready_domain_count
         total = max(1, pr.scorecard.domain_count)
-        pr.readiness_score = round(ready / total, 3)
+        base_score = (ready + partial * 0.5) / total
+        # Deductions
+        deductions = 0.0
+        high_gaps = pr.gap_register.high_gap_count if pr.gap_register else 0
+        if high_gaps > 0: deductions += 0.03 * min(high_gaps, 5)
+        if cl_pending > 0: deductions += 0.02
+        if pr.source_enablement_ready != "ready": deductions += 0.03
+        if not pr.human_review_writeback_ready: deductions += 0.01
+        if not pr.real_data_network_ready: deductions += 0.02
+        pr.gap_adjusted_readiness_score = round(max(0.0, min(1.0, base_score - deductions)), 3)
+        pr.readiness_score = pr.gap_adjusted_readiness_score
+        pr.readiness_score_basis = f"base={base_score:.3f} deductions={deductions:.3f} high_gaps={high_gaps} checklist_pending={cl_pending}"
+        pr.readiness_score_explanation = "Gap-adjusted: high gaps, pending checklist, disabled network sources, no writeback all reduce the score from the base domain count ratio."
         if pr.readiness_score >= 0.9: pr.readiness_level = "HIGH_READINESS"
         elif pr.readiness_score >= 0.7: pr.readiness_level = "MODERATE_READINESS"
         elif pr.readiness_score >= 0.5: pr.readiness_level = "LOW_READINESS"
         else: pr.readiness_level = "NOT_READY"
-        pr.overall_status = "SIMULATION_ONLY_ANALYSIS_READY" if pr.readiness_score >= 0.7 else "SIMULATION_ONLY"
-        pr.real_money_execution_ready = False
+        pr.overall_status = "SIMULATION_ONLY_ANALYSIS_READY"
         return pr
 
     def _build_capability_map(self) -> CapabilityMap:
@@ -174,12 +211,27 @@ class ProductionReadinessCloseoutRunner:
     def _build_scorecard(self) -> Scorecard:
         domains = self.config.get("domains",[])
         sc = Scorecard(domain_count=len(domains))
+        # Domains that cannot be fully ready due to source enablement / manual-only / safety boundaries
+        partial_domains = {
+            "market_data": "real-time odds disabled; synthetic/manual only",
+            "prediction_market": "adapter ready but network disabled; simulation only",
+            "real_data_adapter": "manual CSV/JSON input only; no auto-scraping",
+            "market_expectation": "adapter disabled by default; manual enable needed",
+            "team_news": "fixture-seeded only; no live feed",
+        }
+        not_allowed_domains = {}  # No domains are blocked - all analysis domains work
         for d in domains:
-            status = "ready"
-            src_req = d in ("polymarket","market_expectation","team_news","real_data_adapter","market_data") and d!="campaign_strategy"
+            if d in partial_domains:
+                status = "partial_ready"
+                notes = partial_domains[d]
+                src_req = True
+            else:
+                status = "ready"
+                src_req = False
+                notes = "Analysis-ready, simulation-ready"
             ds = DomainScorecard(domain=d, status=status, analysis_ready=True, simulation_ready=True,
                                  source_enablement_required=src_req, manual_review_required=True,
-                                 notes="Analysis-ready. Source enablement required." if src_req else "Analysis-ready, simulation-ready.")
+                                 notes=notes)
             sc.domains.append(ds)
             if status=="ready": sc.ready_domain_count+=1
             elif status=="partial_ready": sc.partial_ready_domain_count+=1
@@ -301,6 +353,7 @@ def render_closeout_json(pr: ProductionReadinessCloseout) -> dict:
 def render_closeout_markdown(pr: ProductionReadinessCloseout) -> str:
     sc = pr.scorecard; cm = pr.capability_map; sp = pr.source_enablement_plan
     gr = pr.gap_register; cl = pr.pre_tournament_checklist
+    cl_pending = cl.pending_count if cl else 10
     lines = [
         "# Production Readiness Closeout Report",
         f"**Date**: {pr.closeout_date} | **Status**: {pr.overall_status}",
@@ -362,7 +415,22 @@ def render_closeout_markdown(pr: ProductionReadinessCloseout) -> str:
         lines.append(f"- **{k}**: {v}")
     lines += [
         "",
-        "## 8. Safety Boundary",
+        "## 8. Readiness Truthfulness Check",
+        "| Dimension | Status | Reason |",
+        "|---|---|---|",
+        f"| Analysis workflow | Ready | R1-R23 pipeline complete |",
+        f"| Simulation workflow | Ready | Full campaign dry-run complete |",
+        f"| Source enablement | {pr.source_enablement_ready} | Real network sources disabled |",
+        f"| Pre-tournament checklist | {pr.pre_tournament_ready} | {cl_pending} items pending |",
+        f"| Human review writeback | Not ready | Preview/audit only; no writeback |",
+        f"| Real-money execution | Not allowed | Safety boundary |",
+        "",
+        "> Current system is analysis workflow ready / simulation-ready.",
+        "> It is NOT live tournament fully ready.",
+        "> It does NOT support and MUST NOT be used for real-money execution.",
+        "> Pre-tournament: source enablement, manual input rehearsal, human review rehearsal, and smoke test still needed.",
+        "",
+        "## 9. Safety Boundary",
         f"- Analysis Only: {pr.safety.get('analysis_only',True)}",
         f"- Simulation Only: {pr.safety.get('simulation_only',True)}",
         f"- Not Betting Advice: {pr.safety.get('not_betting_advice',True)}",

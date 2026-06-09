@@ -1,14 +1,14 @@
 # Production Readiness Closeout Report
 **Date**: 2026-06-09 | **Status**: SIMULATION_ONLY_ANALYSIS_READY
-**Readiness Score**: 1.0 (HIGH_READINESS)
+**Readiness Score**: 0.705 (MODERATE_READINESS)
 **Real Money Execution Ready**: False
 
 ## 1. Domain Scorecard
 | Domain | Status | Analysis Ready | Simulation Ready | Source Req | Review Req |
 |--------|--------|---------------|-----------------|------------|------------|
 | campaign_strategy | ready | True | True | False | True |
-| market_data | ready | True | True | True | True |
-| prediction_market | ready | True | True | False | True |
+| market_data | partial_ready | True | True | True | True |
+| prediction_market | partial_ready | True | True | True | True |
 | probability_modeling | ready | True | True | False | True |
 | strategy_generation | ready | True | True | False | True |
 | parlay_optimization | ready | True | True | False | True |
@@ -19,15 +19,15 @@
 | dashboard | ready | True | True | False | True |
 | daily_ops_orchestration | ready | True | True | False | True |
 | watchdog_circuit_breaker | ready | True | True | False | True |
-| real_data_adapter | ready | True | True | True | True |
-| market_expectation | ready | True | True | True | True |
-| team_news | ready | True | True | True | True |
+| real_data_adapter | partial_ready | True | True | True | True |
+| market_expectation | partial_ready | True | True | True | True |
+| team_news | partial_ready | True | True | True | True |
 | signal_fusion | ready | True | True | False | True |
 | human_review | ready | True | True | False | True |
 | full_campaign_dry_run | ready | True | True | False | True |
 | production_closeout | ready | True | True | False | True |
 
-- **Ready**: 20 | **Partial**: 0 | **Not Ready**: 0
+- **Ready**: 15 | **Partial**: 5 | **Not Ready**: 0
 
 ## 2. Capability Map
 - **Total**: 23 | **Ready**: 23 | **Blocked**: 0
@@ -90,7 +90,22 @@
 - **signal_fusion_review_count**: 0
 - **watchdog_review_count**: 0
 
-## 8. Safety Boundary
+## 8. Readiness Truthfulness Check
+| Dimension | Status | Reason |
+|---|---|---|
+| Analysis workflow | Ready | R1-R23 pipeline complete |
+| Simulation workflow | Ready | Full campaign dry-run complete |
+| Source enablement | partial_ready | Real network sources disabled |
+| Pre-tournament checklist | partial_ready | 10 items pending |
+| Human review writeback | Not ready | Preview/audit only; no writeback |
+| Real-money execution | Not allowed | Safety boundary |
+
+> Current system is analysis workflow ready / simulation-ready.
+> It is NOT live tournament fully ready.
+> It does NOT support and MUST NOT be used for real-money execution.
+> Pre-tournament: source enablement, manual input rehearsal, human review rehearsal, and smoke test still needed.
+
+## 9. Safety Boundary
 - Analysis Only: True
 - Simulation Only: True
 - Not Betting Advice: True
@@ -99,5 +114,5 @@
 - Network Fetch: False
 
 ---
-*Generated: 2026-06-09T15:59:40.142844*
+*Generated: 2026-06-09T16:08:23.622453*
 > Simulation-only closeout report. Not betting advice. No real bets placed.

@@ -2,8 +2,8 @@
   "campaign_name": "worldcup_2026_high_odds_campaign",
   "closeout_date": "2026-06-09",
   "overall_status": "SIMULATION_ONLY_ANALYSIS_READY",
-  "readiness_score": 1.0,
-  "readiness_level": "HIGH_READINESS",
+  "readiness_score": 0.705,
+  "readiness_level": "MODERATE_READINESS",
   "real_money_execution_ready": false,
   "capability_map": {
     "capabilities": [
@@ -253,25 +253,25 @@
         "simulation_ready": true,
         "source_enablement_required": false,
         "manual_review_required": true,
-        "notes": "Analysis-ready, simulation-ready."
+        "notes": "Analysis-ready, simulation-ready"
       },
       {
         "domain": "market_data",
-        "status": "ready",
+        "status": "partial_ready",
         "analysis_ready": true,
         "simulation_ready": true,
         "source_enablement_required": true,
         "manual_review_required": true,
-        "notes": "Analysis-ready. Source enablement required."
+        "notes": "real-time odds disabled; synthetic/manual only"
       },
       {
         "domain": "prediction_market",
-        "status": "ready",
+        "status": "partial_ready",
         "analysis_ready": true,
         "simulation_ready": true,
-        "source_enablement_required": false,
+        "source_enablement_required": true,
         "manual_review_required": true,
-        "notes": "Analysis-ready, simulation-ready."
+        "notes": "adapter ready but network disabled; simulation only"
       },
       {
         "domain": "probability_modeling",
@@ -280,7 +280,7 @@
         "simulation_ready": true,
         "source_enablement_required": false,
         "manual_review_required": true,
-        "notes": "Analysis-ready, simulation-ready."
+        "notes": "Analysis-ready, simulation-ready"
       },
       {
         "domain": "strategy_generation",
@@ -289,7 +289,7 @@
         "simulation_ready": true,
         "source_enablement_required": false,
         "manual_review_required": true,
-        "notes": "Analysis-ready, simulation-ready."
+        "notes": "Analysis-ready, simulation-ready"
       },
       {
         "domain": "parlay_optimization",
@@ -298,7 +298,7 @@
         "simulation_ready": true,
         "source_enablement_required": false,
         "manual_review_required": true,
-        "notes": "Analysis-ready, simulation-ready."
+        "notes": "Analysis-ready, simulation-ready"
       },
       {
         "domain": "futures_simulation",
@@ -307,7 +307,7 @@
         "simulation_ready": true,
         "source_enablement_required": false,
         "manual_review_required": true,
-        "notes": "Analysis-ready, simulation-ready."
+        "notes": "Analysis-ready, simulation-ready"
       },
       {
         "domain": "execution_planning",
@@ -316,7 +316,7 @@
         "simulation_ready": true,
         "source_enablement_required": false,
         "manual_review_required": true,
-        "notes": "Analysis-ready, simulation-ready."
+        "notes": "Analysis-ready, simulation-ready"
       },
       {
         "domain": "settlement",
@@ -325,7 +325,7 @@
         "simulation_ready": true,
         "source_enablement_required": false,
         "manual_review_required": true,
-        "notes": "Analysis-ready, simulation-ready."
+        "notes": "Analysis-ready, simulation-ready"
       },
       {
         "domain": "calibration",
@@ -334,7 +334,7 @@
         "simulation_ready": true,
         "source_enablement_required": false,
         "manual_review_required": true,
-        "notes": "Analysis-ready, simulation-ready."
+        "notes": "Analysis-ready, simulation-ready"
       },
       {
         "domain": "dashboard",
@@ -343,7 +343,7 @@
         "simulation_ready": true,
         "source_enablement_required": false,
         "manual_review_required": true,
-        "notes": "Analysis-ready, simulation-ready."
+        "notes": "Analysis-ready, simulation-ready"
       },
       {
         "domain": "daily_ops_orchestration",
@@ -352,7 +352,7 @@
         "simulation_ready": true,
         "source_enablement_required": false,
         "manual_review_required": true,
-        "notes": "Analysis-ready, simulation-ready."
+        "notes": "Analysis-ready, simulation-ready"
       },
       {
         "domain": "watchdog_circuit_breaker",
@@ -361,34 +361,34 @@
         "simulation_ready": true,
         "source_enablement_required": false,
         "manual_review_required": true,
-        "notes": "Analysis-ready, simulation-ready."
+        "notes": "Analysis-ready, simulation-ready"
       },
       {
         "domain": "real_data_adapter",
-        "status": "ready",
+        "status": "partial_ready",
         "analysis_ready": true,
         "simulation_ready": true,
         "source_enablement_required": true,
         "manual_review_required": true,
-        "notes": "Analysis-ready. Source enablement required."
+        "notes": "manual CSV/JSON input only; no auto-scraping"
       },
       {
         "domain": "market_expectation",
-        "status": "ready",
+        "status": "partial_ready",
         "analysis_ready": true,
         "simulation_ready": true,
         "source_enablement_required": true,
         "manual_review_required": true,
-        "notes": "Analysis-ready. Source enablement required."
+        "notes": "adapter disabled by default; manual enable needed"
       },
       {
         "domain": "team_news",
-        "status": "ready",
+        "status": "partial_ready",
         "analysis_ready": true,
         "simulation_ready": true,
         "source_enablement_required": true,
         "manual_review_required": true,
-        "notes": "Analysis-ready. Source enablement required."
+        "notes": "fixture-seeded only; no live feed"
       },
       {
         "domain": "signal_fusion",
@@ -397,7 +397,7 @@
         "simulation_ready": true,
         "source_enablement_required": false,
         "manual_review_required": true,
-        "notes": "Analysis-ready, simulation-ready."
+        "notes": "Analysis-ready, simulation-ready"
       },
       {
         "domain": "human_review",
@@ -406,7 +406,7 @@
         "simulation_ready": true,
         "source_enablement_required": false,
         "manual_review_required": true,
-        "notes": "Analysis-ready, simulation-ready."
+        "notes": "Analysis-ready, simulation-ready"
       },
       {
         "domain": "full_campaign_dry_run",
@@ -415,7 +415,7 @@
         "simulation_ready": true,
         "source_enablement_required": false,
         "manual_review_required": true,
-        "notes": "Analysis-ready, simulation-ready."
+        "notes": "Analysis-ready, simulation-ready"
       },
       {
         "domain": "production_closeout",
@@ -424,12 +424,12 @@
         "simulation_ready": true,
         "source_enablement_required": false,
         "manual_review_required": true,
-        "notes": "Analysis-ready, simulation-ready."
+        "notes": "Analysis-ready, simulation-ready"
       }
     ],
     "domain_count": 20,
-    "ready_domain_count": 20,
-    "partial_ready_domain_count": 0,
+    "ready_domain_count": 15,
+    "partial_ready_domain_count": 5,
     "not_ready_domain_count": 0,
     "blocked_domain_count": 0
   },
@@ -648,6 +648,17 @@
     "watchdog_review_count": 0
   },
   "operator_runbook": "# Operator Runbook\n\n## Daily Setup\n1. Confirm network_fetch_default_enabled=false\n2. Run: python scripts/run_daily_ops_watchdog.py --date <TODAY> --bankroll <BANKROLL> --json\n3. If watchdog BLOCKED, STOP and review circuit_breaker\n4. If watchdog WARN, review warnings before continuing\n\n## Matchday Workflow\n1. python scripts/run_campaign_foundation.py --bankroll <BANKROLL> --windows-left <N> --json\n2. python scripts/run_calendar_preview.py --date <TODAY> --json\n3. python scripts/run_match_probability_preview.py --date <TODAY> --json\n4. python scripts/run_ev_ranking_preview.py --date <TODAY> --bankroll <BANKROLL> --json --synthetic-odds\n5. python scripts/run_integrated_daily_strategy.py --date <TODAY> --bankroll <BANKROLL> --json --synthetic-odds\n6. python scripts/run_parlay_preview.py --date <TODAY> --bankroll <BANKROLL> --json --synthetic-odds\n7. python scripts/run_futures_preview.py --date <TODAY> --bankroll <BANKROLL> --json --synthetic-futures-odds\n8. python scripts/run_signal_fusion_preview.py --date <TODAY> --bankroll <BANKROLL> --json\n9. python scripts/run_daily_ops.py --date <TODAY> --bankroll <BANKROLL> --json\n10. python scripts/run_campaign_dashboard.py --date <TODAY> --bankroll <BANKROLL> --json\n\n## Rest Day Workflow\n1. python scripts/run_daily_ops_watchdog.py --date <TODAY> --bankroll <BANKROLL> --mode pre_daily_ops --json\n2. python scripts/run_campaign_dashboard.py --date <TODAY> --bankroll <BANKROLL> --json\n\n## Post-Match Settlement\n1. Seed results: data/seed/match_results_seed.json\n2. python scripts/run_real_data_preview.py --date <TODAY> --bankroll <BANKROLL> --json\n3. python scripts/run_postmatch_settlement.py --date <TODAY> --bankroll <BANKROLL> --json\n4. python scripts/run_model_calibration_review.py --date <TODAY> --bankroll <BANKROLL> --json\n\n## Human Review Workflow\n1. python scripts/run_human_review_workbench.py --date <TODAY> --bankroll <BANKROLL> --json\n2. Open reports/generated/human_review_workbench.html\n3. Process review items by severity (critical -> high -> medium -> low)\n4. Record decisions in data/seed/review_decision_input_example.json\n5. Re-run workbench with --decision-file\n\n## Dashboard Check\n1. Open reports/generated/campaign_dashboard.html\n2. Verify liquid_simulated_bankroll / locked_pending_units / total_campaign_equity\n3. Check required_multiplier_liquid and required_multiplier_equity\n\n## Emergency Procedures\n- If any runner outputs stake / bet_instruction / bookmaker_account: STOP immediately\n- If real_bet_execution=true appears anywhere: STOP and audit all outputs\n- If network_fetch_default_enabled is accidentally true: STOP and reset config\n\n## Safety Boundary Check (Daily)\n- [ ] network_fetch_default_enabled=false\n- [ ] real_bet_execution=false\n- [ ] auto_betting=false\n- [ ] No stake fields in any output\n- [ ] No bookmaker_account in any output\n- [ ] All reports have analysis_only=true, simulation_only=true, not_betting_advice=true\n\n> This is a simulation-only system. Not betting advice. No real bets placed. No real money used.\n",
+  "analysis_workflow_ready": true,
+  "simulation_ready": true,
+  "pre_tournament_ready": "partial_ready",
+  "source_enablement_ready": "partial_ready",
+  "human_review_workbench_ready": true,
+  "human_review_writeback_ready": false,
+  "real_data_manual_ready": true,
+  "real_data_network_ready": false,
+  "gap_adjusted_readiness_score": 0.705,
+  "readiness_score_basis": "base=0.875 deductions=0.170 high_gaps=3 checklist_pending=10",
+  "readiness_score_explanation": "Gap-adjusted: high gaps, pending checklist, disabled network sources, no writeback all reduce the score from the base domain count ratio.",
   "warnings": [],
   "safety": {
     "analysis_only": true,
@@ -658,7 +669,7 @@
     "external_betting_api_allowed": false,
     "network_fetch_default_enabled": false
   },
-  "generated_at": "2026-06-09T15:59:40.142844",
+  "generated_at": "2026-06-09T16:08:23.622453",
   "analysis_only": true,
   "simulation_only": true,
   "not_betting_advice": true

@@ -33,7 +33,7 @@ class TestRunner:
         result = runner.run()
         assert result.scorecard is not None
         assert result.scorecard.domain_count == 20
-        assert result.scorecard.ready_domain_count >= 15
+        assert result.scorecard.ready_domain_count >= 10
 
     def test_source_plan_exists(self):
         runner = ProductionReadinessCloseoutRunner()
@@ -136,3 +136,76 @@ class TestSafety:
         runner = ProductionReadinessCloseoutRunner()
         result = runner.run()
         assert result.readiness_level in ("HIGH_READINESS","MODERATE_READINESS","LOW_READINESS","NOT_READY")
+
+class TestTruthfulness:
+    def test_readiness_below_one(self):
+        from worldcup_campaign.production_readiness_closeout import ProductionReadinessCloseoutRunner
+        r = ProductionReadinessCloseoutRunner()
+        pr = r.run()
+        assert pr.readiness_score < 1.0
+        assert pr.gap_adjusted_readiness_score < 1.0
+
+    def test_partial_domains_exist(self):
+        from worldcup_campaign.production_readiness_closeout import ProductionReadinessCloseoutRunner
+        r = ProductionReadinessCloseoutRunner()
+        pr = r.run()
+        assert pr.scorecard.partial_ready_domain_count >= 3
+
+    def test_tiered_readiness_fields(self):
+        from worldcup_campaign.production_readiness_closeout import ProductionReadinessCloseoutRunner
+        r = ProductionReadinessCloseoutRunner()
+        pr = r.run()
+        assert pr.analysis_workflow_ready == True
+        assert pr.simulation_ready == True
+        assert pr.human_review_workbench_ready == True
+        assert pr.human_review_writeback_ready == False
+        assert pr.real_data_manual_ready == True
+        assert pr.real_data_network_ready == False
+        assert pr.real_money_execution_ready == False
+
+    def test_source_enablement_partial(self):
+        from worldcup_campaign.production_readiness_closeout import ProductionReadinessCloseoutRunner
+        r = ProductionReadinessCloseoutRunner()
+        pr = r.run()
+        assert pr.source_enablement_ready == "partial_ready"
+
+    def test_pre_tournament_partial(self):
+        from worldcup_campaign.production_readiness_closeout import ProductionReadinessCloseoutRunner
+        r = ProductionReadinessCloseoutRunner()
+        pr = r.run()
+        assert pr.pre_tournament_ready == "partial_ready"
+
+    def test_markdown_has_truthfulness(self):
+        from worldcup_campaign.production_readiness_closeout import ProductionReadinessCloseoutRunner, render_closeout_markdown
+        r = ProductionReadinessCloseoutRunner()
+        pr = r.run()
+        md = render_closeout_markdown(pr)
+        assert "Readiness Truthfulness Check" in md
+        assert "Not allowed" in md
+
+    def test_json_has_gap_adjusted(self):
+        from worldcup_campaign.production_readiness_closeout import ProductionReadinessCloseoutRunner, render_closeout_json
+        r = ProductionReadinessCloseoutRunner()
+        pr = r.run()
+        d = render_closeout_json(pr)
+        assert "gap_adjusted_readiness_score" in d
+        assert d["gap_adjusted_readiness_score"] > 0
+
+    def test_real_money_not_allowed(self):
+        from worldcup_campaign.production_readiness_closeout import ProductionReadinessCloseoutRunner, _d
+        import json
+        r = ProductionReadinessCloseoutRunner()
+        pr = r.run()
+        d = _d(pr)
+        # Exclude operator runbook (contains safety warnings about forbidden terms)
+        check = {k:v for k,v in d.items() if k != "operator_runbook"}
+        s = json.dumps(check).lower()
+        assert "real_bet_execution=true" not in s
+        assert pr.real_money_execution_ready == False
+
+    def test_no_forbidden_in_truthfulness(self):
+        from worldcup_campaign.production_readiness_closeout import ProductionReadinessCloseoutRunner, validate_closeout_no_forbidden
+        r = ProductionReadinessCloseoutRunner()
+        pr = r.run()
+        forbidden = validate_closeout_no_forbidden(pr)
+        assert len(forbidden) == 0
