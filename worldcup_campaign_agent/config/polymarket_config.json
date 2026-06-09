@@ -1,0 +1,55 @@
+﻿{
+  "model_name": "polymarket_adapter_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "network": {
+    "network_fetch_default_enabled": false,
+    "enable_network_override": false,
+    "api_base_url": "https://gamma-api.polymarket.com",
+    "data_api_url": "https://data-api.polymarket.com",
+    "websocket_enabled": false
+  },
+  "trading": {
+    "order_submission_allowed": false,
+    "wallet_connection_allowed": false,
+    "authentication_allowed": false,
+    "private_key_allowed": false
+  },
+  "discovery": {
+    "relevant_tags": ["world cup", "worldcup", "fifa", "soccer", "football", "wc2026", "2026"],
+    "min_volume_for_consideration": 1000,
+    "max_events": 50,
+    "market_types": ["binary", "yes-no", "outcome"],
+    "deferred_tags": ["golden boot", "golden ball", "golden glove", "manager", "coach", "referee", "attendance"]
+  },
+  "signal": {
+    "min_liquidity_for_signal": 5000,
+    "spread_warning_threshold": 0.05,
+    "min_depth_levels": 3,
+    "price_history_window_hours": 24
+  },
+  "liquidity": {
+    "high_liquidity_threshold": 100000,
+    "medium_liquidity_threshold": 10000,
+    "low_liquidity_warning": 5000
+  },
+  "consensus": {
+    "min_prediction_markets_for_consensus": 1,
+    "strong_consensus_threshold": 0.03,
+    "usable_consensus_threshold": 0.08
+  },
+  "gap_analysis": {
+    "major_disagreement_threshold": 0.15,
+    "minor_disagreement_threshold": 0.05,
+    "low_liquidity_gap_multiplier": 2.0
+  },
+  "forbidden_fields": [
+    "stake", "stake_amount", "stake_to_match", "bet_instruction",
+    "bookmaker_account", "real_money_balance", "real_bet_execution",
+    "auto_betting", "api_key", "api_secret", "private_key",
+    "wallet_address", "signed_order", "submit_order",
+    "order_creation", "position_size", "collateral"
+  ]
+}

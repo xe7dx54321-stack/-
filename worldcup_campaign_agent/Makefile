@@ -193,3 +193,17 @@ market-odds-consensus-manual-csv-json:
 
 market-odds-consensus-manual-json-json:
 	python scripts/run_market_odds_consensus.py --date 2026-06-11 --bankroll 100 --manual-json data/seed/manual_odds_seed.json --json
+polymarket-preview:
+	python scripts/run_polymarket_preview.py --date 2026-06-11 --bankroll 100
+
+polymarket-preview-json:
+	python scripts/run_polymarket_preview.py --date 2026-06-11 --bankroll 100 --json
+
+polymarket-preview-third-round-json:
+	python scripts/run_polymarket_preview.py --date 2026-06-24 --bankroll 100 --json
+
+polymarket-preview-final-json:
+	python scripts/run_polymarket_preview.py --date 2026-07-19 --bankroll 100 --json
+
+polymarket-preview-bankroll-5000-json:
+	python scripts/run_polymarket_preview.py --date 2026-06-11 --bankroll 5000 --json

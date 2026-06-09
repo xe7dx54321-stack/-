@@ -1,0 +1,17 @@
+﻿{
+  "type": "object",
+  "required": ["current_date", "event_count", "analysis_only", "simulation_only", "not_betting_advice"],
+  "properties": {
+    "campaign_name": {"type": "string"},
+    "current_date": {"type": "string"},
+    "current_bankroll": {"type": "number"},
+    "discovery_summary": {"type": "object"},
+    "signal_summary": {"type": "object"},
+    "consensus_summary": {"type": "object"},
+    "gap_summary": {"type": "object"},
+    "safety": {"type": "object"},
+    "analysis_only": {"type": "boolean"},
+    "simulation_only": {"type": "boolean"},
+    "not_betting_advice": {"type": "boolean"}
+  }
+}

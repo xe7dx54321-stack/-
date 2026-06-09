@@ -1,0 +1,496 @@
+{
+  "fixture_type": "polymarket_seed_v1",
+  "generated_at": "2026-06-11T10:00:00Z",
+  "note": "Synthetic fixture for testing. Not real Polymarket data.",
+  "events": [
+    {
+      "event_id": "pm_wc_winner_2026",
+      "title": "FIFA World Cup 2026 - Winner",
+      "tags": [
+        "world cup",
+        "fifa",
+        "soccer",
+        "wc2026",
+        "2026"
+      ],
+      "volume": 8500000.0,
+      "liquidity": 2500000.0,
+      "active": true,
+      "markets": [
+        {
+          "market_id": "pm_winner_arg",
+          "question": "Will Argentina win 2026 WC?",
+          "outcome": "YES",
+          "last_price": 0.18,
+          "bid": 0.175,
+          "ask": 0.185,
+          "volume": 1500000,
+          "liquidity": 450000,
+          "price_history": [
+            0.2,
+            0.19,
+            0.185,
+            0.18
+          ],
+          "timestamps": [
+            "2026-06-09",
+            "2026-06-10",
+            "2026-06-11",
+            "2026-06-11"
+          ]
+        },
+        {
+          "market_id": "pm_winner_fra",
+          "question": "Will France win 2026 WC?",
+          "outcome": "YES",
+          "last_price": 0.15,
+          "bid": 0.148,
+          "ask": 0.152,
+          "volume": 1200000,
+          "liquidity": 380000,
+          "price_history": [
+            0.16,
+            0.155,
+            0.15,
+            0.15
+          ],
+          "timestamps": [
+            "2026-06-09",
+            "2026-06-10",
+            "2026-06-11",
+            "2026-06-11"
+          ]
+        },
+        {
+          "market_id": "pm_winner_bra",
+          "question": "Will Brazil win 2026 WC?",
+          "outcome": "YES",
+          "last_price": 0.14,
+          "bid": 0.138,
+          "ask": 0.142,
+          "volume": 1100000,
+          "liquidity": 350000,
+          "price_history": [
+            0.15,
+            0.145,
+            0.14,
+            0.14
+          ],
+          "timestamps": [
+            "2026-06-09",
+            "2026-06-10",
+            "2026-06-11",
+            "2026-06-11"
+          ]
+        },
+        {
+          "market_id": "pm_winner_esp",
+          "question": "Will Spain win 2026 WC?",
+          "outcome": "YES",
+          "last_price": 0.12,
+          "bid": 0.118,
+          "ask": 0.122,
+          "volume": 900000,
+          "liquidity": 280000,
+          "price_history": [
+            0.13,
+            0.125,
+            0.12,
+            0.12
+          ],
+          "timestamps": [
+            "2026-06-09",
+            "2026-06-10",
+            "2026-06-11",
+            "2026-06-11"
+          ]
+        },
+        {
+          "market_id": "pm_winner_eng",
+          "question": "Will England win 2026 WC?",
+          "outcome": "YES",
+          "last_price": 0.1,
+          "bid": 0.098,
+          "ask": 0.102,
+          "volume": 750000,
+          "liquidity": 220000,
+          "price_history": [
+            0.11,
+            0.105,
+            0.1,
+            0.1
+          ],
+          "timestamps": [
+            "2026-06-09",
+            "2026-06-10",
+            "2026-06-11",
+            "2026-06-11"
+          ]
+        },
+        {
+          "market_id": "pm_winner_ger",
+          "question": "Will Germany win 2026 WC?",
+          "outcome": "YES",
+          "last_price": 0.09,
+          "bid": 0.088,
+          "ask": 0.092,
+          "volume": 700000,
+          "liquidity": 200000,
+          "price_history": [
+            0.1,
+            0.095,
+            0.09,
+            0.09
+          ],
+          "timestamps": [
+            "2026-06-09",
+            "2026-06-10",
+            "2026-06-11",
+            "2026-06-11"
+          ]
+        },
+        {
+          "market_id": "pm_winner_ned",
+          "question": "Will Netherlands win 2026 WC?",
+          "outcome": "YES",
+          "last_price": 0.06,
+          "bid": 0.058,
+          "ask": 0.062,
+          "volume": 400000,
+          "liquidity": 95000,
+          "price_history": [
+            0.07,
+            0.065,
+            0.06,
+            0.06
+          ],
+          "timestamps": [
+            "2026-06-09",
+            "2026-06-10",
+            "2026-06-11",
+            "2026-06-11"
+          ]
+        },
+        {
+          "market_id": "pm_winner_por",
+          "question": "Will Portugal win 2026 WC?",
+          "outcome": "YES",
+          "last_price": 0.05,
+          "bid": 0.048,
+          "ask": 0.052,
+          "volume": 350000,
+          "liquidity": 75000,
+          "price_history": [
+            0.06,
+            0.055,
+            0.05,
+            0.05
+          ],
+          "timestamps": [
+            "2026-06-09",
+            "2026-06-10",
+            "2026-06-11",
+            "2026-06-11"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "pm_wc_finalist",
+      "title": "FIFA World Cup 2026 - To Reach Final",
+      "tags": [
+        "world cup",
+        "wc2026",
+        "final",
+        "soccer"
+      ],
+      "volume": 3500000.0,
+      "liquidity": 900000.0,
+      "active": true,
+      "markets": [
+        {
+          "market_id": "pm_final_arg",
+          "question": "Argentina to reach final?",
+          "outcome": "YES",
+          "last_price": 0.35,
+          "bid": 0.34,
+          "ask": 0.36,
+          "volume": 800000,
+          "liquidity": 200000,
+          "price_history": [
+            0.38,
+            0.36,
+            0.35,
+            0.35
+          ],
+          "timestamps": [
+            "2026-06-09",
+            "2026-06-10",
+            "2026-06-11",
+            "2026-06-11"
+          ]
+        },
+        {
+          "market_id": "pm_final_fra",
+          "question": "France to reach final?",
+          "outcome": "YES",
+          "last_price": 0.28,
+          "bid": 0.27,
+          "ask": 0.29,
+          "volume": 650000,
+          "liquidity": 170000,
+          "price_history": [
+            0.3,
+            0.29,
+            0.28,
+            0.28
+          ],
+          "timestamps": [
+            "2026-06-09",
+            "2026-06-10",
+            "2026-06-11",
+            "2026-06-11"
+          ]
+        },
+        {
+          "market_id": "pm_final_bra",
+          "question": "Brazil to reach final?",
+          "outcome": "YES",
+          "last_price": 0.26,
+          "bid": 0.25,
+          "ask": 0.27,
+          "volume": 600000,
+          "liquidity": 160000,
+          "price_history": [
+            0.28,
+            0.27,
+            0.26,
+            0.26
+          ],
+          "timestamps": [
+            "2026-06-09",
+            "2026-06-10",
+            "2026-06-11",
+            "2026-06-11"
+          ]
+        },
+        {
+          "market_id": "pm_final_esp",
+          "question": "Spain to reach final?",
+          "outcome": "YES",
+          "last_price": 0.22,
+          "bid": 0.21,
+          "ask": 0.23,
+          "volume": 500000,
+          "liquidity": 130000,
+          "price_history": [
+            0.24,
+            0.23,
+            0.22,
+            0.22
+          ],
+          "timestamps": [
+            "2026-06-09",
+            "2026-06-10",
+            "2026-06-11",
+            "2026-06-11"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "pm_wc_group_c_winner",
+      "title": "FIFA World Cup 2026 - Group C Winner",
+      "tags": [
+        "world cup",
+        "wc2026",
+        "group c",
+        "soccer"
+      ],
+      "volume": 800000.0,
+      "liquidity": 200000.0,
+      "active": true,
+      "markets": [
+        {
+          "market_id": "pm_gc_fra",
+          "question": "France to win Group C?",
+          "outcome": "YES",
+          "last_price": 0.7,
+          "bid": 0.69,
+          "ask": 0.71,
+          "volume": 350000,
+          "liquidity": 90000,
+          "price_history": [
+            0.68,
+            0.69,
+            0.7,
+            0.7
+          ],
+          "timestamps": [
+            "2026-06-09",
+            "2026-06-10",
+            "2026-06-11",
+            "2026-06-11"
+          ]
+        },
+        {
+          "market_id": "pm_gc_peru",
+          "question": "Peru to win Group C?",
+          "outcome": "YES",
+          "last_price": 0.12,
+          "bid": 0.11,
+          "ask": 0.13,
+          "volume": 80000,
+          "liquidity": 25000,
+          "price_history": [
+            0.13,
+            0.12,
+            0.12,
+            0.12
+          ],
+          "timestamps": [
+            "2026-06-09",
+            "2026-06-10",
+            "2026-06-11",
+            "2026-06-11"
+          ]
+        },
+        {
+          "market_id": "pm_gc_den",
+          "question": "Denmark to win Group C?",
+          "outcome": "YES",
+          "last_price": 0.13,
+          "bid": 0.125,
+          "ask": 0.135,
+          "volume": 85000,
+          "liquidity": 26000,
+          "price_history": [
+            0.14,
+            0.13,
+            0.13,
+            0.13
+          ],
+          "timestamps": [
+            "2026-06-09",
+            "2026-06-10",
+            "2026-06-11",
+            "2026-06-11"
+          ]
+        },
+        {
+          "market_id": "pm_gc_sau",
+          "question": "Saudi Arabia to win Group C?",
+          "outcome": "YES",
+          "last_price": 0.05,
+          "bid": 0.045,
+          "ask": 0.055,
+          "volume": 40000,
+          "liquidity": 8000,
+          "price_history": [
+            0.06,
+            0.05,
+            0.05,
+            0.05
+          ],
+          "timestamps": [
+            "2026-06-09",
+            "2026-06-10",
+            "2026-06-11",
+            "2026-06-11"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "pm_golden_boot",
+      "title": "FIFA World Cup 2026 - Golden Boot",
+      "tags": [
+        "world cup",
+        "golden boot",
+        "wc2026"
+      ],
+      "volume": 500000.0,
+      "liquidity": 100000.0,
+      "active": true,
+      "markets": [
+        {
+          "market_id": "pm_boot_mbp",
+          "question": "Mbappe Golden Boot?",
+          "outcome": "YES",
+          "last_price": 0.22,
+          "bid": 0.21,
+          "ask": 0.23,
+          "volume": 150000,
+          "liquidity": 35000,
+          "price_history": [
+            0.2,
+            0.21,
+            0.22,
+            0.22
+          ],
+          "timestamps": [
+            "2026-06-09",
+            "2026-06-10",
+            "2026-06-11",
+            "2026-06-11"
+          ]
+        },
+        {
+          "market_id": "pm_boot_haa",
+          "question": "Haaland Golden Boot?",
+          "outcome": "YES",
+          "last_price": 0.18,
+          "bid": 0.17,
+          "ask": 0.19,
+          "volume": 120000,
+          "liquidity": 28000,
+          "price_history": [
+            0.19,
+            0.18,
+            0.18,
+            0.18
+          ],
+          "timestamps": [
+            "2026-06-09",
+            "2026-06-10",
+            "2026-06-11",
+            "2026-06-11"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "pm_other_nba",
+      "title": "NBA Finals 2026 Winner",
+      "tags": [
+        "nba",
+        "basketball"
+      ],
+      "volume": 20000000.0,
+      "liquidity": 5000000.0,
+      "active": true,
+      "markets": [
+        {
+          "market_id": "pm_nba_cel",
+          "question": "Celtics NBA Finals?",
+          "outcome": "YES",
+          "last_price": 0.4,
+          "bid": 0.39,
+          "ask": 0.41,
+          "volume": 5000000,
+          "liquidity": 1500000,
+          "price_history": [
+            0.42,
+            0.4,
+            0.4
+          ],
+          "timestamps": [
+            "2026-06-09",
+            "2026-06-10",
+            "2026-06-11"
+          ]
+        }
+      ]
+    }
+  ]
+}
