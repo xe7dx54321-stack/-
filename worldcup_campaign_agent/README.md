@@ -640,3 +640,213 @@ python scripts/run_market_odds_consensus.py --date 2026-06-11 --bankroll 100 --j
 
 ### Next Round Suggestion
 Round 14: Polymarket / Prediction Market Adapter v1 -- bring in prediction market prices, volume, liquidity, orderbook spread, and price movement as a second market expectation signal.
+
+
+
+## Round 14: Polymarket / Prediction Market Adapter v1
+
+### Overview
+Round 14 introduces prediction market data as a second market expectation signal, distinct from sportsbook odds. Polymarket-style data brings in market prices, implied probabilities, and optional volume/liquidity signals—all from local seed data, no API calls.
+
+### Key Capabilities
+- Polymarket data ingestion from seed CSV/JSON
+- Implied probability from prediction market prices (bid/ask midpoint)
+- Multi-market discovery (winner, group winner, golden boot, etc.)
+- Prediction market signal quality assessment
+- Integration with market expectation engine (Round 15)
+
+### Safety
+- network_fetch_default_enabled=false: No network calls
+- All data from local seed files
+- No real money, no API keys, no bookmaker accounts
+- analysis_only=true, simulation_only=true, not_betting_advice=true
+
+### How to Run
+```
+make polymarket-preview
+make polymarket-preview-json
+make polymarket-preview-third-round-json
+make polymarket-preview-final-json
+make polymarket-preview-bankroll-5000-json
+```
+
+Or directly:
+```
+python scripts/run_polymarket_preview.py --date 2026-06-11 --bankroll 100 --json
+```
+
+### Generated Reports
+- reports/generated/polymarket_preview.json
+- reports/generated/polymarket_preview.md
+
+### New Modules
+- src/worldcup_campaign/polymarket_adapter.py
+- src/worldcup_campaign/polymarket_runner.py
+- scripts/run_polymarket_preview.py
+
+### New Configs
+- config/polymarket_config.json
+
+
+
+## Round 15: Market Expectation Engine v1
+
+### Overview
+Round 15 fuses sportsbook consensus (Round 13) and prediction market data (Round 14) into a unified market expectation signal. It computes blended probabilities, model-market alignment status, and signal quality per candidate.
+
+### Key Capabilities
+- Blended probability: weighted fusion of sportsbook, polymarket, and synthetic sources
+- Model-market alignment: aligned / minor_disagreement / major_disagreement classification
+- Signal quality scoring per candidate
+- Market expectation summary for dashboard integration
+
+### Safety
+- No network calls by default
+- No real money, no API keys, no bookmaker accounts
+- analysis_only=true, simulation_only=true, not_betting_advice=true
+
+### How to Run
+```
+make market-expectation
+make market-expectation-json
+make market-expectation-third-round-json
+make market-expectation-final-json
+make market-expectation-bankroll-5000-json
+```
+
+Or directly:
+```
+python scripts/run_market_expectation.py --date 2026-06-11 --bankroll 100 --json
+```
+
+### Generated Reports
+- reports/generated/market_expectation.json
+- reports/generated/market_expectation.md
+
+### New Modules
+- src/worldcup_campaign/market_expectation_engine.py
+- src/worldcup_campaign/signal_quality.py
+- src/worldcup_campaign/market_expectation_runner.py
+- scripts/run_market_expectation.py
+
+### New Configs
+- config/market_expectation_config.json
+
+
+
+## Round 16: Team News / Injury / Lineup Adapter v1
+
+### Overview
+Round 16 adds team context signals—injury reports, lineup changes, and team news—that can influence candidate assessment without being betting signals. All data from local seed files.
+
+### Key Capabilities
+- Team news seed data ingestion (injuries, lineup changes, form)
+- Context signal classification: positive / neutral / negative / uncertain
+- Rumor impact assessment (confirmed news vs. rumors)
+- Team context summary for signal fusion
+
+### Safety
+- All data from local seed files
+- No real money, no API keys, no bookmaker accounts
+- analysis_only=true, simulation_only=true, not_betting_advice=true
+
+### How to Run
+```
+make team-news-preview
+make team-news-preview-json
+make team-news-preview-third-round-json
+make team-news-preview-final-json
+make team-news-preview-bankroll-5000-json
+```
+
+Or directly:
+```
+python scripts/run_team_news_preview.py --date 2026-06-11 --bankroll 100 --json
+```
+
+### Generated Reports
+- reports/generated/team_news_preview.json
+- reports/generated/team_news_preview.md
+
+### New Modules
+- src/worldcup_campaign/team_news_adapter.py
+- src/worldcup_campaign/team_news_runner.py
+- scripts/run_team_news_preview.py
+
+### New Configs
+- config/team_news_config.json
+
+
+
+## Round 17: Signal Fusion & Strategy Upgrade v1
+
+### Overview
+Round 17 is the capstone of the signal layer: it fuses EV ranking candidates, market expectation alignment, team context signals, and signal quality scores into upgraded campaign scores. Candidates can be promoted to higher buckets (edge→core) or demoted (core→edge) based on fused signal strength.
+
+### Key Capabilities
+- Multi-source signal fusion: EV + market alignment + team context + quality
+- Campaign score adjustment (capped at +0.25 / -0.15)
+- Candidate promotion/demotion logic
+- Bucket upgrade/downgrade (edge↔core)
+- Status classification: promoted / demoted / review_required / watch_only / unchanged
+- Signal fusion preview JSON + Markdown report
+
+### Signal Sources
+| Source | Weight | Description |
+|--------|--------|-------------|
+| Market Alignment | 0.20 | Model agrees with sportsbook consensus |
+| Team Context | 0.15 | Positive team news / lineup signals |
+| Signal Quality | 0.10 | Data quality score (0-1) |
+
+### Bucket Rules
+| Bucket | Min Quality | Market Aligned Required | Rumor Allowed |
+|--------|-------------|------------------------|---------------|
+| Core | 0.5 | Yes | No |
+| Edge | 0.3 | No | Limited |
+| Attack | 0.2 | No | Yes |
+| Futures | 0.15 | No | Yes |
+
+### Safety
+- All data from local generated reports
+- No network calls by default
+- Score adjustments are model weights, not real stake changes
+- No real money, no API keys, no bookmaker accounts
+- analysis_only=true, simulation_only=true, not_betting_advice=true
+
+### How to Run
+```
+make signal-fusion-preview
+make signal-fusion-preview-json
+make signal-fusion-preview-third-round-json
+make signal-fusion-preview-final-json
+make signal-fusion-preview-bankroll-5000-json
+```
+
+Or directly:
+```
+python scripts/run_signal_fusion_preview.py --date 2026-06-11 --bankroll 100 --json
+```
+
+### Generated Reports
+- reports/generated/signal_fusion_preview.json
+- reports/generated/signal_fusion_preview.md
+
+### New Modules
+- src/worldcup_campaign/signal_fusion_engine.py -- Core fusion logic
+- src/worldcup_campaign/signal_fusion_runner.py -- Full pipeline runner
+- scripts/run_signal_fusion_preview.py -- CLI
+
+### New Configs
+- config/signal_fusion_config.json -- Fusion weights, thresholds, bucket rules
+
+### Currently Not Implemented
+1. Real odds / bookmaker integration
+2. Real account balances
+3. Interactive web app
+4. Auto-refresh of signal sources
+5. Signal fusion writeback to integrated strategy
+6. Auto-result fetching
+7. Real-time team news scraping
+
+### Next Round Suggestion
+Round 18: Auto-Execution Watchdog & Circuit Breaker v1 -- add automated safety checks, campaign health monitoring, and circuit breakers that prevent the system from exceeding predefined risk boundaries.

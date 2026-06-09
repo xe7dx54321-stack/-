@@ -1,0 +1,29 @@
+﻿{
+  "model_name": "signal_fusion_v1",
+  "model_version": "v1.0",
+  "analysis_only": true, "simulation_only": true, "not_betting_advice": true,
+  "network": {"network_fetch_default_enabled": false},
+  "sources": {
+    "ev_ranking": {"enabled": true, "file": "ev_ranking_preview.json"},
+    "integrated_strategy": {"enabled": true, "file": "integrated_daily_strategy.json"},
+    "parlay_preview": {"enabled": true, "file": "parlay_preview.json"},
+    "market_expectation": {"enabled": true, "file": "market_expectation.json"},
+    "team_news": {"enabled": true, "file": "team_news_preview.json"}
+  },
+  "fusion": {
+    "market_support_weight": 0.20,
+    "team_context_weight": 0.15,
+    "signal_quality_weight": 0.10,
+    "max_campaign_score_adjustment": 0.25,
+    "min_campaign_score_adjustment": -0.15,
+    "promotion_threshold": 0.10,
+    "demotion_threshold": -0.05
+  },
+  "bucket_rules": {
+    "core": {"max_rumor_impact": 0.0, "min_signal_quality": 0.5, "require_market_aligned": true},
+    "edge": {"allow_limited_rumor": true, "min_signal_quality": 0.3},
+    "attack": {"allow_uncertain": true, "min_signal_quality": 0.2},
+    "futures": {"allow_uncertain": true, "min_signal_quality": 0.15}
+  },
+  "forbidden_fields": ["stake","stake_amount","stake_to_match","bet_instruction","bookmaker_account","real_money_balance","wallet_address","private_key","api_secret","signed_order","submit_order","real_bet_execution","auto_betting"]
+}

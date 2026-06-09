@@ -234,4 +234,17 @@ team-news-preview-final-json:
 	python scripts/run_team_news_preview.py --date 2026-07-19 --bankroll 100 --json
 
 team-news-preview-bankroll-5000-json:
-	python scripts/run_team_news_preview.py --date 2026-06-11 --bankroll 5000 --json
+	python scripts/run_team_news_preview.py --date 2026-06-11 --bankroll 5000 --jsonsignal-fusion-preview:
+	python scripts/run_signal_fusion_preview.py --date 2026-06-11 --bankroll 100
+
+signal-fusion-preview-json:
+	python scripts/run_signal_fusion_preview.py --date 2026-06-11 --bankroll 100 --json
+
+signal-fusion-preview-third-round-json:
+	python scripts/run_signal_fusion_preview.py --date 2026-06-24 --bankroll 100 --json
+
+signal-fusion-preview-final-json:
+	python scripts/run_signal_fusion_preview.py --date 2026-07-19 --bankroll 100 --json
+
+signal-fusion-preview-bankroll-5000-json:
+	python scripts/run_signal_fusion_preview.py --date 2026-06-11 --bankroll 5000 --json

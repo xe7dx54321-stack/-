@@ -1,0 +1,11 @@
+﻿{
+  "type": "object",
+  "required": ["current_date", "analysis_only", "simulation_only", "not_betting_advice"],
+  "properties": {
+    "current_date": {"type": "string"}, "current_bankroll": {"type": "number"},
+    "source_summary": {"type": "object"}, "fusion_summary": {"type": "object"},
+    "support_summary": {"type": "object"}, "score_summary": {"type": "object"},
+    "safety": {"type": "object"},
+    "analysis_only": {"type": "boolean"}, "simulation_only": {"type": "boolean"}, "not_betting_advice": {"type": "boolean"}
+  }
+}
