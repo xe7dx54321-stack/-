@@ -1,0 +1,71 @@
+﻿{
+    "model_name":  "market_odds_consensus_adapter_v1",
+    "model_version":  "v1.0",
+    "analysis_only":  true,
+    "simulation_only":  true,
+    "not_betting_advice":  true,
+    "data_source":  {
+                        "primary":  "manual_csv",
+                        "fallback":  "manual_json",
+                        "synthetic_enabled":  true,
+                        "external_api_enabled":  false,
+                        "external_api_providers":  [
+
+                                                   ],
+                        "network_fetch_default_enabled":  false
+                    },
+    "snapshot_types":  [
+                           "opening",
+                           "current",
+                           "closing"
+                       ],
+    "allowed_market_types":  [
+                                 "1X2",
+                                 "over_under",
+                                 "handicap",
+                                 "correct_score",
+                                 "both_to_score",
+                                 "draw_no_bet"
+                             ],
+    "decimal_odds_range":  {
+                               "min":  1.01,
+                               "max":  1001.0
+                           },
+    "overround_policy":  {
+                             "max_overround":  0.15,
+                             "warn_overround":  0.08,
+                             "allow_high_overround":  true
+                         },
+    "consensus":  {
+                      "min_sources_for_consensus":  2,
+                      "strong_consensus_threshold":  0.03,
+                      "weak_consensus_threshold":  0.08,
+                      "dispersion_warning_threshold":  0.12,
+                      "min_sources_for_strong_consensus":  3,
+                      "min_sources_for_usable_consensus":  2,
+                      "usable_consensus_threshold":  0.08
+                  },
+    "movement":  {
+                     "significant_move_threshold":  0.05,
+                     "min_snapshots_for_movement":  2,
+                     "track_opening_to_current":  true
+                 },
+    "freshness":  {
+                      "max_age_hours":  24,
+                      "warn_age_hours":  8,
+                      "stale_age_hours":  48
+                  },
+    "forbidden_fields":  [
+                             "stake",
+                             "stake_amount",
+                             "stake_to_match",
+                             "bet_instruction",
+                             "bookmaker",
+                             "bookmaker_account",
+                             "real_money_balance",
+                             "real_bet_execution",
+                             "auto_betting",
+                             "api_key",
+                             "api_secret"
+                         ]
+}

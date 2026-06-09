@@ -1,0 +1,491 @@
+{
+  "snapshot_date": "2026-06-11",
+  "generated_at": "2026-06-11T10:30:00Z",
+  "source_providers": [
+    "sportsbook_A",
+    "sportsbook_B"
+  ],
+  "snapshot_type": "current",
+  "entries": [
+    {
+      "match_id": "GS_A_R1_001",
+      "market_type": "1X2",
+      "selection_id": "H",
+      "selection_label": "CAN Win",
+      "decimal_odds": 2.1,
+      "source_provider": "sportsbook_A",
+      "snapshot_type": "opening",
+      "snapshot_timestamp": "2026-06-09T08:00:00Z"
+    },
+    {
+      "match_id": "GS_A_R1_001",
+      "market_type": "1X2",
+      "selection_id": "D",
+      "selection_label": "Draw",
+      "decimal_odds": 3.6,
+      "source_provider": "sportsbook_A",
+      "snapshot_type": "opening",
+      "snapshot_timestamp": "2026-06-09T08:00:00Z"
+    },
+    {
+      "match_id": "GS_A_R1_001",
+      "market_type": "1X2",
+      "selection_id": "A",
+      "selection_label": "MEX Win",
+      "decimal_odds": 1.8,
+      "source_provider": "sportsbook_A",
+      "snapshot_type": "opening",
+      "snapshot_timestamp": "2026-06-09T08:00:00Z"
+    },
+    {
+      "match_id": "GS_A_R1_001",
+      "market_type": "1X2",
+      "selection_id": "H",
+      "selection_label": "CAN Win",
+      "decimal_odds": 2.05,
+      "source_provider": "sportsbook_A",
+      "snapshot_type": "current",
+      "snapshot_timestamp": "2026-06-11T10:00:00Z"
+    },
+    {
+      "match_id": "GS_A_R1_001",
+      "market_type": "1X2",
+      "selection_id": "D",
+      "selection_label": "Draw",
+      "decimal_odds": 3.5,
+      "source_provider": "sportsbook_A",
+      "snapshot_type": "current",
+      "snapshot_timestamp": "2026-06-11T10:00:00Z"
+    },
+    {
+      "match_id": "GS_A_R1_001",
+      "market_type": "1X2",
+      "selection_id": "A",
+      "selection_label": "MEX Win",
+      "decimal_odds": 1.85,
+      "source_provider": "sportsbook_A",
+      "snapshot_type": "current",
+      "snapshot_timestamp": "2026-06-11T10:00:00Z"
+    },
+    {
+      "match_id": "GS_A_R1_001",
+      "market_type": "1X2",
+      "selection_id": "H",
+      "selection_label": "CAN Win",
+      "decimal_odds": 2.15,
+      "source_provider": "sportsbook_B",
+      "snapshot_type": "opening",
+      "snapshot_timestamp": "2026-06-09T10:00:00Z"
+    },
+    {
+      "match_id": "GS_A_R1_001",
+      "market_type": "1X2",
+      "selection_id": "D",
+      "selection_label": "Draw",
+      "decimal_odds": 3.55,
+      "source_provider": "sportsbook_B",
+      "snapshot_type": "opening",
+      "snapshot_timestamp": "2026-06-09T10:00:00Z"
+    },
+    {
+      "match_id": "GS_A_R1_001",
+      "market_type": "1X2",
+      "selection_id": "A",
+      "selection_label": "MEX Win",
+      "decimal_odds": 1.78,
+      "source_provider": "sportsbook_B",
+      "snapshot_type": "opening",
+      "snapshot_timestamp": "2026-06-09T10:00:00Z"
+    },
+    {
+      "match_id": "GS_A_R1_001",
+      "market_type": "1X2",
+      "selection_id": "H",
+      "selection_label": "CAN Win",
+      "decimal_odds": 2.08,
+      "source_provider": "sportsbook_B",
+      "snapshot_type": "current",
+      "snapshot_timestamp": "2026-06-11T10:05:00Z"
+    },
+    {
+      "match_id": "GS_A_R1_001",
+      "market_type": "1X2",
+      "selection_id": "D",
+      "selection_label": "Draw",
+      "decimal_odds": 3.45,
+      "source_provider": "sportsbook_B",
+      "snapshot_type": "current",
+      "snapshot_timestamp": "2026-06-11T10:05:00Z"
+    },
+    {
+      "match_id": "GS_A_R1_001",
+      "market_type": "1X2",
+      "selection_id": "A",
+      "selection_label": "MEX Win",
+      "decimal_odds": 1.82,
+      "source_provider": "sportsbook_B",
+      "snapshot_type": "current",
+      "snapshot_timestamp": "2026-06-11T10:05:00Z"
+    },
+    {
+      "match_id": "GS_B_R1_002",
+      "market_type": "1X2",
+      "selection_id": "H",
+      "selection_label": "USA Win",
+      "decimal_odds": 1.75,
+      "source_provider": "sportsbook_A",
+      "snapshot_type": "opening",
+      "snapshot_timestamp": "2026-06-09T08:00:00Z"
+    },
+    {
+      "match_id": "GS_B_R1_002",
+      "market_type": "1X2",
+      "selection_id": "D",
+      "selection_label": "Draw",
+      "decimal_odds": 3.8,
+      "source_provider": "sportsbook_A",
+      "snapshot_type": "opening",
+      "snapshot_timestamp": "2026-06-09T08:00:00Z"
+    },
+    {
+      "match_id": "GS_B_R1_002",
+      "market_type": "1X2",
+      "selection_id": "A",
+      "selection_label": "WAL Win",
+      "decimal_odds": 4.5,
+      "source_provider": "sportsbook_A",
+      "snapshot_type": "opening",
+      "snapshot_timestamp": "2026-06-09T08:00:00Z"
+    },
+    {
+      "match_id": "GS_B_R1_002",
+      "market_type": "1X2",
+      "selection_id": "H",
+      "selection_label": "USA Win",
+      "decimal_odds": 1.7,
+      "source_provider": "sportsbook_A",
+      "snapshot_type": "current",
+      "snapshot_timestamp": "2026-06-11T10:00:00Z"
+    },
+    {
+      "match_id": "GS_B_R1_002",
+      "market_type": "1X2",
+      "selection_id": "D",
+      "selection_label": "Draw",
+      "decimal_odds": 3.9,
+      "source_provider": "sportsbook_A",
+      "snapshot_type": "current",
+      "snapshot_timestamp": "2026-06-11T10:00:00Z"
+    },
+    {
+      "match_id": "GS_B_R1_002",
+      "market_type": "1X2",
+      "selection_id": "A",
+      "selection_label": "WAL Win",
+      "decimal_odds": 4.6,
+      "source_provider": "sportsbook_A",
+      "snapshot_type": "current",
+      "snapshot_timestamp": "2026-06-11T10:00:00Z"
+    },
+    {
+      "match_id": "GS_B_R1_002",
+      "market_type": "1X2",
+      "selection_id": "H",
+      "selection_label": "USA Win",
+      "decimal_odds": 1.72,
+      "source_provider": "sportsbook_B",
+      "snapshot_type": "opening",
+      "snapshot_timestamp": "2026-06-09T10:00:00Z"
+    },
+    {
+      "match_id": "GS_B_R1_002",
+      "market_type": "1X2",
+      "selection_id": "D",
+      "selection_label": "Draw",
+      "decimal_odds": 3.85,
+      "source_provider": "sportsbook_B",
+      "snapshot_type": "opening",
+      "snapshot_timestamp": "2026-06-09T10:00:00Z"
+    },
+    {
+      "match_id": "GS_B_R1_002",
+      "market_type": "1X2",
+      "selection_id": "A",
+      "selection_label": "WAL Win",
+      "decimal_odds": 4.55,
+      "source_provider": "sportsbook_B",
+      "snapshot_type": "opening",
+      "snapshot_timestamp": "2026-06-09T10:00:00Z"
+    },
+    {
+      "match_id": "GS_B_R1_002",
+      "market_type": "1X2",
+      "selection_id": "H",
+      "selection_label": "USA Win",
+      "decimal_odds": 1.68,
+      "source_provider": "sportsbook_B",
+      "snapshot_type": "current",
+      "snapshot_timestamp": "2026-06-11T10:05:00Z"
+    },
+    {
+      "match_id": "GS_B_R1_002",
+      "market_type": "1X2",
+      "selection_id": "D",
+      "selection_label": "Draw",
+      "decimal_odds": 3.95,
+      "source_provider": "sportsbook_B",
+      "snapshot_type": "current",
+      "snapshot_timestamp": "2026-06-11T10:05:00Z"
+    },
+    {
+      "match_id": "GS_B_R1_002",
+      "market_type": "1X2",
+      "selection_id": "A",
+      "selection_label": "WAL Win",
+      "decimal_odds": 4.65,
+      "source_provider": "sportsbook_B",
+      "snapshot_type": "current",
+      "snapshot_timestamp": "2026-06-11T10:05:00Z"
+    },
+    {
+      "match_id": "GS_C_R1_003",
+      "market_type": "1X2",
+      "selection_id": "H",
+      "selection_label": "FRA Win",
+      "decimal_odds": 1.4,
+      "source_provider": "sportsbook_A",
+      "snapshot_type": "opening",
+      "snapshot_timestamp": "2026-06-09T08:00:00Z"
+    },
+    {
+      "match_id": "GS_C_R1_003",
+      "market_type": "1X2",
+      "selection_id": "D",
+      "selection_label": "Draw",
+      "decimal_odds": 4.6,
+      "source_provider": "sportsbook_A",
+      "snapshot_type": "opening",
+      "snapshot_timestamp": "2026-06-09T08:00:00Z"
+    },
+    {
+      "match_id": "GS_C_R1_003",
+      "market_type": "1X2",
+      "selection_id": "A",
+      "selection_label": "PER Win",
+      "decimal_odds": 7.5,
+      "source_provider": "sportsbook_A",
+      "snapshot_type": "opening",
+      "snapshot_timestamp": "2026-06-09T08:00:00Z"
+    },
+    {
+      "match_id": "GS_C_R1_003",
+      "market_type": "1X2",
+      "selection_id": "H",
+      "selection_label": "FRA Win",
+      "decimal_odds": 1.38,
+      "source_provider": "sportsbook_A",
+      "snapshot_type": "current",
+      "snapshot_timestamp": "2026-06-11T10:00:00Z"
+    },
+    {
+      "match_id": "GS_C_R1_003",
+      "market_type": "1X2",
+      "selection_id": "D",
+      "selection_label": "Draw",
+      "decimal_odds": 4.7,
+      "source_provider": "sportsbook_A",
+      "snapshot_type": "current",
+      "snapshot_timestamp": "2026-06-11T10:00:00Z"
+    },
+    {
+      "match_id": "GS_C_R1_003",
+      "market_type": "1X2",
+      "selection_id": "A",
+      "selection_label": "PER Win",
+      "decimal_odds": 7.8,
+      "source_provider": "sportsbook_A",
+      "snapshot_type": "current",
+      "snapshot_timestamp": "2026-06-11T10:00:00Z"
+    },
+    {
+      "match_id": "GS_C_R1_003",
+      "market_type": "1X2",
+      "selection_id": "H",
+      "selection_label": "FRA Win",
+      "decimal_odds": 1.42,
+      "source_provider": "sportsbook_B",
+      "snapshot_type": "opening",
+      "snapshot_timestamp": "2026-06-09T10:00:00Z"
+    },
+    {
+      "match_id": "GS_C_R1_003",
+      "market_type": "1X2",
+      "selection_id": "D",
+      "selection_label": "Draw",
+      "decimal_odds": 4.55,
+      "source_provider": "sportsbook_B",
+      "snapshot_type": "opening",
+      "snapshot_timestamp": "2026-06-09T10:00:00Z"
+    },
+    {
+      "match_id": "GS_C_R1_003",
+      "market_type": "1X2",
+      "selection_id": "A",
+      "selection_label": "PER Win",
+      "decimal_odds": 7.3,
+      "source_provider": "sportsbook_B",
+      "snapshot_type": "opening",
+      "snapshot_timestamp": "2026-06-09T10:00:00Z"
+    },
+    {
+      "match_id": "GS_C_R1_003",
+      "market_type": "1X2",
+      "selection_id": "H",
+      "selection_label": "FRA Win",
+      "decimal_odds": 1.36,
+      "source_provider": "sportsbook_B",
+      "snapshot_type": "current",
+      "snapshot_timestamp": "2026-06-11T10:05:00Z"
+    },
+    {
+      "match_id": "GS_C_R1_003",
+      "market_type": "1X2",
+      "selection_id": "D",
+      "selection_label": "Draw",
+      "decimal_odds": 4.8,
+      "source_provider": "sportsbook_B",
+      "snapshot_type": "current",
+      "snapshot_timestamp": "2026-06-11T10:05:00Z"
+    },
+    {
+      "match_id": "GS_C_R1_003",
+      "market_type": "1X2",
+      "selection_id": "A",
+      "selection_label": "PER Win",
+      "decimal_odds": 8.0,
+      "source_provider": "sportsbook_B",
+      "snapshot_type": "current",
+      "snapshot_timestamp": "2026-06-11T10:05:00Z"
+    },
+    {
+      "match_id": "GS_D_R1_004",
+      "market_type": "1X2",
+      "selection_id": "H",
+      "selection_label": "NED Win",
+      "decimal_odds": 1.55,
+      "source_provider": "sportsbook_A",
+      "snapshot_type": "opening",
+      "snapshot_timestamp": "2026-06-09T08:00:00Z"
+    },
+    {
+      "match_id": "GS_D_R1_004",
+      "market_type": "1X2",
+      "selection_id": "D",
+      "selection_label": "Draw",
+      "decimal_odds": 4.0,
+      "source_provider": "sportsbook_A",
+      "snapshot_type": "opening",
+      "snapshot_timestamp": "2026-06-09T08:00:00Z"
+    },
+    {
+      "match_id": "GS_D_R1_004",
+      "market_type": "1X2",
+      "selection_id": "A",
+      "selection_label": "SEN Win",
+      "decimal_odds": 5.5,
+      "source_provider": "sportsbook_A",
+      "snapshot_type": "opening",
+      "snapshot_timestamp": "2026-06-09T08:00:00Z"
+    },
+    {
+      "match_id": "GS_D_R1_004",
+      "market_type": "1X2",
+      "selection_id": "H",
+      "selection_label": "NED Win",
+      "decimal_odds": 1.52,
+      "source_provider": "sportsbook_A",
+      "snapshot_type": "current",
+      "snapshot_timestamp": "2026-06-11T10:00:00Z"
+    },
+    {
+      "match_id": "GS_D_R1_004",
+      "market_type": "1X2",
+      "selection_id": "D",
+      "selection_label": "Draw",
+      "decimal_odds": 4.1,
+      "source_provider": "sportsbook_A",
+      "snapshot_type": "current",
+      "snapshot_timestamp": "2026-06-11T10:00:00Z"
+    },
+    {
+      "match_id": "GS_D_R1_004",
+      "market_type": "1X2",
+      "selection_id": "A",
+      "selection_label": "SEN Win",
+      "decimal_odds": 5.8,
+      "source_provider": "sportsbook_A",
+      "snapshot_type": "current",
+      "snapshot_timestamp": "2026-06-11T10:00:00Z"
+    },
+    {
+      "match_id": "GS_D_R1_004",
+      "market_type": "1X2",
+      "selection_id": "H",
+      "selection_label": "NED Win",
+      "decimal_odds": 1.58,
+      "source_provider": "sportsbook_B",
+      "snapshot_type": "opening",
+      "snapshot_timestamp": "2026-06-09T10:00:00Z"
+    },
+    {
+      "match_id": "GS_D_R1_004",
+      "market_type": "1X2",
+      "selection_id": "D",
+      "selection_label": "Draw",
+      "decimal_odds": 3.95,
+      "source_provider": "sportsbook_B",
+      "snapshot_type": "opening",
+      "snapshot_timestamp": "2026-06-09T10:00:00Z"
+    },
+    {
+      "match_id": "GS_D_R1_004",
+      "market_type": "1X2",
+      "selection_id": "A",
+      "selection_label": "SEN Win",
+      "decimal_odds": 5.3,
+      "source_provider": "sportsbook_B",
+      "snapshot_type": "opening",
+      "snapshot_timestamp": "2026-06-09T10:00:00Z"
+    },
+    {
+      "match_id": "GS_D_R1_004",
+      "market_type": "1X2",
+      "selection_id": "H",
+      "selection_label": "NED Win",
+      "decimal_odds": 1.5,
+      "source_provider": "sportsbook_B",
+      "snapshot_type": "current",
+      "snapshot_timestamp": "2026-06-11T10:05:00Z"
+    },
+    {
+      "match_id": "GS_D_R1_004",
+      "market_type": "1X2",
+      "selection_id": "D",
+      "selection_label": "Draw",
+      "decimal_odds": 4.15,
+      "source_provider": "sportsbook_B",
+      "snapshot_type": "current",
+      "snapshot_timestamp": "2026-06-11T10:05:00Z"
+    },
+    {
+      "match_id": "GS_D_R1_004",
+      "market_type": "1X2",
+      "selection_id": "A",
+      "selection_label": "SEN Win",
+      "decimal_odds": 6.0,
+      "source_provider": "sportsbook_B",
+      "snapshot_type": "current",
+      "snapshot_timestamp": "2026-06-11T10:05:00Z"
+    }
+  ]
+}

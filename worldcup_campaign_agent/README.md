@@ -559,5 +559,84 @@ ot_betting_advice=true
 4. Auto-refresh of dashboard sources
 5. Model calibration review
 
+
+
+## Round 13: Sportsbook Odds & Market Consensus Adapter v1
+
+### Overview
+Round 13 introduces the market odds information layer—the system moves from purely internal model probabilities to incorporating real market odds. Supports manual CSV/JSON odds import, multi-source normalization, no-vig (true market probability) calculation, market consensus analysis (agreement/disagreement across sources), odds movement tracking (opening→current), freshness guard (timestamp-based staleness detection), and model-vs-market gap analysis.
+
+### Key Capabilities
+- Multi-source odds ingestion: manual CSV, manual JSON, synthetic (from EV ranking fallback)
+- Odds normalization: uniform schema, implied probability, validation
+- No-vig calculation: overround removal, multiplicative/additive methods, true market probability
+- Market consensus: multi-source agreement analysis, dispersion detection, strong/weak consensus
+- Odds movement: opening-to-current line movement tracking, significant move detection
+- Freshness guard: timestamp-based staleness detection with configurable thresholds
+- Model vs market gap: model probability vs market implied probability comparison
+- External API adapter interface (prepared, default disabled)
+- Zero hardcoded API keys or credentials
+
+### Safety
+- **network_fetch_default_enabled=false**: No network calls by default
+- All data sources are local CSV/JSON files
+- No API keys committed to repository
+- No bookmaker account credentials supported
+- Odds are information sources, not betting instructions
+- analysis_only=true, simulation_only=true, not_betting_advice=true
+
+### How to Run
+```
+make market-odds-consensus
+make market-odds-consensus-json
+make market-odds-consensus-manual-csv-json
+make market-odds-consensus-manual-json-json
+make market-odds-consensus-third-round-json
+make market-odds-consensus-final-json
+make market-odds-consensus-bankroll-5000-json
+```
+
+Or directly:
+```
+python scripts/run_market_odds_consensus.py --date 2026-06-11 --bankroll 100 --json
+python scripts/run_market_odds_consensus.py --date 2026-06-11 --bankroll 100 --manual-csv data/seed/manual_odds_seed.csv --json
+python scripts/run_market_odds_consensus.py --date 2026-06-11 --bankroll 100 --manual-json data/seed/manual_odds_seed.json --json
+python scripts/run_market_odds_consensus.py --date 2026-06-11 --bankroll 100 --json --synthetic-odds
+```
+
+### Generated Reports
+- reports/generated/market_odds_consensus.json
+- reports/generated/market_odds_consensus.md
+
+### Seed Data
+- data/seed/manual_odds_seed.csv -- Sample odds in CSV format (17 entries, 2 providers)
+- data/seed/manual_odds_seed.json -- Sample odds in JSON format (17 entries, 2 providers)
+
+### New Modules
+- src/worldcup_campaign/odds_source_adapter.py -- Multi-source odds loading (CSV/JSON/synthetic)
+- src/worldcup_campaign/odds_normalizer.py -- Standardization, validation, implied probability
+- src/worldcup_campaign/no_vig_calculator.py -- Overround removal, true market probability
+- src/worldcup_campaign/market_consensus.py -- Multi-source agreement/dispersion analysis
+- src/worldcup_campaign/odds_movement.py -- Opening-to-current movement tracking
+- src/worldcup_campaign/odds_freshness.py -- Timestamp staleness detection
+- src/worldcup_campaign/market_model_gap.py -- Model vs market probability comparison
+- src/worldcup_campaign/market_odds_runner.py -- Full pipeline runner
+- scripts/run_market_odds_consensus.py -- CLI
+
+### New Configs
+- config/sportsbook_odds_config.json -- Data sources, odds ranges, overround/consensus/movement/freshness settings, forbidden fields
+
+### Currently Not Implemented
+1. Real-time odds API fetching
+2. Polymarket / prediction market integration
+3. Automatic bet slip generation
+4. Real bookmaker account integration
+5. Real money balance access
+6. Real bet execution
+7. Closing line value full review
+8. Market odds writeback to EV ranking / integrated strategy
+9. Sportsbook consensus + Polymarket consensus fusion
+10. Auto-result fetching
+
 ### Next Round Suggestion
-Round 12: Model Calibration & Review v1 -- track probability quality, EV performance, candidate hit rates, bucket performance over time to make the system smarter.
+Round 14: Polymarket / Prediction Market Adapter v1 -- bring in prediction market prices, volume, liquidity, orderbook spread, and price movement as a second market expectation signal.

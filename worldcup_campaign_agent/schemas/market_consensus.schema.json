@@ -1,0 +1,16 @@
+﻿{
+  "type": "object",
+  "required": ["snapshot_date", "market_count", "analysis_only", "simulation_only", "not_betting_advice"],
+  "properties": {
+    "snapshot_date": {"type": "string"},
+    "market_count": {"type": "integer"},
+    "no_vig_summary": {"type": "object"},
+    "consensus_summary": {"type": "object"},
+    "movement_summary": {"type": "object"},
+    "freshness_summary": {"type": "object"},
+    "model_vs_market_gap": {"type": "object"},
+    "analysis_only": {"type": "boolean"},
+    "simulation_only": {"type": "boolean"},
+    "not_betting_advice": {"type": "boolean"}
+  }
+}

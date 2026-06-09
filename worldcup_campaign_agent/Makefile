@@ -173,3 +173,23 @@ model-calibration-review-final-json:
 
 model-calibration-review-bankroll-5000-json:
 	python scripts/run_model_calibration_review.py --date 2026-06-11 --bankroll 5000 --json
+market-odds-consensus:
+	python scripts/run_market_odds_consensus.py --date 2026-06-11 --bankroll 100
+
+market-odds-consensus-json:
+	python scripts/run_market_odds_consensus.py --date 2026-06-11 --bankroll 100 --json
+
+market-odds-consensus-third-round-json:
+	python scripts/run_market_odds_consensus.py --date 2026-06-24 --bankroll 100 --json
+
+market-odds-consensus-final-json:
+	python scripts/run_market_odds_consensus.py --date 2026-07-19 --bankroll 100 --json
+
+market-odds-consensus-bankroll-5000-json:
+	python scripts/run_market_odds_consensus.py --date 2026-06-11 --bankroll 5000 --json
+
+market-odds-consensus-manual-csv-json:
+	python scripts/run_market_odds_consensus.py --date 2026-06-11 --bankroll 100 --manual-csv data/seed/manual_odds_seed.csv --json
+
+market-odds-consensus-manual-json-json:
+	python scripts/run_market_odds_consensus.py --date 2026-06-11 --bankroll 100 --manual-json data/seed/manual_odds_seed.json --json

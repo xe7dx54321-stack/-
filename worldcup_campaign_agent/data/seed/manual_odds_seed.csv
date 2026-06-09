@@ -1,0 +1,49 @@
+﻿match_id,market_type,selection_id,selection_label,decimal_odds,source_provider,snapshot_type,snapshot_timestamp
+GS_A_R1_001,1X2,H,CAN Win,2.10,sportsbook_A,opening,2026-06-09T08:00:00Z
+GS_A_R1_001,1X2,D,Draw,3.60,sportsbook_A,opening,2026-06-09T08:00:00Z
+GS_A_R1_001,1X2,A,MEX Win,1.80,sportsbook_A,opening,2026-06-09T08:00:00Z
+GS_A_R1_001,1X2,H,CAN Win,2.05,sportsbook_A,current,2026-06-11T10:00:00Z
+GS_A_R1_001,1X2,D,Draw,3.50,sportsbook_A,current,2026-06-11T10:00:00Z
+GS_A_R1_001,1X2,A,MEX Win,1.85,sportsbook_A,current,2026-06-11T10:00:00Z
+GS_A_R1_001,1X2,H,CAN Win,2.15,sportsbook_B,opening,2026-06-09T10:00:00Z
+GS_A_R1_001,1X2,D,Draw,3.55,sportsbook_B,opening,2026-06-09T10:00:00Z
+GS_A_R1_001,1X2,A,MEX Win,1.78,sportsbook_B,opening,2026-06-09T10:00:00Z
+GS_A_R1_001,1X2,H,CAN Win,2.08,sportsbook_B,current,2026-06-11T10:05:00Z
+GS_A_R1_001,1X2,D,Draw,3.45,sportsbook_B,current,2026-06-11T10:05:00Z
+GS_A_R1_001,1X2,A,MEX Win,1.82,sportsbook_B,current,2026-06-11T10:05:00Z
+GS_B_R1_002,1X2,H,USA Win,1.75,sportsbook_A,opening,2026-06-09T08:00:00Z
+GS_B_R1_002,1X2,D,Draw,3.80,sportsbook_A,opening,2026-06-09T08:00:00Z
+GS_B_R1_002,1X2,A,WAL Win,4.50,sportsbook_A,opening,2026-06-09T08:00:00Z
+GS_B_R1_002,1X2,H,USA Win,1.70,sportsbook_A,current,2026-06-11T10:00:00Z
+GS_B_R1_002,1X2,D,Draw,3.90,sportsbook_A,current,2026-06-11T10:00:00Z
+GS_B_R1_002,1X2,A,WAL Win,4.60,sportsbook_A,current,2026-06-11T10:00:00Z
+GS_B_R1_002,1X2,H,USA Win,1.72,sportsbook_B,opening,2026-06-09T10:00:00Z
+GS_B_R1_002,1X2,D,Draw,3.85,sportsbook_B,opening,2026-06-09T10:00:00Z
+GS_B_R1_002,1X2,A,WAL Win,4.55,sportsbook_B,opening,2026-06-09T10:00:00Z
+GS_B_R1_002,1X2,H,USA Win,1.68,sportsbook_B,current,2026-06-11T10:05:00Z
+GS_B_R1_002,1X2,D,Draw,3.95,sportsbook_B,current,2026-06-11T10:05:00Z
+GS_B_R1_002,1X2,A,WAL Win,4.65,sportsbook_B,current,2026-06-11T10:05:00Z
+GS_C_R1_003,1X2,H,FRA Win,1.40,sportsbook_A,opening,2026-06-09T08:00:00Z
+GS_C_R1_003,1X2,D,Draw,4.60,sportsbook_A,opening,2026-06-09T08:00:00Z
+GS_C_R1_003,1X2,A,PER Win,7.50,sportsbook_A,opening,2026-06-09T08:00:00Z
+GS_C_R1_003,1X2,H,FRA Win,1.38,sportsbook_A,current,2026-06-11T10:00:00Z
+GS_C_R1_003,1X2,D,Draw,4.70,sportsbook_A,current,2026-06-11T10:00:00Z
+GS_C_R1_003,1X2,A,PER Win,7.80,sportsbook_A,current,2026-06-11T10:00:00Z
+GS_C_R1_003,1X2,H,FRA Win,1.42,sportsbook_B,opening,2026-06-09T10:00:00Z
+GS_C_R1_003,1X2,D,Draw,4.55,sportsbook_B,opening,2026-06-09T10:00:00Z
+GS_C_R1_003,1X2,A,PER Win,7.30,sportsbook_B,opening,2026-06-09T10:00:00Z
+GS_C_R1_003,1X2,H,FRA Win,1.36,sportsbook_B,current,2026-06-11T10:05:00Z
+GS_C_R1_003,1X2,D,Draw,4.80,sportsbook_B,current,2026-06-11T10:05:00Z
+GS_C_R1_003,1X2,A,PER Win,8.00,sportsbook_B,current,2026-06-11T10:05:00Z
+GS_D_R1_004,1X2,H,NED Win,1.55,sportsbook_A,opening,2026-06-09T08:00:00Z
+GS_D_R1_004,1X2,D,Draw,4.00,sportsbook_A,opening,2026-06-09T08:00:00Z
+GS_D_R1_004,1X2,A,SEN Win,5.50,sportsbook_A,opening,2026-06-09T08:00:00Z
+GS_D_R1_004,1X2,H,NED Win,1.52,sportsbook_A,current,2026-06-11T10:00:00Z
+GS_D_R1_004,1X2,D,Draw,4.10,sportsbook_A,current,2026-06-11T10:00:00Z
+GS_D_R1_004,1X2,A,SEN Win,5.80,sportsbook_A,current,2026-06-11T10:00:00Z
+GS_D_R1_004,1X2,H,NED Win,1.58,sportsbook_B,opening,2026-06-09T10:00:00Z
+GS_D_R1_004,1X2,D,Draw,3.95,sportsbook_B,opening,2026-06-09T10:00:00Z
+GS_D_R1_004,1X2,A,SEN Win,5.30,sportsbook_B,opening,2026-06-09T10:00:00Z
+GS_D_R1_004,1X2,H,NED Win,1.50,sportsbook_B,current,2026-06-11T10:05:00Z
+GS_D_R1_004,1X2,D,Draw,4.15,sportsbook_B,current,2026-06-11T10:05:00Z
+GS_D_R1_004,1X2,A,SEN Win,6.00,sportsbook_B,current,2026-06-11T10:05:00Z
