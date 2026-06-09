@@ -1,0 +1,16 @@
+﻿{
+  "type": "object",
+  "required": ["current_date", "analysis_only", "simulation_only", "not_betting_advice"],
+  "properties": {
+    "current_date": {"type": "string"},
+    "current_bankroll": {"type": "number"},
+    "news_summary": {"type": "object"},
+    "injury_summary": {"type": "object"},
+    "context_summary": {"type": "object"},
+    "explanation_summary": {"type": "object"},
+    "safety": {"type": "object"},
+    "analysis_only": {"type": "boolean"},
+    "simulation_only": {"type": "boolean"},
+    "not_betting_advice": {"type": "boolean"}
+  }
+}

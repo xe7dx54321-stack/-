@@ -221,3 +221,17 @@ market-expectation-final-json:
 
 market-expectation-bankroll-5000-json:
 	python scripts/run_market_expectation.py --date 2026-06-11 --bankroll 5000 --json
+team-news-preview:
+	python scripts/run_team_news_preview.py --date 2026-06-11 --bankroll 100
+
+team-news-preview-json:
+	python scripts/run_team_news_preview.py --date 2026-06-11 --bankroll 100 --json
+
+team-news-preview-third-round-json:
+	python scripts/run_team_news_preview.py --date 2026-06-24 --bankroll 100 --json
+
+team-news-preview-final-json:
+	python scripts/run_team_news_preview.py --date 2026-07-19 --bankroll 100 --json
+
+team-news-preview-bankroll-5000-json:
+	python scripts/run_team_news_preview.py --date 2026-06-11 --bankroll 5000 --json

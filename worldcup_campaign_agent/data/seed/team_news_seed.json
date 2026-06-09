@@ -1,0 +1,237 @@
+{
+  "fixture_type": "team_news_seed_v1",
+  "generated_at": "2026-06-11T08:00:00Z",
+  "note": "Synthetic fixture for testing. Not real news data.",
+  "teams": {
+    "CAN": {
+      "fifa_rank": 48,
+      "group": "A",
+      "group_points": 0,
+      "matches_played": 0
+    },
+    "MEX": {
+      "fifa_rank": 15,
+      "group": "A",
+      "group_points": 0,
+      "matches_played": 0
+    },
+    "USA": {
+      "fifa_rank": 12,
+      "group": "B",
+      "group_points": 0,
+      "matches_played": 0
+    },
+    "WAL": {
+      "fifa_rank": 29,
+      "group": "B",
+      "group_points": 0,
+      "matches_played": 0
+    },
+    "FRA": {
+      "fifa_rank": 2,
+      "group": "C",
+      "group_points": 0,
+      "matches_played": 0
+    },
+    "PER": {
+      "fifa_rank": 32,
+      "group": "C",
+      "group_points": 0,
+      "matches_played": 0
+    },
+    "NED": {
+      "fifa_rank": 7,
+      "group": "D",
+      "group_points": 0,
+      "matches_played": 0
+    },
+    "SEN": {
+      "fifa_rank": 20,
+      "group": "D",
+      "group_points": 0,
+      "matches_played": 0
+    }
+  },
+  "news_items": [
+    {
+      "news_id": "n1",
+      "team": "FRA",
+      "match_id": "GS_C_R1_003",
+      "type": "injury",
+      "subtype": "key_player_out",
+      "title": "Mbappe doubtful with ankle knock",
+      "detail": "Star forward missed training; coach says decision on match day.",
+      "reliability": "reported",
+      "source": "L'Equipe",
+      "timestamp": "2026-06-10T18:00:00Z"
+    },
+    {
+      "news_id": "n2",
+      "team": "FRA",
+      "match_id": "GS_C_R1_003",
+      "type": "lineup",
+      "subtype": "predicted",
+      "title": "France expected 4-3-3 with Griezmann in midfield",
+      "detail": "Deschamps likely to field strong XI despite Mbappe concern.",
+      "reliability": "predicted",
+      "source": "RMC Sport",
+      "timestamp": "2026-06-10T20:00:00Z"
+    },
+    {
+      "news_id": "n3",
+      "team": "PER",
+      "match_id": "GS_C_R1_003",
+      "type": "motivation",
+      "subtype": "underdog_morale",
+      "title": "Peru squad fully fit and motivated for opener",
+      "detail": "No injury concerns; team in high spirits after warm-up wins.",
+      "reliability": "confirmed",
+      "source": "El Comercio",
+      "timestamp": "2026-06-11T06:00:00Z"
+    },
+    {
+      "news_id": "n4",
+      "team": "USA",
+      "match_id": "GS_B_R1_002",
+      "type": "lineup",
+      "subtype": "confirmed",
+      "title": "USA confirms Pulisic starts; McKennie returns",
+      "detail": "Full-strength lineup against Wales. McKennie cleared after fitness test.",
+      "reliability": "confirmed",
+      "source": "US Soccer",
+      "timestamp": "2026-06-11T07:00:00Z"
+    },
+    {
+      "news_id": "n5",
+      "team": "WAL",
+      "match_id": "GS_B_R1_002",
+      "type": "injury",
+      "subtype": "key_player_out",
+      "title": "Bale carrying minor hamstring issue",
+      "detail": "Veteran forward limited in training but expected to start.",
+      "reliability": "reported",
+      "source": "BBC Sport",
+      "timestamp": "2026-06-10T16:00:00Z"
+    },
+    {
+      "news_id": "n6",
+      "team": "WAL",
+      "match_id": "GS_B_R1_002",
+      "type": "motivation",
+      "subtype": "tournament_veteran",
+      "title": "'Last dance for golden generation'",
+      "detail": "Bale and Ramsey see this as final World Cup opportunity.",
+      "reliability": "reported",
+      "source": "The Guardian",
+      "timestamp": "2026-06-10T12:00:00Z"
+    },
+    {
+      "news_id": "n7",
+      "team": "NED",
+      "match_id": "GS_D_R1_004",
+      "type": "lineup",
+      "subtype": "predicted",
+      "title": "Netherlands likely 3-4-3 with Van Dijk leading defense",
+      "detail": "Koeman expected to start De Jong in midfield; Depay up front.",
+      "reliability": "predicted",
+      "source": "De Telegraaf",
+      "timestamp": "2026-06-10T19:00:00Z"
+    },
+    {
+      "news_id": "n8",
+      "team": "SEN",
+      "match_id": "GS_D_R1_004",
+      "type": "injury",
+      "subtype": "suspension",
+      "title": "Mane fully fit after club season rest",
+      "detail": "Star forward had extra rest after late club finish; now 100%.",
+      "reliability": "confirmed",
+      "source": "CAF Online",
+      "timestamp": "2026-06-10T14:00:00Z"
+    },
+    {
+      "news_id": "n9",
+      "team": "CAN",
+      "match_id": "GS_A_R1_001",
+      "type": "motivation",
+      "subtype": "tournament_debut",
+      "title": "Canada's historic first World Cup match",
+      "detail": "First World Cup appearance since 1986; massive national support.",
+      "reliability": "confirmed",
+      "source": "CBC Sports",
+      "timestamp": "2026-06-11T05:00:00Z"
+    },
+    {
+      "news_id": "n10",
+      "team": "MEX",
+      "match_id": "GS_A_R1_001",
+      "type": "lineup",
+      "subtype": "confirmed",
+      "title": "Mexico confirms Ochoa in goal; Lozano on wing",
+      "detail": "Experienced lineup for opener. No injury concerns.",
+      "reliability": "confirmed",
+      "source": "ESPN Deportes",
+      "timestamp": "2026-06-11T08:00:00Z"
+    },
+    {
+      "news_id": "n11",
+      "team": "FRA",
+      "match_id": "GS_C_R1_003",
+      "type": "injury",
+      "subtype": "minor_concern",
+      "title": "Kante passed fit after late fitness test",
+      "detail": "Midfielder had minor calf issue but cleared to play.",
+      "reliability": "confirmed",
+      "source": "FFF Official",
+      "timestamp": "2026-06-11T08:30:00Z"
+    },
+    {
+      "news_id": "n12",
+      "team": "USA",
+      "match_id": "GS_B_R1_002",
+      "type": "motivation",
+      "subtype": "group_favorite",
+      "title": "USA expected to top Group B",
+      "detail": "Home-continent advantage; Berhalter targets quarterfinal minimum.",
+      "reliability": "reported",
+      "source": "ESPN",
+      "timestamp": "2026-06-10T10:00:00Z"
+    },
+    {
+      "news_id": "n13",
+      "team": "NED",
+      "match_id": "GS_D_R1_004",
+      "type": "weather",
+      "subtype": "venue_note",
+      "title": "Hot conditions expected in Houston",
+      "detail": "Kickoff temperature 32C; hydration breaks likely. May favor Senegal.",
+      "reliability": "reported",
+      "source": "Weather Channel",
+      "timestamp": "2026-06-11T02:00:00Z"
+    },
+    {
+      "news_id": "n14",
+      "team": "SEN",
+      "match_id": "GS_D_R1_004",
+      "type": "motivation",
+      "subtype": "african_champion",
+      "title": "African champions confident after AFCON win",
+      "detail": "Senegal riding momentum from continental title.",
+      "reliability": "reported",
+      "source": "BBC Africa",
+      "timestamp": "2026-06-10T08:00:00Z"
+    },
+    {
+      "news_id": "n15",
+      "team": "CAN",
+      "match_id": "GS_A_R1_001",
+      "type": "rumor",
+      "subtype": "tactical_change",
+      "title": "Rumor: Canada may switch to 5-4-1 defensive setup",
+      "detail": "Unconfirmed reports of tactical shift to counter Mexico attack.",
+      "reliability": "rumor",
+      "source": "TSN",
+      "timestamp": "2026-06-10T22:00:00Z"
+    }
+  ]
+}

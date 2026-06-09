@@ -1,0 +1,15 @@
+﻿{
+  "model_name": "team_news_adapter_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "network": {"network_fetch_default_enabled": false, "enable_network_override": false},
+  "news_sources": {"allowed": ["seed_fixture", "manual_json", "manual_csv"], "external_api_enabled": false},
+  "reliability": {"confirmed": 1.0, "reported": 0.7, "rumor": 0.3, "max_age_hours": 72, "stale_age_hours": 48},
+  "injury_impact": {"key_player_absence_threshold": 0.7, "injury_rating_weight": 0.4, "suspension_impact_multiplier": 1.2},
+  "lineup": {"confirmed_weight": 1.0, "predicted_weight": 0.5, "lineup_availability_score_threshold": 0.6},
+  "context": {"fatigue_days_threshold": 3, "group_pressure_stages": ["group_round_2", "group_round_3"], "rotation_risk_stages": ["group_round_3"]},
+  "explanation": {"confidence_threshold": 0.4, "max_explanations": 20},
+  "forbidden_fields": ["stake","stake_amount","stake_to_match","bet_instruction","bookmaker_account","real_money_balance","wallet_address","private_key","api_secret","signed_order","submit_order","real_bet_execution","auto_betting"]
+}
