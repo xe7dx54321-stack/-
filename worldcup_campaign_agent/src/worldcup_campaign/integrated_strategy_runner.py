@@ -1,0 +1,117 @@
+"""Integrated strategy runner: generates full integrated daily strategy reports."""
+
+import json
+from dataclasses import asdict
+from pathlib import Path
+
+from worldcup_campaign.integrated_daily_strategy import (
+    IntegratedStrategyBuilder, IntegratedDailyStrategy,
+)
+
+
+class IntegratedStrategyRunner:
+    def __init__(self, config_paths: dict):
+        self.builder = IntegratedStrategyBuilder(config_paths)
+
+    def run(self, date: str, bankroll: float, windows_left: int = None) -> IntegratedDailyStrategy:
+        return self.builder.build(date, bankroll, windows_left)
+
+    def write_json(self, strategy: IntegratedDailyStrategy, path: str) -> None:
+        data = asdict(strategy)
+        Path(path).parent.mkdir(parents=True, exist_ok=True)
+        Path(path).write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    def write_markdown(self, strategy: IntegratedDailyStrategy, path: str) -> None:
+        lines = []
+        lines.append("# Integrated Daily Strategy Preview")
+        lines.append("")
+        lines.append("## 1. Campaign Context")
+        lines.append("")
+        lines.append(f"- **Date:** {strategy.current_date}")
+        lines.append(f"- **Stage:** {strategy.current_stage}")
+        lines.append(f"- **Bankroll:** {strategy.current_bankroll} CNY")
+        lines.append(f"- **State:** {strategy.bankroll_state}")
+        lines.append(f"- **Profile:** {strategy.strategy_profile}")
+        lines.append(f"- **Target:** {strategy.target_bankroll} CNY")
+        lines.append("")
+
+        ds = strategy.daily_strategy_summary
+        lines.append("## 2. Unified Bucket Budget")
+        lines.append("")
+        lines.append(f"- **Max Deployable:** {ds.get('max_deployable', 0)} CNY")
+        lines.append(f"- **Windows Left:** {ds.get('windows_left', 0)}")
+        lines.append("")
+
+        pools = strategy.integrated_candidate_pools.get("pools", [])
+        if pools:
+            lines.append("| Bucket | Budget | Role | Candidates |")
+            lines.append("|--------|--------|------|------------|")
+            for p in pools:
+                lines.append(f"| {p['bucket']} | {p['bucket_strategy_budget']} CNY | {p['role']} | {p['candidate_count']} |")
+            lines.append("")
+
+        lines.append("## 3. Candidate Pool by Bucket")
+        lines.append("")
+        for p in pools:
+            lines.append(f"### {p['bucket'].upper()}")
+            if p.get("empty_reason"):
+                lines.append(f"> {p['empty_reason']}")
+                lines.append("")
+                continue
+            lines.append("| Candidate | Match | Market | Selection | Odds | Model Prob | EV | Score | Tier |")
+            lines.append("|-----------|-------|--------|-----------|------|------------|-----|-------|------|")
+            for c in p.get("candidates", []):
+                lines.append(
+                    f"| {c.get('candidate_id','')} | {c.get('match_id','')} | {c.get('market_type','')} "
+                    f"| {c.get('selection','')} | {c.get('mock_odds',0)} | {c.get('model_probability',0):.1%} "
+                    f"| {c.get('ev',0):+.3f} | {c.get('campaign_score',0):.2f} | {c.get('candidate_tier','')} |"
+                )
+            lines.append("")
+
+        unassigned = strategy.integrated_candidate_pools.get("unassigned", [])
+        watch = strategy.integrated_candidate_pools.get("watch_only", [])
+        if unassigned or watch:
+            lines.append("## 4. Watch-only / Unassigned")
+            lines.append("")
+            if unassigned:
+                lines.append(f"- Unassigned: {len(unassigned)}")
+            if watch:
+                lines.append(f"- Watch-only: {len(watch)}")
+            lines.append("")
+
+        er = strategy.ev_ranking_summary
+        lines.append("## 5. EV Ranking Summary")
+        lines.append("")
+        lines.append(f"- Candidates: {er.get('candidate_count', 0)}")
+        lines.append(f"- Value candidates: {er.get('value_candidate_count', 0)}")
+        lines.append(f"- Odds source: {er.get('odds_source_mode', '')}")
+        lines.append(f"- Uses real bookmaker odds: {er.get('uses_real_bookmaker_odds', False)}")
+        lines.append("> Note: Value=0 is expected with synthetic odds + vig. Not a failure.")
+        lines.append("")
+
+        ps = strategy.probability_sanity_summary
+        lines.append("## 6. Probability Sanity")
+        lines.append("")
+        lines.append(f"- Repaired: {ps.get('repaired', 0)}")
+        lines.append(f"- Blocked: {ps.get('blocked', 0)}")
+        lines.append("")
+
+        lines.append("## 7. Safety Boundary")
+        lines.append("")
+        for k, v in strategy.safety.items():
+            lines.append(f"- **{k}:** {v}")
+        lines.append("")
+
+        if strategy.warnings:
+            lines.append("## 8. Warnings")
+            lines.append("")
+            for w in strategy.warnings:
+                lines.append(f"- {w}")
+            lines.append("")
+
+        lines.append("---")
+        lines.append("*Generated by Integrated Daily Strategy v1*")
+        lines.append("> Strategy planning preview. Mock/synthetic odds. NOT betting advice.")
+
+        Path(path).parent.mkdir(parents=True, exist_ok=True)
+        Path(path).write_text("\n".join(lines), encoding="utf-8")

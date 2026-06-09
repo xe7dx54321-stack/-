@@ -1,0 +1,24 @@
+{
+  "model_name": "daily_candidate_integration_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "not_betting_advice": true,
+  "simulation_only": true,
+  "use_ev_ranking_candidates": true,
+  "allow_zero_value_candidate_day": true,
+  "allow_campaign_candidates_when_no_value": true,
+  "candidate_selection": {
+    "sort_by": ["campaign_score", "ev", "target_contribution", "edge"],
+    "max_total_attached_candidates": 25,
+    "min_candidates_if_available": 5
+  },
+  "budget_mode": "bucket_level_only",
+  "forbidden_fields": [
+    "stake_to_match",
+    "stake_amount",
+    "bet_instruction",
+    "bookmaker",
+    "bookmaker_account",
+    "real_bet_execution"
+  ]
+}

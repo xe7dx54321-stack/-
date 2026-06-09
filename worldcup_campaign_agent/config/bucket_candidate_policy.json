@@ -1,0 +1,44 @@
+{
+  "buckets": {
+    "core": {
+      "allowed_market_types": ["1x2", "double_chance", "over_under", "asian_handicap"],
+      "blocked_market_types": ["correct_score", "parlay_3_leg", "parlay_4_leg", "exact_final_pair", "golden_boot"],
+      "allowed_odds_bands": ["low", "medium"],
+      "min_model_probability": 0.35,
+      "allow_negative_ev": false,
+      "max_candidates": 5,
+      "role": "path_stability_and_base_leg"
+    },
+    "edge": {
+      "allowed_market_types": ["1x2", "double_chance", "over_under", "asian_handicap", "correct_score"],
+      "blocked_market_types": [],
+      "allowed_odds_bands": ["medium", "high"],
+      "min_model_probability": 0.08,
+      "allow_negative_ev": true,
+      "max_candidates": 8,
+      "role": "odds_probability_balance"
+    },
+    "attack": {
+      "allowed_market_types": ["correct_score", "over_under", "asian_handicap", "1x2"],
+      "blocked_market_types": [],
+      "allowed_odds_bands": ["high", "very_high", "lottery"],
+      "min_model_probability": 0.005,
+      "allow_negative_ev": true,
+      "max_candidates": 10,
+      "role": "high_odds_goal_path"
+    },
+    "futures": {
+      "allowed_market_types": ["group_qualification", "group_winner", "reach_round_of_32", "reach_round_of_16", "reach_quarter_final", "reach_semi_final", "reach_final", "winner", "runner_up", "exact_final_pair", "golden_boot"],
+      "blocked_market_types": [],
+      "allowed_odds_bands": ["medium", "high", "very_high", "lottery"],
+      "min_model_probability": 0.005,
+      "allow_negative_ev": true,
+      "max_candidates": 5,
+      "role": "long_horizon_path_optionality"
+    }
+  },
+  "reserve": {
+    "receives_candidates": false,
+    "role": "capital_preservation_for_future_windows"
+  }
+}

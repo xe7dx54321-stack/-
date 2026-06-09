@@ -59,3 +59,17 @@ ev-ranking-preview-final-json:
 
 ev-ranking-preview-bankroll-5000-json:
 	python scripts/run_ev_ranking_preview.py --date 2026-06-11 --bankroll 5000 --json
+integrated-daily-strategy:
+	python scripts/run_integrated_daily_strategy.py --date 2026-06-11 --bankroll 100
+
+integrated-daily-strategy-json:
+	python scripts/run_integrated_daily_strategy.py --date 2026-06-11 --bankroll 100 --json
+
+integrated-daily-strategy-third-round-json:
+	python scripts/run_integrated_daily_strategy.py --date 2026-06-24 --bankroll 100 --json
+
+integrated-daily-strategy-final-json:
+	python scripts/run_integrated_daily_strategy.py --date 2026-07-19 --bankroll 100 --json
+
+integrated-daily-strategy-bankroll-5000-json:
+	python scripts/run_integrated_daily_strategy.py --date 2026-06-11 --bankroll 5000 --json
