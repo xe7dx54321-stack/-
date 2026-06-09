@@ -1,0 +1,39 @@
+{
+  "title": "Pre-Tournament Smoke Test",
+  "type": "object",
+  "required": [
+    "smoke_test_count",
+    "pass_count",
+    "warn_count",
+    "failed_count"
+  ],
+  "properties": {
+    "smoke_test_count": {
+      "type": "integer"
+    },
+    "pass_count": {
+      "type": "integer"
+    },
+    "warn_count": {
+      "type": "integer"
+    },
+    "failed_count": {
+      "type": "integer"
+    },
+    "blocked_count": {
+      "type": "integer"
+    },
+    "tests": {
+      "type": "array"
+    },
+    "analysis_only": {
+      "type": "boolean"
+    },
+    "simulation_only": {
+      "type": "boolean"
+    },
+    "not_betting_advice": {
+      "type": "boolean"
+    }
+  }
+}

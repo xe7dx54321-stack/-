@@ -1,0 +1,2 @@
+match_id,match_date,team_home,team_away,home_score,away_score,result_type,result_label,settlement_status,notes
+MATCH-2026-001,2026-06-11,Team A,Team B,2,1,FT,Home Win,settled,example result

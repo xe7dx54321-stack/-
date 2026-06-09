@@ -1,0 +1,44 @@
+{
+  "title": "Review Rehearsal",
+  "type": "object",
+  "required": [
+    "decision_count",
+    "valid_decision_count",
+    "invalid_decision_count",
+    "analysis_only",
+    "simulation_only",
+    "not_betting_advice"
+  ],
+  "properties": {
+    "decision_count": {
+      "type": "integer"
+    },
+    "valid_decision_count": {
+      "type": "integer"
+    },
+    "invalid_decision_count": {
+      "type": "integer"
+    },
+    "decision_preview_generated": {
+      "type": "boolean"
+    },
+    "audit_log_preview_generated": {
+      "type": "boolean"
+    },
+    "override_preview_count": {
+      "type": "integer"
+    },
+    "analysis_only": {
+      "type": "boolean"
+    },
+    "simulation_only": {
+      "type": "boolean"
+    },
+    "not_betting_advice": {
+      "type": "boolean"
+    },
+    "warnings": {
+      "type": "array"
+    }
+  }
+}

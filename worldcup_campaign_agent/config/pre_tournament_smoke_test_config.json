@@ -1,0 +1,29 @@
+{
+  "model_name": "pre_tournament_smoke_test_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "smoke_tests": [
+    "daily_ops_dry_run",
+    "daily_ops_watchdog_only",
+    "real_data_preview_manual_inputs",
+    "human_review_workbench",
+    "production_readiness_closeout",
+    "full_campaign_short_dry_run"
+  ],
+  "required_pass_tests": [
+    "daily_ops_dry_run",
+    "human_review_workbench",
+    "production_readiness_closeout"
+  ],
+  "allowed_status": [
+    "PASS",
+    "WARN",
+    "DEGRADED"
+  ],
+  "blocked_status": [
+    "BLOCKED",
+    "FAILED"
+  ]
+}

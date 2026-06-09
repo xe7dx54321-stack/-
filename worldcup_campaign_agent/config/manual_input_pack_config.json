@@ -1,0 +1,37 @@
+{
+  "model_name": "manual_input_pack_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "manual_input_types": [
+    "manual_odds_input",
+    "manual_result_input",
+    "manual_team_news_input",
+    "manual_review_decision_input"
+  ],
+  "required_templates": [
+    "manual_odds_input_template.csv",
+    "manual_odds_input_template.json",
+    "manual_result_input_template.csv",
+    "manual_result_input_template.json",
+    "manual_team_news_input_template.json",
+    "manual_review_decision_rehearsal.json"
+  ],
+  "validation_required": true,
+  "forbidden_fields": [
+    "stake",
+    "stake_amount",
+    "stake_to_match",
+    "bet_instruction",
+    "bookmaker_account",
+    "account_balance",
+    "real_money_balance",
+    "wallet_address",
+    "private_key",
+    "api_secret",
+    "signed_order",
+    "submit_order",
+    "cancel_order"
+  ]
+}

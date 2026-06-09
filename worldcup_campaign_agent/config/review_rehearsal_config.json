@@ -1,0 +1,15 @@
+{
+  "model_name": "review_rehearsal_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "rehearsal_modes": [
+    "decision_input_validation",
+    "decision_preview",
+    "audit_log_preview"
+  ],
+  "decision_input_path": "data/seed/manual_review_decision_rehearsal.json",
+  "requires_valid_decision_count_gt_zero": true,
+  "override_allowed_only_for_settlement_review": true
+}

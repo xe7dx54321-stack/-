@@ -1,0 +1,66 @@
+{
+  "title": "Pre-Tournament Patch",
+  "type": "object",
+  "required": [
+    "campaign_name",
+    "patch_version",
+    "patch_status",
+    "analysis_only",
+    "simulation_only",
+    "not_betting_advice",
+    "real_money_execution_ready"
+  ],
+  "properties": {
+    "campaign_name": {
+      "type": "string"
+    },
+    "patch_version": {
+      "type": "string"
+    },
+    "patch_status": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "WARN",
+        "DEGRADED",
+        "BLOCKED"
+      ]
+    },
+    "analysis_only": {
+      "type": "boolean"
+    },
+    "simulation_only": {
+      "type": "boolean"
+    },
+    "not_betting_advice": {
+      "type": "boolean"
+    },
+    "real_money_execution_ready": {
+      "type": "boolean"
+    },
+    "manual_input_pack": {
+      "type": "object"
+    },
+    "manual_input_validation": {
+      "type": "object"
+    },
+    "smoke_test_result": {
+      "type": "object"
+    },
+    "review_rehearsal_result": {
+      "type": "object"
+    },
+    "readiness_delta": {
+      "type": "object"
+    },
+    "remaining_gaps": {
+      "type": "array"
+    },
+    "safety": {
+      "type": "object"
+    },
+    "warnings": {
+      "type": "array"
+    }
+  }
+}

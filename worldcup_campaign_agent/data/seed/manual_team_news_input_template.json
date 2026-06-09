@@ -1,0 +1,40 @@
+{
+  "template_id": "manual_team_news_input_template_v1",
+  "input_type": "manual_team_news_input",
+  "description": "Manual team news input template for pre-tournament patch rehearsal",
+  "format": "json",
+  "required_fields": [
+    "news_id",
+    "match_id",
+    "team",
+    "news_type",
+    "severity",
+    "confidence",
+    "source_label",
+    "timestamp"
+  ],
+  "example_news": [
+    {
+      "news_id": "NEWS-001",
+      "match_id": "MATCH-2026-001",
+      "team": "Team A",
+      "news_type": "injury",
+      "severity": "high",
+      "confidence": "confirmed",
+      "source_label": "manual_input",
+      "timestamp": "2026-06-10T08:00:00Z",
+      "summary": "Key striker injured in training"
+    },
+    {
+      "news_id": "NEWS-002",
+      "match_id": "MATCH-2026-001",
+      "team": "Team B",
+      "news_type": "lineup",
+      "severity": "medium",
+      "confidence": "rumor",
+      "source_label": "manual_input",
+      "timestamp": "2026-06-10T09:00:00Z",
+      "summary": "Possible formation change to 4-4-2"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "model_name": "pre_tournament_patch_window_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "patch_scope": [
+    "manual_input_templates",
+    "manual_input_validation",
+    "daily_ops_smoke_test",
+    "full_campaign_dry_run_smoke_test",
+    "human_review_rehearsal",
+    "readiness_delta"
+  ],
+  "network_fetch_default_enabled": false,
+  "real_money_execution_ready": false,
+  "patch_window_policy": "fix_pre_tournament_blockers_only"
+}

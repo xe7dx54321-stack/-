@@ -1,0 +1,57 @@
+{
+  "title": "Readiness Delta",
+  "type": "object",
+  "required": [
+    "baseline_readiness_score",
+    "patched_readiness_score_preview",
+    "score_delta",
+    "real_money_execution_ready"
+  ],
+  "properties": {
+    "baseline_readiness_score": {
+      "type": "number"
+    },
+    "patched_readiness_score_preview": {
+      "type": "number"
+    },
+    "score_delta": {
+      "type": "number"
+    },
+    "real_money_execution_ready": {
+      "type": "boolean"
+    },
+    "baseline_pre_tournament_ready": {
+      "type": "string"
+    },
+    "patched_pre_tournament_ready_preview": {
+      "type": "string"
+    },
+    "baseline_source_enablement_ready": {
+      "type": "string"
+    },
+    "patched_source_enablement_ready_preview": {
+      "type": "string"
+    },
+    "manual_input_ready": {
+      "type": "boolean"
+    },
+    "smoke_test_ready": {
+      "type": "boolean"
+    },
+    "review_rehearsal_ready": {
+      "type": "boolean"
+    },
+    "analysis_only": {
+      "type": "boolean"
+    },
+    "simulation_only": {
+      "type": "boolean"
+    },
+    "not_betting_advice": {
+      "type": "boolean"
+    },
+    "warnings": {
+      "type": "array"
+    }
+  }
+}

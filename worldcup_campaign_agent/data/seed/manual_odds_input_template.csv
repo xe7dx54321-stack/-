@@ -1,0 +1,13 @@
+snapshot_id,source_provider,source_mode,snapshot_type,timestamp,match_id,market_type,selection_id,selection_label,decimal_odds,team_home,team_away,source_note
+ODDS-001,sportsbook_A,manual,opening,2026-06-01T10:00:00Z,MATCH-2026-001,1X2,home,Home Win,2.10,Team A,Team B,opening odds example
+ODDS-002,sportsbook_A,manual,current,2026-06-10T10:00:00Z,MATCH-2026-001,1X2,home,Home Win,2.05,Team A,Team B,current odds example
+ODDS-003,sportsbook_A,manual,opening,2026-06-01T10:00:00Z,MATCH-2026-001,1X2,draw,Draw,3.40,Team A,Team B,opening odds example
+ODDS-004,sportsbook_A,manual,current,2026-06-10T10:00:00Z,MATCH-2026-001,1X2,draw,Draw,3.50,Team A,Team B,current odds example
+ODDS-005,sportsbook_A,manual,opening,2026-06-01T10:00:00Z,MATCH-2026-001,1X2,away,Away Win,3.80,Team A,Team B,opening odds example
+ODDS-006,sportsbook_A,manual,current,2026-06-10T10:00:00Z,MATCH-2026-001,1X2,away,Away Win,3.90,Team A,Team B,current odds example
+ODDS-007,sportsbook_B,manual,opening,2026-06-01T12:00:00Z,MATCH-2026-001,1X2,home,Home Win,2.15,Team A,Team B,opening odds example
+ODDS-008,sportsbook_B,manual,current,2026-06-10T12:00:00Z,MATCH-2026-001,1X2,home,Home Win,2.08,Team A,Team B,current odds example
+ODDS-009,sportsbook_B,manual,opening,2026-06-01T12:00:00Z,MATCH-2026-001,1X2,draw,Draw,3.30,Team A,Team B,opening odds example
+ODDS-010,sportsbook_B,manual,current,2026-06-10T12:00:00Z,MATCH-2026-001,1X2,draw,Draw,3.55,Team A,Team B,current odds example
+ODDS-011,sportsbook_B,manual,opening,2026-06-01T12:00:00Z,MATCH-2026-001,1X2,away,Away Win,3.70,Team A,Team B,opening odds example
+ODDS-012,sportsbook_B,manual,current,2026-06-10T12:00:00Z,MATCH-2026-001,1X2,away,Away Win,3.95,Team A,Team B,current odds example

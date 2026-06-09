@@ -1,0 +1,17 @@
+{
+  "model_name": "readiness_delta_v1",
+  "model_version": "v1.0",
+  "analysis_only": true,
+  "simulation_only": true,
+  "not_betting_advice": true,
+  "baseline_closeout": "reports/generated/production_readiness_closeout.json",
+  "patched_closeout_mode": "preview",
+  "target_dimensions": [
+    "source_enablement_ready",
+    "pre_tournament_ready",
+    "human_review_rehearsal_ready",
+    "manual_input_ready",
+    "real_money_execution_ready"
+  ],
+  "real_money_execution_ready_must_remain_false": true
+}

@@ -1,0 +1,30 @@
+{
+  "template_id": "manual_result_input_template_v1",
+  "input_type": "manual_result_input",
+  "description": "Manual match result input template for pre-tournament patch rehearsal",
+  "format": "json",
+  "required_fields": [
+    "match_id",
+    "match_date",
+    "team_home",
+    "team_away",
+    "home_score",
+    "away_score",
+    "result_type",
+    "result_label"
+  ],
+  "example_results": [
+    {
+      "match_id": "MATCH-2026-001",
+      "match_date": "2026-06-11",
+      "team_home": "Team A",
+      "team_away": "Team B",
+      "home_score": 2,
+      "away_score": 1,
+      "result_type": "FT",
+      "result_label": "Home Win",
+      "settlement_status": "settled",
+      "notes": "example result"
+    }
+  ]
+}

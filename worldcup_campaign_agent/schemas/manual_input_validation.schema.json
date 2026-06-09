@@ -1,0 +1,30 @@
+{
+  "title": "Manual Input Validation",
+  "type": "object",
+  "required": [
+    "input_type",
+    "valid_count",
+    "invalid_count",
+    "forbidden_field_count"
+  ],
+  "properties": {
+    "input_type": {
+      "type": "string"
+    },
+    "valid_count": {
+      "type": "integer"
+    },
+    "invalid_count": {
+      "type": "integer"
+    },
+    "forbidden_field_count": {
+      "type": "integer"
+    },
+    "results": {
+      "type": "array"
+    },
+    "warnings": {
+      "type": "array"
+    }
+  }
+}

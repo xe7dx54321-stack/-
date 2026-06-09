@@ -1,0 +1,59 @@
+{
+  "template_id": "manual_review_decision_rehearsal_v1",
+  "input_type": "manual_review_decision_input",
+  "description": "Human review decision rehearsal data for pre-tournament patch",
+  "format": "json",
+  "decisions": [
+    {
+      "decision_id": "DEC-001",
+      "review_item_id": "REV-001",
+      "review_type": "settlement_review",
+      "decision": "confirm",
+      "reason": "Settlement result verified against manual input",
+      "override_applied": false,
+      "reviewer": "rehearsal_user",
+      "timestamp": "2026-06-12T10:00:00Z"
+    },
+    {
+      "decision_id": "DEC-002",
+      "review_item_id": "REV-002",
+      "review_type": "signal_fusion_review",
+      "decision": "confirm",
+      "reason": "Signal fusion upgrade looks reasonable with team context support",
+      "override_applied": false,
+      "reviewer": "rehearsal_user",
+      "timestamp": "2026-06-12T10:05:00Z"
+    },
+    {
+      "decision_id": "DEC-003",
+      "review_item_id": "REV-003",
+      "review_type": "watchdog_review",
+      "decision": "defer",
+      "reason": "Watchdog flagged stale odds - waiting for fresh manual input",
+      "override_applied": false,
+      "reviewer": "rehearsal_user",
+      "timestamp": "2026-06-12T10:10:00Z"
+    },
+    {
+      "decision_id": "DEC-INVALID-001",
+      "review_item_id": "REV-099",
+      "review_type": "settlement_review",
+      "decision": "execute_real_bet",
+      "reason": "This should be rejected - contains forbidden decision",
+      "override_applied": false,
+      "reviewer": "rehearsal_user",
+      "timestamp": "2026-06-12T10:15:00Z"
+    },
+    {
+      "decision_id": "DEC-004",
+      "review_item_id": "REV-004",
+      "review_type": "settlement_review",
+      "decision": "override_simulation_preview",
+      "reason": "Manual result shows different score than simulation - overriding settlement",
+      "override_applied": true,
+      "override_target": "settlement_result",
+      "reviewer": "rehearsal_user",
+      "timestamp": "2026-06-12T10:20:00Z"
+    }
+  ]
+}
